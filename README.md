@@ -1,8 +1,8 @@
-# Babson · AI Providers — A Short Brief (v9)
+# Babson · AI Providers — A Short Brief (v10)
 
 A four-page, Babson-branded static brief making the case that bringing the three leading AI providers — **OpenAI**, **Anthropic**, and **Google** — to Babson is an easy, affordable, and common-sense move that benefits students, faculty, and staff, and reinforces Babson's position as the global leader in entrepreneurship education.
 
-**v9 pulls back the rhetoric:** the brief now reads as a *reference resource* for getting up to speed on the three providers — not a recommendation document. Titles are graphically quieter (smaller H1/H2 at lower weight); eyebrows carry the visual structure. Direct-ask language ("the right move," "the natural window," "one straightforward fall") is gone. Evidence and logic lead; the reader does the synthesizing.
+**v10 fixes the cost framing** (institutional scale, not per-user-month) and adds direct links to each provider's higher-ed product page. New peer-deal benchmark: **CSU's $17M / 18-month deal with OpenAI** is now the Home stat-strip's third stat and is referenced on Providers and in the report. Per-user/month rates are still cited but they're no longer the primary cost framing.
 
 Source brief: [`original prompt.md`](original%20prompt.md). PRD: [`PRD.md`](PRD.md).
 
@@ -63,6 +63,16 @@ Install WeasyPrint once with `brew install weasyprint` (macOS).
 **Note:** the four web pages and the report HTML are currently maintained separately. Edits to the web pages do NOT auto-sync into the report. After substantive content changes, edit `report/index.html` to match, then regenerate the PDF.
 
 ---
+
+## What v10 changed from v9
+
+- **Cost framing rescaled to institutional reality.** Per-user/month figures read small for a college president. Replaced the Home stat-strip's "$15–20 / user/month" with **"$17M / CSU's 18-mo OpenAI deal"** — a verified peer-institution aggregate. The "Priced" card on Home now leads with the institutional total and follows with the per-user rate.
+- **Direct links to each provider's higher-ed product page** added on `/providers/` and in the consolidated report:
+  - OpenAI — [openai.com/chatgpt/education](https://openai.com/chatgpt/education/)
+  - Anthropic — [claude.com/solutions/education](https://claude.com/solutions/education)
+  - Google — [edu.google.com](https://edu.google.com/)
+- **Institutional-scale callout** added under OpenAI's cost table on `/providers/` and in the report's OpenAI section: CSU's $17M / 18-month deal ($1.9M initial + $15M full systemwide), with Wharton, Oxford, Northeastern, and Wharton noted as undisclosed.
+- **Three new sources cited** (verified): LAist + CalMatters for the CSU $17M figure; OpenAI's ChatGPT for Education hub; Google for Education hub. Bibliography on Home now goes 1–16; Providers now 1–21; report now consolidates to 23.
 
 ## What v9 changed from v8
 
@@ -174,6 +184,7 @@ Edit once in [`assets/css/site.css`](assets/css/site.css):
 - **v6.0** — density pass + consolidated `/report/` + downloadable PDF (`v6-archive` branch).
 - **v7.0** — dynamic horizontal layout (`v7-archive` branch).
 - **v8.0** — dropped Founderz/AI-THINK, pulled back Babson self-celebration (`v8-archive` branch).
-- **v9** (current `main`) — evidence-first lead, quieter titles, reference-document register; direct-ask language removed.
+- **v9.0** — evidence-first lead, quieter titles, reference-document register (`v9-archive` branch).
+- **v10** (current `main`) — institutional-scale cost framing (CSU $17M), direct links to each provider's higher-ed page.
 
-`git checkout v8.0` (or any earlier tag) brings the previous shape back.
+`git checkout v9.0` (or any earlier tag) brings the previous shape back.
