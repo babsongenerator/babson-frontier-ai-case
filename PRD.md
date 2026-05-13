@@ -1,115 +1,104 @@
-# PRD — The Frontier Case (for Babson)
+# PRD — Babson · Frontier AI (v2)
 
-> A multi-page marketing website making the case to Babson President Steve Spinelli (and donors funding student entrepreneurship) that Babson should invest in frontier AI tools — especially Anthropic — for student entrepreneurs.
+> A short, forwardable brief making the positive case for Babson to lead in AI-era entrepreneurship.
 
-Source brief: [`original prompt.md`](original%20prompt.md). This document fleshes that brief out into an executable PRD.
+Source brief: [`original prompt.md`](original%20prompt.md). Earlier seven-page version preserved as the `v1.0` tag and `v1-archive` branch on this repo.
 
 ---
 
 ## 1. Goal
 
-A polished, persuasive, Babson-branded static site that an entrepreneurship-trained college president can skim in 5 minutes and walk away thinking:
+A short, polished, Babson-branded brief that:
 
-> *Three frontier model companies. The cost is small. The risk of standing still is not. We should move.*
+1. President Spinelli can read in five minutes.
+2. He can forward to donors, board members, or faculty without needing to add context.
+3. Reads as a celebration of Babson's entrepreneurship leadership, not a critique of any current gap.
+
+> *"Babson built modern entrepreneurship education. Frontier AI is the next chapter — and Babson is built to lead it."*
 
 ## 2. Audience
 
 - **Primary:** Steve Spinelli, President of Babson College.
-- **Secondary:** Donors who fund student entrepreneurship programs (Build Fund, G1000).
+- **Forward audience:** donors, board members, faculty leadership. The document must be safe — and useful — when read out of the original context.
 
-## 3. Non-goals
+## 3. Non-goals (v2)
 
-- Not a SaaS application — no auth, no telemetry, no email capture.
-- Not a comprehensive AI tool comparison — the focus is partnership with the three frontier labs (Anthropic as the lede).
-- No heavy animations or framework dependencies.
+- No comparison to peer institutions.
+- No "failure to act" / risk-of-inaction framing.
+- No deep dives into individual frontier labs.
+- No comprehensive AI-tool benchmarking.
 
-## 4. Core message (from the brief, verbatim)
+## 4. Core message
 
-> The three frontier model companies that matter are Google, Anthropic, and OpenAI. These tools can take Babson entrepreneurship to the next level. The cost is affordable, the value is high, and the risk of doing nothing is real.
+The brief makes three moves:
+
+1. **Celebrate Babson's track record.** Decades of leadership in entrepreneurship education, the Build Fund, the G1000.
+2. **Name the moment.** Three frontier labs are defining the next decade of building. Founders are concentrating around them.
+3. **Show the fit.** Babson's pedagogical model — action, applied, founder-first — is unusually well-suited to what these tools reward.
+
+Followed by: examples of what students build with these tools, and three affordable partnership options.
 
 ## 5. Tone
 
-- Persuasive, credible, no hype words.
-- Every numeric claim that needs real data → `[PLACEHOLDER: description]`. No invented stats.
-- Short paragraphs. Sentences that earn their place. Audience is a busy CEO with a strong BS detector.
+- Persuasive *because* credible. No hype words.
+- Positive throughout. No "behind," no "risk," no "missing."
+- Quotable in isolation — every paragraph could be pulled out of context and still read well.
+- Every numeric claim gets `[PLACEHOLDER: ...]` until a verified figure is available.
 
-## 6. Information architecture
+## 6. Information architecture (3 pages)
 
-Seven pages, every one reachable from a persistent top nav.
+| Route | Title | Purpose |
+|---|---|---|
+| `/` | The moment | Hero + Babson legacy + the moment + why Babson is built for this |
+| `/build/` | What students build | Babson vignettes + a few illustrative peer case studies |
+| `/partnership/` | Partnership | Three tiers (Pilot / Department / Institution), cost chart, comparison table |
 
-| Route | Title | Purpose | Charts |
-|---|---|---|---|
-| `/` | Home | Hero + thesis + market-landscape viz | 2 |
-| `/costs/` | Costs | Three partnership tiers + use-case grid + comparison table | 1 + table |
-| `/frontier-models/` | Frontier Models | Three labs (Google, Anthropic, OpenAI); Copilot/Perplexity as wrappers; DeepSeek excluded | 1 diagram |
-| `/failure-to-act/` | Failure to Act | Three concrete risks of standing still | 1 |
-| `/benchmarks/` | Benchmarks | Peer-school student-facing AI investment leaderboard | 1 leaderboard |
-| `/students-elsewhere/` | Students Elsewhere | Card grid of articles + short case studies (9 cards) | 0 |
-| `/student-stories/` | Student Stories | Babson vignettes — Build Fund + G1000 framing | 0 |
+Persistent top nav across all three.
 
 ## 7. Visual system
 
-### Palette (CSS variables in [`assets/css/site.css`](assets/css/site.css))
+Same palette as v1, exposed as CSS variables in [`assets/css/site.css`](assets/css/site.css):
 
 ```css
---c-green:  #006747;   /* Babson Green — primary brand */
+--c-green:  #006747;   /* Babson Green */
 --c-ink:    #14191F;   /* near-black body text */
 --c-bone:   #FAF7F2;   /* warm off-white background */
---c-amber:  #C9A227;   /* muted gold accent for callouts/CTAs */
+--c-amber:  #C9A227;   /* muted gold accent */
 ```
 
-The Failure-to-Act page uses an amber-tinted gradient header to signal urgency without resorting to red.
+System UI typography. Sticky nav with hamburger below 820px. Hero band on home page, subdued page header on subpages. Cards, tables, vignettes, pull-quote, layer-diagram primitives kept from v1; everything else trimmed.
 
-### Typography
+## 8. Charts
 
-System UI stack (`-apple-system, ...`). No webfont download; fast and accessible by default.
+Two charts only:
 
-### Components
+| Page | id | Type | What it shows |
+|---|---|---|---|
+| Home | `chart-home-share` | Doughnut | Founder tool use across the three frontier labs |
+| Partnership | `chart-costs` | Grouped bar | Cost per tier × use case |
 
-- **Sticky top nav** with hamburger collapse below 820px.
-- **Hero band** on the home page (full-width green), subdued page header on subpages.
-- **Cards** in 1–3 column responsive grids.
-- **Tables** with green header and zebra stripe.
-- **Risk blocks** (amber left border, numbered).
-- **Pull-quote** (amber left border, italic).
-- **Layer diagram** for the frontier-vs-wrappers visualization.
-- **Chart figures** (`<figure class="chart">`) with takeaway caption underneath every chart.
-- **Footer** with last-updated stamp.
-
-## 8. Chart inventory
-
-All data values are placeholders pending real numbers. See [`assets/js/charts.js`](assets/js/charts.js).
-
-| # | Page | Type | id | What it shows |
-|---|---|---|---|---|
-| 1 | Home | Doughnut | `chart-home-share` | Share of entrepreneurs using each frontier model |
-| 2 | Home | Horizontal bar | `chart-home-landscape` | Where Gemini sits on a composite capability index |
-| 3 | Costs | Grouped bar | `chart-costs` | Cost per tier × use case |
-| 4 | Frontier Models | Static HTML diagram | n/a | Three foundation labs as base; wrappers above |
-| 5 | Failure to Act | Line | `chart-failure-curve` | Peer adoption curve vs Babson, 2023→2027 |
-| 6 | Benchmarks | Horizontal bar leaderboard | `chart-benchmarks` | Per-school student-facing AI spend |
-
-Every chart has a one-sentence takeaway in its `<figcaption>`.
+Both with one-sentence takeaway captions.
 
 ## 9. Tech & structure
 
 - Static multi-page site, one HTML file per route in its own folder.
 - Vanilla HTML/CSS/JS — no framework, no npm, no build step.
-- Chart.js loaded via CDN (`chart.js@4.4.1`).
-- Inter-page links and asset paths are **relative**, so the site works at any URL prefix.
+- Chart.js loaded via CDN.
+- All inter-page and asset links are relative, so the site works at any URL prefix.
 
 ## 10. Content rules
 
 - Persuasive but credible — no hype words.
-- Every numeric claim that needs real data gets a `[PLACEHOLDER: ...]` tag. No invented statistics.
-- Placeholder tags are surfaced visually with a yellow highlight so they can't ship unnoticed.
+- Numeric claims tagged `[PLACEHOLDER: ...]`; rendered with a yellow highlight so they can't accidentally ship.
+- No invented statistics.
+- No comparison to peer institutions in body copy (a few peer case studies appear on `/build/`, framed as "what's possible" rather than "where we lag").
 
 ## 11. Deliverables
 
 - Runnable static site in this repo, no install required beyond a static file server.
-- README ([`README.md`](README.md)) with run instructions and a complete PLACEHOLDER checklist categorized by page.
+- [README.md](README.md) with run instructions and a complete PLACEHOLDER checklist by page.
 - This PRD.
-- Original brief preserved at [`original prompt.md`](original%20prompt.md).
+- v1 preserved as `v1.0` tag and `v1-archive` branch.
 
 ## 12. Verification
 
@@ -120,9 +109,9 @@ python3 -m http.server 8000
 ```
 
 Manual checks:
-- All 7 nav links navigate correctly from every page.
-- Mobile viewport (375px): nav collapses to hamburger; charts resize; cards stack.
-- All 5 data charts render without console errors; each has a takeaway caption.
-- Every `[PLACEHOLDER:` tag rendered in the UI corresponds to an entry in the README checklist.
+- 3 nav links navigate correctly from every page.
+- Mobile viewport (375px): nav collapses; charts resize; cards stack.
+- Both charts render without console errors.
+- Every `[PLACEHOLDER:` tag in the UI appears in the README checklist.
 - Footer "Last updated" reads `2026-05-13`.
-- Color contrast on green-banded sections passes WCAG AA for body text.
+- Tone: read each page out loud. If any sentence sounds like a critique of Babson, rewrite it.

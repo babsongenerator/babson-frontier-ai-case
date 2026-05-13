@@ -1,14 +1,16 @@
-# The Frontier Case — For Babson
+# Babson · Frontier AI — A Short Brief
 
-A static, multi-page marketing website making the case to **Babson President Steve Spinelli** (and secondarily, donors funding student entrepreneurship) that Babson should invest in frontier AI tools — especially **Anthropic** — for student entrepreneurs.
+A three-page, Babson-branded static brief making the positive case for Babson to lead in AI-era entrepreneurship. Prepared for **President Spinelli** as a forwardable read; written so any section can be quoted in isolation without context.
 
-Built from `original prompt.md`. Full PRD in [`PRD.md`](PRD.md).
+Source brief: [`original prompt.md`](original%20prompt.md). Fleshed-out PRD: [`PRD.md`](PRD.md).
+
+The earlier seven-page version is preserved as **`v1.0`** tag and **`v1-archive`** branch on this repo.
 
 ---
 
 ## Run it locally
 
-No build step. Static HTML, CSS, and vanilla JS only. Chart.js is loaded via CDN.
+No build step. Static HTML, CSS, and vanilla JS only. Chart.js loaded via CDN.
 
 ```bash
 cd "For Steve"
@@ -16,39 +18,40 @@ python3 -m http.server 8000
 # open http://localhost:8000/
 ```
 
-Tested with Python 3.9+. Any static-file server works (`npx serve`, `caddy file-server`, etc.).
-
 ---
 
-## Project structure
+## Structure
 
 ```
 For Steve/
-├── index.html                       # /
-├── costs/index.html                 # /costs/
-├── frontier-models/index.html       # /frontier-models/
-├── failure-to-act/index.html        # /failure-to-act/
-├── benchmarks/index.html            # /benchmarks/
-├── students-elsewhere/index.html    # /students-elsewhere/
-├── student-stories/index.html       # /student-stories/
+├── index.html                       # /                 — The moment
+├── build/index.html                 # /build/           — What students build
+├── partnership/index.html           # /partnership/     — Three partnership options
 ├── assets/
-│   ├── css/site.css                 # palette as CSS vars + all components
-│   ├── js/charts.js                 # all Chart.js configs (data is placeholder)
-│   └── js/nav.js                    # mobile hamburger + active-link highlight
+│   ├── css/site.css                 # palette + components
+│   ├── js/charts.js                 # 2 Chart.js configs (placeholder data)
+│   └── js/nav.js                    # mobile nav + active-link
 ├── PRD.md                           # fleshed-out PRD
-├── original prompt.md               # original brief
+├── original prompt.md               # source brief
 └── README.md                        # this file
 ```
 
-Every inter-page link is **relative** so the site works at any URL prefix (domain root, GitHub Pages subpath, NAS subpath) without changes.
+All inter-page and asset links are **relative**, so the site works at any URL prefix (domain root, GitHub Pages subpath, NAS subpath).
 
-The nav and footer are duplicated across all seven HTML files. If you change one, find/replace across the seven pages. For a site this small, that's faster than introducing a build step.
+---
+
+## Tone
+
+- Celebration of Babson's entrepreneurship leadership. AI framed as the natural next chapter, not a remedy for any current shortcoming.
+- Written to be skim-friendly and forwardable. Every section should be quotable in isolation.
+- No "behind peers" language. No "risk of doing nothing" language.
+- Every numeric claim that needs real data is tagged `[PLACEHOLDER: ...]` and rendered with a yellow highlight so it can't accidentally ship.
 
 ---
 
 ## Palette
 
-The four-color palette lives in [`assets/css/site.css`](assets/css/site.css) as CSS variables:
+Edit once in [`assets/css/site.css`](assets/css/site.css):
 
 ```css
 --c-green:  #006747;   /* Babson Green — primary */
@@ -57,67 +60,52 @@ The four-color palette lives in [`assets/css/site.css`](assets/css/site.css) as 
 --c-amber:  #C9A227;   /* muted gold accent */
 ```
 
-Adjust there once; every page picks up the change.
+---
+
+## Charts (2)
+
+| Page | id | Type | What it shows |
+|---|---|---|---|
+| Home | `chart-home-share` | Doughnut | Founder tool use across the three frontier labs |
+| Partnership | `chart-costs` | Grouped bar | Indicative cost per tier × use case |
+
+Both pull color values from the CSS palette so brand changes propagate automatically.
 
 ---
 
 ## PLACEHOLDER checklist
 
-Every claim that needs a number or a name is marked `[PLACEHOLDER: ...]` inline in the HTML and highlighted in the UI. Replace each one with real data before sharing externally.
+Every yellow-highlighted `[PLACEHOLDER: ...]` tag in the UI needs a real value before this brief is shared externally. Grouped by page:
 
 ### Home — `/`
-- [ ] Doughnut chart values: share of entrepreneurs using each frontier model — see `chart-home-share` in [`assets/js/charts.js`](assets/js/charts.js).
-- [ ] Horizontal bar chart values: composite frontier capability index — see `chart-home-landscape` in [`assets/js/charts.js`](assets/js/charts.js). Replace with averaged benchmark scores from LMArena / MMLU-Pro / GPQA or similar defensible source.
+- [ ] `chart-home-share` data — verified distribution of frontier-model usage among founders.
 
-### Costs — `/costs/`
-- [ ] Indicative dollar figures for Pilot, Department, and Institution tiers (3 instances in the tier cards).
+### What Students Build — `/build/`
+- [ ] **3 Babson vignettes** — for each: student name + class year, venture category, 3–4 sentence narrative, what they built, time to first ship, what the tool unlocked. Mix of Build Fund and G1000.
+- [ ] **3 peer-school case studies** — for each: title, school, 2-sentence summary, source URL.
+
+### Partnership — `/partnership/`
+- [ ] Indicative dollar figures for Pilot, Department, Institution (tier cards).
 - [ ] Annual cost row in the comparison table (3 cells).
-- [ ] All three datasets in the grouped bar chart (`chart-costs` in [`assets/js/charts.js`](assets/js/charts.js)) — requires real quotes from Anthropic, Google, and OpenAI enterprise sales.
+- [ ] `chart-costs` data — verified figures from Anthropic / Google / OpenAI enterprise quotes for the three use-case rows × three tiers.
 
-### Frontier Models — `/frontier-models/`
-- [ ] Most recent Gemini model version + one defensible strength.
-- [ ] Most recent Claude model version + one defensible strength.
-- [ ] Most recent GPT model version + one defensible strength.
-
-### Failure to Act — `/failure-to-act/`
-- [ ] Two datasets in the line chart (`chart-failure-curve` in [`assets/js/charts.js`](assets/js/charts.js)) — peer-school AI adoption % vs Babson, 2023 → 2027 projected.
-- [ ] 1–2 named peer institutions with AI partnerships and the language they're using in recruiting materials (Risk 1).
-- [ ] Data point on % of recent hiring leaders who expect AI fluency from new grads (Risk 2) — Wharton AI Lab or WEF Jobs report are good sources.
-- [ ] Anecdote / paraphrased quote from a major donor signaling AI-program expectations (Risk 3).
-
-### Benchmarks — `/benchmarks/`
-- [ ] Per-school student-facing AI investment figures for all 7 schools in the leaderboard (`chart-benchmarks` in [`assets/js/charts.js`](assets/js/charts.js)). Verify each before publishing.
-- [ ] Three peer-school profile cards: name, 2–3 sentence summary, reported spend.
-
-### Students Elsewhere — `/students-elsewhere/`
-- [ ] 9 cards: title, school, 2-sentence description, source URL. Mix of MIT, Stanford, Wharton, Berkeley, CMU, Northeastern, etc.
-
-### Student Stories — `/student-stories/`
-- [ ] 5 vignettes of Babson students (Build Fund + G1000 mix). Each needs: name, class year, venture category, narrative, what they built, time to prototype, tool that mattered, why critical.
-
-### Footer (every page)
-- [ ] Update "Last updated" stamp when you next refresh the content.
+### Every page
+- [ ] Update "Last updated" stamp in the footer when content materially changes.
 
 ---
 
 ## Editing tips
 
-- **One-off content tweak:** edit the page's HTML directly.
-- **Palette change:** edit the four CSS vars at the top of [`assets/css/site.css`](assets/css/site.css).
-- **Chart data update:** edit the relevant block in [`assets/js/charts.js`](assets/js/charts.js). Each chart's config is clearly labeled.
-- **Nav change:** find/replace across the seven `index.html` files. The nav block is identical in every file except for asset-path depth (`assets/...` on the home page, `../assets/...` on subpages).
-- **Add a page:** copy any subpage's `index.html` into a new folder, swap the nav active state by relying on `data-route`, add a new link to all seven existing navs.
+- **Palette change:** edit the four CSS vars at the top of [`assets/css/site.css`](assets/css/site.css). All pages and charts pick it up automatically.
+- **Chart data:** edit the relevant block in [`assets/js/charts.js`](assets/js/charts.js).
+- **Nav change:** find/replace across the three `index.html` files. The nav block is identical except for the asset-path depth (`assets/...` from home, `../assets/...` from subpages).
+- **Add a page:** copy any subpage's `index.html` into a new folder, add a link to all three existing navs.
 
 ---
 
-## Tone rules
+## History
 
-- Persuasive but credible. No hype words.
-- Every numeric claim that doesn't have a source is a `[PLACEHOLDER]`. Do not replace a placeholder with an invented figure.
-- Short paragraphs. Sentences that earn their place.
+- **v1.0** (`v1.0` tag, `v1-archive` branch) — original 7-page version with full peer benchmarks, failure-to-act risk page, and frontier-models deep-dive. Preserved for material reuse but superseded by this version.
+- **v2** (current `main`) — three pages, positive framing, designed to be forwardable.
 
----
-
-## License
-
-Internal proposal material; not licensed for external distribution.
+To see v1: `git checkout v1.0` or browse the `v1-archive` branch on GitHub.
