@@ -11,5 +11,6 @@ node_modules/
 PLAN.md
 RESEARCH-BRIEF-PLAN.md
 
-# Parallel-session working artifact (Gemini Deep Research prompt)
+# Parallel-session working artifacts (Gemini Deep Research prompt + output)
 research-brief.md
+deep research.md

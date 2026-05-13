@@ -1,10 +1,13 @@
-# Babson · Frontier AI — A Short Brief
+# Babson · Frontier AI — A Short Brief (v3)
 
-A three-page, Babson-branded static brief making the positive case for Babson to lead in AI-era entrepreneurship. Prepared for **President Spinelli** as a forwardable read; written so any section can be quoted in isolation without context.
+A four-page, Babson-branded static brief making the positive case for Babson to formalize partnerships with the frontier AI labs (Anthropic, Google, OpenAI). Prepared for **President Spinelli** as a short, forwardable read; written so any section can be quoted in isolation without context.
 
-Source brief: [`original prompt.md`](original%20prompt.md). Fleshed-out PRD: [`PRD.md`](PRD.md).
+Source brief: [`original prompt.md`](original%20prompt.md). PRD: [`PRD.md`](PRD.md).
 
-The earlier seven-page version is preserved as **`v1.0`** tag and **`v1-archive`** branch on this repo.
+Earlier iterations are preserved on this repo:
+- **`v1.0`** tag / **`v1-archive`** branch — original 7-page version with full peer benchmarks and risk framing.
+- **`v2.0`** tag / **`v2-archive`** branch — tight 3-page positive-tone brief built on placeholders.
+- **`main`** (this) — v3: 4 pages, real data sourced from focused research, positive tone retained.
 
 ---
 
@@ -18,6 +21,8 @@ python3 -m http.server 8000
 # open http://localhost:8000/
 ```
 
+Live (public) at **https://babsongenerator.github.io/babson-frontier-ai-case/** — GitHub Pages rebuilds on each push to `main`.
+
 ---
 
 ## Structure
@@ -26,10 +31,11 @@ python3 -m http.server 8000
 For Steve/
 ├── index.html                       # /                 — The moment
 ├── build/index.html                 # /build/           — What students build
-├── partnership/index.html           # /partnership/     — Three partnership options
+├── peers/index.html                 # /peers/           — At peer institutions
+├── partnership/index.html           # /partnership/     — Partnership options
 ├── assets/
 │   ├── css/site.css                 # palette + components
-│   ├── js/charts.js                 # 2 Chart.js configs (placeholder data)
+│   ├── js/charts.js                 # 1 Chart.js config (cost by tier)
 │   └── js/nav.js                    # mobile nav + active-link
 ├── PRD.md                           # fleshed-out PRD
 ├── original prompt.md               # source brief
@@ -40,12 +46,25 @@ All inter-page and asset links are **relative**, so the site works at any URL pr
 
 ---
 
-## Tone
+## What v3 changed from v2
 
-- Celebration of Babson's entrepreneurship leadership. AI framed as the natural next chapter, not a remedy for any current shortcoming.
-- Written to be skim-friendly and forwardable. Every section should be quotable in isolation.
-- No "behind peers" language. No "risk of doing nothing" language.
-- Every numeric claim that needs real data is tagged `[PLACEHOLDER: ...]` and rendered with a yellow highlight so it can't accidentally ship.
+- **Tone preserved.** Still celebratory, opportunity-framed, no peer-comparison-as-critique language.
+- **Real Babson stories.** Replaced placeholder vignettes with the 2026 Summer Venture Program teams — **Reespire**, **Finexus Tech**, **BobbyBrowser**, **Sketos**.
+- **Babson + Founderz lead.** The "AI in Action" initiative and **AI-THINK methodology** are now the opening evidence that Babson is already moving — the lab partnerships are framed as the natural complement.
+- **New /peers/ page.** Wharton (universal MBA ChatGPT Enterprise + AI for Business major), Northeastern (Anthropic campus-wide, ~50k users / 13 campuses), Stanford (AIMES $1M seed grants), and the CSU system (~470k students on ChatGPT Edu). Variety framed as range of legitimate shapes, not a leaderboard.
+- **Real per-user pricing.** OpenAI ChatGPT Business at $20/user/month, Google AI Pro for Education at $15/user/month, Anthropic negotiated. Cost tiers derive from those figures rather than placeholders.
+- **External co-funding.** Lilly Endowment $500M AI in Higher Education initiative and the U.S. DoE May 2026 AI-in-education priority are referenced on /partnership/ as real cost-offset paths.
+- **Frontier model context.** Brief, named references to Anthropic Claude Opus 4.7, OpenAI GPT-5.5, and Google Gemini 3.1 Pro — and the institutional tools they ship (Claude Cowork, Workspace Agents, Workspace Intelligence).
+- **Chart count: 2 → 1.** Dropped the Home doughnut (real share data isn't precise enough to be defensible). Kept the cost-by-tier bar on Partnership.
+
+---
+
+## Tone rules (unchanged)
+
+- Positive throughout. No "behind peers," no "risk of doing nothing."
+- Quotable in isolation. Every paragraph should read well if pulled out of context.
+- Persuasive *because* credible. No hype words.
+- Numbers attribute their source where useful, but inline citations are kept light to preserve readability.
 
 ---
 
@@ -62,50 +81,27 @@ Edit once in [`assets/css/site.css`](assets/css/site.css):
 
 ---
 
-## Charts (2)
-
-| Page | id | Type | What it shows |
-|---|---|---|---|
-| Home | `chart-home-share` | Doughnut | Founder tool use across the three frontier labs |
-| Partnership | `chart-costs` | Grouped bar | Indicative cost per tier × use case |
-
-Both pull color values from the CSS palette so brand changes propagate automatically.
-
----
-
-## PLACEHOLDER checklist
-
-Every yellow-highlighted `[PLACEHOLDER: ...]` tag in the UI needs a real value before this brief is shared externally. Grouped by page:
-
-### Home — `/`
-- [ ] `chart-home-share` data — verified distribution of frontier-model usage among founders.
-
-### What Students Build — `/build/`
-- [ ] **3 Babson vignettes** — for each: student name + class year, venture category, 3–4 sentence narrative, what they built, time to first ship, what the tool unlocked. Mix of Build Fund and G1000.
-- [ ] **3 peer-school case studies** — for each: title, school, 2-sentence summary, source URL.
-
-### Partnership — `/partnership/`
-- [ ] Indicative dollar figures for Pilot, Department, Institution (tier cards).
-- [ ] Annual cost row in the comparison table (3 cells).
-- [ ] `chart-costs` data — verified figures from Anthropic / Google / OpenAI enterprise quotes for the three use-case rows × three tiers.
-
-### Every page
-- [ ] Update "Last updated" stamp in the footer when content materially changes.
-
----
-
 ## Editing tips
 
-- **Palette change:** edit the four CSS vars at the top of [`assets/css/site.css`](assets/css/site.css). All pages and charts pick it up automatically.
+- **Palette change:** edit the four CSS vars at the top of [`assets/css/site.css`](assets/css/site.css).
 - **Chart data:** edit the relevant block in [`assets/js/charts.js`](assets/js/charts.js).
-- **Nav change:** find/replace across the three `index.html` files. The nav block is identical except for the asset-path depth (`assets/...` from home, `../assets/...` from subpages).
-- **Add a page:** copy any subpage's `index.html` into a new folder, add a link to all three existing navs.
+- **Nav change:** find/replace across the four `index.html` files. The nav block is identical except for the asset-path depth (`assets/...` from home, `../assets/...` from subpages).
+- **Add a page:** copy any subpage's `index.html` into a new folder, add a link to all four existing navs.
+
+---
+
+## Sources
+
+Content draws on a focused research pass (kept locally as `deep research.md`, not committed) covering: 2026 frontier-model releases, peer-institution AI partnerships at Wharton / Northeastern / Stanford / CSU, OpenAI and Google published pricing, the Lilly Endowment AI in Higher Education initiative, the U.S. Department of Education's May 2026 AI priority, and the Babson + Founderz "AI in Action" public materials.
+
+If a figure needs verification before this brief is shared widely, the relevant section in `deep research.md` should be the first stop.
 
 ---
 
 ## History
 
-- **v1.0** (`v1.0` tag, `v1-archive` branch) — original 7-page version with full peer benchmarks, failure-to-act risk page, and frontier-models deep-dive. Preserved for material reuse but superseded by this version.
-- **v2** (current `main`) — three pages, positive framing, designed to be forwardable.
+- **v1.0** — original 7-page version. Browse on the `v1-archive` branch.
+- **v2.0** — 3-page positive-tone version with all data as placeholders. Browse on the `v2-archive` branch.
+- **v3** (current `main`) — 4 pages, real data, positive tone retained.
 
-To see v1: `git checkout v1.0` or browse the `v1-archive` branch on GitHub.
+To time-travel: `git checkout v1.0` or `git checkout v2.0`.

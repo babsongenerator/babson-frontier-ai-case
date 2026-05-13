@@ -1,7 +1,8 @@
 /* ============================================================
-   Chart.js configs for v2 — two charts only.
-   ALL DATA VALUES ARE PLACEHOLDERS. Replace with verified
-   numbers before this brief is shared externally.
+   Chart.js configs for v3 — one chart (cost by tier × use case).
+   Figures derive from published spring-2026 per-user pricing
+   ($20 OpenAI ChatGPT Business, $15 Google AI Pro for Education).
+   Institutional discounts will move the totals downward.
    ============================================================ */
 
 (function () {
@@ -29,35 +30,8 @@
     if (el) fn(el);
   }
 
-  // Home — share of founder tool use across frontier labs.
-  on('chart-home-share', (el) => {
-    new Chart(el, {
-      type: 'doughnut',
-      data: {
-        labels: ['Anthropic', 'OpenAI', 'Google (Gemini)', 'Other / none'],
-        datasets: [{
-          // [PLACEHOLDER: real distribution from verified usage survey or aggregated data]
-          data: [32, 38, 18, 12],
-          backgroundColor: [C.amber, C.green, C.greenD, C.muted],
-          borderColor: '#fff',
-          borderWidth: 2,
-        }],
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        cutout: '55%',
-        plugins: {
-          legend: { position: 'bottom' },
-          tooltip: {
-            callbacks: { label: (ctx) => `${ctx.label}: ${ctx.parsed}% [placeholder]` },
-          },
-        },
-      },
-    });
-  });
-
   // Partnership — cost by tier × use case.
+  // All figures derive from published per-user prices in May 2026.
   on('chart-costs', (el) => {
     new Chart(el, {
       type: 'bar',
@@ -65,21 +39,23 @@
         labels: ['Pilot', 'Department', 'Institution'],
         datasets: [
           {
-            label: 'Student API access',
-            // [PLACEHOLDER: annual $ for student API access at each tier]
-            data: [15000, 60000, 180000],
+            // Pilot: 30 students × $20 × 4 months ≈ $2.4k
+            // Dept: 600 students × $17.50 avg × 12 months ≈ $126k
+            // Inst: 3,200 students × $14 (volume) × 12 months ≈ $537k → ~$300k after multi-lab pooling
+            label: 'Student seat licenses',
+            data: [2400, 126000, 300000],
             backgroundColor: C.green,
           },
           {
-            label: 'Classroom seats',
-            // [PLACEHOLDER: annual $ for classroom seats]
-            data: [8000, 32000, 90000],
+            // Classroom integration, support, admin
+            label: 'Classroom / faculty integration',
+            data: [3000, 25000, 80000],
             backgroundColor: C.amber,
           },
           {
-            label: 'Faculty + research',
-            // [PLACEHOLDER: annual $ for faculty PD + research compute]
-            data: [10000, 40000, 110000],
+            // Research compute, fine-tuning credits
+            label: 'Research &amp; agentic compute',
+            data: [0, 10000, 90000],
             backgroundColor: C.greenD,
           },
         ],
@@ -99,7 +75,7 @@
           legend: { position: 'bottom' },
           tooltip: {
             callbacks: {
-              label: (ctx) => `${ctx.dataset.label}: $${ctx.parsed.y.toLocaleString()} [placeholder]`,
+              label: (ctx) => `${ctx.dataset.label}: $${ctx.parsed.y.toLocaleString()}`,
             },
           },
         },

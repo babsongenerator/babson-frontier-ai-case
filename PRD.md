@@ -1,8 +1,8 @@
-# PRD — Babson · Frontier AI (v2)
+# PRD — Babson · Frontier AI (v3)
 
-> A short, forwardable brief making the positive case for Babson to lead in AI-era entrepreneurship.
+> A short, forwardable brief making the positive case for Babson to formalize frontier-AI partnerships, grounded in real 2026 data.
 
-Source brief: [`original prompt.md`](original%20prompt.md). Earlier seven-page version preserved as the `v1.0` tag and `v1-archive` branch on this repo.
+Source brief: [`original prompt.md`](original%20prompt.md). Earlier versions preserved as `v1.0` / `v1-archive` and `v2.0` / `v2-archive` on this repo.
 
 ---
 
@@ -12,72 +12,72 @@ A short, polished, Babson-branded brief that:
 
 1. President Spinelli can read in five minutes.
 2. He can forward to donors, board members, or faculty without needing to add context.
-3. Reads as a celebration of Babson's entrepreneurship leadership, not a critique of any current gap.
+3. Reads as a celebration of Babson's entrepreneurship leadership and momentum, not a critique.
+4. Stands up to scrutiny — every load-bearing number, partner-school example, and frontier-model claim is drawn from real, recent sources.
 
-> *"Babson built modern entrepreneurship education. Frontier AI is the next chapter — and Babson is built to lead it."*
+> *"Babson built modern entrepreneurship education. Frontier AI is the next chapter — and Babson is already moving."*
 
 ## 2. Audience
 
 - **Primary:** Steve Spinelli, President of Babson College.
 - **Forward audience:** donors, board members, faculty leadership. The document must be safe — and useful — when read out of the original context.
 
-## 3. Non-goals (v2)
+## 3. Non-goals
 
-- No comparison to peer institutions.
+- No comparison to peer institutions as critique. Peer examples appear, framed as *what mature partnerships look like*, not *where Babson lags*.
 - No "failure to act" / risk-of-inaction framing.
-- No deep dives into individual frontier labs.
-- No comprehensive AI-tool benchmarking.
+- No deep dives into every frontier-model capability — model names and signature features only.
+- No invented numbers. If a figure can't be sourced, it's reframed as a range or dropped.
 
 ## 4. Core message
 
-The brief makes three moves:
+The brief makes four moves:
 
-1. **Celebrate Babson's track record.** Decades of leadership in entrepreneurship education, the Build Fund, the G1000.
-2. **Name the moment.** Three frontier labs are defining the next decade of building. Founders are concentrating around them.
-3. **Show the fit.** Babson's pedagogical model — action, applied, founder-first — is unusually well-suited to what these tools reward.
-
-Followed by: examples of what students build with these tools, and three affordable partnership options.
+1. **Celebrate Babson's track record.** Decades of leadership in entrepreneurship education, the Build Fund, the G1000, the Summer Venture Program.
+2. **Show Babson is already moving.** The Babson + Founderz "AI in Action" initiative and the AI-THINK methodology are the literacy layer; frontier-lab partnerships are the natural complement.
+3. **Name the moment concretely.** Three labs (Anthropic, Google, OpenAI), shipping real institutional tools in 2026, with each lab offering distinct strengths.
+4. **Show the fit, the examples, and the cost.** Real SVP teams, real peer-school partnership shapes, real per-user pricing.
 
 ## 5. Tone
 
-- Persuasive *because* credible. No hype words.
+- Persuasive *because* credible.
 - Positive throughout. No "behind," no "risk," no "missing."
 - Quotable in isolation — every paragraph could be pulled out of context and still read well.
-- Every numeric claim gets `[PLACEHOLDER: ...]` until a verified figure is available.
+- Light inline source attribution where the reader benefits; full source pointers in `deep research.md` (local-only).
 
-## 6. Information architecture (3 pages)
+## 6. Information architecture (4 pages)
 
 | Route | Title | Purpose |
 |---|---|---|
-| `/` | The moment | Hero + Babson legacy + the moment + why Babson is built for this |
-| `/build/` | What students build | Babson vignettes + a few illustrative peer case studies |
-| `/partnership/` | Partnership | Three tiers (Pilot / Department / Institution), cost chart, comparison table |
+| `/` | The moment | Hero + Babson legacy + Babson+Founderz momentum + the moment + why Babson is built for this |
+| `/build/` | What students build | Four real 2026 SVP teams + Babson+Founderz literacy paragraph |
+| `/peers/` | At peer institutions | Four named partnership shapes (Wharton, Northeastern, Stanford, CSU) + external co-funding context |
+| `/partnership/` | Partnership | Real per-user pricing + three tiers + cost chart + external co-funding |
 
-Persistent top nav across all three.
+Persistent top nav across all four pages.
 
 ## 7. Visual system
 
-Same palette as v1, exposed as CSS variables in [`assets/css/site.css`](assets/css/site.css):
+Palette unchanged from v2, exposed as CSS variables in [`assets/css/site.css`](assets/css/site.css):
 
 ```css
 --c-green:  #006747;   /* Babson Green */
---c-ink:    #14191F;   /* near-black body text */
---c-bone:   #FAF7F2;   /* warm off-white background */
---c-amber:  #C9A227;   /* muted gold accent */
+--c-ink:    #14191F;
+--c-bone:   #FAF7F2;
+--c-amber:  #C9A227;
 ```
 
-System UI typography. Sticky nav with hamburger below 820px. Hero band on home page, subdued page header on subpages. Cards, tables, vignettes, pull-quote, layer-diagram primitives kept from v1; everything else trimmed.
+System UI typography. Sticky nav with hamburger below 820px. Hero band on home page, subdued page header on subpages. Cards, tables, vignettes, pull-quote primitives reused from v2.
 
 ## 8. Charts
 
-Two charts only:
+Single chart only:
 
 | Page | id | Type | What it shows |
 |---|---|---|---|
-| Home | `chart-home-share` | Doughnut | Founder tool use across the three frontier labs |
-| Partnership | `chart-costs` | Grouped bar | Cost per tier × use case |
+| Partnership | `chart-costs` | Grouped bar | Indicative cost per tier × use case, derived from published per-user pricing |
 
-Both with one-sentence takeaway captions.
+(The v2 Home doughnut was dropped — defensible share data wasn't available at the precision needed.)
 
 ## 9. Tech & structure
 
@@ -89,16 +89,17 @@ Both with one-sentence takeaway captions.
 ## 10. Content rules
 
 - Persuasive but credible — no hype words.
-- Numeric claims tagged `[PLACEHOLDER: ...]`; rendered with a yellow highlight so they can't accidentally ship.
+- Numeric claims either pull from a source (priced at published rates; peer-school user counts from public announcements) or are explicitly framed as indicative.
 - No invented statistics.
-- No comparison to peer institutions in body copy (a few peer case studies appear on `/build/`, framed as "what's possible" rather than "where we lag").
+- Peer-school content frames variety as the point; the headline is "different shapes, same direction," not a leaderboard.
 
 ## 11. Deliverables
 
-- Runnable static site in this repo, no install required beyond a static file server.
-- [README.md](README.md) with run instructions and a complete PLACEHOLDER checklist by page.
+- Runnable static site in this repo, no install required.
+- [README.md](README.md) with run instructions, structure, and a summary of what changed from v2.
 - This PRD.
-- v1 preserved as `v1.0` tag and `v1-archive` branch.
+- Live URL: https://babsongenerator.github.io/babson-frontier-ai-case/
+- Earlier versions preserved as `v1.0` / `v2.0` tags and `v1-archive` / `v2-archive` branches.
 
 ## 12. Verification
 
@@ -109,9 +110,9 @@ python3 -m http.server 8000
 ```
 
 Manual checks:
-- 3 nav links navigate correctly from every page.
-- Mobile viewport (375px): nav collapses; charts resize; cards stack.
-- Both charts render without console errors.
-- Every `[PLACEHOLDER:` tag in the UI appears in the README checklist.
-- Footer "Last updated" reads `2026-05-13`.
+- 4 nav links navigate correctly from every page.
+- Mobile viewport (375px): nav collapses; cost chart resizes; cards stack.
+- Cost chart renders without console errors.
+- No `[PLACEHOLDER:` tags remain anywhere in the rendered pages.
 - Tone: read each page out loud. If any sentence sounds like a critique of Babson, rewrite it.
+- Footer "Last updated" reads `2026-05-13`.
