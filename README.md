@@ -1,8 +1,8 @@
-# Babson · AI Providers — A Short Brief (v10)
+# Babson · AI Providers — A Short Brief (v11)
 
 A four-page, Babson-branded static brief making the case that bringing the three leading AI providers — **OpenAI**, **Anthropic**, and **Google** — to Babson is an easy, affordable, and common-sense move that benefits students, faculty, and staff, and reinforces Babson's position as the global leader in entrepreneurship education.
 
-**v10 fixes the cost framing** (institutional scale, not per-user-month) and adds direct links to each provider's higher-ed product page. New peer-deal benchmark: **CSU's $17M / 18-month deal with OpenAI** is now the Home stat-strip's third stat and is referenced on Providers and in the report. Per-user/month rates are still cited but they're no longer the primary cost framing.
+**v11 surfaces the cost answer up front.** New "Cost at a glance" block at the top of `/providers/` (right under the page-head) — three cost cards, big-number-forward, showing each provider's headline rate, the largest publicly-disclosed peer benchmark, and a Babson-scale annual estimate (~$0.9–1.2M/year per provider at list, ~5,000 users). The report has the equivalent block as the lead-in to Section 4. A busy reader scrolling on mobile now hits the dollar answer in the first scroll past the page-head, before any provider description.
 
 Source brief: [`original prompt.md`](original%20prompt.md). PRD: [`PRD.md`](PRD.md).
 
@@ -63,6 +63,14 @@ Install WeasyPrint once with `brew install weasyprint` (macOS).
 **Note:** the four web pages and the report HTML are currently maintained separately. Edits to the web pages do NOT auto-sync into the report. After substantive content changes, edit `report/index.html` to match, then regenerate the PDF.
 
 ---
+
+## What v11 changed from v10
+
+- **"Cost at a glance" block** added at the top of `/providers/`, right after the page-head. Three cost cards — OpenAI / Anthropic / Google — each with a big headline rate, the largest publicly-disclosed peer benchmark, and an anchor link to that provider's detail section below. The block opens with the Babson-scale estimate (*~$0.9–1.2M/year per provider at list pricing for ~5,000 active users, before education-tier or volume discounts*).
+- **Equivalent in the report.** A "Cost at a glance" callout opens Section 4 — same three rows, inline-styled to print well, ahead of the detailed per-provider blocks.
+- **New CSS:** `.cost-cards` / `.cost-card` / `.cost-card.cost-anthropic` with big-number color (Babson green for OpenAI/Google, amber for Anthropic), heavy weight (800), prominent typographic hierarchy.
+
+This was a quick refinement of v10's cost framing. The motivation: on a tighter (mobile-ish) viewport, the cost table on `/providers/` was buried below the provider intro paragraph. A busy president would scroll past the description and ask "what does this cost?" before getting to the answer. Now the answer comes first.
 
 ## What v10 changed from v9
 
@@ -185,6 +193,7 @@ Edit once in [`assets/css/site.css`](assets/css/site.css):
 - **v7.0** — dynamic horizontal layout (`v7-archive` branch).
 - **v8.0** — dropped Founderz/AI-THINK, pulled back Babson self-celebration (`v8-archive` branch).
 - **v9.0** — evidence-first lead, quieter titles, reference-document register (`v9-archive` branch).
-- **v10** (current `main`) — institutional-scale cost framing (CSU $17M), direct links to each provider's higher-ed page.
+- **v10.0** — institutional-scale cost framing (CSU $17M), direct links to each provider's higher-ed page (`v10-archive` branch).
+- **v11** (current `main`) — Cost at a glance block surfaces the dollar answer up front on `/providers/` and in the report.
 
-`git checkout v9.0` (or any earlier tag) brings the previous shape back.
+`git checkout v10.0` (or any earlier tag) brings the previous shape back.

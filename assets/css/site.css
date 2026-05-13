@@ -150,6 +150,58 @@ section.block + section.block { border-top: 1px solid var(--c-rule); }
 .stat-strip.stat-strip-light .stat-num   { color: var(--c-green); }
 .stat-strip.stat-strip-light .stat-label { color: var(--c-muted); }
 
+/* Cost-card: big-number-forward variant for the "what does this cost" answer */
+.cost-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+  margin: 0.6rem 0 1rem;
+}
+.cost-card {
+  background: #fff;
+  border: 1px solid var(--c-rule);
+  border-top: 4px solid var(--c-green);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem 0.9rem;
+}
+.cost-card.cost-anthropic { border-top-color: var(--c-amber); }
+.cost-card .cc-provider {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-muted);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 0.15rem;
+}
+.cost-card .cc-price {
+  display: block;
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--c-green);
+  margin: 0.1rem 0 0.25rem;
+}
+.cost-card.cost-anthropic .cc-price { color: var(--c-amber-d); }
+.cost-card .cc-unit {
+  font-size: 0.85rem;
+  color: var(--c-muted);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 0.45rem;
+}
+.cost-card .cc-note {
+  font-size: 0.88rem;
+  margin: 0;
+  color: var(--c-ink);
+}
+.cost-card .cc-link {
+  display: block;
+  margin-top: 0.45rem;
+  font-size: 0.85rem;
+}
+
 /* 4-up dense card grid — for value bullets & similar */
 .cards.cards-4 {
   grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
