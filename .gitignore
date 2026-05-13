@@ -7,5 +7,9 @@ node_modules/
 .env
 .env.local
 
-# Local plan-mode symlink — points outside the repo (~/.claude/plans/)
+# Local plan-mode symlinks — point outside the repo (~/.claude/plans/)
 PLAN.md
+RESEARCH-BRIEF-PLAN.md
+
+# Parallel-session working artifact (Gemini Deep Research prompt)
+research-brief.md
