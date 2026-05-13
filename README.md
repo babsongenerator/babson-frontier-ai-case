@@ -1,8 +1,8 @@
-# Babson · AI Providers — A Short Brief (v8)
+# Babson · AI Providers — A Short Brief (v9)
 
 A four-page, Babson-branded static brief making the case that bringing the three leading AI providers — **OpenAI**, **Anthropic**, and **Google** — to Babson is an easy, affordable, and common-sense move that benefits students, faculty, and staff, and reinforces Babson's position as the global leader in entrepreneurship education.
 
-**v8 sharpens** the message: drops all Babson + Founderz / AI-THINK references, pulls back Babson self-celebration ("32 years #1," F.W. Olin framing), and refocuses every page on the three providers and the fall 2026 actionable window. The report (`/report/`) and downloadable PDF were regenerated to match. The dynamic v7 layout (split grids, stat-strips, aside callouts) stays.
+**v9 pulls back the rhetoric:** the brief now reads as a *reference resource* for getting up to speed on the three providers — not a recommendation document. Titles are graphically quieter (smaller H1/H2 at lower weight); eyebrows carry the visual structure. Direct-ask language ("the right move," "the natural window," "one straightforward fall") is gone. Evidence and logic lead; the reader does the synthesizing.
 
 Source brief: [`original prompt.md`](original%20prompt.md). PRD: [`PRD.md`](PRD.md).
 
@@ -63,6 +63,15 @@ Install WeasyPrint once with `brew install weasyprint` (macOS).
 **Note:** the four web pages and the report HTML are currently maintained separately. Edits to the web pages do NOT auto-sync into the report. After substantive content changes, edit `report/index.html` to match, then regenerate the PDF.
 
 ---
+
+## What v9 changed from v8
+
+- **Lead with evidence, not ask.** Home no longer opens with "The right move for fall 2026 is to bring all three to Babson." It opens with: *"OpenAI, Anthropic, and Google — what each offers, what each costs, where each is deployed."* The lead paragraph positions the site as a short reference for getting up to speed, not as a proposal.
+- **Removed all direct-ask language across all pages and the report.** Gone: "the right move," "the natural window," "one straightforward fall," "the actionable window" (as a stat label).
+- **"Easy, Affordable, Common-sense" reframed as "Three things to note."** The three property cards are now labeled **Mature / Priced / Deployed** — descriptive observations with citations, not persuasive framing.
+- **Quieter titles graphically.** H1 from ~1.55–2 rem → ~1.2–1.45 rem, weight 700 → 600. H2 from ~1.25–1.55 rem → ~1.02–1.15 rem, weight 700 → 600. Hero padding cut further (1.25 / 1.1 rem). Eyebrows now carry more of the visual structure.
+- **Softer section headings.** "The institutions Babson watches have already moved" → "Where each provider has been deployed." "Three companies. One straightforward fall." → "What this looks like, side by side." Etc.
+- **Report regenerated to match.** Cover subtitle, Section 1 lead, Section 4 closing, and the Easy/Affordable/Common-sense subhead all updated. PDF rebuilt (169 KB).
 
 ## What v8 changed from v7
 
@@ -164,6 +173,7 @@ Edit once in [`assets/css/site.css`](assets/css/site.css):
 - **v5.0** — terminology shift, `/value/` page, `/providers/` page (`v5-archive` branch).
 - **v6.0** — density pass + consolidated `/report/` + downloadable PDF (`v6-archive` branch).
 - **v7.0** — dynamic horizontal layout (`v7-archive` branch).
-- **v8** (current `main`) — dropped Founderz/AI-THINK, pulled back Babson self-celebration, refocused on the three providers + fall 2026.
+- **v8.0** — dropped Founderz/AI-THINK, pulled back Babson self-celebration (`v8-archive` branch).
+- **v9** (current `main`) — evidence-first lead, quieter titles, reference-document register; direct-ask language removed.
 
-`git checkout v7.0` (or any earlier tag) brings the previous shape back.
+`git checkout v8.0` (or any earlier tag) brings the previous shape back.

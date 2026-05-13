@@ -48,9 +48,10 @@ h1, h2, h3, h4 {
   letter-spacing: -0.01em;
   line-height: 1.15;
 }
-h1 { font-size: clamp(1.55rem, 2.5vw, 2rem); font-weight: 700; }
-h2 { font-size: clamp(1.25rem, 1.9vw, 1.55rem); font-weight: 700; }
-h3 { font-size: 1.05rem; font-weight: 700; }
+/* Reference-document register: titles are quieter; eyebrows carry the visual structure. */
+h1 { font-size: clamp(1.2rem, 1.7vw, 1.45rem); font-weight: 600; letter-spacing: -0.005em; }
+h2 { font-size: clamp(1.02rem, 1.3vw, 1.15rem); font-weight: 600; letter-spacing: 0; }
+h3 { font-size: 1rem; font-weight: 600; }
 p  { margin: 0 0 0.75em; }
 .lede { font-size: 1.02rem; color: var(--c-muted); }
 .eyebrow {
@@ -318,44 +319,46 @@ section.block.tighter { padding: 0.65rem 0; }
   }
 }
 
-/* ---------- Hero ---------- */
+/* ---------- Hero (quieter; reference-document register) ---------- */
 .hero {
   background: var(--c-green);
   color: #fff;
-  padding: 2rem 0 1.75rem;
+  padding: 1.25rem 0 1.1rem;
 }
-.hero .eyebrow { color: rgba(255,255,255,0.8); }
+.hero .eyebrow { color: rgba(255,255,255,0.85); }
 .hero h1 {
   color: #fff;
-  max-width: 30ch;
-  margin-bottom: 0.4rem;
+  max-width: 56ch;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
 }
 .hero p {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.45;
   color: rgba(255,255,255,0.92);
   max-width: 72ch;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
-.hero .actions { margin-top: 0.9rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.hero .actions { margin-top: 0.75rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
-/* Subdued hero for non-home pages */
+/* Subdued page-head for non-home pages — equally tight */
 .page-head {
   background: var(--c-green);
   color: #fff;
-  padding: 1.5rem 0 1.25rem;
+  padding: 1rem 0 0.9rem;
 }
 .page-head h1 {
   color: #fff;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
 }
 .page-head p {
   color: rgba(255,255,255,0.92);
   max-width: 72ch;
   margin-bottom: 0;
-  font-size: 0.98rem;
+  font-size: 0.94rem;
 }
-.page-head .eyebrow { color: rgba(255,255,255,0.8); }
+.page-head .eyebrow { color: rgba(255,255,255,0.85); }
 
 /* Urgency wash on failure-to-act page */
 .page-head.urgent {
