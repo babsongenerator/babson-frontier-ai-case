@@ -23,157 +23,196 @@
   </div>
 </header>
 
+<!-- ===== Page head: split (text left / stat-strip right) ===== -->
 <section class="page-head">
   <div class="wrap">
-    <span class="eyebrow">The three providers</span>
-    <h1>OpenAI, Anthropic, Google — cost and peer adoption, side by side.</h1>
-    <p>For each provider, two questions matter most: what does it cost, and which peer institutions have already deployed it at scale? Both are answered below.</p>
+    <div class="split">
+      <div>
+        <span class="eyebrow">The three providers</span>
+        <h1>OpenAI, Anthropic, Google — cost and peer adoption, side by side.</h1>
+        <p>For each provider, two questions matter most: what does it cost, and which peer institutions have already deployed it at scale? Both are answered below.</p>
+      </div>
+      <div>
+        <div class="stat-strip">
+          <div class="stat"><span class="stat-num">$20</span><span class="stat-label">ChatGPT Business / user / mo</span></div>
+          <div class="stat"><span class="stat-num">10M+</span><span class="stat-label">students on Gemini for Education</span></div>
+          <div class="stat"><span class="stat-num">3</span><span class="stat-label">campus-wide Anthropic peers</span></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ===== OpenAI ===== -->
-<section class="block">
+<section class="block" id="openai">
   <div class="wrap">
-    <span class="eyebrow">Provider 1 of 3</span>
-    <h2>OpenAI · ChatGPT for institutions.</h2>
-    <p>OpenAI is the most widely-deployed of the three providers in higher education. Its flagship offerings for institutions are <strong>ChatGPT Business</strong> (commercial) and <strong>ChatGPT Edu</strong> (academic), built on the GPT-5.5 model family. The April 2026 launch of <strong>Workspace Agents</strong> added native agentic execution inside enterprise tools like Salesforce, Slack, and HubSpot<sup class="ref"><a href="#ref-1">1</a></sup>.</p>
+    <div class="split split-aside">
+      <div>
+        <span class="eyebrow">Provider 1 of 3</span>
+        <h2>OpenAI · ChatGPT for institutions.</h2>
+        <p>OpenAI is the most widely-deployed of the three providers in higher education. Its flagship offerings for institutions are <strong>ChatGPT Business</strong> (commercial) and <strong>ChatGPT Edu</strong> (academic), built on the GPT-5.5 model family. The April 2026 launch of <strong>Workspace Agents</strong> added native agentic execution inside enterprise tools like Salesforce, Slack, and HubSpot<sup class="ref"><a href="#ref-1">1</a></sup>.</p>
 
-    <h3>What it costs</h3>
-    <div class="table-wrap">
-      <table class="cmp">
-        <thead>
-          <tr><th>Plan</th><th>Per user / month</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>ChatGPT Business</td><td><strong>$20.00</strong> (committed)</td><td>Price reduced by $5 in April 2026<sup class="ref"><a href="#ref-2">2</a></sup>.</td></tr>
-          <tr><td>ChatGPT Enterprise / Edu</td><td>Negotiated</td><td>Volume pricing for institutional deployments; standard for systems serving 1,000+ students.</td></tr>
-        </tbody>
-      </table>
+        <h3>What it costs</h3>
+        <div class="table-wrap">
+          <table class="cmp">
+            <thead>
+              <tr><th>Plan</th><th>Per user / month</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>ChatGPT Business</td><td><strong>$20.00</strong> (committed)</td><td>Price reduced by $5 in April 2026<sup class="ref"><a href="#ref-2">2</a></sup>.</td></tr>
+              <tr><td>ChatGPT Enterprise / Edu</td><td>Negotiated</td><td>Volume pricing for institutional deployments; standard for systems serving 1,000+ students.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3>How peers have leveraged it</h3>
+        <div class="vignettes-2">
+          <article class="vignette">
+            <h3>The Wharton School</h3>
+            <p class="meta">Universal MBA access · new AI for Business major</p>
+            <p>In May 2024 Wharton announced a strategic investment in AI, providing access to all full-time and executive MBA students and establishing the AI &amp; Analytics for Business program<sup class="ref"><a href="#ref-3">3</a></sup>. In April 2025 Wharton launched a new MBA major in <strong>Artificial Intelligence for Business</strong> alongside an undergraduate concentration<sup class="ref"><a href="#ref-4">4</a></sup>.</p>
+          </article>
+
+          <article class="vignette">
+            <h3>University of Oxford</h3>
+            <p class="meta">First UK university with ChatGPT Edu for all · 5-year OpenAI partnership</p>
+            <p>In September 2025 Oxford became the first UK university to offer ChatGPT Edu to all staff and students, following an initial year of access for ~750 staff and researchers. The rollout is part of a five-year partnership with OpenAI that includes research grant funding and enterprise security<sup class="ref"><a href="#ref-5">5</a></sup>.</p>
+          </article>
+
+          <article class="vignette">
+            <h3>UCLA</h3>
+            <p class="meta">First California university with ChatGPT Enterprise</p>
+            <p>UCLA introduced ChatGPT Enterprise in September 2024 — the first California university to do so. Access was extended to students, faculty, and staff engaged in teaching, learning, and research initiatives, with an open call for project submissions<sup class="ref"><a href="#ref-6">6</a></sup>.</p>
+          </article>
+
+          <article class="vignette">
+            <h3>California State University System</h3>
+            <p class="meta">~460,000 students · 63,000 faculty &amp; staff · ChatGPT Edu</p>
+            <p>In February 2025 the CSU system announced what it described as the nation's largest AI-empowered university system — providing ChatGPT Edu access to more than 460,000 students and over 63,000 faculty and staff. The deployment uses a "walled garden" architecture where student data does not train the underlying model<sup class="ref"><a href="#ref-7">7</a></sup>.</p>
+          </article>
+        </div>
+      </div>
     </div>
-
-    <h3>How peers have leveraged it</h3>
-
-    <article class="vignette">
-      <h3>The Wharton School</h3>
-      <p class="meta">Universal MBA access · new AI for Business major</p>
-      <p>In May 2024 Wharton announced a strategic investment in AI, providing access to all full-time and executive MBA students and establishing the AI &amp; Analytics for Business program<sup class="ref"><a href="#ref-3">3</a></sup>. In April 2025 Wharton launched a new MBA major in <strong>Artificial Intelligence for Business</strong> alongside an undergraduate concentration<sup class="ref"><a href="#ref-4">4</a></sup>.</p>
-    </article>
-
-    <article class="vignette">
-      <h3>University of Oxford</h3>
-      <p class="meta">First UK university with ChatGPT Edu for all · 5-year OpenAI partnership</p>
-      <p>In September 2025 Oxford became the first UK university to offer ChatGPT Edu to all staff and students, following an initial year of access for ~750 staff and researchers. The rollout is part of a five-year partnership with OpenAI that includes research grant funding and enterprise security<sup class="ref"><a href="#ref-5">5</a></sup>.</p>
-    </article>
-
-    <article class="vignette">
-      <h3>UCLA</h3>
-      <p class="meta">First California university with ChatGPT Enterprise</p>
-      <p>UCLA introduced ChatGPT Enterprise in September 2024 — the first California university to do so. Access was extended to students, faculty, and staff engaged in teaching, learning, and research initiatives, with an open call for project submissions<sup class="ref"><a href="#ref-6">6</a></sup>.</p>
-    </article>
-
-    <article class="vignette">
-      <h3>California State University System</h3>
-      <p class="meta">~460,000 students · 63,000 faculty &amp; staff · ChatGPT Edu</p>
-      <p>In February 2025 the CSU system announced what it described as the nation's largest AI-empowered university system — providing ChatGPT Edu access to more than 460,000 students and over 63,000 faculty and staff. The deployment uses a "walled garden" architecture where student data does not train the underlying model<sup class="ref"><a href="#ref-7">7</a></sup>.</p>
-    </article>
   </div>
 </section>
 
 <!-- ===== Anthropic ===== -->
-<section class="block" style="background:#fff;">
+<section class="block" id="anthropic" style="background:#fff;">
   <div class="wrap">
-    <span class="eyebrow">Provider 2 of 3</span>
-    <h2>Anthropic · Claude for institutions.</h2>
-    <p>Anthropic is widely treated as the "architect" of the three providers — careful, literal, and designed around safety. <strong>Claude Opus 4.7</strong> is the current flagship model<sup class="ref"><a href="#ref-8">8</a></sup>. <strong>Claude for Education</strong> ships a <strong>Learning Mode</strong> designed to guide student reasoning rather than just produce answers — pedagogy first<sup class="ref"><a href="#ref-9">9</a></sup>.</p>
+    <div class="split split-aside">
+      <div>
+        <span class="eyebrow">Provider 2 of 3</span>
+        <h2>Anthropic · Claude for institutions.</h2>
+        <p>Anthropic is widely treated as the "architect" of the three providers — careful, literal, and designed around safety. <strong>Claude Opus 4.7</strong> is the current flagship model<sup class="ref"><a href="#ref-8">8</a></sup>. <strong>Claude for Education</strong> ships a <strong>Learning Mode</strong> designed to guide student reasoning rather than just produce answers — pedagogy first<sup class="ref"><a href="#ref-9">9</a></sup>.</p>
 
-    <h3>What it costs</h3>
-    <div class="table-wrap">
-      <table class="cmp">
-        <thead>
-          <tr><th>Plan</th><th>Per user / month</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Claude for Education</td><td>Negotiated</td><td>Institutional contracts; Learning Mode included<sup class="ref"><a href="#ref-9">9</a></sup>. Some launch partners received multi-year free access (see Champlain, below).</td></tr>
-          <tr><td>Claude Enterprise</td><td>Negotiated</td><td>Standard enterprise contract for non-education use cases.</td></tr>
-        </tbody>
-      </table>
+        <h3>What it costs</h3>
+        <div class="table-wrap">
+          <table class="cmp">
+            <thead>
+              <tr><th>Plan</th><th>Per user / month</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Claude for Education</td><td>Negotiated</td><td>Institutional contracts; Learning Mode included<sup class="ref"><a href="#ref-9">9</a></sup>. Some launch partners received multi-year free access (see Champlain, below).</td></tr>
+              <tr><td>Claude Enterprise</td><td>Negotiated</td><td>Standard enterprise contract for non-education use cases.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3>How peers have leveraged it</h3>
+        <div class="vignettes-2">
+          <article class="vignette">
+            <h3>Northeastern University</h3>
+            <p class="meta">Campus-wide Claude · 13 global campuses · April 2025</p>
+            <p>Northeastern signed a campus-wide agreement with Anthropic in April 2025, providing Claude access to all students, faculty, and staff across 13 global campuses<sup class="ref"><a href="#ref-10">10</a></sup>. The partnership foregrounds Learning Mode pedagogy<sup class="ref"><a href="#ref-9">9</a></sup>.</p>
+          </article>
+
+          <article class="vignette">
+            <h3>London School of Economics</h3>
+            <p class="meta">Full campus Claude access · launch partner</p>
+            <p>LSE was named as an Anthropic launch partner for Claude for Education in April 2025, with Enterprise-tier Claude (with extended context) made available free to every LSE student and educator under a 12-month launch agreement. Student access opened in May 2025<sup class="ref"><a href="#ref-11">11</a></sup>.</p>
+          </article>
+
+          <article class="vignette">
+            <h3>Champlain College</h3>
+            <p class="meta">~2,000 undergrads · Vermont · 2-year free Claude Pro</p>
+            <p>Champlain — a small, private, career-focused undergraduate college — received campus-wide Claude Pro access for all students, faculty, and staff (on-campus and online), free for two years through June 2027. Joint classroom and research projects span digital forensics, cybersecurity, business entrepreneurship, and humanities<sup class="ref"><a href="#ref-12">12</a></sup>. The closest small-private peer to Babson in Anthropic's launch cohort.</p>
+          </article>
+        </div>
+      </div>
     </div>
-
-    <h3>How peers have leveraged it</h3>
-
-    <article class="vignette">
-      <h3>Northeastern University</h3>
-      <p class="meta">Campus-wide Claude · 13 global campuses · April 2025</p>
-      <p>Northeastern signed a campus-wide agreement with Anthropic in April 2025, providing Claude access to all students, faculty, and staff across 13 global campuses<sup class="ref"><a href="#ref-10">10</a></sup>. The partnership foregrounds Learning Mode pedagogy<sup class="ref"><a href="#ref-9">9</a></sup>.</p>
-    </article>
-
-    <article class="vignette">
-      <h3>London School of Economics</h3>
-      <p class="meta">Full campus Claude access · launch partner</p>
-      <p>LSE was named as an Anthropic launch partner for Claude for Education in April 2025, with Enterprise-tier Claude (with extended context) made available free to every LSE student and educator under a 12-month launch agreement. Student access opened in May 2025<sup class="ref"><a href="#ref-11">11</a></sup>.</p>
-    </article>
-
-    <article class="vignette">
-      <h3>Champlain College</h3>
-      <p class="meta">~2,000 undergrads · Vermont · 2-year free Claude Pro</p>
-      <p>Champlain — a small, private, career-focused undergraduate college — received campus-wide Claude Pro access for all students, faculty, and staff (on-campus and online), free for two years through June 2027. Joint classroom and research projects span digital forensics, cybersecurity, business entrepreneurship, and humanities<sup class="ref"><a href="#ref-12">12</a></sup>. The closest small-private peer to Babson in Anthropic's launch cohort.</p>
-    </article>
   </div>
 </section>
 
 <!-- ===== Google ===== -->
-<section class="block">
+<section class="block" id="google">
   <div class="wrap">
-    <span class="eyebrow">Provider 3 of 3</span>
-    <h2>Google · Gemini for institutions.</h2>
-    <p>Google brings native multimodality (the only major AI model that handles video alongside text, image, and audio in a single pass) and a one-million-token context window, with <strong>Gemini 3.1 Pro</strong> as the current flagship<sup class="ref"><a href="#ref-13">13</a></sup>. Most universities deploy Gemini through <strong>Gemini for Education</strong> or <strong>Workspace Intelligence</strong>, which weaves Gemini into the Workspace tools many institutions already use<sup class="ref"><a href="#ref-14">14</a></sup>.</p>
+    <div class="split split-aside">
+      <div>
+        <span class="eyebrow">Provider 3 of 3</span>
+        <h2>Google · Gemini for institutions.</h2>
+        <p>Google brings native multimodality (the only major AI model that handles video alongside text, image, and audio in a single pass) and a one-million-token context window, with <strong>Gemini 3.1 Pro</strong> as the current flagship<sup class="ref"><a href="#ref-13">13</a></sup>. Most universities deploy Gemini through <strong>Gemini for Education</strong> or <strong>Workspace Intelligence</strong>, which weaves Gemini into the Workspace tools many institutions already use<sup class="ref"><a href="#ref-14">14</a></sup>.</p>
 
-    <h3>What it costs</h3>
-    <div class="table-wrap">
-      <table class="cmp">
-        <thead>
-          <tr><th>Plan</th><th>Per user / month</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Google AI Pro for Education</td><td>Education tier · via reseller</td><td>Education-specific tier for Workspace for Education customers; pricing handled through Google's reseller channel<sup class="ref"><a href="#ref-15">15</a></sup>.</td></tr>
-          <tr><td>Workspace Intelligence</td><td>Bundled with Workspace plans</td><td>Add-on for existing Workspace tenants; institutional pricing<sup class="ref"><a href="#ref-14">14</a></sup>.</td></tr>
-        </tbody>
-      </table>
+        <h3>What it costs</h3>
+        <div class="table-wrap">
+          <table class="cmp">
+            <thead>
+              <tr><th>Plan</th><th>Per user / month</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Google AI Pro for Education</td><td>Education tier · via reseller</td><td>Education-specific tier for Workspace for Education customers; pricing handled through Google's reseller channel<sup class="ref"><a href="#ref-15">15</a></sup>.</td></tr>
+              <tr><td>Workspace Intelligence</td><td>Bundled with Workspace plans</td><td>Add-on for existing Workspace tenants; institutional pricing<sup class="ref"><a href="#ref-14">14</a></sup>.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h3>How peers have leveraged it</h3>
+        <div class="vignettes-2">
+          <article class="vignette">
+            <h3>Rice University</h3>
+            <p class="meta">Campus-wide Gemini + NotebookLM · September 2025</p>
+            <p>Rice — a private research university with a strong business school — adopted Google's Gemini for Education and NotebookLM campus-wide for all students, faculty, and staff in September 2025, with the partnership grounded in "responsible AI"<sup class="ref"><a href="#ref-16">16</a></sup>.</p>
+          </article>
+
+          <article class="vignette">
+            <h3>University of Houston</h3>
+            <p class="meta">System-wide Gemini for Education · full data sovereignty</p>
+            <p>The University of Houston announced a first-in-state systemwide deployment of Gemini for Education and NotebookLM in March 2026 — all students, faculty, and staff — with explicit data sovereignty: institutional data and research IP are not used to train public models<sup class="ref"><a href="#ref-17">17</a></sup>.</p>
+          </article>
+
+          <article class="vignette">
+            <h3>1,000+ institutions, 10M+ students</h3>
+            <p class="meta">Google's published higher-ed footprint</p>
+            <p>Google's own roundup confirms Gemini for Education is in use at more than 1,000 higher-education institutions reaching over 10 million U.S. college students, including Brown, MIT, Ohio State, Michigan, Notre Dame, Florida State, UC Riverside, Texas State, Rice, and the California Community Colleges<sup class="ref"><a href="#ref-18">18</a></sup>.</p>
+          </article>
+        </div>
+      </div>
     </div>
-
-    <h3>How peers have leveraged it</h3>
-
-    <article class="vignette">
-      <h3>Rice University</h3>
-      <p class="meta">Campus-wide Gemini + NotebookLM · September 2025</p>
-      <p>Rice — a private research university with a strong business school — adopted Google's Gemini for Education and NotebookLM campus-wide for all students, faculty, and staff in September 2025, with the partnership grounded in "responsible AI"<sup class="ref"><a href="#ref-16">16</a></sup>.</p>
-    </article>
-
-    <article class="vignette">
-      <h3>University of Houston</h3>
-      <p class="meta">System-wide Gemini for Education · full data sovereignty</p>
-      <p>The University of Houston announced a first-in-state systemwide deployment of Gemini for Education and NotebookLM in March 2026 — all students, faculty, and staff — with explicit data sovereignty: institutional data and research IP are not used to train public models<sup class="ref"><a href="#ref-17">17</a></sup>.</p>
-    </article>
-
-    <article class="vignette">
-      <h3>1,000+ institutions, 10M+ students</h3>
-      <p class="meta">Google's published higher-ed footprint</p>
-      <p>Google's own roundup confirms Gemini for Education is in use at more than 1,000 higher-education institutions reaching over 10 million U.S. college students, including Brown, MIT, Ohio State, Michigan, Notre Dame, Florida State, UC Riverside, Texas State, Rice, and the California Community Colleges<sup class="ref"><a href="#ref-18">18</a></sup>.</p>
-    </article>
   </div>
 </section>
 
 <!-- ===== Synthesis ===== -->
 <section class="block" style="background:#fff;">
-  <div class="wrap-prose">
-    <span class="eyebrow">Putting it together</span>
-    <h2>Three providers, three distinct shapes, one common-sense answer.</h2>
-    <p>Each provider has a profile. <strong>OpenAI</strong> is the most widely-adopted and the strongest on agentic execution — used by Wharton, Oxford, UCLA, and the CSU system. <strong>Anthropic</strong> is the pedagogy-first choice — used by Northeastern, LSE, and Champlain. <strong>Google</strong> is the multimodal-and-Workspace choice — used by Rice, Houston, and a thousand other institutions reaching 10 million students.</p>
-    <p>The published per-user rates are now squarely inside what most institutions spend per seat on routine software. Bringing all three providers to Babson — or any one of them as a starting point — sits comfortably inside budget norms for higher education, and the case is reinforced every time another peer institution announces a partnership.</p>
+  <div class="wrap">
+    <div class="split split-even">
+      <div>
+        <span class="eyebrow">Putting it together</span>
+        <h2>Three providers, three distinct shapes, one common-sense answer.</h2>
+        <p>Each provider has a profile. <strong>OpenAI</strong> is the most widely-adopted and the strongest on agentic execution — used by Wharton, Oxford, UCLA, and the CSU system. <strong>Anthropic</strong> is the pedagogy-first choice — used by Northeastern, LSE, and Champlain. <strong>Google</strong> is the multimodal-and-Workspace choice — used by Rice, Houston, and a thousand other institutions reaching 10 million students.</p>
+      </div>
+      <div>
+        <div class="aside aside-green">
+          <p>The published per-user rates are now squarely inside what most institutions spend per seat on routine software. Bringing all three providers to Babson — or any one of them as a starting point — sits comfortably inside budget norms for higher education, and the case is reinforced every time another peer institution announces a partnership.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="block">
+<!-- ===== CTA ===== -->
+<section class="block tight">
   <div class="wrap-prose center">
     <h2>Thanks for reading.</h2>
     <p class="lede">The full brief is four short pages — feel free to forward.</p>

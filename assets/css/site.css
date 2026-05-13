@@ -74,9 +74,133 @@ mark.placeholder {
 /* ---------- Layout primitives ---------- */
 .wrap     { max-width: var(--maxw); margin: 0 auto; padding: 0 1.25rem; }
 .wrap-prose { max-width: var(--maxw-prose); margin: 0 auto; padding: 0 1.25rem; }
-section.block { padding: 1.6rem 0; }
+section.block { padding: 1.4rem 0; }
 section.block + section.block { border-top: 1px solid var(--c-rule); }
 .center { text-align: center; }
+
+/* ---------- Dynamic layout primitives (v7) ----------
+   Horizontal compositions to break up vertical stacking.
+   Mobile-first: all collapse to single column under 760px.
+   ============================================================ */
+
+/* Two-column split. Defaults to 40/60. Modifiers swap or weight. */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 760px) {
+  .split { grid-template-columns: 5fr 7fr; gap: 2rem; align-items: start; }
+  .split.split-even  { grid-template-columns: 1fr 1fr; }
+  .split.split-aside { grid-template-columns: 3fr 9fr; }     /* sidebar + body */
+  .split.split-right { grid-template-columns: 7fr 5fr; }     /* body + aside */
+}
+.split > * { min-width: 0; }
+
+/* Aside callout — boxed, accent border, used inside .split */
+.aside {
+  background: #fff;
+  border: 1px solid var(--c-rule);
+  border-left: 4px solid var(--c-amber);
+  border-radius: var(--radius);
+  padding: 0.85rem 1rem;
+  font-size: 0.94rem;
+}
+.aside h3 { margin: 0 0 0.4rem; font-size: 0.98rem; color: var(--c-green); }
+.aside p:last-child { margin-bottom: 0; }
+.aside.aside-green { border-left-color: var(--c-green); }
+
+/* Stat strip — horizontal row of big metrics. Hugely effective above the fold. */
+.stat-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.6rem;
+  margin: 0.5rem 0;
+}
+.stat {
+  background: rgba(255,255,255,0.10);
+  border-left: 3px solid var(--c-amber);
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--radius-sm);
+}
+.stat .stat-num {
+  display: block;
+  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.stat .stat-label {
+  display: block;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.82);
+  font-weight: 600;
+  margin-top: 0.15rem;
+}
+/* Light variant for non-hero contexts */
+.stat-strip.stat-strip-light .stat {
+  background: #fff;
+  border: 1px solid var(--c-rule);
+  border-left: 3px solid var(--c-amber);
+}
+.stat-strip.stat-strip-light .stat-num   { color: var(--c-green); }
+.stat-strip.stat-strip-light .stat-label { color: var(--c-muted); }
+
+/* 4-up dense card grid — for value bullets & similar */
+.cards.cards-4 {
+  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+  gap: 0.7rem;
+}
+.cards.cards-4 .card {
+  padding: 0.7rem 0.85rem;
+  gap: 0.25rem;
+}
+.cards.cards-4 .card h3 { font-size: 0.95rem; }
+.cards.cards-4 .card p  { font-size: 0.88rem; line-height: 1.4; margin: 0; }
+.cards.cards-4 .card .meta { font-size: 0.7rem; }
+
+/* Compact 2-up vignettes — for build/providers pages */
+.vignettes-2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.9rem;
+}
+@media (min-width: 820px) {
+  .vignettes-2 { grid-template-columns: 1fr 1fr; }
+}
+.vignettes-2 .vignette { margin: 0; padding: 0.85rem 1rem; }
+.vignettes-2 .vignette h3 { font-size: 1rem; }
+.vignettes-2 .vignette p  { font-size: 0.92rem; }
+
+/* Group label — sticky-ish header on the side of card groups */
+.group-label {
+  position: relative;
+}
+@media (min-width: 960px) {
+  .group-label { position: sticky; top: 4rem; }
+}
+.group-label .eyebrow { display: block; }
+.group-label h2 { font-size: 1.15rem; margin-bottom: 0.3rem; }
+.group-label p  { font-size: 0.9rem; color: var(--c-muted); margin: 0; }
+
+/* Tight section — no top/bottom padding flourish */
+section.block.tight { padding: 0.9rem 0; }
+section.block.tighter { padding: 0.65rem 0; }
+
+/* Inline metadata band — used in heroes and page-heads as a thin tray */
+.meta-band {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.2rem;
+  font-size: 0.85rem;
+  margin-top: 0.6rem;
+  color: rgba(255,255,255,0.85);
+}
+.meta-band > span strong { color: #fff; }
+.page-head .meta-band, .hero .meta-band { color: rgba(255,255,255,0.88); }
 
 /* Multi-column prose on wider screens — bibliographies and dense narrative.
    Note: applied selectively; full-width prose containers can use --maxw. */
@@ -645,6 +769,21 @@ hr.rule { border: 0; border-top: 1px solid var(--c-rule); margin: 1.25rem 0; }
   .card, .vignette, .risk, .layer, blockquote.pull, figure.chart {
     border: 1px solid #999 !important;
   }
+
+  /* New v7 layout primitives — flatten to single-column for print */
+  .split,
+  .split.split-even,
+  .split.split-aside,
+  .split.split-right {
+    display: block !important;
+    gap: 0 !important;
+  }
+  .split > * { display: block !important; margin-bottom: 0.5rem; }
+  .stat-strip { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 0.4rem !important; }
+  .stat { border: 1px solid #999 !important; padding: 0.3rem 0.5rem !important; break-inside: avoid; }
+  .stat .stat-num, .stat .stat-label { color: black !important; }
+  .aside, .aside.aside-green { border: 1px solid #999 !important; border-left: 3px solid #555 !important; }
+  .group-label { position: static !important; }
 
   /* Tables: print-safe */
   table.cmp,

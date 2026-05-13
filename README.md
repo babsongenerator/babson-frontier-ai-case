@@ -1,8 +1,8 @@
-# Babson · AI Providers — A Short Brief (v6)
+# Babson · AI Providers — A Short Brief (v7)
 
 A four-page, Babson-branded static brief making the case that bringing the three leading AI providers — **OpenAI**, **Anthropic**, and **Google** — to Babson is an easy, affordable, and common-sense move that benefits students, faculty, and staff, and reinforces Babson's position as the global leader in entrepreneurship education.
 
-**v6 adds:** dramatic density pass on the CSS (much more content per screen) + a consolidated single-page **report** at `/report/` + a downloadable **PDF** of the report linked from every site page.
+**v7 adds:** a dynamic, horizontal-composition layout pass — split-grid sections, stat-strips, aside callouts, 4-up card grids, 2x2 vignette grids — designed to crush vertical height while making the brief feel more like a report and less like a stack of landing pages. The report at `/report/` and the downloadable PDF (introduced in v6) are unchanged.
 
 Source brief: [`original prompt.md`](original%20prompt.md). PRD: [`PRD.md`](PRD.md).
 
@@ -64,12 +64,28 @@ Install WeasyPrint once with `brew install weasyprint` (macOS).
 
 ---
 
-## What v6 changed from v5
+## What v7 changed from v6
 
-- **Density.** `site.css` had a full density pass: hero / page-head / section padding cut ~50%, line-height tightened (1.55→1.45), max widths bumped (1080→1180px), cards/tables/vignettes packed tighter, references rendered in **two columns** on desktop. Result: roughly 40–60% more content per screen.
-- **New `/report/` route.** A single-page, print-optimized consolidation of all four pages. Cover, TOC, four content sections, and a renumbered combined bibliography (22 unique references). Each provider gets its own page in print.
-- **Downloadable PDF.** `babson-ai-providers.pdf` (198 KB) generated from `/report/` via WeasyPrint, committed to the repo, served by GitHub Pages, and linked from every page's nav with the amber **↓ PDF** button.
-- **`@media print` block** in `site.css`: hides nav/footer/buttons, switches to Georgia serif, restores white background, prevents card/vignette splits across pages, appends external URLs after link text. The site itself can be printed cleanly from any page.
+- **Dynamic layout pass.** Every page now uses horizontal composition primitives instead of stacking sections vertically.
+  - **`.split`** (with `.split-even`, `.split-aside`, `.split-right` modifiers) for two-column body sections.
+  - **`.stat-strip`** + **`.stat`** — a horizontal row of large metrics in every page's hero / page-head (e.g., "32 yrs #1," "1,000+ peer institutions," "$15–20/user/month").
+  - **`.aside`** / **`.aside.aside-green`** for boxed callouts inside `.split` layouts.
+  - **`.cards.cards-4`** — denser 4-up card grid, used for the 6×3 benefit grid on the Value page.
+  - **`.vignettes-2`** — 2×2 vignette grid, used on Build (4 SVP teams) and on each Providers section (3–4 peer schools).
+- **Page-by-page changes:**
+  - **`/`** (Home) — split hero (text + stat-strip), split body sections with Founderz aside, 3-up provider summary cards, 3-up Easy/Affordable/Common-sense cards.
+  - **`/value/`** — split page-head with stat-strip, three group sections each using `.split.split-aside` (sticky-ish group label on the left, 6 benefit cards in 3-col grid on the right), synthesis section with green aside callout.
+  - **`/build/`** — split page-head with stat-strip, Founderz `.aside.aside-green` callout, four SVP vignettes in a 2x2 grid.
+  - **`/providers/`** — split page-head with stat-strip, each provider section uses `.split.split-aside` (cost table on left, peer vignettes in 2x2 on right), synthesis section with green aside.
+- **Print CSS extended.** New rules flatten the split-grid / stat-strip / aside primitives back to single-column on print so the browser-printed version still works (the canonical print artifact remains `/report/` → `babson-ai-providers.pdf`).
+- **Result:** roughly 40–50% less vertical scroll, denser visual rhythm, more dynamic feel.
+
+## What v6 added (still in place)
+
+- Density pass on `site.css` (line-height 1.45, smaller hero padding, 2-column refs above 720px, etc.).
+- Single-page `/report/` consolidation of all four pages.
+- Downloadable PDF (`babson-ai-providers.pdf`) generated via WeasyPrint, linked from every page's nav.
+- `@media print` block for cleanly printing the web pages.
 
 ---
 
@@ -139,6 +155,7 @@ Edit once in [`assets/css/site.css`](assets/css/site.css):
 - **v3.0** — 4 pages, real data, tier proposal (`v3-archive` branch).
 - **v4.0** — 4 pages, no proposal language, full bibliographies (`v4-archive` branch).
 - **v5.0** — terminology shift, `/value/` page, `/providers/` page (`v5-archive` branch).
-- **v6** (current `main`) — density pass + consolidated `/report/` + downloadable PDF.
+- **v6.0** — density pass + consolidated `/report/` + downloadable PDF (`v6-archive` branch).
+- **v7** (current `main`) — dynamic horizontal layout pass: split grids, stat-strips, asides, 4-up card grids, 2x2 vignettes.
 
-`git checkout v5.0` (or any earlier tag) brings the previous shape back.
+`git checkout v6.0` (or any earlier tag) brings the previous shape back.
