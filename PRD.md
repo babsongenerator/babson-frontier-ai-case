@@ -1,8 +1,8 @@
-# PRD — Babson · Frontier AI (v4)
+# PRD — Babson · AI Providers (v5)
 
-> An informational four-page brief on the state of frontier AI in 2026, written for forwarding by President Spinelli — every claim footnoted to a verified source.
+> A four-page brief arguing — through evidence, not exhortation — that bringing OpenAI, Anthropic, and Google to Babson is an easy, affordable, common-sense move that benefits every campus group and reinforces Babson's position as the global leader in entrepreneurship education.
 
-Source brief: [`original prompt.md`](original%20prompt.md). Earlier versions preserved as `v1.0` / `v2.0` / `v3.0` tags and corresponding `*-archive` branches.
+Source brief: [`original prompt.md`](original%20prompt.md). Earlier versions preserved as `v1.0` / `v2.0` / `v3.0` / `v4.0` tags and corresponding `*-archive` branches.
 
 ---
 
@@ -12,90 +12,82 @@ A short, polished, Babson-branded brief that:
 
 1. President Spinelli can read in five minutes.
 2. He can forward to donors, board members, or faculty without needing to add context.
-3. Reads as a celebration of Babson's entrepreneurship leadership and momentum, not a critique.
-4. Reports the state of frontier AI in 2026 **without prescribing a Babson response.** It is informational, not a proposal.
-5. Stands up to scrutiny — every load-bearing fact is footnoted to a verified source URL the reader can click through.
+3. Argues the case via evidence and framing, not via "you should…" copy.
+4. Centers Babson's entrepreneurship leadership as the why — these tools fit Babson because of who Babson already is.
+5. Stands up to scrutiny — every load-bearing fact is footnoted to a verified source URL.
 
-> *"Babson built modern entrepreneurship education. Frontier AI is the next chapter — and Babson is already moving."*
+> *"Babson built modern entrepreneurship education. Institutional AI access is the next chapter — and Babson is already moving."*
 
 ## 2. Audience
 
 - **Primary:** Steve Spinelli, President of Babson College.
-- **Forward audience:** donors, board members, faculty leadership. Must be safe to forward without context.
+- **Forward audience:** donors, board members, faculty leadership.
 
-## 3. Non-goals
+## 3. The case (subtext)
 
-- No proposal. No pilot. No "next step." No "should." The brief reports; it does not prescribe.
-- No comparison to peer institutions as critique. Peer examples are framed as *what mature partnerships look like*, not *where Babson lags*.
-- No invented numbers. If a figure can't be sourced and verified, it's rephrased generically or dropped.
-- No deep dive into every frontier-model capability — model names and signature features only.
+Bringing OpenAI, Anthropic, and Google to Babson is:
 
-## 4. Core message
+- **Easy** — these tools integrate with the Workspace / Office / SSO infrastructure Babson already runs. Education-tier plans exist for exactly this kind of rollout.
+- **Affordable** — per-user pricing has come down materially; the combined cost lands inside routine institutional software budgets.
+- **Common-sense** — it benefits students, faculty, and staff in concrete documented ways, and it reinforces what Babson is already known for.
 
-The brief makes four informational moves:
+The brief does not say "Babson should." It shows that this is the move the most respected peers have already made.
 
-1. **Babson's track record.** 32 consecutive years #1 in MBA entrepreneurship; SVP, F.W. Olin Graduate School.
-2. **Babson is already moving.** "AI in Action" with Founderz launched in February 2026, introducing the AI-THINK methodology. President Spinelli has spoken publicly about thoughtful, responsible AI adoption.
-3. **The 2026 frontier-AI landscape.** Three labs (Anthropic, Google, OpenAI); current flagship models (Claude Opus 4.7, GPT-5.5, Gemini 3.1 Pro); the institutional tools each lab ships.
-4. **What it actually costs.** Per-user pricing from OpenAI ($20 ChatGPT Business), Anthropic (negotiated for education), Google (via reseller for education tier).
+## 4. Terminology
+
+The terms "frontier models," "frontier labs," "frontier AI," and "labs" are not used in v5. The brief refers to OpenAI, Anthropic, and Google as **"the three leading AI providers"** (or "the three providers" / "providers" in shorter form). Site brand is **`Babson · AI Providers`**.
 
 ## 5. Tone
 
-- Persuasive *because* credible.
-- Informational, not aspirational. The brief implies but does not recommend.
-- Every fact has a footnote. The reader can verify.
-- Quotable in isolation.
+- Persuasive *because* credible. Argument via evidence selection, not exhortation.
+- No "Babson should…", no "next step," no "pilot," no "tier" structure.
+- Every fact footnoted; reader can verify.
+- Quotable in isolation — every paragraph holds up if pulled out of context for a donor email.
 
 ## 6. Information architecture (4 pages)
 
 | Route | Title | Purpose |
 |---|---|---|
-| `/` | The moment | Babson legacy + Babson+Founderz + 2026 frontier-AI landscape + why the fit is good |
-| `/build/` | What students build | Babson+Founderz literacy + four 2025 SVP teams paired with relevant frontier capabilities |
-| `/peers/` | At peer institutions | Four named partnership shapes (Wharton, Northeastern, Stanford, CSU) |
-| `/costs/` | What it costs | Published per-user pricing from each lab; no tier proposal |
-
-Persistent top nav across all four pages.
+| `/` | The moment | Babson legacy + "AI in Action" + the three providers' distinct strengths + easy/affordable/common-sense framing |
+| `/value/` | Value for everyone | Six benefit cards each for students, faculty, and staff — each tied to a documented capability from one of the three providers |
+| `/build/` | What students build | Four 2025 SVP teams paired with the provider whose capabilities map to their kind of work |
+| `/providers/` | The three providers | OpenAI · Anthropic · Google — for each: published cost AND peer-institution adoption with verified sources |
 
 ## 7. Citation system
 
-- **Inline:** superscript references (¹²³…) appearing next to each load-bearing fact, linking to a per-page anchor.
-- **At the bottom of each page:** a `<section class="refs-section">` with `<ol class="refs">` of APA 7th-edition formatted citations. Each `<li>` has `id="ref-N"` matching the inline `href="#ref-N"`.
-- **Highlight on click:** CSS `:target` highlights the referenced entry in amber when a reader clicks an inline number.
-- **Verified URLs.** Every URL was checked. The 5 URLs that returned 403 (OpenAI domains + CSU) are bot-blocked but load normally in browsers — flagged in the README.
+- Inline `<sup class="ref"><a href="#ref-N">N</a></sup>` numbered references on each load-bearing fact.
+- Per-page `<ol class="refs">` at the bottom with APA 7th-edition citations.
+- `:target` highlight in amber when the reader clicks an inline number.
+- 23 unique source URLs across the brief; verification status documented in the README.
 
 ## 8. Visual system
 
-Palette unchanged. New CSS for `sup.ref`, `ol.refs`, `.refs-section` to support the citation system. System UI typography, sticky nav with hamburger below 820px, hero band on home, subdued page header on subpages.
+Same palette as v4 (Babson Green + ink + bone + amber). System UI typography. Sticky nav, hero band on home, subdued page header on subpages. Cards in 1–3 column responsive grids. Vignettes for institutional / team profiles. References styling with numbered counter.
 
-## 9. Charts
+## 9. Tech & structure
 
-None in v4. (The v3 cost chart was tied to the tier proposal that was removed.)
-
-## 10. Tech & structure
-
-- Static multi-page site, one HTML file per route.
+- Static multi-page site, one HTML file per route in its own folder.
 - Vanilla HTML/CSS/JS — no framework, no npm, no build step.
-- No CDN scripts in v4 (Chart.js was only needed when the cost chart was present).
 - All inter-page and asset links are relative.
+- No JS dependencies on subpages (Chart.js retired from v5 since no charts remain).
 
-## 11. Content rules
+## 10. Content rules
 
-- Persuasive but credible — no hype words.
+- "Frontier" and "labs" terminology is forbidden; "the three providers" / "AI" are the replacements.
+- "Babson should…" / "the next step" / "pilot" framing is forbidden in body copy. Where peer history includes a literal pilot, the word is rephrased (e.g., "initial year of access").
 - Every numeric or named claim is sourced.
 - No invented statistics.
-- Peer-school content frames variety as the point; the headline is "different shapes, same direction," not a leaderboard.
-- No proposal language anywhere. "Babson should…" / "the next step is…" / "we propose…" are all banned.
+- Peer-school examples framed as "what mature deployments look like at peers," not as criticism of Babson.
 
-## 12. Deliverables
+## 11. Deliverables
 
 - Runnable static site in this repo, no install required.
-- [README.md](README.md) with run instructions, structure, source list with verification notes.
+- [README.md](README.md) with run instructions, structure, and a master URL/verification list.
 - This PRD.
 - Live URL: https://babsongenerator.github.io/babson-frontier-ai-case/
-- Earlier versions preserved as `v1.0` / `v2.0` / `v3.0` tags and `*-archive` branches.
+- Earlier versions preserved as `v1.0` / `v2.0` / `v3.0` / `v4.0` tags + `*-archive` branches.
 
-## 13. Verification
+## 12. Verification
 
 ```bash
 cd "For Steve"
@@ -105,9 +97,10 @@ python3 -m http.server 8000
 
 Manual checks:
 - 4 nav links navigate correctly from every page.
-- Each page has a References section at the bottom; inline `<sup>` numbers anchor-jump to the right entry.
-- Clicking a reference number highlights the target list item.
-- Mobile viewport (375px): nav collapses; cards stack; references list reflows.
-- Tone: read each page aloud. If any sentence sounds like "we propose," "the next step," or "Babson should," rewrite or remove it.
-- URLs: every URL in the page References list either responds 200 or is documented in the README as bot-blocked.
+- Each page has a References section; superscript numbers anchor-jump to the right entry and highlight it.
+- Mobile viewport (375px): nav collapses; cards stack; references reflow.
+- `grep -i frontier index.html value build providers` returns nothing.
+- `grep -i ' labs\?\b' …` returns nothing (other than the venture name "GENETICFIT Labs").
+- `grep -i pilot …` returns nothing in v5 body copy.
 - Footer "Last updated" reads `2026-05-13`.
+- All cited URLs respond 200 (or are documented as bot-blocked in the README).
