@@ -1,0 +1,11 @@
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.tmp
+node_modules/
+.env
+.env.local
+
+# Local plan-mode symlink — points outside the repo (~/.claude/plans/)
+PLAN.md
