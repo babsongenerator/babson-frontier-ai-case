@@ -1,8 +1,8 @@
-# Babson · AI Providers — A Short Brief (v7)
+# Babson · AI Providers — A Short Brief (v8)
 
 A four-page, Babson-branded static brief making the case that bringing the three leading AI providers — **OpenAI**, **Anthropic**, and **Google** — to Babson is an easy, affordable, and common-sense move that benefits students, faculty, and staff, and reinforces Babson's position as the global leader in entrepreneurship education.
 
-**v7 adds:** a dynamic, horizontal-composition layout pass — split-grid sections, stat-strips, aside callouts, 4-up card grids, 2x2 vignette grids — designed to crush vertical height while making the brief feel more like a report and less like a stack of landing pages. The report at `/report/` and the downloadable PDF (introduced in v6) are unchanged.
+**v8 sharpens** the message: drops all Babson + Founderz / AI-THINK references, pulls back Babson self-celebration ("32 years #1," F.W. Olin framing), and refocuses every page on the three providers and the fall 2026 actionable window. The report (`/report/`) and downloadable PDF were regenerated to match. The dynamic v7 layout (split grids, stat-strips, aside callouts) stays.
 
 Source brief: [`original prompt.md`](original%20prompt.md). PRD: [`PRD.md`](PRD.md).
 
@@ -64,6 +64,15 @@ Install WeasyPrint once with `brew install weasyprint` (macOS).
 
 ---
 
+## What v8 changed from v7
+
+- **Removed all Founderz / AI-THINK references.** Anywhere on the web pages, in the report, and in the references list. The "literacy layer" section on `/build/` and the AI-THINK aside on `/build/` are gone entirely. The Faculty intro on `/value/` no longer cites the Founderz announcement.
+- **Pulled back Babson self-celebration.** Dropped the "32 years #1 MBA entrepreneurship" stat from the Home stat-strip (replaced with "Fall '26 / the actionable window"). Removed the legacy section from Home. The closing on `/value/` no longer claims "global leader in entrepreneurship education" framing. References to "F.W. Olin Graduate School," "32 years," and similar self-celebration are gone.
+- **Refocused on the three providers.** Home now opens with: *"Three companies make the AI that students need. The right move for fall 2026 is to bring all three to Babson."* The Home page adds a **peer momentum block** showing all four peer institution clusters at once (OpenAI peers, Anthropic peers, Google peers).
+- **Sharper synthesis on `/providers/`.** New H2: *"Three companies. One straightforward fall."* Closing green aside lands four beats: availability, pricing, peer adoption, and fall 2026 timing.
+- **Report + PDF regenerated.** `/report/index.html` rebuilt by an agent to match the new tone. `./build-pdf.sh` regenerated `babson-ai-providers.pdf` (169 KB, was 198 KB).
+- **References slimmed.** Dropped the two Babson-self-celebration sources (32-year ranking + Founderz announcement). Total unique cited URLs across all four pages: **21** (was 23).
+
 ## What v7 changed from v6
 
 - **Dynamic layout pass.** Every page now uses horizontal composition primitives instead of stacking sections vertically.
@@ -98,14 +107,12 @@ Install WeasyPrint once with `brew install weasyprint` (macOS).
 
 ---
 
-## Sources (23 unique URLs)
+## Sources (21 unique URLs)
 
 All verified as of 2026-05-13. URLs marked **bot-blocked** return 403 to scripts (Cloudflare bot challenge) but load normally in standard browsers.
 
 ### Babson
-- Babson MBA #1 for 32 years — https://entrepreneurship.babson.edu/babson-mba-top-usnwr/ — ✓
 - Babson 2025 SVP teams — https://entrepreneurship.babson.edu/2025-summer-venture-program-teams/ — ✓
-- Babson + Founderz "AI in Action" — https://entrepreneurship.babson.edu/babson-founderz-ai/ — ✓
 
 ### OpenAI
 - ChatGPT pricing — https://openai.com/business/chatgpt-pricing/ — bot-blocked, real
@@ -156,6 +163,7 @@ Edit once in [`assets/css/site.css`](assets/css/site.css):
 - **v4.0** — 4 pages, no proposal language, full bibliographies (`v4-archive` branch).
 - **v5.0** — terminology shift, `/value/` page, `/providers/` page (`v5-archive` branch).
 - **v6.0** — density pass + consolidated `/report/` + downloadable PDF (`v6-archive` branch).
-- **v7** (current `main`) — dynamic horizontal layout pass: split grids, stat-strips, asides, 4-up card grids, 2x2 vignettes.
+- **v7.0** — dynamic horizontal layout (`v7-archive` branch).
+- **v8** (current `main`) — dropped Founderz/AI-THINK, pulled back Babson self-celebration, refocused on the three providers + fall 2026.
 
-`git checkout v6.0` (or any earlier tag) brings the previous shape back.
+`git checkout v7.0` (or any earlier tag) brings the previous shape back.
