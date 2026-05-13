@@ -439,6 +439,63 @@ blockquote.pull footer { font-style: normal; font-size: 0.9rem; color: var(--c-m
 }
 .vignette dt { color: var(--c-muted); font-weight: 600; }
 
+/* ---------- References / bibliography ---------- */
+sup.ref {
+  font-size: 0.7em;
+  line-height: 0;
+  vertical-align: super;
+  margin-left: 0.1em;
+}
+sup.ref a {
+  color: var(--c-green);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0 0.15em;
+  border-radius: 3px;
+}
+sup.ref a:hover {
+  background: rgba(0,103,71,0.12);
+  text-decoration: none;
+}
+.refs-section {
+  background: #fff;
+  border-top: 1px solid var(--c-rule);
+}
+ol.refs {
+  list-style: none;
+  counter-reset: ref;
+  padding-left: 0;
+  margin: 1rem 0 0;
+}
+ol.refs li {
+  counter-increment: ref;
+  position: relative;
+  padding-left: 2.4rem;
+  margin-bottom: 0.9rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--c-ink);
+  scroll-margin-top: 5rem;
+}
+ol.refs li::before {
+  content: counter(ref) ".";
+  position: absolute;
+  left: 0;
+  width: 2rem;
+  text-align: right;
+  font-weight: 700;
+  color: var(--c-green);
+}
+ol.refs li:target {
+  background: rgba(201,162,39,0.18);
+  border-radius: 4px;
+  outline: 2px solid var(--c-amber);
+  outline-offset: 2px;
+}
+ol.refs a {
+  word-break: break-word;
+}
+
 /* ---------- Footer ---------- */
 .foot {
   border-top: 1px solid var(--c-rule);

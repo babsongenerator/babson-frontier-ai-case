@@ -1,8 +1,8 @@
-# PRD — Babson · Frontier AI (v3)
+# PRD — Babson · Frontier AI (v4)
 
-> A short, forwardable brief making the positive case for Babson to formalize frontier-AI partnerships, grounded in real 2026 data.
+> An informational four-page brief on the state of frontier AI in 2026, written for forwarding by President Spinelli — every claim footnoted to a verified source.
 
-Source brief: [`original prompt.md`](original%20prompt.md). Earlier versions preserved as `v1.0` / `v1-archive` and `v2.0` / `v2-archive` on this repo.
+Source brief: [`original prompt.md`](original%20prompt.md). Earlier versions preserved as `v1.0` / `v2.0` / `v3.0` tags and corresponding `*-archive` branches.
 
 ---
 
@@ -13,95 +13,89 @@ A short, polished, Babson-branded brief that:
 1. President Spinelli can read in five minutes.
 2. He can forward to donors, board members, or faculty without needing to add context.
 3. Reads as a celebration of Babson's entrepreneurship leadership and momentum, not a critique.
-4. Stands up to scrutiny — every load-bearing number, partner-school example, and frontier-model claim is drawn from real, recent sources.
+4. Reports the state of frontier AI in 2026 **without prescribing a Babson response.** It is informational, not a proposal.
+5. Stands up to scrutiny — every load-bearing fact is footnoted to a verified source URL the reader can click through.
 
 > *"Babson built modern entrepreneurship education. Frontier AI is the next chapter — and Babson is already moving."*
 
 ## 2. Audience
 
 - **Primary:** Steve Spinelli, President of Babson College.
-- **Forward audience:** donors, board members, faculty leadership. The document must be safe — and useful — when read out of the original context.
+- **Forward audience:** donors, board members, faculty leadership. Must be safe to forward without context.
 
 ## 3. Non-goals
 
-- No comparison to peer institutions as critique. Peer examples appear, framed as *what mature partnerships look like*, not *where Babson lags*.
-- No "failure to act" / risk-of-inaction framing.
-- No deep dives into every frontier-model capability — model names and signature features only.
-- No invented numbers. If a figure can't be sourced, it's reframed as a range or dropped.
+- No proposal. No pilot. No "next step." No "should." The brief reports; it does not prescribe.
+- No comparison to peer institutions as critique. Peer examples are framed as *what mature partnerships look like*, not *where Babson lags*.
+- No invented numbers. If a figure can't be sourced and verified, it's rephrased generically or dropped.
+- No deep dive into every frontier-model capability — model names and signature features only.
 
 ## 4. Core message
 
-The brief makes four moves:
+The brief makes four informational moves:
 
-1. **Celebrate Babson's track record.** Decades of leadership in entrepreneurship education, the Build Fund, the G1000, the Summer Venture Program.
-2. **Show Babson is already moving.** The Babson + Founderz "AI in Action" initiative and the AI-THINK methodology are the literacy layer; frontier-lab partnerships are the natural complement.
-3. **Name the moment concretely.** Three labs (Anthropic, Google, OpenAI), shipping real institutional tools in 2026, with each lab offering distinct strengths.
-4. **Show the fit, the examples, and the cost.** Real SVP teams, real peer-school partnership shapes, real per-user pricing.
+1. **Babson's track record.** 32 consecutive years #1 in MBA entrepreneurship; SVP, F.W. Olin Graduate School.
+2. **Babson is already moving.** "AI in Action" with Founderz launched in February 2026, introducing the AI-THINK methodology. President Spinelli has spoken publicly about thoughtful, responsible AI adoption.
+3. **The 2026 frontier-AI landscape.** Three labs (Anthropic, Google, OpenAI); current flagship models (Claude Opus 4.7, GPT-5.5, Gemini 3.1 Pro); the institutional tools each lab ships.
+4. **What it actually costs.** Per-user pricing from OpenAI ($20 ChatGPT Business), Anthropic (negotiated for education), Google (via reseller for education tier).
 
 ## 5. Tone
 
 - Persuasive *because* credible.
-- Positive throughout. No "behind," no "risk," no "missing."
-- Quotable in isolation — every paragraph could be pulled out of context and still read well.
-- Light inline source attribution where the reader benefits; full source pointers in `deep research.md` (local-only).
+- Informational, not aspirational. The brief implies but does not recommend.
+- Every fact has a footnote. The reader can verify.
+- Quotable in isolation.
 
 ## 6. Information architecture (4 pages)
 
 | Route | Title | Purpose |
 |---|---|---|
-| `/` | The moment | Hero + Babson legacy + Babson+Founderz momentum + the moment + why Babson is built for this |
-| `/build/` | What students build | Four real 2026 SVP teams + Babson+Founderz literacy paragraph |
-| `/peers/` | At peer institutions | Four named partnership shapes (Wharton, Northeastern, Stanford, CSU) + external co-funding context |
-| `/partnership/` | Partnership | Real per-user pricing + three tiers + cost chart + external co-funding |
+| `/` | The moment | Babson legacy + Babson+Founderz + 2026 frontier-AI landscape + why the fit is good |
+| `/build/` | What students build | Babson+Founderz literacy + four 2025 SVP teams paired with relevant frontier capabilities |
+| `/peers/` | At peer institutions | Four named partnership shapes (Wharton, Northeastern, Stanford, CSU) |
+| `/costs/` | What it costs | Published per-user pricing from each lab; no tier proposal |
 
 Persistent top nav across all four pages.
 
-## 7. Visual system
+## 7. Citation system
 
-Palette unchanged from v2, exposed as CSS variables in [`assets/css/site.css`](assets/css/site.css):
+- **Inline:** superscript references (¹²³…) appearing next to each load-bearing fact, linking to a per-page anchor.
+- **At the bottom of each page:** a `<section class="refs-section">` with `<ol class="refs">` of APA 7th-edition formatted citations. Each `<li>` has `id="ref-N"` matching the inline `href="#ref-N"`.
+- **Highlight on click:** CSS `:target` highlights the referenced entry in amber when a reader clicks an inline number.
+- **Verified URLs.** Every URL was checked. The 5 URLs that returned 403 (OpenAI domains + CSU) are bot-blocked but load normally in browsers — flagged in the README.
 
-```css
---c-green:  #006747;   /* Babson Green */
---c-ink:    #14191F;
---c-bone:   #FAF7F2;
---c-amber:  #C9A227;
-```
+## 8. Visual system
 
-System UI typography. Sticky nav with hamburger below 820px. Hero band on home page, subdued page header on subpages. Cards, tables, vignettes, pull-quote primitives reused from v2.
+Palette unchanged. New CSS for `sup.ref`, `ol.refs`, `.refs-section` to support the citation system. System UI typography, sticky nav with hamburger below 820px, hero band on home, subdued page header on subpages.
 
-## 8. Charts
+## 9. Charts
 
-Single chart only:
+None in v4. (The v3 cost chart was tied to the tier proposal that was removed.)
 
-| Page | id | Type | What it shows |
-|---|---|---|---|
-| Partnership | `chart-costs` | Grouped bar | Indicative cost per tier × use case, derived from published per-user pricing |
+## 10. Tech & structure
 
-(The v2 Home doughnut was dropped — defensible share data wasn't available at the precision needed.)
-
-## 9. Tech & structure
-
-- Static multi-page site, one HTML file per route in its own folder.
+- Static multi-page site, one HTML file per route.
 - Vanilla HTML/CSS/JS — no framework, no npm, no build step.
-- Chart.js loaded via CDN.
-- All inter-page and asset links are relative, so the site works at any URL prefix.
+- No CDN scripts in v4 (Chart.js was only needed when the cost chart was present).
+- All inter-page and asset links are relative.
 
-## 10. Content rules
+## 11. Content rules
 
 - Persuasive but credible — no hype words.
-- Numeric claims either pull from a source (priced at published rates; peer-school user counts from public announcements) or are explicitly framed as indicative.
+- Every numeric or named claim is sourced.
 - No invented statistics.
 - Peer-school content frames variety as the point; the headline is "different shapes, same direction," not a leaderboard.
+- No proposal language anywhere. "Babson should…" / "the next step is…" / "we propose…" are all banned.
 
-## 11. Deliverables
+## 12. Deliverables
 
 - Runnable static site in this repo, no install required.
-- [README.md](README.md) with run instructions, structure, and a summary of what changed from v2.
+- [README.md](README.md) with run instructions, structure, source list with verification notes.
 - This PRD.
 - Live URL: https://babsongenerator.github.io/babson-frontier-ai-case/
-- Earlier versions preserved as `v1.0` / `v2.0` tags and `v1-archive` / `v2-archive` branches.
+- Earlier versions preserved as `v1.0` / `v2.0` / `v3.0` tags and `*-archive` branches.
 
-## 12. Verification
+## 13. Verification
 
 ```bash
 cd "For Steve"
@@ -111,8 +105,9 @@ python3 -m http.server 8000
 
 Manual checks:
 - 4 nav links navigate correctly from every page.
-- Mobile viewport (375px): nav collapses; cost chart resizes; cards stack.
-- Cost chart renders without console errors.
-- No `[PLACEHOLDER:` tags remain anywhere in the rendered pages.
-- Tone: read each page out loud. If any sentence sounds like a critique of Babson, rewrite it.
+- Each page has a References section at the bottom; inline `<sup>` numbers anchor-jump to the right entry.
+- Clicking a reference number highlights the target list item.
+- Mobile viewport (375px): nav collapses; cards stack; references list reflows.
+- Tone: read each page aloud. If any sentence sounds like "we propose," "the next step," or "Babson should," rewrite or remove it.
+- URLs: every URL in the page References list either responds 200 or is documented in the README as bot-blocked.
 - Footer "Last updated" reads `2026-05-13`.
