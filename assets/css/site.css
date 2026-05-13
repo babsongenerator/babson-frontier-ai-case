@@ -1,6 +1,7 @@
 /* ============================================================
    The Frontier Case — site stylesheet
    Babson green primary; 4-color palette exposed as CSS vars.
+   Density pass: tighter rhythm, more content per screen.
    ============================================================ */
 
 :root {
@@ -13,8 +14,8 @@
   --c-rule:    #E5E0D6;   /* hairline rule color */
   --c-muted:   #5A5F66;   /* muted text */
 
-  --maxw:      1080px;
-  --maxw-prose: 720px;
+  --maxw:      1180px;
+  --maxw-prose: 760px;
 
   --radius:    10px;
   --radius-sm: 6px;
@@ -32,7 +33,7 @@ a:hover, a:focus { color: var(--c-green-d); text-decoration: underline; }
 
 html { scroll-behavior: smooth; }
 body {
-  font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font: 16px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
         "Helvetica Neue", Arial, sans-serif;
   color: var(--c-ink);
   background: var(--c-bone);
@@ -42,24 +43,24 @@ body {
 
 /* ---------- Type ---------- */
 h1, h2, h3, h4 {
-  margin: 0 0 0.5em;
+  margin: 0 0 0.4em;
   color: var(--c-ink);
   letter-spacing: -0.01em;
   line-height: 1.15;
 }
-h1 { font-size: clamp(2rem, 4vw, 2.75rem); font-weight: 700; }
-h2 { font-size: clamp(1.4rem, 2.4vw, 1.75rem); font-weight: 700; }
-h3 { font-size: 1.15rem; font-weight: 700; }
-p  { margin: 0 0 1em; }
-.lede { font-size: 1.125rem; color: var(--c-muted); }
+h1 { font-size: clamp(1.55rem, 2.5vw, 2rem); font-weight: 700; }
+h2 { font-size: clamp(1.25rem, 1.9vw, 1.55rem); font-weight: 700; }
+h3 { font-size: 1.05rem; font-weight: 700; }
+p  { margin: 0 0 0.75em; }
+.lede { font-size: 1.02rem; color: var(--c-muted); }
 .eyebrow {
   display: inline-block;
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--c-green);
   font-weight: 700;
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.45rem;
 }
 mark.placeholder {
   background: #FFF5C4;
@@ -73,9 +74,20 @@ mark.placeholder {
 /* ---------- Layout primitives ---------- */
 .wrap     { max-width: var(--maxw); margin: 0 auto; padding: 0 1.25rem; }
 .wrap-prose { max-width: var(--maxw-prose); margin: 0 auto; padding: 0 1.25rem; }
-section.block { padding: 3.5rem 0; }
+section.block { padding: 1.6rem 0; }
 section.block + section.block { border-top: 1px solid var(--c-rule); }
 .center { text-align: center; }
+
+/* Multi-column prose on wider screens — bibliographies and dense narrative.
+   Note: applied selectively; full-width prose containers can use --maxw. */
+@media (min-width: 960px) {
+  .wrap-prose.cols-2 { max-width: var(--maxw); }
+  .wrap-prose.cols-2 > p,
+  .wrap-prose.cols-2 > .lede {
+    column-count: 2;
+    column-gap: 2rem;
+  }
+}
 
 /* ---------- Top nav ---------- */
 .nav {
@@ -89,7 +101,7 @@ section.block + section.block { border-top: 1px solid var(--c-rule); }
 .nav-inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0.75rem 1.25rem;
+  padding: 0.45rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -101,7 +113,7 @@ section.block + section.block { border-top: 1px solid var(--c-rule); }
   gap: 0.5rem;
   font-weight: 700;
   color: var(--c-ink);
-  font-size: 1rem;
+  font-size: 0.95rem;
   letter-spacing: -0.005em;
 }
 .brand:hover { text-decoration: none; }
@@ -111,7 +123,7 @@ section.block + section.block { border-top: 1px solid var(--c-rule); }
 .nav-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 0.4rem;
+  gap: 0.2rem 0.35rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -119,9 +131,9 @@ section.block + section.block { border-top: 1px solid var(--c-rule); }
 .nav-links a {
   display: inline-block;
   color: var(--c-ink);
-  padding: 0.35rem 0.6rem;
+  padding: 0.28rem 0.55rem;
   border-radius: var(--radius-sm);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
   font-weight: 500;
   transition: background var(--t-fast), color var(--t-fast);
 }
@@ -135,12 +147,30 @@ section.block + section.block { border-top: 1px solid var(--c-rule); }
   color: #fff;
 }
 
+/* PDF-download link — stands out so readers notice they can grab the report */
+.nav-links a.nav-pdf {
+  background: var(--c-amber);
+  color: var(--c-ink);
+  border: 1px solid var(--c-amber-d);
+  font-weight: 700;
+  padding-left: 0.45rem;
+  padding-right: 0.55rem;
+}
+.nav-links a.nav-pdf:hover {
+  background: var(--c-amber-d);
+  color: #fff;
+}
+.nav-links a.nav-pdf .pdf-arrow {
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+
 .nav-toggle {
   display: none;
   border: 1px solid var(--c-rule);
   background: transparent;
   border-radius: var(--radius-sm);
-  padding: 0.4rem 0.55rem;
+  padding: 0.35rem 0.5rem;
   cursor: pointer;
   font: inherit;
 }
@@ -154,12 +184,12 @@ section.block + section.block { border-top: 1px solid var(--c-rule); }
     flex-direction: column;
     gap: 0;
     border-top: 1px solid var(--c-rule);
-    margin-top: 0.75rem;
-    padding-top: 0.5rem;
+    margin-top: 0.55rem;
+    padding-top: 0.4rem;
   }
   .nav-links.open { display: flex; }
   .nav-links a {
-    padding: 0.65rem 0.4rem;
+    padding: 0.55rem 0.4rem;
     border-radius: 0;
   }
 }
@@ -168,35 +198,38 @@ section.block + section.block { border-top: 1px solid var(--c-rule); }
 .hero {
   background: var(--c-green);
   color: #fff;
-  padding: 5rem 0 4.5rem;
+  padding: 2rem 0 1.75rem;
 }
 .hero .eyebrow { color: rgba(255,255,255,0.8); }
 .hero h1 {
   color: #fff;
-  max-width: 22ch;
-  margin-bottom: 0.5rem;
+  max-width: 30ch;
+  margin-bottom: 0.4rem;
 }
 .hero p {
-  font-size: 1.15rem;
+  font-size: 1rem;
+  line-height: 1.45;
   color: rgba(255,255,255,0.92);
-  max-width: 60ch;
+  max-width: 72ch;
+  margin-bottom: 0.5rem;
 }
-.hero .actions { margin-top: 1.5rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.hero .actions { margin-top: 0.9rem; display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
 /* Subdued hero for non-home pages */
 .page-head {
   background: var(--c-green);
   color: #fff;
-  padding: 3rem 0 2.5rem;
+  padding: 1.5rem 0 1.25rem;
 }
 .page-head h1 {
   color: #fff;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 .page-head p {
   color: rgba(255,255,255,0.92);
-  max-width: 60ch;
+  max-width: 72ch;
   margin-bottom: 0;
+  font-size: 0.98rem;
 }
 .page-head .eyebrow { color: rgba(255,255,255,0.8); }
 
@@ -210,11 +243,12 @@ section.block + section.block { border-top: 1px solid var(--c-rule); }
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.75rem 1.25rem;
+  padding: 0.55rem 1rem;
   border-radius: var(--radius);
   background: var(--c-amber);
   color: var(--c-ink);
   font-weight: 600;
+  font-size: 0.95rem;
   border: 1px solid var(--c-amber-d);
   cursor: pointer;
   transition: background var(--t), transform var(--t);
@@ -244,22 +278,23 @@ section.block + section.block { border-top: 1px solid var(--c-rule); }
 /* ---------- Cards ---------- */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
-  margin: 1.5rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 0.9rem;
+  margin: 1rem 0;
 }
 .card {
   background: #fff;
   border: 1px solid var(--c-rule);
   border-radius: var(--radius);
-  padding: 1.25rem;
+  padding: 0.9rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.35rem;
 }
-.card h3 { margin: 0 0 0.25rem; }
+.card h3 { margin: 0 0 0.2rem; font-size: 1rem; }
+.card p { margin: 0 0 0.5em; font-size: 0.95rem; }
 .card .meta {
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   color: var(--c-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -267,8 +302,8 @@ section.block + section.block { border-top: 1px solid var(--c-rule); }
 }
 .card .footer {
   margin-top: auto;
-  padding-top: 0.75rem;
-  font-size: 0.9rem;
+  padding-top: 0.5rem;
+  font-size: 0.85rem;
 }
 
 /* Lab cards (Frontier Models) — green-accented */
@@ -276,20 +311,20 @@ section.block + section.block { border-top: 1px solid var(--c-rule); }
 .lab-card.lab-anthropic { border-top-color: var(--c-amber); }
 .lab-card h3 .lab-tag {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   background: var(--c-green);
   color: #fff;
-  padding: 0.1rem 0.4rem;
+  padding: 0.08rem 0.35rem;
   border-radius: 3px;
-  margin-left: 0.5rem;
+  margin-left: 0.4rem;
   vertical-align: middle;
 }
 .lab-card.lab-anthropic h3 .lab-tag { background: var(--c-amber); color: var(--c-ink); }
 
 /* ---------- Tables ---------- */
-.table-wrap { overflow-x: auto; margin: 1rem 0 1.5rem; }
+.table-wrap { overflow-x: auto; margin: 0.75rem 0 1.1rem; }
 table.cmp {
   width: 100%;
   border-collapse: collapse;
@@ -297,18 +332,20 @@ table.cmp {
   border: 1px solid var(--c-rule);
   border-radius: var(--radius);
   overflow: hidden;
+  font-size: 0.9rem;
 }
 table.cmp th, table.cmp td {
-  padding: 0.85rem 1rem;
+  padding: 0.55rem 0.8rem;
   text-align: left;
   border-bottom: 1px solid var(--c-rule);
   vertical-align: top;
+  line-height: 1.4;
 }
 table.cmp thead th {
   background: var(--c-green);
   color: #fff;
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: 0.85rem;
   letter-spacing: 0.02em;
 }
 table.cmp tbody tr:last-child td { border-bottom: 0; }
@@ -316,38 +353,40 @@ table.cmp tbody tr:nth-child(even) td { background: rgba(0,103,71,0.025); }
 
 /* ---------- Charts ---------- */
 figure.chart {
-  margin: 1.5rem 0 2rem;
+  margin: 1rem 0 1.25rem;
   background: #fff;
   border: 1px solid var(--c-rule);
   border-radius: var(--radius);
-  padding: 1rem 1.25rem 1.25rem;
+  padding: 0.8rem 1rem 1rem;
 }
 figure.chart .canvas-wrap {
   position: relative;
   width: 100%;
-  height: 320px;
+  height: 280px;
 }
 figure.chart figcaption {
-  margin-top: 0.75rem;
-  font-size: 0.95rem;
+  margin-top: 0.55rem;
+  font-size: 0.9rem;
   color: var(--c-ink);
   border-left: 3px solid var(--c-green);
-  padding: 0.1rem 0 0.1rem 0.75rem;
+  padding: 0.1rem 0 0.1rem 0.65rem;
+  line-height: 1.4;
 }
 figure.chart figcaption strong { color: var(--c-green); }
 
 /* Pull-quote */
 blockquote.pull {
-  margin: 2rem 0;
-  padding: 1.25rem 1.5rem;
+  margin: 1.25rem 0;
+  padding: 0.9rem 1.15rem;
   background: #fff;
   border-left: 5px solid var(--c-amber);
   border-radius: var(--radius);
-  font-size: 1.15rem;
+  font-size: 1.02rem;
+  line-height: 1.45;
   font-style: italic;
   color: var(--c-ink);
 }
-blockquote.pull footer { font-style: normal; font-size: 0.9rem; color: var(--c-muted); margin-top: 0.5rem; }
+blockquote.pull footer { font-style: normal; font-size: 0.85rem; color: var(--c-muted); margin-top: 0.35rem; }
 
 /* Risk blocks */
 .risk {
@@ -355,8 +394,8 @@ blockquote.pull footer { font-style: normal; font-size: 0.9rem; color: var(--c-m
   border: 1px solid var(--c-rule);
   border-left: 5px solid var(--c-amber);
   border-radius: var(--radius);
-  padding: 1.25rem 1.5rem;
-  margin: 1rem 0;
+  padding: 0.9rem 1.15rem;
+  margin: 0.75rem 0;
 }
 .risk h3 { color: var(--c-green-d); }
 .risk .risk-num {
@@ -365,33 +404,33 @@ blockquote.pull footer { font-style: normal; font-size: 0.9rem; color: var(--c-m
   color: var(--c-ink);
   font-weight: 700;
   border-radius: 999px;
-  width: 1.75rem;
-  height: 1.75rem;
-  line-height: 1.75rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  line-height: 1.6rem;
   text-align: center;
-  margin-right: 0.5rem;
-  font-size: 0.95rem;
+  margin-right: 0.45rem;
+  font-size: 0.9rem;
 }
 
 /* Lab hierarchy diagram (Frontier Models) */
 .layer-diagram {
-  margin: 1.5rem 0 2rem;
+  margin: 1rem 0 1.5rem;
   display: grid;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 .layer {
   background: #fff;
   border: 1px solid var(--c-rule);
   border-radius: var(--radius);
-  padding: 1rem 1.25rem;
+  padding: 0.75rem 1rem;
 }
 .layer-label {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--c-muted);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 .layer.wrappers {
   background: rgba(201,162,39,0.10);
@@ -406,14 +445,14 @@ blockquote.pull footer { font-style: normal; font-size: 0.9rem; color: var(--c-m
 .layer .chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
 }
 .chip {
   background: #fff;
   border: 1px solid var(--c-rule);
   border-radius: 999px;
-  padding: 0.35rem 0.8rem;
-  font-size: 0.92rem;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.85rem;
   font-weight: 600;
 }
 .chip.green  { border-color: var(--c-green); color: var(--c-green); background: rgba(0,103,71,0.05); }
@@ -424,20 +463,23 @@ blockquote.pull footer { font-style: normal; font-size: 0.9rem; color: var(--c-m
   background: #fff;
   border: 1px solid var(--c-rule);
   border-radius: var(--radius);
-  padding: 1.25rem 1.5rem;
-  margin: 1rem 0;
+  padding: 0.9rem 1.15rem;
+  margin: 0.75rem 0;
 }
-.vignette h3 { margin-bottom: 0.25rem; }
-.vignette .meta { color: var(--c-muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
+.vignette h3 { margin-bottom: 0.2rem; font-size: 1.02rem; }
+.vignette .meta { color: var(--c-muted); font-size: 0.85rem; margin-bottom: 0.35rem; }
+.vignette p { margin-bottom: 0.5em; font-size: 0.95rem; }
 .vignette dl {
   display: grid;
   grid-template-columns: max-content 1fr;
-  column-gap: 1rem;
-  row-gap: 0.3rem;
-  margin: 0.5rem 0 0;
-  font-size: 0.95rem;
+  column-gap: 0.85rem;
+  row-gap: 0.2rem;
+  margin: 0.4rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
 }
 .vignette dt { color: var(--c-muted); font-weight: 600; }
+.vignette dd { margin: 0; }
 
 /* ---------- References / bibliography ---------- */
 sup.ref {
@@ -465,23 +507,25 @@ ol.refs {
   list-style: none;
   counter-reset: ref;
   padding-left: 0;
-  margin: 1rem 0 0;
+  margin: 0.75rem 0 0;
 }
 ol.refs li {
   counter-increment: ref;
   position: relative;
-  padding-left: 2.4rem;
-  margin-bottom: 0.9rem;
-  font-size: 0.92rem;
-  line-height: 1.5;
+  padding-left: 2.1rem;
+  margin-bottom: 0.55rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
   color: var(--c-ink);
   scroll-margin-top: 5rem;
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
 ol.refs li::before {
   content: counter(ref) ".";
   position: absolute;
   left: 0;
-  width: 2rem;
+  width: 1.75rem;
   text-align: right;
   font-weight: 700;
   color: var(--c-green);
@@ -496,13 +540,21 @@ ol.refs a {
   word-break: break-word;
 }
 
+/* Two-column bibliography above 720px */
+@media (min-width: 720px) {
+  ol.refs {
+    column-count: 2;
+    column-gap: 2rem;
+  }
+}
+
 /* ---------- Footer ---------- */
 .foot {
   border-top: 1px solid var(--c-rule);
   background: #fff;
-  padding: 2rem 0;
-  margin-top: 3rem;
-  font-size: 0.92rem;
+  padding: 1.1rem 0;
+  margin-top: 1.5rem;
+  font-size: 0.88rem;
   color: var(--c-muted);
 }
 .foot-inner {
@@ -511,14 +563,130 @@ ol.refs a {
   padding: 0 1.25rem;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 2rem;
+  gap: 0.4rem 2rem;
   justify-content: space-between;
   align-items: baseline;
 }
-.foot .brand { color: var(--c-ink); font-size: 0.95rem; }
+.foot .brand { color: var(--c-ink); font-size: 0.92rem; }
 
 /* ---------- Utility ---------- */
 .muted { color: var(--c-muted); }
-.kbd-list { padding-left: 1.25rem; }
-.kbd-list li { margin-bottom: 0.3rem; }
-hr.rule { border: 0; border-top: 1px solid var(--c-rule); margin: 2rem 0; }
+.kbd-list { padding-left: 1.1rem; margin: 0.5rem 0 0.75rem; }
+.kbd-list li { margin-bottom: 0.2rem; }
+hr.rule { border: 0; border-top: 1px solid var(--c-rule); margin: 1.25rem 0; }
+
+/* ---------- Print ---------- */
+@page {
+  size: letter;
+  margin: 0.6in 0.7in;
+}
+
+@media print {
+  /* Force light, ink-friendly defaults */
+  *, *::before, *::after {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  html, body {
+    background: white !important;
+    color: black !important;
+    font-family: Georgia, "Times New Roman", serif !important;
+    font-size: 10.5pt;
+    line-height: 1.4;
+  }
+
+  /* Hide interactive/chrome elements */
+  .nav,
+  .foot,
+  .actions,
+  .btn,
+  .nav-toggle {
+    display: none !important;
+  }
+
+  /* Strip color bands from page heads — keep them readable on paper */
+  .hero,
+  .page-head,
+  .page-head.urgent {
+    background: white !important;
+    color: black !important;
+    padding: 0 0 0.5rem !important;
+    border-bottom: 2px solid black;
+  }
+  .hero h1, .page-head h1,
+  .hero p, .page-head p,
+  .hero .eyebrow, .page-head .eyebrow {
+    color: black !important;
+  }
+
+  /* Sections: tighten and avoid awkward breaks */
+  section.block {
+    padding: 0.5rem 0 !important;
+    page-break-inside: avoid;
+  }
+  section.block + section.block { border-top: 1px solid #999; }
+
+  /* Atomic content blocks — keep on one page where possible */
+  .card,
+  .vignette,
+  .risk,
+  blockquote.pull,
+  figure.chart,
+  .layer,
+  table.cmp tr {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Cards: render as bordered blocks, no shading */
+  .card, .vignette, .risk, .layer, blockquote.pull, figure.chart {
+    border: 1px solid #999 !important;
+  }
+
+  /* Tables: print-safe */
+  table.cmp,
+  table.cmp th,
+  table.cmp td {
+    border: 1px solid #999 !important;
+  }
+  table.cmp thead th {
+    background: #eee !important;
+    color: black !important;
+  }
+
+  /* References start on a fresh page */
+  .refs-section {
+    page-break-before: always;
+  }
+  .refs-section h2 {
+    page-break-before: always;
+  }
+  ol.refs {
+    column-count: 1 !important;
+    font-size: 9pt;
+  }
+  ol.refs li {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Show external link URLs inline */
+  a, a:visited {
+    color: black !important;
+    text-decoration: underline;
+  }
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.85em;
+    color: #555 !important;
+    word-break: break-all;
+  }
+  /* Don't append URL for anchor (intra-page) links like ref backrefs */
+  sup.ref a:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+}

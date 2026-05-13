@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Babson · AI Providers — Report</title>
+  <meta name="description" content="Consolidated print-ready brief on bringing the three leading AI providers to Babson. Prepared for President Steve Spinelli." />
+  <style>
+    /* ============================================================
+       Babson · AI Providers — Print-optimized report
+       Palette mirrors site.css
+       ============================================================ */
+    :root {
+      --c-green:   #006747;
+      --c-green-d: #00472f;
+      --c-ink:     #14191F;
+      --c-bone:    #FAF7F2;
+      --c-amber:   #C9A227;
+      --c-rule:    #D9D3C6;
+      --c-muted:   #5A5F66;
+    }
+
+    @page {
+      size: letter;
+      margin: 0.7in;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      font: 10.5pt/1.4 Georgia, "Times New Roman", serif;
+      color: var(--c-ink);
+      background: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Headings use sans-serif */
+    h1, h2, h3, h4 {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   "Helvetica Neue", Arial, sans-serif;
+      color: var(--c-green);
+      margin: 0 0 0.5em;
+      line-height: 1.2;
+      letter-spacing: -0.005em;
+    }
+    h1 { font-size: 22pt; font-weight: 700; }
+    h2 { font-size: 14pt; font-weight: 700; margin-top: 1.4em; }
+    h3 { font-size: 11.5pt; font-weight: 700; color: var(--c-ink); }
+    h4 { font-size: 10.5pt; font-weight: 700; color: var(--c-ink); }
+    p { margin: 0 0 0.7em; }
+    a { color: var(--c-green); text-decoration: none; }
+    em { font-style: italic; }
+    strong { font-weight: 700; }
+
+    /* Eyebrow tag */
+    .eyebrow {
+      display: inline-block;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 7.5pt;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-green);
+      font-weight: 700;
+      margin: 0 0 0.4em;
+    }
+
+    /* References (inline) */
+    sup.ref {
+      font-size: 7.5pt;
+      vertical-align: super;
+      line-height: 0;
+    }
+    sup.ref a { color: var(--c-green); }
+
+    /* ====== Cover ====== */
+    .cover {
+      page-break-after: always;
+      position: relative;
+      min-height: 9in;
+      padding-top: 4in;
+    }
+    .cover-band {
+      position: absolute;
+      top: 0;
+      left: -0.7in;
+      right: -0.7in;
+      height: 1.6in;
+      background: var(--c-green);
+    }
+    .cover-band-inner {
+      padding: 0.7in 0.7in 0;
+      color: var(--c-bone);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 9pt;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .cover h1 {
+      font-size: 30pt;
+      color: var(--c-ink);
+      margin-bottom: 0.4em;
+    }
+    .cover .subtitle {
+      font-size: 14pt;
+      color: var(--c-muted);
+      margin-bottom: 2em;
+      font-style: italic;
+      max-width: 6in;
+    }
+    .cover-meta {
+      border-top: 2px solid var(--c-amber);
+      padding-top: 1em;
+      margin-top: 2em;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 10pt;
+    }
+    .cover-meta dt {
+      font-weight: 700;
+      color: var(--c-green);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 8pt;
+      margin-top: 0.6em;
+    }
+    .cover-meta dd {
+      margin: 0.1em 0 0;
+      color: var(--c-ink);
+      font-size: 11pt;
+    }
+
+    /* ====== TOC ====== */
+    .toc {
+      page-break-after: always;
+    }
+    .toc h1 { font-size: 18pt; color: var(--c-ink); border-bottom: 2px solid var(--c-green); padding-bottom: 0.3em; margin-bottom: 1em; }
+    .toc ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    .toc ol li {
+      padding: 0.5em 0;
+      border-bottom: 1px dotted var(--c-rule);
+      font-size: 11pt;
+      display: flex;
+      align-items: baseline;
+    }
+    .toc .num {
+      color: var(--c-green);
+      font-weight: 700;
+      width: 2.2em;
+      flex-shrink: 0;
+    }
+    .toc .title { flex: 1; }
+    .toc .desc { display: block; color: var(--c-muted); font-size: 9pt; font-style: italic; margin-top: 0.15em; }
+
+    /* ====== Section anchors ====== */
+    section.report-section {
+      page-break-before: always;
+    }
+    section.report-section:first-of-type { page-break-before: auto; }
+    .section-header {
+      border-bottom: 2px solid var(--c-green);
+      padding-bottom: 0.4em;
+      margin-bottom: 1em;
+    }
+    .section-num {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 9pt;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--c-amber);
+    }
+    .section-header h2 {
+      margin: 0.15em 0 0;
+      color: var(--c-green);
+      font-size: 17pt;
+    }
+
+    /* Subsection eyebrow + h3 pairing */
+    .subhead {
+      margin-top: 1.2em;
+    }
+    .subhead h3 {
+      color: var(--c-green);
+      font-size: 12pt;
+      margin: 0.15em 0 0.5em;
+    }
+
+    /* ====== Vignettes / cards ====== */
+    .vignette, .card {
+      border: 1px solid var(--c-rule);
+      border-left: 3px solid var(--c-green);
+      background: var(--c-bone);
+      padding: 8pt 12pt;
+      margin: 0 0 8pt;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .vignette h3, .card h3 {
+      color: var(--c-ink);
+      font-size: 10.5pt;
+      margin: 0 0 0.25em;
+    }
+    .vignette .meta, .card .meta {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 8.5pt;
+      color: var(--c-muted);
+      margin: 0 0 0.5em;
+      letter-spacing: 0.02em;
+    }
+    .vignette p:last-child, .card p:last-child { margin-bottom: 0; }
+
+    /* Two-column tight grid for value-cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8pt;
+      margin: 0.5em 0 1em;
+    }
+    .card-tight {
+      border: 1px solid var(--c-rule);
+      border-left: 3px solid var(--c-amber);
+      background: #fff;
+      padding: 7pt 10pt;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .card-tight .tag {
+      display: block;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 7.5pt;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--c-amber);
+      font-weight: 700;
+      margin-bottom: 0.2em;
+    }
+    .card-tight h4 {
+      font-size: 9.5pt;
+      margin: 0 0 0.25em;
+      color: var(--c-ink);
+      line-height: 1.25;
+    }
+    .card-tight p {
+      margin: 0;
+      font-size: 9pt;
+      line-height: 1.35;
+    }
+    .group-header {
+      margin-top: 1em;
+    }
+    .group-header h3 {
+      color: var(--c-green);
+      font-size: 12pt;
+      margin: 0.1em 0 0.2em;
+    }
+    .group-header .lead {
+      font-size: 9.5pt;
+      color: var(--c-muted);
+      font-style: italic;
+      margin: 0 0 0.6em;
+    }
+
+    /* Cost table */
+    table.cmp {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0.4em 0 1em;
+      font-size: 9.5pt;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    table.cmp th, table.cmp td {
+      text-align: left;
+      padding: 5pt 8pt;
+      border-bottom: 1px solid var(--c-rule);
+      vertical-align: top;
+    }
+    table.cmp thead th {
+      background: var(--c-green);
+      color: var(--c-bone);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 8.5pt;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    table.cmp tbody tr:nth-child(even) td { background: var(--c-bone); }
+
+    /* Provider blocks */
+    .provider-block {
+      page-break-before: always;
+    }
+    .provider-block:first-of-type { page-break-before: auto; }
+    .provider-block h3.provider-name {
+      color: var(--c-green);
+      font-size: 14pt;
+      margin: 0.4em 0 0.3em;
+      border-bottom: 1px solid var(--c-amber);
+      padding-bottom: 0.2em;
+    }
+
+    /* Closing synthesis callout */
+    .synthesis {
+      background: var(--c-bone);
+      border-left: 4px solid var(--c-amber);
+      padding: 10pt 14pt;
+      margin: 1em 0;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    .synthesis p:last-child { margin-bottom: 0; }
+
+    /* ====== References ====== */
+    .refs-section {
+      page-break-before: always;
+    }
+    .refs-section h2 {
+      font-size: 17pt;
+      border-bottom: 2px solid var(--c-green);
+      padding-bottom: 0.3em;
+    }
+    ol.refs {
+      column-count: 2;
+      column-gap: 18pt;
+      padding-left: 1.4em;
+      margin: 0.5em 0 0;
+      font-size: 8.5pt;
+      line-height: 1.35;
+    }
+    ol.refs li {
+      margin: 0 0 0.6em;
+      break-inside: avoid;
+      page-break-inside: avoid;
+      padding-left: 0.2em;
+    }
+    ol.refs li em { font-style: italic; }
+    ol.refs li a { color: var(--c-green); word-break: break-all; }
+
+    /* Tone: paragraph after section header */
+    .section-lead {
+      font-size: 11pt;
+      color: var(--c-muted);
+      font-style: italic;
+      margin-bottom: 1em;
+      max-width: 5.5in;
+    }
+
+    /* Print-specific tweaks */
+    @media print {
+      body { background: #fff; }
+      a { color: var(--c-ink); }
+      a[href]::after { content: ""; } /* don't print URLs after links inline */
+      ol.refs li a { color: var(--c-ink); }
+      .vignette, .card, .card-tight, .synthesis, table.cmp, ol.refs li {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      h2, h3 { break-after: avoid; page-break-after: avoid; }
+      .cover-band { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      table.cmp thead th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .synthesis, .vignette, .card-tight { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    /* Screen-only container width for preview */
+    @media screen {
+      body {
+        max-width: 7.1in;
+        margin: 1in auto;
+        padding: 0.7in;
+        background: #fff;
+        box-shadow: 0 2px 24px rgba(0,0,0,0.08);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- =================== COVER =================== -->
+<section class="cover">
+  <div class="cover-band">
+    <div class="cover-band-inner">Babson &middot; AI Providers</div>
+  </div>
+
+  <h1>Babson &middot; AI Providers</h1>
+  <p class="subtitle">A short brief on bringing the three leading AI providers to Babson.</p>
+
+  <dl class="cover-meta">
+    <dt>Prepared for</dt>
+    <dd>President Steve Spinelli</dd>
+    <dt>Date</dt>
+    <dd>2026-05-13</dd>
+    <dt>Document</dt>
+    <dd>Consolidated report (printable version of the four-page web brief)</dd>
+  </dl>
+</section>
+
+<!-- =================== TOC =================== -->
+<section class="toc">
+  <h1>Contents</h1>
+  <ol>
+    <li><span class="num">1.</span><span class="title"><strong>The moment</strong><span class="desc">Babson's legacy, the three providers, and why this is straightforward.</span></span></li>
+    <li><span class="num">2.</span><span class="title"><strong>Value for students, faculty, staff</strong><span class="desc">Concrete gains for each group on campus.</span></span></li>
+    <li><span class="num">3.</span><span class="title"><strong>What students build</strong><span class="desc">Four 2025 Summer Venture Program teams, mapped to provider capabilities.</span></span></li>
+    <li><span class="num">4.</span><span class="title"><strong>The three providers</strong><span class="desc">OpenAI, Anthropic, Google — cost and peer-institution adoption, side by side.</span></span></li>
+    <li><span class="num">5.</span><span class="title"><strong>Synthesis</strong><span class="desc">Three providers, one common-sense answer.</span></span></li>
+    <li><span class="num">6.</span><span class="title"><strong>References</strong><span class="desc">Consolidated APA bibliography (22 sources).</span></span></li>
+  </ol>
+</section>
+
+<!-- =================== SECTION 1 — THE MOMENT =================== -->
+<section class="report-section">
+  <div class="section-header">
+    <div class="section-num">Section 1</div>
+    <h2>The moment</h2>
+  </div>
+
+  <p class="section-lead">Babson built modern entrepreneurship education. Institutional AI access is the next chapter &mdash; and Babson is already moving.</p>
+
+  <p>Three companies &mdash; <strong>OpenAI</strong>, <strong>Anthropic</strong>, and <strong>Google</strong> &mdash; are the leading AI providers in 2026. The case this brief lays out is straightforward: bringing all three to Babson is affordable, low-friction, and benefits everyone on campus &mdash; and the move sits squarely inside Babson's identity as the global leader in entrepreneurship education.</p>
+
+  <div class="subhead">
+    <span class="eyebrow">The Babson legacy</span>
+    <h3>A track record very few institutions can claim.</h3>
+  </div>
+  <p>Babson has been ranked the <strong>#1 MBA program for entrepreneurship by <em>U.S. News &amp; World Report</em> for 32 consecutive years</strong><sup class="ref"><a href="#ref-1">1</a></sup>. The F.W. Olin Graduate School and the <strong>Summer Venture Program</strong><sup class="ref"><a href="#ref-2">2</a></sup>, alongside a broader ecosystem of entrepreneurship education programs and pitch competitions, back hundreds of student ventures each year.</p>
+  <p>That foundation is exactly what makes the next chapter &mdash; institutional AI access as standard infrastructure &mdash; a natural fit. The traits these tools reward are the traits Babson has spent decades cultivating: fast iteration, comfort with ambiguity, willingness to ship, judgment over recipe.</p>
+
+  <div class="subhead">
+    <span class="eyebrow">Already in motion</span>
+    <h3>Babson + Founderz: the literacy layer is in place.</h3>
+  </div>
+  <p>In February 2026, Babson launched <strong>"AI in Action"</strong>, a certificate program built with Founderz that introduces the <strong>AI-THINK methodology</strong> &mdash; a structured framework for applying AI tools in entrepreneurial settings<sup class="ref"><a href="#ref-3">3</a></sup>. President Spinelli framed the move directly: <em>"For today's professionals, staying competitive means understanding how to apply AI thoughtfully and responsibly across every area of business."</em><sup class="ref"><a href="#ref-3">3</a></sup></p>
+  <p>The literacy layer is in place. The three providers are the tools the literacy is for.</p>
+
+  <div class="subhead">
+    <span class="eyebrow">The three providers</span>
+    <h3>Three companies, three distinct strengths.</h3>
+  </div>
+  <p>The 2026 AI landscape is, in practice, the work of three companies. Each ships enterprise-grade tools that go far beyond chat &mdash; and each is differentiated in useful ways.</p>
+  <p><strong>OpenAI</strong> is the most widely-deployed and the strongest on agentic execution. <strong>GPT-5.5</strong>, released in April 2026<sup class="ref"><a href="#ref-4">4</a></sup>, leads on multi-step workflow automation. <strong>Workspace Agents</strong> &mdash; launched the same week &mdash; let students run agents that operate inside Salesforce, Slack, and HubSpot on their behalf<sup class="ref"><a href="#ref-5">5</a></sup>.</p>
+  <p><strong>Anthropic</strong> is widely treated as the "architect" of the three &mdash; careful, literal, well-suited to high-stakes reasoning. <strong>Claude Opus 4.7</strong> is the current flagship<sup class="ref"><a href="#ref-6">6</a></sup>. <strong>Claude for Education</strong> ships a <strong>Learning Mode</strong> designed to guide student reasoning rather than just produce answers &mdash; pedagogy first<sup class="ref"><a href="#ref-7">7</a></sup>.</p>
+  <p><strong>Google</strong> brings native multimodality and a one-million-token context window with <strong>Gemini 3.1 Pro</strong><sup class="ref"><a href="#ref-8">8</a></sup>, plus deep integration into the Google Workspace tools many students already use daily &mdash; <strong>Workspace Intelligence</strong> launched in April 2026<sup class="ref"><a href="#ref-9">9</a></sup>. Google has also placed Gemini for Education in <strong>1,000+ higher-education institutions</strong> reaching more than 10 million students<sup class="ref"><a href="#ref-10">10</a></sup>.</p>
+  <p>A relationship with all three &mdash; or with one to start &mdash; does not require choosing a winner. It puts Babson students alongside whichever provider fits the work they're doing that week.</p>
+
+  <div class="subhead">
+    <span class="eyebrow">Why this is straightforward</span>
+    <h3>Easy, affordable, common-sense.</h3>
+  </div>
+  <p><strong>Easy:</strong> these tools integrate with the Workspace, Office, and SSO infrastructure Babson already runs. The three providers offer education-tier plans built around exactly this kind of institutional rollout.</p>
+  <p><strong>Affordable:</strong> per-user pricing has come down significantly over the past eighteen months. The combined cost for institutional access is materially less than the marginal cost of most other software in higher education &mdash; and meaningfully less than a single endowed faculty line.</p>
+  <p><strong>Common-sense:</strong> it benefits students, faculty, and staff &mdash; and reinforces what Babson is already known for. Entrepreneurship leaders are the populations who benefit most from these tools. Babson putting all three providers in their hands is consistent with who Babson is.</p>
+</section>
+
+<!-- =================== SECTION 2 — VALUE =================== -->
+<section class="report-section">
+  <div class="section-header">
+    <div class="section-num">Section 2</div>
+    <h2>Value for students, faculty, staff</h2>
+  </div>
+
+  <p class="section-lead">Institutional access to OpenAI, Anthropic, and Google benefits students, faculty, and staff in different &mdash; and complementary &mdash; ways. The case below is built from the documented capabilities of each provider's current platform.</p>
+
+  <!-- Students -->
+  <div class="group-header">
+    <span class="eyebrow">For students</span>
+    <h3>The compression effect, applied to everything.</h3>
+    <p class="lead">The traits these tools reward &mdash; fast iteration, comfort with ambiguity, willingness to ship &mdash; are exactly the traits Babson cultivates.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card-tight">
+      <span class="tag">Build velocity</span>
+      <h4>Ship a prototype in a weekend.</h4>
+      <p>OpenAI's <strong>Workspace Agents</strong> and the underlying Operator engine<sup class="ref"><a href="#ref-5">5</a></sup> let students run multi-step workflows inside enterprise tools without code. A two-person team can launch what previously required a small engineering org.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Research depth</span>
+      <h4>Read hundreds of pages in one pass.</h4>
+      <p>Claude Opus 4.7<sup class="ref"><a href="#ref-6">6</a></sup> and Gemini 3.1 Pro<sup class="ref"><a href="#ref-8">8</a></sup> both ship one-million-token context windows. Market research, regulatory analysis, and patent landscape sweeps become tractable in an afternoon.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Better data</span>
+      <h4>Collect, clean, analyze at scale.</h4>
+      <p>Agents can pull data from web sources, normalize it, and produce structured outputs that feed business plans, customer-discovery interviews, and competitive analysis.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Multimodal work</span>
+      <h4>Video, image, audio &mdash; natively.</h4>
+      <p>Gemini 3.1 Pro is currently the only AI model that handles video alongside text, image, and audio in a single pass<sup class="ref"><a href="#ref-8">8</a></sup>. For product, design, and content ventures, that collapses workflows that used to need specialized tools.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Personal tutor</span>
+      <h4>An always-on, pedagogically-aware mentor.</h4>
+      <p>Anthropic's <strong>Learning Mode</strong>, included in Claude for Education<sup class="ref"><a href="#ref-7">7</a></sup>, guides reasoning through questions rather than handing back answers &mdash; closer to how good Babson faculty already teach.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Job-market signal</span>
+      <h4>Skills employers already expect.</h4>
+      <p>AI fluency is increasingly a baseline employer expectation. A Babson graduate who has spent two years using all three providers in coursework arrives signal-strong.</p>
+    </div>
+  </div>
+
+  <!-- Faculty -->
+  <div class="group-header">
+    <span class="eyebrow">For faculty</span>
+    <h3>Teaching leverage, research leverage.</h3>
+    <p class="lead">Faculty gain on two axes: classroom productivity and research capacity. The AI-THINK methodology<sup class="ref"><a href="#ref-3">3</a></sup> already provides the pedagogical framing; provider access supplies the tools.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card-tight">
+      <span class="tag">Course development</span>
+      <h4>Build and update materials faster.</h4>
+      <p>Draft new case-study syllabi, generate problem sets, refresh examples each semester, and personalize materials by section &mdash; in a fraction of the previous time.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Office hours augmentation</span>
+      <h4>A class-specific assistant, 24/7.</h4>
+      <p>Claude's Learning Mode<sup class="ref"><a href="#ref-7">7</a></sup> and similar features let faculty stand up a course-specific helper that guides student reasoning between office hours.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Research depth</span>
+      <h4>Synthesize a literature in a sitting.</h4>
+      <p>One-million-token context windows<sup class="ref"><a href="#ref-6">6</a></sup><sup class="ref"><a href="#ref-8">8</a></sup> let a researcher pull together a literature review or methods summary across hundreds of papers in one pass.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Grading consistency</span>
+      <h4>Apply rubrics with calibrated consistency.</h4>
+      <p>AI-assisted rubric application improves consistency across sections and semesters &mdash; useful in large enrollment courses where calibration drift is a real concern. Final assessment still sits with the instructor.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Cross-departmental work</span>
+      <h4>Collaborate across the institution.</h4>
+      <p>Google Workspace Intelligence<sup class="ref"><a href="#ref-9">9</a></sup> weaves Gemini directly into the Workspace tools Babson already uses, lowering the friction of cross-departmental research and curriculum projects.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Less admin</span>
+      <h4>Less time on the non-teaching parts.</h4>
+      <p>Drafting committee summaries, scheduling, syllabus updates, recommendation letters &mdash; much of the administrative tax on faculty time compresses dramatically.</p>
+    </div>
+  </div>
+
+  <!-- Staff -->
+  <div class="group-header">
+    <span class="eyebrow">For staff</span>
+    <h3>Workflow automation across the institution.</h3>
+    <p class="lead">Staff in advising, admissions, the Blank Center, alumni relations, finance, HR, and IT each gain in measurable ways &mdash; the same compression that benefits student founders applies to every recurring institutional workflow.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card-tight">
+      <span class="tag">Workflow automation</span>
+      <h4>Multi-step processes run themselves.</h4>
+      <p>OpenAI's Workspace Agents<sup class="ref"><a href="#ref-5">5</a></sup> automate multi-system workflows &mdash; pulling data from Salesforce, drafting follow-ups in email, updating Slack &mdash; at human-quality output.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Data collection</span>
+      <h4>Better data, less effort.</h4>
+      <p>Agents can collect, clean, and analyze data across institutional systems and external sources &mdash; supporting better reporting, advising, and decision-making across departments.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Document processing</span>
+      <h4>Read and route at scale.</h4>
+      <p>Long-context models<sup class="ref"><a href="#ref-6">6</a></sup><sup class="ref"><a href="#ref-8">8</a></sup> ingest contracts, policy documents, board materials, and accreditation reports in one pass &mdash; accelerating review cycles that historically take weeks.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Reporting &amp; analytics</span>
+      <h4>Reports on demand.</h4>
+      <p>A staff member with provider access can produce ad-hoc reports, dashboards, and analyses without waiting on a centralized analytics team.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">Communications</span>
+      <h4>Draft and personalize at scale.</h4>
+      <p>Donor communications, student outreach, alumni updates &mdash; all benefit from draft-quality first passes that staff then edit. Volume up; consistency improves; time per piece falls.</p>
+    </div>
+    <div class="card-tight">
+      <span class="tag">IT &amp; helpdesk</span>
+      <h4>Tier-1 support that actually helps.</h4>
+      <p>Provider tools can power internal helpdesks that resolve common requests immediately. Walled-garden deployments<sup class="ref"><a href="#ref-11">11</a></sup> keep institutional data isolated from public training.</p>
+    </div>
+  </div>
+
+  <div class="synthesis">
+    <span class="eyebrow">The compounding effect</span>
+    <p>Each of the three groups gains independently. The bigger effect is what happens when they gain together. Students arrive in classrooms taught by faculty using these tools, run their ventures with staff who deploy AI fluently, and graduate having seen institutional adoption from the inside. The result is graduates who do not need to learn AI fluency at their first job &mdash; they have already lived inside an AI-native institution for four years.</p>
+    <p>For a school whose reputation rests on producing entrepreneurs who actually start companies, that compounding effect is the single most direct lever available. Bringing OpenAI, Anthropic, and Google to Babson is a common-sense move that benefits every campus group &mdash; and meaningfully reinforces Babson's position as the global leader in entrepreneurship education.</p>
+  </div>
+</section>
+
+<!-- =================== SECTION 3 — WHAT STUDENTS BUILD =================== -->
+<section class="report-section">
+  <div class="section-header">
+    <div class="section-num">Section 3</div>
+    <h2>What students build</h2>
+  </div>
+
+  <p class="section-lead">AI does not replace the entrepreneur. It compresses the time between an idea and the first version a customer can hold. Babson's <strong>Summer Venture Program</strong> already backs students who are shipping in this environment<sup class="ref"><a href="#ref-2">2</a></sup>.</p>
+
+  <div class="subhead">
+    <span class="eyebrow">Already in classrooms</span>
+    <h3>Babson + Founderz: the literacy layer.</h3>
+  </div>
+  <p>Through <strong>"AI in Action"</strong> with Founderz, Babson launched a certificate program in February 2026 that introduces the <strong>AI-THINK methodology</strong> &mdash; a structured framework for applying these tools to entrepreneurial work<sup class="ref"><a href="#ref-3">3</a></sup>. That work is the literacy layer; the SVP examples below show what that literacy lets students do.</p>
+
+  <div class="subhead">
+    <span class="eyebrow">Summer Venture Program 2025</span>
+    <h3>Four teams, four kinds of AI work.</h3>
+  </div>
+  <p>Each team below was a member of the 2025 SVP cohort<sup class="ref"><a href="#ref-2">2</a></sup>. The vignettes pair the venture's category with the AI capability &mdash; and the specific provider &mdash; that maps most naturally to that kind of work. The capability mapping is illustrative; SVP itself does not prescribe a tool stack.</p>
+
+  <article class="vignette">
+    <h3>Liaizon</h3>
+    <p class="meta">Anushka Balaraj '25 &middot; AI-powered platform</p>
+    <p>An explicitly AI-native venture, where the three providers <em>are</em> the infrastructure. For founders building on top of these models, the question is not which provider to use but which fits which task &mdash; and how the choice shifts as capabilities advance quarter to quarter. Anthropic's Opus 4.7 (April 2026<sup class="ref"><a href="#ref-6">6</a></sup>), OpenAI's GPT-5.5 (April 2026<sup class="ref"><a href="#ref-4">4</a></sup>), and Google's Gemini 3.1 Pro<sup class="ref"><a href="#ref-8">8</a></sup> are the three options in 2026.</p>
+  </article>
+
+  <article class="vignette">
+    <h3>Pipelign Software</h3>
+    <p class="meta">Greg Van Aken MBA '25 &middot; business software</p>
+    <p>Software-for-business ventures benefit most from agentic execution. OpenAI's <strong>Workspace Agents</strong>, launched in April 2026<sup class="ref"><a href="#ref-5">5</a></sup>, run multi-step workflows directly inside enterprise tools (Salesforce, Slack, HubSpot). For a small team, this is the difference between needing a sales-ops engineer and not.</p>
+  </article>
+
+  <article class="vignette">
+    <h3>GENETICFIT Labs</h3>
+    <p class="meta">Alexander Sica '27 &middot; personalized fitness from genetic data</p>
+    <p>Data-intensive ventures lean on long-context synthesis. Both Anthropic's Claude Opus 4.7<sup class="ref"><a href="#ref-6">6</a></sup> and Google's Gemini 3.1 Pro<sup class="ref"><a href="#ref-8">8</a></sup> ship one-million-token context windows in 2026, which makes it tractable for a small team to integrate regulatory, scientific, and customer data in a single pass.</p>
+  </article>
+
+  <article class="vignette">
+    <h3>Chimera Craft</h3>
+    <p class="meta">Christelle Reppen MBA '26, Justin Demers &middot; creative product development</p>
+    <p>Visual and multimodal ventures benefit most from Google's Gemini, currently the only AI model that handles video alongside text, image, and audio in a single pass<sup class="ref"><a href="#ref-8">8</a></sup>. <strong>Workspace Intelligence</strong> integrates that capability directly into the productivity tools students already use<sup class="ref"><a href="#ref-9">9</a></sup>.</p>
+  </article>
+</section>
+
+<!-- =================== SECTION 4 — THE THREE PROVIDERS =================== -->
+<section class="report-section">
+  <div class="section-header">
+    <div class="section-num">Section 4</div>
+    <h2>The three providers</h2>
+  </div>
+
+  <p class="section-lead">For each provider, two questions matter most: what does it cost, and which peer institutions have already deployed it at scale? Both are answered below.</p>
+
+  <!-- OpenAI -->
+  <div class="provider-block">
+    <h3 class="provider-name">OpenAI &middot; ChatGPT for institutions</h3>
+    <p>OpenAI is the most widely-deployed of the three providers in higher education. Its flagship offerings for institutions are <strong>ChatGPT Business</strong> (commercial) and <strong>ChatGPT Edu</strong> (academic), built on the GPT-5.5 model family. The April 2026 launch of <strong>Workspace Agents</strong> added native agentic execution inside enterprise tools like Salesforce, Slack, and HubSpot<sup class="ref"><a href="#ref-5">5</a></sup>.</p>
+
+    <h4>What it costs</h4>
+    <table class="cmp">
+      <thead>
+        <tr><th>Plan</th><th>Per user / month</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>ChatGPT Business</td><td><strong>$20.00</strong> (committed)</td><td>Price reduced by $5 in April 2026<sup class="ref"><a href="#ref-12">12</a></sup>.</td></tr>
+        <tr><td>ChatGPT Enterprise / Edu</td><td>Negotiated</td><td>Volume pricing for institutional deployments; standard for systems serving 1,000+ students.</td></tr>
+      </tbody>
+    </table>
+
+    <h4>How peers have leveraged it</h4>
+
+    <article class="vignette">
+      <h3>The Wharton School</h3>
+      <p class="meta">Universal MBA access &middot; new AI for Business major</p>
+      <p>In May 2024 Wharton announced a strategic investment in AI, providing access to all full-time and executive MBA students and establishing the AI &amp; Analytics for Business program<sup class="ref"><a href="#ref-13">13</a></sup>. In April 2025 Wharton launched a new MBA major in <strong>Artificial Intelligence for Business</strong> alongside an undergraduate concentration<sup class="ref"><a href="#ref-14">14</a></sup>.</p>
+    </article>
+
+    <article class="vignette">
+      <h3>University of Oxford</h3>
+      <p class="meta">First UK university with ChatGPT Edu for all &middot; 5-year OpenAI partnership</p>
+      <p>In September 2025 Oxford became the first UK university to offer ChatGPT Edu to all staff and students, following an initial year of access for ~750 staff and researchers. The rollout is part of a five-year partnership with OpenAI that includes research grant funding and enterprise security<sup class="ref"><a href="#ref-15">15</a></sup>.</p>
+    </article>
+
+    <article class="vignette">
+      <h3>UCLA</h3>
+      <p class="meta">First California university with ChatGPT Enterprise</p>
+      <p>UCLA introduced ChatGPT Enterprise in September 2024 &mdash; the first California university to do so. Access was extended to students, faculty, and staff engaged in teaching, learning, and research initiatives, with an open call for project submissions<sup class="ref"><a href="#ref-16">16</a></sup>.</p>
+    </article>
+
+    <article class="vignette">
+      <h3>California State University System</h3>
+      <p class="meta">~460,000 students &middot; 63,000 faculty &amp; staff &middot; ChatGPT Edu</p>
+      <p>In February 2025 the CSU system announced what it described as the nation's largest AI-empowered university system &mdash; providing ChatGPT Edu access to more than 460,000 students and over 63,000 faculty and staff. The deployment uses a "walled garden" architecture where student data does not train the underlying model<sup class="ref"><a href="#ref-11">11</a></sup>.</p>
+    </article>
+  </div>
+
+  <!-- Anthropic -->
+  <div class="provider-block">
+    <h3 class="provider-name">Anthropic &middot; Claude for institutions</h3>
+    <p>Anthropic is widely treated as the "architect" of the three providers &mdash; careful, literal, and designed around safety. <strong>Claude Opus 4.7</strong> is the current flagship model<sup class="ref"><a href="#ref-6">6</a></sup>. <strong>Claude for Education</strong> ships a <strong>Learning Mode</strong> designed to guide student reasoning rather than just produce answers &mdash; pedagogy first<sup class="ref"><a href="#ref-7">7</a></sup>.</p>
+
+    <h4>What it costs</h4>
+    <table class="cmp">
+      <thead>
+        <tr><th>Plan</th><th>Per user / month</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Claude for Education</td><td>Negotiated</td><td>Institutional contracts; Learning Mode included<sup class="ref"><a href="#ref-7">7</a></sup>. Some launch partners received multi-year free access (see Champlain, below).</td></tr>
+        <tr><td>Claude Enterprise</td><td>Negotiated</td><td>Standard enterprise contract for non-education use cases.</td></tr>
+      </tbody>
+    </table>
+
+    <h4>How peers have leveraged it</h4>
+
+    <article class="vignette">
+      <h3>Northeastern University</h3>
+      <p class="meta">Campus-wide Claude &middot; 13 global campuses &middot; April 2025</p>
+      <p>Northeastern signed a campus-wide agreement with Anthropic in April 2025, providing Claude access to all students, faculty, and staff across 13 global campuses<sup class="ref"><a href="#ref-17">17</a></sup>. The partnership foregrounds Learning Mode pedagogy<sup class="ref"><a href="#ref-7">7</a></sup>.</p>
+    </article>
+
+    <article class="vignette">
+      <h3>London School of Economics</h3>
+      <p class="meta">Full campus Claude access &middot; launch partner</p>
+      <p>LSE was named as an Anthropic launch partner for Claude for Education in April 2025, with Enterprise-tier Claude (with extended context) made available free to every LSE student and educator under a 12-month launch agreement. Student access opened in May 2025<sup class="ref"><a href="#ref-18">18</a></sup>.</p>
+    </article>
+
+    <article class="vignette">
+      <h3>Champlain College</h3>
+      <p class="meta">~2,000 undergrads &middot; Vermont &middot; 2-year free Claude Pro</p>
+      <p>Champlain &mdash; a small, private, career-focused undergraduate college &mdash; received campus-wide Claude Pro access for all students, faculty, and staff (on-campus and online), free for two years through June 2027. Joint classroom and research projects span digital forensics, cybersecurity, business entrepreneurship, and humanities<sup class="ref"><a href="#ref-19">19</a></sup>. The closest small-private peer to Babson in Anthropic's launch cohort.</p>
+    </article>
+  </div>
+
+  <!-- Google -->
+  <div class="provider-block">
+    <h3 class="provider-name">Google &middot; Gemini for institutions</h3>
+    <p>Google brings native multimodality (the only major AI model that handles video alongside text, image, and audio in a single pass) and a one-million-token context window, with <strong>Gemini 3.1 Pro</strong> as the current flagship<sup class="ref"><a href="#ref-8">8</a></sup>. Most universities deploy Gemini through <strong>Gemini for Education</strong> or <strong>Workspace Intelligence</strong>, which weaves Gemini into the Workspace tools many institutions already use<sup class="ref"><a href="#ref-9">9</a></sup>.</p>
+
+    <h4>What it costs</h4>
+    <table class="cmp">
+      <thead>
+        <tr><th>Plan</th><th>Per user / month</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Google AI Pro for Education</td><td>Education tier &middot; via reseller</td><td>Education-specific tier for Workspace for Education customers; pricing handled through Google's reseller channel<sup class="ref"><a href="#ref-20">20</a></sup>.</td></tr>
+        <tr><td>Workspace Intelligence</td><td>Bundled with Workspace plans</td><td>Add-on for existing Workspace tenants; institutional pricing<sup class="ref"><a href="#ref-9">9</a></sup>.</td></tr>
+      </tbody>
+    </table>
+
+    <h4>How peers have leveraged it</h4>
+
+    <article class="vignette">
+      <h3>Rice University</h3>
+      <p class="meta">Campus-wide Gemini + NotebookLM &middot; September 2025</p>
+      <p>Rice &mdash; a private research university with a strong business school &mdash; adopted Google's Gemini for Education and NotebookLM campus-wide for all students, faculty, and staff in September 2025, with the partnership grounded in "responsible AI"<sup class="ref"><a href="#ref-21">21</a></sup>.</p>
+    </article>
+
+    <article class="vignette">
+      <h3>University of Houston</h3>
+      <p class="meta">System-wide Gemini for Education &middot; full data sovereignty</p>
+      <p>The University of Houston announced a first-in-state systemwide deployment of Gemini for Education and NotebookLM in March 2026 &mdash; all students, faculty, and staff &mdash; with explicit data sovereignty: institutional data and research IP are not used to train public models<sup class="ref"><a href="#ref-22">22</a></sup>.</p>
+    </article>
+
+    <article class="vignette">
+      <h3>1,000+ institutions, 10M+ students</h3>
+      <p class="meta">Google's published higher-ed footprint</p>
+      <p>Google's own roundup confirms Gemini for Education is in use at more than 1,000 higher-education institutions reaching over 10 million U.S. college students, including Brown, MIT, Ohio State, Michigan, Notre Dame, Florida State, UC Riverside, Texas State, Rice, and the California Community Colleges<sup class="ref"><a href="#ref-10">10</a></sup>.</p>
+    </article>
+  </div>
+</section>
+
+<!-- =================== SECTION 5 — SYNTHESIS =================== -->
+<section class="report-section">
+  <div class="section-header">
+    <div class="section-num">Section 5</div>
+    <h2>Synthesis</h2>
+  </div>
+
+  <p class="section-lead">Three providers, three distinct shapes, one common-sense answer.</p>
+
+  <p>Each provider has a profile. <strong>OpenAI</strong> is the most widely-adopted and the strongest on agentic execution &mdash; used by Wharton, Oxford, UCLA, and the CSU system. <strong>Anthropic</strong> is the pedagogy-first choice &mdash; used by Northeastern, LSE, and Champlain. <strong>Google</strong> is the multimodal-and-Workspace choice &mdash; used by Rice, Houston, and a thousand other institutions reaching 10 million students.</p>
+
+  <p>The published per-user rates are now squarely inside what most institutions spend per seat on routine software. Bringing all three providers to Babson &mdash; or any one of them as a starting point &mdash; sits comfortably inside budget norms for higher education, and the case is reinforced every time another peer institution announces a partnership.</p>
+
+  <div class="synthesis">
+    <p>The literacy layer is already in place. The peer adoption record is now broad enough that no single institution is going first. The per-seat cost is squarely inside ordinary higher-ed software budgets. And the populations who benefit most &mdash; entrepreneurship students, the faculty teaching them, and the staff supporting both &mdash; are exactly who Babson exists to serve.</p>
+  </div>
+</section>
+
+<!-- =================== SECTION 6 — REFERENCES =================== -->
+<section class="refs-section">
+  <h2>References</h2>
+  <ol class="refs">
+    <li id="ref-1">Babson College. (2025, April 8). <em>32 years in a row: Babson tops MBA entrepreneurship rankings</em>. Babson Thought &amp; Action. <a href="https://entrepreneurship.babson.edu/babson-mba-top-usnwr/">https://entrepreneurship.babson.edu/babson-mba-top-usnwr/</a></li>
+    <li id="ref-2">Babson College. (2025). <em>2025 Summer Venture Program teams</em>. Babson Thought &amp; Action. <a href="https://entrepreneurship.babson.edu/2025-summer-venture-program-teams/">https://entrepreneurship.babson.edu/2025-summer-venture-program-teams/</a></li>
+    <li id="ref-3">Babson College. (2026, February 12). <em>Babson expands professional &amp; executive education portfolio with launch of new AI &amp; innovation certificate with Founderz</em>. Babson Thought &amp; Action. <a href="https://entrepreneurship.babson.edu/babson-founderz-ai/">https://entrepreneurship.babson.edu/babson-founderz-ai/</a></li>
+    <li id="ref-4">OpenAI. (2026, April 23). <em>Introducing GPT-5.5</em>. <a href="https://openai.com/index/introducing-gpt-5-5/">https://openai.com/index/introducing-gpt-5-5/</a></li>
+    <li id="ref-5">OpenAI. (2026, April 22). <em>Introducing Workspace Agents in ChatGPT</em>. <a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/">https://openai.com/index/introducing-workspace-agents-in-chatgpt/</a></li>
+    <li id="ref-6">Anthropic. (2026, April 16). <em>Introducing Claude Opus 4.7</em>. <a href="https://www.anthropic.com/news/claude-opus-4-7">https://www.anthropic.com/news/claude-opus-4-7</a></li>
+    <li id="ref-7">Anthropic. (2025, April 2). <em>Introducing Claude for Education</em>. <a href="https://www.anthropic.com/news/introducing-claude-for-education">https://www.anthropic.com/news/introducing-claude-for-education</a></li>
+    <li id="ref-8">Google. (2026, February 19). <em>Gemini 3.1 Pro: A smarter model for your most complex tasks</em>. The Keyword. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/">https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/</a></li>
+    <li id="ref-9">Google Workspace. (2026, April 22). <em>New Workspace Intelligence delivers unified, real-time understanding to power agentic work</em>. Google Workspace Blog. <a href="https://workspace.google.com/blog/product-announcements/introducing-workspace-intelligence">https://workspace.google.com/blog/product-announcements/introducing-workspace-intelligence</a></li>
+    <li id="ref-10">Google. (2025). <em>Gemini for Education: How higher education is using Google AI</em>. The Keyword. <a href="https://blog.google/products-and-platforms/products/education/gemini-higher-education-benefits/">https://blog.google/products-and-platforms/products/education/gemini-higher-education-benefits/</a></li>
+    <li id="ref-11">California State University. (2025, February 4). <em>CSU announces landmark initiative to become nation's first and largest AI-empowered university system</em>. <a href="https://www.calstate.edu/csu-system/news/Pages/CSU-AI-Powered-Initiative.aspx">https://www.calstate.edu/csu-system/news/Pages/CSU-AI-Powered-Initiative.aspx</a></li>
+    <li id="ref-12">OpenAI. (n.d.). <em>ChatGPT pricing</em>. <a href="https://openai.com/business/chatgpt-pricing/">https://openai.com/business/chatgpt-pricing/</a> &middot; See also OpenAI Help Center, <em>Flexible pricing for the Enterprise, Edu, and Business plans</em>, <a href="https://help.openai.com/en/articles/11487671-flexible-pricing-for-the-enterprise-edu-and-business-plans">https://help.openai.com/en/articles/11487671-flexible-pricing-for-the-enterprise-edu-and-business-plans</a></li>
+    <li id="ref-13">The Wharton School. (2024, May 29). <em>The Wharton School makes strategic investment in artificial intelligence research and teaching</em>. University of Pennsylvania. <a href="https://news.wharton.upenn.edu/press-releases/2024/05/the-wharton-school-makes-strategic-investment-in-artificial-intelligence-research-and-teaching/">https://news.wharton.upenn.edu/press-releases/2024/05/the-wharton-school-makes-strategic-investment-in-artificial-intelligence-research-and-teaching/</a></li>
+    <li id="ref-14">Schmitt, J. (2025, April 6). <em>Wharton launches new AI for business MBA major &amp; undergrad concentration</em>. Poets &amp; Quants. <a href="https://poetsandquants.com/2025/04/06/wharton-launches-new-ai-for-business-mba-major-undergrad-concentration/">https://poetsandquants.com/2025/04/06/wharton-launches-new-ai-for-business-mba-major-undergrad-concentration/</a></li>
+    <li id="ref-15">University of Oxford. (2025, September 19). <em>Oxford becomes first UK university to offer ChatGPT Edu to all staff and students</em>. University of Oxford News. <a href="https://www.ox.ac.uk/news/2025-09-19-oxford-becomes-first-uk-university-offer-chatgpt-edu-all-staff-and-students">https://www.ox.ac.uk/news/2025-09-19-oxford-becomes-first-uk-university-offer-chatgpt-edu-all-staff-and-students</a></li>
+    <li id="ref-16">UCLA. (2024, September 20). <em>UCLA is set to introduce ChatGPT Enterprise on campus &mdash; a first for California higher ed</em>. UCLA Newsroom. <a href="https://newsroom.ucla.edu/releases/ucla-to-introduce-chatgpt-enterprise-on-campus">https://newsroom.ucla.edu/releases/ucla-to-introduce-chatgpt-enterprise-on-campus</a></li>
+    <li id="ref-17">Northeastern University. (2025, April 2). <em>Northeastern and Anthropic to lead in responsible AI innovation in higher education</em>. Northeastern Global News. <a href="https://news.northeastern.edu/2025/04/02/anthropic-ai-partnership/">https://news.northeastern.edu/2025/04/02/anthropic-ai-partnership/</a></li>
+    <li id="ref-18">London School of Economics and Political Science. (2025, May). <em>Anthropic's Claude for Education</em>. LSE Eden Centre. <a href="https://info.lse.ac.uk/staff/divisions/Eden-Centre/Artificial-Intelligence-Education-and-Assessment/Anthropics-Claude-for-Education">https://info.lse.ac.uk/staff/divisions/Eden-Centre/Artificial-Intelligence-Education-and-Assessment/Anthropics-Claude-for-Education</a></li>
+    <li id="ref-19">Champlain College. (2025, March 25). <em>Champlain College collaborates with Anthropic to advance AI in higher ed</em>. Champlain News. <a href="https://www.champlain.edu/blog/news/champlain-collaborates-with-anthropic-ai-higher-ed/">https://www.champlain.edu/blog/news/champlain-collaborates-with-anthropic-ai-higher-ed/</a></li>
+    <li id="ref-20">Google Workspace Updates. (2025, September). <em>Google AI Pro for Education subscription now available to Workspace for Education customers</em>. <a href="https://workspaceupdates.googleblog.com/2025/09/google-ai-pro-for-education.html">https://workspaceupdates.googleblog.com/2025/09/google-ai-pro-for-education.html</a></li>
+    <li id="ref-21">Rice University. (2025, September 16). <em>Rice adopts Google's generative AI solution to enhance student learning and faculty support</em>. Rice News. <a href="https://news.rice.edu/news/2025/rice-adopts-googles-generative-ai-solution-enhance-student-learning-and-faculty-support">https://news.rice.edu/news/2025/rice-adopts-googles-generative-ai-solution-enhance-student-learning-and-faculty-support</a></li>
+    <li id="ref-22">University of Houston. (2026, March 17). <em>University of Houston launches Google Gemini for Education to advance AI research and student success</em>. UH News. <a href="https://www.uh.edu/news-events/stories/2026/march/03172026-google-ai-partnership.php">https://www.uh.edu/news-events/stories/2026/march/03172026-google-ai-partnership.php</a></li>
+  </ol>
+</section>
+
+</body>
+</html>

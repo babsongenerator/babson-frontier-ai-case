@@ -1,15 +1,18 @@
-# Babson · AI Providers — A Short Brief (v5)
+# Babson · AI Providers — A Short Brief (v6)
 
 A four-page, Babson-branded static brief making the case that bringing the three leading AI providers — **OpenAI**, **Anthropic**, and **Google** — to Babson is an easy, affordable, and common-sense move that benefits students, faculty, and staff, and reinforces Babson's position as the global leader in entrepreneurship education.
 
+**v6 adds:** dramatic density pass on the CSS (much more content per screen) + a consolidated single-page **report** at `/report/` + a downloadable **PDF** of the report linked from every site page.
+
 Source brief: [`original prompt.md`](original%20prompt.md). PRD: [`PRD.md`](PRD.md).
 
-Earlier iterations preserved on this repo:
-- **`v1.0`** / **`v1-archive`** — original 7-page version with risk framing.
-- **`v2.0`** / **`v2-archive`** — 3-page positive-tone brief with placeholders.
-- **`v3.0`** / **`v3-archive`** — 4 pages with real data + partnership-tier proposal.
-- **`v4.0`** / **`v4-archive`** — 4 pages with APA bibliographies, proposal language removed.
-- **`main`** (this) — v5: terminology change ("frontier" / "labs" → "providers"), new `/value/` page, `/peers/` + `/costs/` merged into `/providers/` with per-provider cost + peer adoption, every fact still footnoted.
+---
+
+## Live URL + PDF
+
+**Web:** https://babsongenerator.github.io/babson-frontier-ai-case/
+
+**PDF:** https://babsongenerator.github.io/babson-frontier-ai-case/babson-ai-providers.pdf — also available via the amber **↓ PDF** button in the nav on every page.
 
 ---
 
@@ -21,8 +24,6 @@ python3 -m http.server 8000
 # open http://localhost:8000/
 ```
 
-Live (public) at **https://babsongenerator.github.io/babson-frontier-ai-case/** — GitHub Pages rebuilds on each push to `main`.
-
 ---
 
 ## Structure
@@ -32,39 +33,52 @@ For Steve/
 ├── index.html                       # /                 — The moment
 ├── value/index.html                 # /value/           — Value for students, faculty, staff
 ├── build/index.html                 # /build/           — What students build
-├── providers/index.html             # /providers/       — OpenAI · Anthropic · Google (cost + peer adoption)
+├── providers/index.html             # /providers/       — OpenAI · Anthropic · Google
+├── report/index.html                # /report/          — Single-page consolidated print-optimized report
+├── babson-ai-providers.pdf          # Downloadable PDF (generated from report/)
+├── build-pdf.sh                     # Regenerate the PDF from report/index.html
 ├── assets/
-│   ├── css/site.css                 # palette + components + refs styling
-│   ├── js/charts.js                 # unused in v5 (kept for future use)
+│   ├── css/site.css                 # palette + density-tuned components + @media print
+│   ├── js/charts.js                 # unused in v6
 │   └── js/nav.js                    # mobile nav + active-link
 ├── PRD.md
 ├── original prompt.md
 └── README.md
 ```
 
-All inter-page and asset links are **relative**, so the site works at any URL prefix.
+---
+
+## Regenerating the PDF
+
+The PDF in the repo (`babson-ai-providers.pdf`) is generated from `report/index.html` via [WeasyPrint](https://weasyprint.org/). Whenever you change the report content, regenerate:
+
+```bash
+./build-pdf.sh
+# or directly:
+weasyprint report/index.html babson-ai-providers.pdf
+```
+
+Install WeasyPrint once with `brew install weasyprint` (macOS).
+
+**Note:** the four web pages and the report HTML are currently maintained separately. Edits to the web pages do NOT auto-sync into the report. After substantive content changes, edit `report/index.html` to match, then regenerate the PDF.
 
 ---
 
-## What v5 changed from v4
+## What v6 changed from v5
 
-- **Terminology.** "Frontier AI" / "frontier labs" / "frontier models" replaced with "the three leading AI providers" / "the three providers" / "AI." Site brand: `Babson · Frontier AI` → `Babson · AI Providers`.
-- **New page: `/value/`** — explicit case for what students, faculty, and staff each gain. 6 benefit cards per group, each tied to a documented capability from one of the three providers.
-- **`/peers/` + `/costs/` merged into `/providers/`** — single page with three sections (one per provider), each showing **published cost** AND **how peer universities have already deployed it**.
-- **Per-provider peer adoption deepened** with new verified sources:
-  - **OpenAI**: Wharton, Oxford (5-year partnership), UCLA, CSU system.
-  - **Anthropic**: Northeastern, LSE, Champlain (small-private peer match for Babson).
-  - **Google**: Rice (private research peer), University of Houston (data-sovereignty rollout), Google's published 1,000+ institution / 10M+ student footprint.
-- **Subtext woven throughout.** Bringing OpenAI, Anthropic, and Google to Babson is positioned as easy / affordable / common-sense and tied back to Babson's reputation in entrepreneurial leadership.
+- **Density.** `site.css` had a full density pass: hero / page-head / section padding cut ~50%, line-height tightened (1.55→1.45), max widths bumped (1080→1180px), cards/tables/vignettes packed tighter, references rendered in **two columns** on desktop. Result: roughly 40–60% more content per screen.
+- **New `/report/` route.** A single-page, print-optimized consolidation of all four pages. Cover, TOC, four content sections, and a renumbered combined bibliography (22 unique references). Each provider gets its own page in print.
+- **Downloadable PDF.** `babson-ai-providers.pdf` (198 KB) generated from `/report/` via WeasyPrint, committed to the repo, served by GitHub Pages, and linked from every page's nav with the amber **↓ PDF** button.
+- **`@media print` block** in `site.css`: hides nav/footer/buttons, switches to Georgia serif, restores white background, prevents card/vignette splits across pages, appends external URLs after link text. The site itself can be printed cleanly from any page.
 
 ---
 
-## Tone
+## Tone (unchanged from v5)
 
-- The brief now argues a clear case via the choice of evidence and framing, without becoming a proposal — there is no "Babson should…", no "the pilot," no "next steps," no tier structure.
-- Positive on Babson's track record. Celebrates the Babson + Founderz initiative as the literacy layer already in place.
+- The brief argues a clear case via choice of evidence and framing — not via "you should…" copy.
+- No "frontier" / "labs" terminology. "The three leading AI providers" / "the three providers" / "AI."
+- No "Babson should," no "pilot," no tier structure. Where peer history includes a literal pilot, the word is rephrased.
 - Every load-bearing fact is footnoted to a verified source URL.
-- The Value page makes the strongest argumentative push — it is the page meant to be quoted from in a forwarded email.
 
 ---
 
@@ -99,7 +113,7 @@ All verified as of 2026-05-13. URLs marked **bot-blocked** return 403 to scripts
 - Gemini 3.1 Pro release — https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/ — ✓
 - Workspace Intelligence launch — https://workspace.google.com/blog/product-announcements/introducing-workspace-intelligence — ✓
 - Google AI Pro for Education — https://workspaceupdates.googleblog.com/2025/09/google-ai-pro-for-education.html — ✓
-- Rice Gemini for Education — https://news.rice.edu/news/2025/rice-adopts-googles-generative-ai-solution-enhance-student-learning-and-faculty-support — ✓ (some scripts get 406 — Cloudflare; browsers load)
+- Rice Gemini for Education — https://news.rice.edu/news/2025/rice-adopts-googles-generative-ai-solution-enhance-student-learning-and-faculty-support — bot-blocked, real
 - University of Houston Gemini — https://www.uh.edu/news-events/stories/2026/march/03172026-google-ai-partnership.php — ✓
 - Google's 1,000+ institutions roundup — https://blog.google/products-and-platforms/products/education/gemini-higher-education-benefits/ — ✓
 
@@ -124,6 +138,7 @@ Edit once in [`assets/css/site.css`](assets/css/site.css):
 - **v2.0** — 3-page positive-tone version (`v2-archive` branch).
 - **v3.0** — 4 pages, real data, tier proposal (`v3-archive` branch).
 - **v4.0** — 4 pages, no proposal language, full bibliographies (`v4-archive` branch).
-- **v5** (current `main`) — terminology shift, new `/value/` page, `/providers/` page with per-provider cost + peer adoption.
+- **v5.0** — terminology shift, `/value/` page, `/providers/` page (`v5-archive` branch).
+- **v6** (current `main`) — density pass + consolidated `/report/` + downloadable PDF.
 
-`git checkout v4.0` (or any earlier tag) brings the earlier shape back any time.
+`git checkout v5.0` (or any earlier tag) brings the previous shape back.
