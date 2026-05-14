@@ -39,8 +39,8 @@
       body: '<p>Built through natural-language conversation with an AI (Anthropic&rsquo;s Claude, in this case), rather than written by hand in code. The author describes what they want; the AI writes the implementation.</p><p>A faculty member with no engineering background can produce a working interactive site in an afternoon. That is part of what these tools have made possible.</p>'
     },
     'generator': {
-      title: 'The Generator',
-      body: '<p>Babson&rsquo;s interdisciplinary AI lab, founded by Erik Noyes (a co-author of this brief). The Generator runs hands-on programs through the Weissman Foundry to put advanced AI tools in students&rsquo;, faculty&rsquo;, and small-business partners&rsquo; hands.</p>'
+      title: 'The Generator (Babson)',
+      body: '<p>Babson&rsquo;s interdisciplinary AI lab, founded by Erik Noyes (a co-author of this brief). The Generator runs hands-on programs through the Weissman Foundry to put advanced AI tools in students&rsquo;, faculty&rsquo;, and small-business partners&rsquo; hands.</p><p><a href="https://www.babson.edu/thegenerator/" target="_blank" rel="noopener">babson.edu/thegenerator</a></p>'
     }
   };
 
