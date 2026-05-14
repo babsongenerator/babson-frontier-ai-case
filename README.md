@@ -1,6 +1,6 @@
 # Babson · AI Providers — Briefing Memorandum (v15)
 
-A consulting-register briefing memorandum on the three leading AI providers in higher education — OpenAI, Anthropic, and Google. Prepared for **Babson President Steve Spinelli** and signed by **Erik Noyes**, **Kristi Gridharry**, and **Jonathan Sims**.
+A consulting-register briefing memorandum on the three leading AI providers in higher education — OpenAI, Anthropic, and Google. Prepared for **Babson President Steve Spinelli** and signed by **Erik Noyes**, **Kristi Girdarry**, and **Jonathan Sims**.
 
 The site is the long version; the accompanying [PDF](babson-ai-providers.pdf) is the printed summary.
 
@@ -92,7 +92,7 @@ The current PDF was generated from the v11 consolidated report; once the consult
 ## Authors
 
 - **Erik Noyes** — Associate Professor; founding Faculty Director of The Generator and the Weissman Foundry
-- **Kristi Gridharry** — co-signer
+- **Kristi Girdarry** — co-signer
 - **Jonathan Sims** — co-signer
 
 ---
