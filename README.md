@@ -1,28 +1,18 @@
-# Babson · AI Providers — A Short Brief (v11)
+# Babson · AI Providers — Briefing Memorandum (v15)
 
-A four-page, Babson-branded static brief making the case that bringing the three leading AI providers — **OpenAI**, **Anthropic**, and **Google** — to Babson is an easy, affordable, and common-sense move that benefits students, faculty, and staff, and reinforces Babson's position as the global leader in entrepreneurship education.
+A consulting-register briefing memorandum on the three leading AI providers in higher education — OpenAI, Anthropic, and Google. Prepared for **Babson President Steve Spinelli** and signed by **Erik Noyes**, **Kristi Gridharry**, and **Jonathan Sims**.
 
-**v11 surfaces the cost answer up front.** New "Cost at a glance" block at the top of `/providers/` (right under the page-head) — three cost cards, big-number-forward, showing each provider's headline rate, the largest publicly-disclosed peer benchmark, and a Babson-scale annual estimate (~$0.9–1.2M/year per provider at list, ~5,000 users). The report has the equivalent block as the lead-in to Section 4. A busy reader scrolling on mobile now hits the dollar answer in the first scroll past the page-head, before any provider description.
-
-Source brief: [`original prompt.md`](original%20prompt.md). PRD: [`PRD.md`](PRD.md).
+The site is the long version; the accompanying [PDF](babson-ai-providers.pdf) is the printed summary.
 
 ---
 
-## Live URL + PDF
+## Live
 
-**Web:** https://babsongenerator.github.io/babson-frontier-ai-case/
-
-**PDF:** https://babsongenerator.github.io/babson-frontier-ai-case/babson-ai-providers.pdf — also available via the amber **↓ PDF** button in the nav on every page.
-
----
-
-## Run it locally
-
-```bash
-cd "For Steve"
-python3 -m http.server 8000
-# open http://localhost:8000/
-```
+- **Primary brief:** https://babsongenerator.github.io/babson-frontier-ai-case/
+- **Appendix A** (Microsoft Copilot · pricing detail · glossary): https://babsongenerator.github.io/babson-frontier-ai-case/details/
+- **PDF summary:** https://babsongenerator.github.io/babson-frontier-ai-case/babson-ai-providers.pdf
+- **Alternative design directions** (dashboard, magazine): https://babsongenerator.github.io/babson-frontier-ai-case/prototypes/
+- **Archive** of earlier multi-page versions: https://babsongenerator.github.io/babson-frontier-ai-case/archive/
 
 ---
 
@@ -30,170 +20,101 @@ python3 -m http.server 8000
 
 ```
 For Steve/
-├── index.html                       # /                 — The moment
-├── value/index.html                 # /value/           — Value for students, faculty, staff
-├── build/index.html                 # /build/           — What students build
-├── providers/index.html             # /providers/       — OpenAI · Anthropic · Google
-├── report/index.html                # /report/          — Single-page consolidated print-optimized report
-├── babson-ai-providers.pdf          # Downloadable PDF (generated from report/)
-├── build-pdf.sh                     # Regenerate the PDF from report/index.html
-├── assets/
-│   ├── css/site.css                 # palette + density-tuned components + @media print
-│   ├── js/charts.js                 # unused in v6
-│   └── js/nav.js                    # mobile nav + active-link
-├── PRD.md
-├── original prompt.md
+├── index.html                       # /                — Primary brief (consulting register)
+├── style.css                        # Brief stylesheet (IBM Plex; Babson green; numbered sections)
+├── details/index.html               # /details/        — Appendix A: Microsoft Copilot · pricing detail · glossary
+├── babson-ai-providers.pdf          # Printed summary
+├── prototypes/                      # /prototypes/     — Three design-direction prototypes
+│   ├── index.html                   # Comparison index (consulting marked as the selected direction)
+│   ├── dashboard/                   # Alt direction: Stripe/Linear data-product
+│   └── magazine/                    # Alt direction: FT/Atlantic editorial
+├── archive/                         # /archive/        — Earlier multi-page versions (preserved)
+│   ├── index.html                   # Old "The moment" home
+│   ├── value/index.html             # Old Value page
+│   ├── build/index.html             # Old What students build
+│   ├── providers/index.html         # Old Three providers
+│   ├── report/index.html            # Old consolidated report
+│   └── assets/                      # Old shared CSS/JS
+├── build-pdf.sh                     # Regenerate babson-ai-providers.pdf via WeasyPrint
+├── Babson examples - highlight.md   # Source links for the Babson Section 4 (gitignored locally if you'd like)
+├── original prompt.md               # Original source brief
 └── README.md
 ```
 
 ---
 
+## Document organization (primary brief)
+
+1. **Masthead** — briefing memorandum header (prepared for · subject · classification · date · document)
+2. **From the authors** — preface; thanks Spinelli for the meeting; explains the site is *vibe-coded* (built through conversation with Anthropic's Claude) with research drawn from Google Gemini's Deep Research — two of the three providers being described
+3. **Executive Summary** — four bullets, cost first
+4. **§ 1.0 Landscape** — the three providers' distinct strengths, with a comparison table
+5. **§ 2.0 Cost at institutional scale** — list pricing, CSU $17M benchmark, Babson-scale envelope
+6. **§ 3.0 Peer-institution adoption** — Wharton, Oxford, UCLA, CSU, Northeastern, LSE, Champlain, Rice, Houston, plus the 1,000+ aggregate
+7. **§ 4.0 Babson is already building with these tools** — four current examples linked to public URLs; The Generator + Weissman Foundry + AI Innovators Bootcamp context
+8. **§ 5.0 Observations** — four closing observations
+9. **§ References** — 27 cited sources
+
+**Appendix A** (`/details/`):
+
+- A.1 On Microsoft Copilot — Microsoft's own docs name OpenAI's GPT-5 as the model behind Copilot; Microsoft + Anthropic + NVIDIA Nov 2025 partnership added Claude inside Copilot. Two named Copilot higher-ed deployments (USC, Manchester). Positioning: Copilot operates one layer above the foundation providers.
+- A.2 Pricing in detail — full per-user list table; CSU $17M deal unpacked phase-by-phase; Babson-scale math; undisclosed deal totals catalogued.
+- A.3 Glossary — GPT-5.5, Workspace Agents, Operator, Claude Opus 4.7, Learning Mode, Gemini 3.1 Pro, Workspace Intelligence, 1M-token context, ChatGPT Edu.
+- § Appendix references (A1–A8) — additional Copilot-specific sources.
+
+---
+
+## Babson examples featured in § 4.0
+
+| Project | Babson connection | URL |
+|---|---|---|
+| Crafting Tomorrow | Co-founded by Cole Collins (Babson undergrad; Babson AI Club leadership) | [crafting-tomorrow.org](https://www.crafting-tomorrow.org/) |
+| "ping! and brain" (Build-a-thon demo) | Vaness Reece Gardner '26, AI Specialist at the Weissman Foundry; Generator Build-a-thon 2026 | [YouTube](https://youtu.be/twRzdwVQ2eM) |
+| GemCopy (AI Innovators demo) | Output of Babson's AI Innovators Bootcamp pairing Babson faculty/students with the diamond company Amipi INC | [demo](https://aiinnovatorsprojectvideodemo.vercel.app/) |
+| Face Off | Built on Base44, an AI no-code app-builder Babson students use through Generator programs | [Face Off](https://face-off-now.base44.app/) |
+
+Plus references to **The Generator** (Babson's interdisciplinary AI lab, founded by **Erik Noyes**, who is one of this brief's three authors), the **Weissman Foundry**, the **AI Innovators Bootcamp** (1,000-SMB training goal), and the Babson–Microsoft small-business AI-agent pilot.
+
+---
+
 ## Regenerating the PDF
 
-The PDF in the repo (`babson-ai-providers.pdf`) is generated from `report/index.html` via [WeasyPrint](https://weasyprint.org/). Whenever you change the report content, regenerate:
-
 ```bash
-./build-pdf.sh
-# or directly:
-weasyprint report/index.html babson-ai-providers.pdf
+./build-pdf.sh                                # uses /archive/report/index.html as the source (legacy)
+# or, against a future canonical report:
+# weasyprint <source>.html babson-ai-providers.pdf
 ```
 
-Install WeasyPrint once with `brew install weasyprint` (macOS).
-
-**Note:** the four web pages and the report HTML are currently maintained separately. Edits to the web pages do NOT auto-sync into the report. After substantive content changes, edit `report/index.html` to match, then regenerate the PDF.
+The current PDF was generated from the v11 consolidated report; once the consulting brief is itself ready to drive the PDF, the script will be re-pointed.
 
 ---
 
-## What v11 changed from v10
+## Authors
 
-- **"Cost at a glance" block** added at the top of `/providers/`, right after the page-head. Three cost cards — OpenAI / Anthropic / Google — each with a big headline rate, the largest publicly-disclosed peer benchmark, and an anchor link to that provider's detail section below. The block opens with the Babson-scale estimate (*~$0.9–1.2M/year per provider at list pricing for ~5,000 active users, before education-tier or volume discounts*).
-- **Equivalent in the report.** A "Cost at a glance" callout opens Section 4 — same three rows, inline-styled to print well, ahead of the detailed per-provider blocks.
-- **New CSS:** `.cost-cards` / `.cost-card` / `.cost-card.cost-anthropic` with big-number color (Babson green for OpenAI/Google, amber for Anthropic), heavy weight (800), prominent typographic hierarchy.
-
-This was a quick refinement of v10's cost framing. The motivation: on a tighter (mobile-ish) viewport, the cost table on `/providers/` was buried below the provider intro paragraph. A busy president would scroll past the description and ask "what does this cost?" before getting to the answer. Now the answer comes first.
-
-## What v10 changed from v9
-
-- **Cost framing rescaled to institutional reality.** Per-user/month figures read small for a college president. Replaced the Home stat-strip's "$15–20 / user/month" with **"$17M / CSU's 18-mo OpenAI deal"** — a verified peer-institution aggregate. The "Priced" card on Home now leads with the institutional total and follows with the per-user rate.
-- **Direct links to each provider's higher-ed product page** added on `/providers/` and in the consolidated report:
-  - OpenAI — [openai.com/chatgpt/education](https://openai.com/chatgpt/education/)
-  - Anthropic — [claude.com/solutions/education](https://claude.com/solutions/education)
-  - Google — [edu.google.com](https://edu.google.com/)
-- **Institutional-scale callout** added under OpenAI's cost table on `/providers/` and in the report's OpenAI section: CSU's $17M / 18-month deal ($1.9M initial + $15M full systemwide), with Wharton, Oxford, Northeastern, and Wharton noted as undisclosed.
-- **Three new sources cited** (verified): LAist + CalMatters for the CSU $17M figure; OpenAI's ChatGPT for Education hub; Google for Education hub. Bibliography on Home now goes 1–16; Providers now 1–21; report now consolidates to 23.
-
-## What v9 changed from v8
-
-- **Lead with evidence, not ask.** Home no longer opens with "The right move for fall 2026 is to bring all three to Babson." It opens with: *"OpenAI, Anthropic, and Google — what each offers, what each costs, where each is deployed."* The lead paragraph positions the site as a short reference for getting up to speed, not as a proposal.
-- **Removed all direct-ask language across all pages and the report.** Gone: "the right move," "the natural window," "one straightforward fall," "the actionable window" (as a stat label).
-- **"Easy, Affordable, Common-sense" reframed as "Three things to note."** The three property cards are now labeled **Mature / Priced / Deployed** — descriptive observations with citations, not persuasive framing.
-- **Quieter titles graphically.** H1 from ~1.55–2 rem → ~1.2–1.45 rem, weight 700 → 600. H2 from ~1.25–1.55 rem → ~1.02–1.15 rem, weight 700 → 600. Hero padding cut further (1.25 / 1.1 rem). Eyebrows now carry more of the visual structure.
-- **Softer section headings.** "The institutions Babson watches have already moved" → "Where each provider has been deployed." "Three companies. One straightforward fall." → "What this looks like, side by side." Etc.
-- **Report regenerated to match.** Cover subtitle, Section 1 lead, Section 4 closing, and the Easy/Affordable/Common-sense subhead all updated. PDF rebuilt (169 KB).
-
-## What v8 changed from v7
-
-- **Removed all Founderz / AI-THINK references.** Anywhere on the web pages, in the report, and in the references list. The "literacy layer" section on `/build/` and the AI-THINK aside on `/build/` are gone entirely. The Faculty intro on `/value/` no longer cites the Founderz announcement.
-- **Pulled back Babson self-celebration.** Dropped the "32 years #1 MBA entrepreneurship" stat from the Home stat-strip (replaced with "Fall '26 / the actionable window"). Removed the legacy section from Home. The closing on `/value/` no longer claims "global leader in entrepreneurship education" framing. References to "F.W. Olin Graduate School," "32 years," and similar self-celebration are gone.
-- **Refocused on the three providers.** Home now opens with: *"Three companies make the AI that students need. The right move for fall 2026 is to bring all three to Babson."* The Home page adds a **peer momentum block** showing all four peer institution clusters at once (OpenAI peers, Anthropic peers, Google peers).
-- **Sharper synthesis on `/providers/`.** New H2: *"Three companies. One straightforward fall."* Closing green aside lands four beats: availability, pricing, peer adoption, and fall 2026 timing.
-- **Report + PDF regenerated.** `/report/index.html` rebuilt by an agent to match the new tone. `./build-pdf.sh` regenerated `babson-ai-providers.pdf` (169 KB, was 198 KB).
-- **References slimmed.** Dropped the two Babson-self-celebration sources (32-year ranking + Founderz announcement). Total unique cited URLs across all four pages: **21** (was 23).
-
-## What v7 changed from v6
-
-- **Dynamic layout pass.** Every page now uses horizontal composition primitives instead of stacking sections vertically.
-  - **`.split`** (with `.split-even`, `.split-aside`, `.split-right` modifiers) for two-column body sections.
-  - **`.stat-strip`** + **`.stat`** — a horizontal row of large metrics in every page's hero / page-head (e.g., "32 yrs #1," "1,000+ peer institutions," "$15–20/user/month").
-  - **`.aside`** / **`.aside.aside-green`** for boxed callouts inside `.split` layouts.
-  - **`.cards.cards-4`** — denser 4-up card grid, used for the 6×3 benefit grid on the Value page.
-  - **`.vignettes-2`** — 2×2 vignette grid, used on Build (4 SVP teams) and on each Providers section (3–4 peer schools).
-- **Page-by-page changes:**
-  - **`/`** (Home) — split hero (text + stat-strip), split body sections with Founderz aside, 3-up provider summary cards, 3-up Easy/Affordable/Common-sense cards.
-  - **`/value/`** — split page-head with stat-strip, three group sections each using `.split.split-aside` (sticky-ish group label on the left, 6 benefit cards in 3-col grid on the right), synthesis section with green aside callout.
-  - **`/build/`** — split page-head with stat-strip, Founderz `.aside.aside-green` callout, four SVP vignettes in a 2x2 grid.
-  - **`/providers/`** — split page-head with stat-strip, each provider section uses `.split.split-aside` (cost table on left, peer vignettes in 2x2 on right), synthesis section with green aside.
-- **Print CSS extended.** New rules flatten the split-grid / stat-strip / aside primitives back to single-column on print so the browser-printed version still works (the canonical print artifact remains `/report/` → `babson-ai-providers.pdf`).
-- **Result:** roughly 40–50% less vertical scroll, denser visual rhythm, more dynamic feel.
-
-## What v6 added (still in place)
-
-- Density pass on `site.css` (line-height 1.45, smaller hero padding, 2-column refs above 720px, etc.).
-- Single-page `/report/` consolidation of all four pages.
-- Downloadable PDF (`babson-ai-providers.pdf`) generated via WeasyPrint, linked from every page's nav.
-- `@media print` block for cleanly printing the web pages.
+- **Erik Noyes** — Associate Professor; founding Faculty Director of The Generator and the Weissman Foundry
+- **Kristi Gridharry** — co-signer
+- **Jonathan Sims** — co-signer
 
 ---
 
-## Tone (unchanged from v5)
+## Version history
 
-- The brief argues a clear case via choice of evidence and framing — not via "you should…" copy.
-- No "frontier" / "labs" terminology. "The three leading AI providers" / "the three providers" / "AI."
-- No "Babson should," no "pilot," no tier structure. Where peer history includes a literal pilot, the word is rephrased.
-- Every load-bearing fact is footnoted to a verified source URL.
+| Version | What it was |
+|---|---|
+| v1.0 | Original 7-page case site with risk framing |
+| v2.0 | 3-page positive-tone brief with placeholders |
+| v3.0 | 4 pages with real 2026 data |
+| v4.0 | No proposal language; APA bibliographies |
+| v5.0 | "Frontier"/"labs" → "leading AI providers"; new `/value/` and `/providers/` |
+| v6.0 | Density pass + consolidated `/report/` + downloadable PDF |
+| v7.0 | Dynamic horizontal layout |
+| v8.0 | Dropped Founderz/AI-THINK, pulled back Babson self-celebration |
+| v9.0 | Evidence-first lead, quieter titles, reference-document register |
+| v10.0 | Institutional-scale cost framing (CSU $17M), direct links to each provider's higher-ed page |
+| v11.0 | "Cost at a glance" block surfacing the dollar answer up front |
+| v12.0 | Three design-direction prototypes (consulting, dashboard, magazine) |
+| v13.0 | Consulting prototype + fine-print appendix + Copilot framing |
+| v14.0 | "From the authors" preface added to consulting prototype |
+| v15 (current) | **Consulting design promoted to canonical**; old site moved to `/archive/`; **Babson examples Section 4.0 added** featuring the four current examples and The Generator context |
 
----
-
-## Sources (21 unique URLs)
-
-All verified as of 2026-05-13. URLs marked **bot-blocked** return 403 to scripts (Cloudflare bot challenge) but load normally in standard browsers.
-
-### Babson
-- Babson 2025 SVP teams — https://entrepreneurship.babson.edu/2025-summer-venture-program-teams/ — ✓
-
-### OpenAI
-- ChatGPT pricing — https://openai.com/business/chatgpt-pricing/ — bot-blocked, real
-- April 2026 price reduction — https://help.openai.com/en/articles/11487671-flexible-pricing-for-the-enterprise-edu-and-business-plans — bot-blocked, real
-- GPT-5.5 release — https://openai.com/index/introducing-gpt-5-5/ — bot-blocked, real
-- Workspace Agents launch — https://openai.com/index/introducing-workspace-agents-in-chatgpt/ — bot-blocked, real
-- Wharton strategic AI investment — https://news.wharton.upenn.edu/press-releases/2024/05/the-wharton-school-makes-strategic-investment-in-artificial-intelligence-research-and-teaching/ — ✓
-- Wharton MBA AI for Business major — https://poetsandquants.com/2025/04/06/wharton-launches-new-ai-for-business-mba-major-undergrad-concentration/ — ✓
-- Oxford ChatGPT Edu — https://www.ox.ac.uk/news/2025-09-19-oxford-becomes-first-uk-university-offer-chatgpt-edu-all-staff-and-students — bot-blocked, real
-- UCLA ChatGPT Enterprise — https://newsroom.ucla.edu/releases/ucla-to-introduce-chatgpt-enterprise-on-campus — ✓
-- CSU ChatGPT Edu initiative — https://www.calstate.edu/csu-system/news/Pages/CSU-AI-Powered-Initiative.aspx — bot-blocked, real
-
-### Anthropic
-- Claude Opus 4.7 release — https://www.anthropic.com/news/claude-opus-4-7 — ✓
-- Claude for Education / Learning Mode — https://www.anthropic.com/news/introducing-claude-for-education — ✓
-- Northeastern + Anthropic — https://news.northeastern.edu/2025/04/02/anthropic-ai-partnership/ — ✓
-- LSE Claude for Education — https://info.lse.ac.uk/staff/divisions/Eden-Centre/Artificial-Intelligence-Education-and-Assessment/Anthropics-Claude-for-Education — ✓
-- Champlain + Anthropic — https://www.champlain.edu/blog/news/champlain-collaborates-with-anthropic-ai-higher-ed/ — ✓
-
-### Google
-- Gemini 3.1 Pro release — https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/ — ✓
-- Workspace Intelligence launch — https://workspace.google.com/blog/product-announcements/introducing-workspace-intelligence — ✓
-- Google AI Pro for Education — https://workspaceupdates.googleblog.com/2025/09/google-ai-pro-for-education.html — ✓
-- Rice Gemini for Education — https://news.rice.edu/news/2025/rice-adopts-googles-generative-ai-solution-enhance-student-learning-and-faculty-support — bot-blocked, real
-- University of Houston Gemini — https://www.uh.edu/news-events/stories/2026/march/03172026-google-ai-partnership.php — ✓
-- Google's 1,000+ institutions roundup — https://blog.google/products-and-platforms/products/education/gemini-higher-education-benefits/ — ✓
-
----
-
-## Palette
-
-Edit once in [`assets/css/site.css`](assets/css/site.css):
-
-```css
---c-green:  #006747;
---c-ink:    #14191F;
---c-bone:   #FAF7F2;
---c-amber:  #C9A227;
-```
-
----
-
-## History
-
-- **v1.0** — original 7-page version (`v1-archive` branch).
-- **v2.0** — 3-page positive-tone version (`v2-archive` branch).
-- **v3.0** — 4 pages, real data, tier proposal (`v3-archive` branch).
-- **v4.0** — 4 pages, no proposal language, full bibliographies (`v4-archive` branch).
-- **v5.0** — terminology shift, `/value/` page, `/providers/` page (`v5-archive` branch).
-- **v6.0** — density pass + consolidated `/report/` + downloadable PDF (`v6-archive` branch).
-- **v7.0** — dynamic horizontal layout (`v7-archive` branch).
-- **v8.0** — dropped Founderz/AI-THINK, pulled back Babson self-celebration (`v8-archive` branch).
-- **v9.0** — evidence-first lead, quieter titles, reference-document register (`v9-archive` branch).
-- **v10.0** — institutional-scale cost framing (CSU $17M), direct links to each provider's higher-ed page (`v10-archive` branch).
-- **v11** (current `main`) — Cost at a glance block surfaces the dollar answer up front on `/providers/` and in the report.
-
-`git checkout v10.0` (or any earlier tag) brings the previous shape back.
+Every prior version is preserved as a git tag (`v1.0` … `v14.0`) and a matching `vN-archive` branch. `git checkout v14.0` brings the prior shape back.
