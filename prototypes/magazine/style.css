@@ -1,0 +1,551 @@
+/* ============================================================
+   Magazine Editorial — Three companies, every classroom
+   A long-form brief for the Office of the President
+   Typography: Fraunces (display) + Source Serif 4 (body)
+   Palette: ivory, ink, oxblood accent, slate ornament
+   ============================================================ */
+
+:root {
+  /* Palette — muted with one bold editorial accent */
+  --ivory:        #f5f0e6;   /* page */
+  --ivory-warm:   #ede5d3;   /* subtle bands */
+  --ink:          #16140f;   /* near-black body */
+  --ink-soft:     #2c2820;
+  --slate:        #6b6256;   /* secondary copy */
+  --rule:         #cbbfa6;   /* hairlines */
+  --accent:       #6b2226;   /* oxblood — the editorial pop */
+  --accent-deep:  #4a1518;
+  --forest:       #2a4a3a;   /* a deeper, magazine-er Babson green */
+  --saffron:      #b8851b;   /* eyedropped warm */
+
+  /* Fonts */
+  --display: "Fraunces", "Source Serif 4", "Charter", Georgia, serif;
+  --serif:   "Source Serif 4", "Charter", "Iowan Old Style", Georgia, serif;
+  --sans:    "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+
+  --measure: 34rem;        /* ~70ch on body */
+  --measure-wide: 42rem;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--ivory);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.62;
+  font-feature-settings: "kern", "liga", "onum", "ss01";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Faint paper grain via radial dots */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(rgba(60,40,20,0.025) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: multiply;
+}
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(107,34,38,0.3); transition: all .15s; }
+a:hover { color: var(--accent-deep); border-bottom-color: var(--accent); }
+
+sup { font-size: .65em; vertical-align: super; line-height: 0; color: var(--accent); font-feature-settings: "sups"; padding-left: 1px; }
+sup::before { content: "["; }
+sup::after  { content: "]"; }
+
+em { font-style: italic; }
+strong { font-weight: 600; }
+
+/* ---------- Back link ---------- */
+.backlink {
+  position: relative;
+  z-index: 5;
+  display: inline-block;
+  margin: 1.25rem 0 0 1.75rem;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--slate);
+  border-bottom: none;
+}
+.backlink:hover { color: var(--accent); }
+
+/* ============================================================
+   FEATURE WRAPPER
+   ============================================================ */
+.feature {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  padding: 0 1.5rem 6rem;
+}
+
+/* ============================================================
+   MASTHEAD
+   ============================================================ */
+.masthead {
+  max-width: 68rem;
+  margin: 3rem auto 0;
+  padding: 4rem 0 5rem;
+  text-align: center;
+  position: relative;
+}
+
+.dateline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 4rem;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+.dateline .rule { width: 4rem; height: 1px; background: var(--ink-soft); }
+.dateline .issue { white-space: nowrap; }
+
+.kicker {
+  margin: 0 0 1.5rem;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.display {
+  font-family: var(--display);
+  font-weight: 500;
+  font-style: normal;
+  font-size: clamp(3rem, 8.5vw, 7.2rem);
+  line-height: 0.94;
+  letter-spacing: -0.025em;
+  margin: 0 auto 2.5rem;
+  max-width: 22ch;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
+}
+
+.lede {
+  max-width: var(--measure);
+  margin: 0 auto 2rem;
+  text-align: left;
+  font-size: 1.18rem;
+  line-height: 1.62;
+  color: var(--ink-soft);
+}
+
+.dropcap {
+  float: left;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 4.5rem;
+  line-height: 0.85;
+  padding: 0.55rem 0.6rem 0 0;
+  margin: 0.05rem 0 -0.4rem 0;
+  color: var(--accent);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+
+.byline {
+  max-width: var(--measure);
+  margin: 1.25rem auto 0;
+  text-align: left;
+  font-size: 0.85rem;
+  color: var(--slate);
+  letter-spacing: 0.01em;
+}
+
+.ornament {
+  margin: 4rem auto 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  font-family: var(--display);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.4em;
+}
+.ornament .dot { color: var(--rule); font-size: 1.1rem; }
+
+/* ============================================================
+   PROSE SECTIONS — shared spine
+   ============================================================ */
+.prose, .sources {
+  max-width: var(--measure);
+  margin: 5rem auto;
+  position: relative;
+}
+
+.section-eye {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+.section-eye::before {
+  content: "";
+  flex: 0 0 2rem;
+  height: 1px;
+  background: var(--accent);
+}
+
+.serif-h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+  margin: 0 0 2.25rem;
+  color: var(--ink);
+  font-variation-settings: "opsz" 96;
+  max-width: 22ch;
+}
+
+.prose p {
+  margin: 0 0 1.4rem;
+  font-size: 1.05rem;
+}
+
+.prose p + p {
+  text-indent: 1.5em;
+}
+.prose p.aside,
+.prose p:first-of-type,
+.prose .pullquote + p {
+  text-indent: 0;
+}
+
+/* ============================================================
+   PROVIDER SUBSECTIONS (Section I)
+   ============================================================ */
+.provider {
+  position: relative;
+  margin: 3.5rem 0;
+  padding: 2.25rem 0 2rem;
+  border-top: 1px solid var(--rule);
+}
+.provider:first-of-type { border-top-color: var(--ink-soft); border-top-width: 2px; }
+
+.provider-eye {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--accent);
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.provider-name {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 4.8vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.4rem;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+}
+
+.provider-tag {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin: 0 0 1.75rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* ============================================================
+   PULL QUOTES
+   ============================================================ */
+.pullquote {
+  margin: 2.5rem -2rem;
+  padding: 1.75rem 2rem;
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid var(--rule);
+  background: linear-gradient(180deg, rgba(107,34,38,0.025), transparent);
+}
+
+.pullquote p:first-child {
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.18;
+  color: var(--ink);
+  margin: 0 0 0.85rem;
+  letter-spacing: -0.01em;
+  font-variation-settings: "opsz" 60, "SOFT" 80, "WONK" 1;
+}
+
+.pullquote .attrib {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin: 0;
+}
+
+/* When attrib is a stat (e.g. 1,000+) */
+.pullquote p:first-child .plus {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* The 1,000+ callout uses big number styling */
+.provider .pullquote:has(.plus) p:first-child {
+  font-family: var(--display);
+  font-style: normal;
+  font-weight: 600;
+  font-size: clamp(4rem, 9vw, 6rem);
+  line-height: 0.9;
+  color: var(--accent);
+  font-variation-settings: "opsz" 144;
+}
+
+/* ============================================================
+   SECTION II — PEERS
+   ============================================================ */
+.peer-h3 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  margin: 2.5rem 0 1rem;
+  color: var(--accent);
+  letter-spacing: -0.005em;
+  font-variation-settings: "opsz" 60;
+}
+
+.aside {
+  margin-top: 2.5rem !important;
+  padding: 1.5rem 0 0;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-size: 1rem !important;
+}
+
+/* ============================================================
+   SECTION III — THE MONEY
+   ============================================================ */
+.money { padding-top: 1rem; }
+
+.big-number {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.1em;
+  margin: 3rem auto 1rem;
+  font-family: var(--display);
+  font-weight: 700;
+  line-height: 0.85;
+  color: var(--accent);
+  letter-spacing: -0.04em;
+  font-variation-settings: "opsz" 144, "SOFT" 0;
+}
+
+.big-number .dollar {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 400;
+  padding-top: 0.7rem;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+.big-number .figure {
+  font-size: clamp(8rem, 18vw, 14rem);
+  font-variation-settings: "opsz" 144, "WONK" 1;
+}
+
+.big-number-caption {
+  max-width: 32rem;
+  margin: 0.5rem auto 3rem !important;
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 1rem !important;
+  line-height: 1.5;
+}
+
+.money-quote p:first-child {
+  font-family: var(--display);
+  font-style: normal;
+  font-weight: 600;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--accent);
+}
+.money-quote p:first-child strong { font-weight: 700; }
+
+/* ============================================================
+   CLOSING
+   ============================================================ */
+.closing .serif-h2 { color: var(--accent-deep); }
+
+.endmark {
+  text-align: center;
+  font-family: var(--display);
+  font-size: 2.5rem;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--accent);
+  margin: 3rem 0 0;
+  letter-spacing: 0;
+  font-variation-settings: "opsz" 144;
+}
+
+/* ============================================================
+   SOURCES
+   ============================================================ */
+.sources {
+  max-width: var(--measure-wide);
+  border-top: 2px solid var(--ink);
+  padding-top: 3rem;
+  margin-top: 7rem;
+}
+
+.sources-note {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  color: var(--slate);
+  margin: -1rem 0 2rem;
+  letter-spacing: 0.03em;
+}
+
+.refs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: ref;
+  columns: 2;
+  column-gap: 3rem;
+}
+
+.refs li {
+  counter-increment: ref;
+  position: relative;
+  padding: 0.75rem 0 0.75rem 2.25rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  break-inside: avoid;
+  border-bottom: 1px dotted var(--rule);
+}
+
+.refs li::before {
+  content: counter(ref);
+  position: absolute;
+  left: 0;
+  top: 0.85rem;
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  background: var(--ivory);
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refs li em { color: var(--ink); }
+.refs a { font-size: 0.8rem; word-break: break-word; }
+
+/* ============================================================
+   COLOPHON
+   ============================================================ */
+.colophon {
+  max-width: var(--measure);
+  margin: 5rem auto 0;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--rule);
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  color: var(--slate);
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+.colophon em {
+  font-family: var(--display);
+  font-style: italic;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 720px) {
+  body { font-size: 17px; }
+  .feature { padding: 0 1rem 4rem; }
+  .masthead { padding: 2.5rem 0 3rem; margin-top: 1rem; }
+  .display { font-size: clamp(2.6rem, 12vw, 4rem); }
+  .dateline { margin-bottom: 2.5rem; gap: 0.75rem; }
+  .dateline .rule { width: 2rem; }
+  .pullquote { margin: 2rem -0.5rem; padding: 1.4rem 1rem; }
+  .pullquote p:first-child { font-size: 1.35rem; }
+  .refs { columns: 1; }
+  .big-number .figure { font-size: clamp(6rem, 24vw, 9rem); }
+  .big-number .dollar { font-size: clamp(2.4rem, 8vw, 3.2rem); }
+  .provider-name { font-size: clamp(1.9rem, 9vw, 2.6rem); }
+  .ornament { gap: 0.7rem; font-size: 1.1rem; }
+}
+
+@media (max-width: 480px) {
+  .pullquote { margin-left: 0; margin-right: 0; }
+  .provider { margin: 2.5rem 0; padding-top: 1.5rem; }
+}
+
+/* ============================================================
+   PRINT (just in case Steve forwards via PDF)
+   ============================================================ */
+@media print {
+  body { background: white; font-size: 11pt; }
+  body::before { display: none; }
+  .backlink { display: none; }
+  .feature { padding: 0; }
+  .masthead { padding: 2rem 0; }
+  .display { font-size: 3.5rem; }
+  .pullquote { break-inside: avoid; }
+  .provider { break-inside: avoid; }
+  a { color: var(--ink); border-bottom: none; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.7em; color: var(--slate); }
+  .refs a[href]::after { content: ""; }
+}

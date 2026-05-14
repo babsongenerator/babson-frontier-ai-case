@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Providers Brief — Babson</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+<!-- TOP STRIP -->
+<div class="topstrip">
+  <div class="topstrip-inner">
+    <a class="back" href="../../">&larr; Canonical brief</a>
+    <div class="meta-pills">
+      <span class="pill">v1.0</span>
+      <span class="pill">May 2026</span>
+      <span class="pill ok">Refreshed today</span>
+    </div>
+  </div>
+</div>
+
+<div class="shell">
+
+  <!-- SIDE RAIL -->
+  <aside class="rail">
+    <div class="rail-brand">
+      <div class="rail-mark">B</div>
+      <div>
+        <div class="rail-title">AI Providers</div>
+        <div class="rail-sub">Internal reference brief</div>
+      </div>
+    </div>
+
+    <nav class="rail-nav">
+      <div class="rail-section">Sections</div>
+      <a href="#overview" class="rail-link active">Overview</a>
+      <a href="#providers" class="rail-link">Providers</a>
+      <a href="#cost" class="rail-link">Cost comparison</a>
+      <a href="#adoption" class="rail-link">Peer adoption</a>
+      <a href="#timeline" class="rail-link">Pricing trend</a>
+      <a href="#references" class="rail-link">References</a>
+    </nav>
+
+    <div class="rail-foot">
+      <div class="rail-section">Audience</div>
+      <div class="rail-foot-line">Office of the President</div>
+      <div class="rail-foot-line">Babson College</div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- STICKY HEADER -->
+    <header class="stickyhdr" id="overview">
+      <div class="hdr-row">
+        <div>
+          <div class="kicker">REFERENCE / FALL 2026 PLANNING</div>
+          <h1>AI providers serving higher education</h1>
+          <p class="lede">A side-by-side reference on the three providers shipping enterprise-grade AI to universities at scale. Pricing, peer adoption, and product positioning as of May 2026.</p>
+        </div>
+        <div class="hdr-tags">
+          <span class="tag">OpenAI</span>
+          <span class="tag">Anthropic</span>
+          <span class="tag">Google</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- KPI ROW -->
+    <section class="kpi-grid">
+      <div class="kpi">
+        <div class="kpi-label">LEADING PROVIDERS</div>
+        <div class="kpi-value" data-count="3">0</div>
+        <div class="kpi-foot">OpenAI &middot; Anthropic &middot; Google</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">PEER INSTITUTIONS DEPLOYED</div>
+        <div class="kpi-value"><span data-count="1000">0</span>+</div>
+        <div class="kpi-foot">Google alone reaches 10M+ US students<sup>10</sup></div>
+      </div>
+      <div class="kpi accent">
+        <div class="kpi-label">CSU OPENAI DEAL <span class="kpi-tag">peer benchmark</span></div>
+        <div class="kpi-value">$<span data-count="17">0</span>M</div>
+        <div class="kpi-foot">18 months &middot; 500K+ users<sup>14,15</sup></div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">EST. ANNUAL @ BABSON SCALE</div>
+        <div class="kpi-value">$0.9&ndash;1.2M</div>
+        <div class="kpi-foot">~5,000 users at list pricing, per provider</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">ACADEMIC YEAR</div>
+        <div class="kpi-value mono-val">Fall &rsquo;26</div>
+        <div class="kpi-foot">Window for deployment decisions</div>
+      </div>
+    </section>
+
+    <!-- CALLOUT -->
+    <div class="callout">
+      <div class="callout-dot"></div>
+      <div>
+        <strong>Scope.</strong> This brief is informational. It catalogs what each provider offers higher education and where peers stand, so Babson's planning conversations start from current facts rather than vendor pitches.
+      </div>
+    </div>
+
+    <!-- PROVIDERS -->
+    <section id="providers" class="section">
+      <div class="section-hdr">
+        <div>
+          <h2>The three providers</h2>
+          <p class="section-sub">Each ships a flagship model, a higher-ed SKU, and an institutional contract pathway.</p>
+        </div>
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-tab="all">All</button>
+          <button class="tab" data-tab="openai">OpenAI</button>
+          <button class="tab" data-tab="anthropic">Anthropic</button>
+          <button class="tab" data-tab="google">Google</button>
+        </div>
+      </div>
+
+      <div class="provider-grid">
+
+        <article class="provider" data-provider="openai">
+          <header class="provider-hdr">
+            <div class="provider-id">
+              <span class="dot dot-openai"></span>
+              <div>
+                <div class="provider-name">OpenAI</div>
+                <div class="provider-flag mono">GPT-5.5 &middot; Apr 2026<sup>1</sup></div>
+              </div>
+            </div>
+            <span class="strength">Agentic execution</span>
+          </header>
+          <p class="provider-pos">Largest installed base in higher education. Workspace Agents extend ChatGPT into Salesforce, Slack, and HubSpot, useful for student services and operations.<sup>2</sup></p>
+          <dl class="provider-stats">
+            <div><dt>List price</dt><dd>$20<span class="unit">/user/mo</span></dd></div>
+            <div><dt>Edu SKU</dt><dd>ChatGPT Edu</dd></div>
+            <div><dt>Peer anchor</dt><dd>CSU &middot; $17M<sup>15</sup></dd></div>
+          </dl>
+          <a class="provider-link mono" href="https://openai.com/chatgpt/education/" target="_blank" rel="noopener">openai.com/chatgpt/education &rarr;</a>
+        </article>
+
+        <article class="provider" data-provider="anthropic">
+          <header class="provider-hdr">
+            <div class="provider-id">
+              <span class="dot dot-anthropic"></span>
+              <div>
+                <div class="provider-name">Anthropic</div>
+                <div class="provider-flag mono">Claude Opus 4.7 &middot; Apr 2026<sup>4</sup></div>
+              </div>
+            </div>
+            <span class="strength">Pedagogy &amp; reasoning</span>
+          </header>
+          <p class="provider-pos">Claude for Education includes Learning Mode, which guides students through problems rather than answering for them. Most differentiated higher-ed product.<sup>5,6</sup></p>
+          <dl class="provider-stats">
+            <div><dt>List price</dt><dd>Negotiated</dd></div>
+            <div><dt>Edu SKU</dt><dd>Claude for Education</dd></div>
+            <div><dt>Peer anchor</dt><dd>Northeastern (13 campuses)<sup>16</sup></dd></div>
+          </dl>
+          <a class="provider-link mono" href="https://claude.com/solutions/education" target="_blank" rel="noopener">claude.com/solutions/education &rarr;</a>
+        </article>
+
+        <article class="provider" data-provider="google">
+          <header class="provider-hdr">
+            <div class="provider-id">
+              <span class="dot dot-google"></span>
+              <div>
+                <div class="provider-name">Google</div>
+                <div class="provider-flag mono">Gemini 3.1 Pro &middot; Feb 2026<sup>7</sup></div>
+              </div>
+            </div>
+            <span class="strength">Multimodal + Workspace</span>
+          </header>
+          <p class="provider-pos">Deepest Workspace integration and a 1M-token context window. Workspace Intelligence (Apr 2026) adds agentic capabilities inside Docs, Sheets, and Gmail.<sup>7,8</sup></p>
+          <dl class="provider-stats">
+            <div><dt>List price</dt><dd>$15<span class="unit">/user/mo</span></dd></div>
+            <div><dt>Edu SKU</dt><dd>AI Pro for Education</dd></div>
+            <div><dt>Reach</dt><dd>1,000+ institutions<sup>10</sup></dd></div>
+          </dl>
+          <a class="provider-link mono" href="https://edu.google.com/" target="_blank" rel="noopener">edu.google.com &rarr;</a>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- COST -->
+    <section id="cost" class="section">
+      <div class="section-hdr">
+        <div>
+          <h2>Cost comparison</h2>
+          <p class="section-sub">List pricing per user per month and an estimated annual range at Babson scale (~5,000 active users).</p>
+        </div>
+      </div>
+
+      <div class="cost-grid">
+        <div class="card chart-card">
+          <div class="card-hdr">
+            <div class="card-title">Per-user list price</div>
+            <div class="card-sub mono">USD / user / mo</div>
+          </div>
+          <div class="chart-wrap"><canvas id="priceChart" height="220"></canvas></div>
+          <div class="card-foot mono">List figures. Institutional contracts typically negotiated.</div>
+        </div>
+
+        <div class="card">
+          <div class="card-hdr">
+            <div class="card-title">Babson-scale annual estimate</div>
+            <div class="card-sub mono">5,000 users &middot; list pricing</div>
+          </div>
+          <table class="datatable">
+            <thead>
+              <tr><th>Provider</th><th>Per user/mo</th><th>Annual est.</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="dot dot-openai"></span> OpenAI</td>
+                <td class="mono">$20</td>
+                <td class="mono strong">~$1.2M</td>
+              </tr>
+              <tr>
+                <td><span class="dot dot-anthropic"></span> Anthropic</td>
+                <td class="mono">Negotiated</td>
+                <td class="mono strong">~$0.9&ndash;1.2M</td>
+              </tr>
+              <tr>
+                <td><span class="dot dot-google"></span> Google</td>
+                <td class="mono">$15</td>
+                <td class="mono strong">~$0.9M</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="card-foot">All three providers operate at this rough order of magnitude at Babson scale. The differentiator is fit, not list price.</div>
+        </div>
+
+        <div class="card benchmark">
+          <div class="card-hdr">
+            <div class="card-title">Peer benchmark</div>
+            <div class="card-sub mono">CSU &middot; OpenAI</div>
+          </div>
+          <div class="benchmark-big mono">$17M</div>
+          <div class="benchmark-line">18-month contract covering 500K+ students, faculty, and staff across 23 campuses<sup>14,15</sup></div>
+          <div class="benchmark-foot mono">≈ $18.50 / user / mo equivalent</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADOPTION MATRIX -->
+    <section id="adoption" class="section">
+      <div class="section-hdr">
+        <div>
+          <h2>Peer institution adoption</h2>
+          <p class="section-sub">Public deployments across the three providers, mapped by institutional shape.</p>
+        </div>
+        <div class="legend mono">
+          <span><span class="dot dot-openai"></span> OpenAI</span>
+          <span><span class="dot dot-anthropic"></span> Anthropic</span>
+          <span><span class="dot dot-google"></span> Google</span>
+        </div>
+      </div>
+
+      <div class="matrix-wrap card">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th class="matrix-rowhead"></th>
+              <th>Top-tier private<br><span class="th-sub mono">peer or aspirational</span></th>
+              <th>Public flagship<br><span class="th-sub mono">large research</span></th>
+              <th>System / multi-campus<br><span class="th-sub mono">scale deployment</span></th>
+              <th>Small private<br><span class="th-sub mono">Babson-sized</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="matrix-rowhead"><span class="dot dot-openai"></span> OpenAI</th>
+              <td>
+                <div class="cell-inst">Wharton<sup>11</sup></div>
+                <div class="cell-inst">Oxford<sup>12</sup></div>
+              </td>
+              <td>
+                <div class="cell-inst">UCLA<sup>13</sup></div>
+              </td>
+              <td>
+                <div class="cell-inst">CSU &mdash; 23 campuses, $17M<sup>14,15</sup></div>
+              </td>
+              <td class="cell-empty">&mdash;</td>
+            </tr>
+            <tr>
+              <th class="matrix-rowhead"><span class="dot dot-anthropic"></span> Anthropic</th>
+              <td>
+                <div class="cell-inst">LSE &mdash; launch partner<sup>17</sup></div>
+              </td>
+              <td class="cell-empty">&mdash;</td>
+              <td>
+                <div class="cell-inst">Northeastern &mdash; 13 campuses<sup>16</sup></div>
+              </td>
+              <td>
+                <div class="cell-inst">Champlain &mdash; 2 yrs free<sup>18</sup></div>
+              </td>
+            </tr>
+            <tr>
+              <th class="matrix-rowhead"><span class="dot dot-google"></span> Google</th>
+              <td>
+                <div class="cell-inst">Rice<sup>19</sup></div>
+                <div class="cell-inst">MIT, Brown<sup>10</sup></div>
+              </td>
+              <td>
+                <div class="cell-inst">Ohio State, Michigan<sup>10</sup></div>
+              </td>
+              <td>
+                <div class="cell-inst">U. of Houston system<sup>20</sup></div>
+              </td>
+              <td class="cell-empty">&mdash;</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="matrix-foot">Not exhaustive. Google reports 1,000+ institutional deployments reaching 10M+ US students.<sup>10</sup></div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="timeline" class="section">
+      <div class="section-hdr">
+        <div>
+          <h2>Higher-ed AI pricing &amp; deployments</h2>
+          <p class="section-sub">Announced peer deployments by quarter, 2024&ndash;2026. Each dot is a publicly reported launch from the source list.</p>
+        </div>
+      </div>
+      <div class="card chart-card">
+        <div class="chart-wrap"><canvas id="timelineChart" height="180"></canvas></div>
+        <div class="card-foot mono">Cumulative announced peer deployments &middot; source citations 11&ndash;20</div>
+      </div>
+    </section>
+
+    <!-- REFERENCES -->
+    <section id="references" class="section refs">
+      <div class="section-hdr">
+        <div>
+          <h2>References</h2>
+          <p class="section-sub">All twenty sources, APA 7th edition.</p>
+        </div>
+      </div>
+      <ol class="reflist">
+        <li>OpenAI. (2026, April 23). <em>Introducing GPT-5.5</em>. <a href="https://openai.com/index/introducing-gpt-5-5/" target="_blank" rel="noopener">openai.com/index/introducing-gpt-5-5/</a></li>
+        <li>OpenAI. (2026, April 22). <em>Introducing Workspace Agents in ChatGPT</em>. <a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/" target="_blank" rel="noopener">openai.com/index/introducing-workspace-agents-in-chatgpt/</a></li>
+        <li>OpenAI. (n.d.). <em>ChatGPT for education</em>. <a href="https://openai.com/chatgpt/education/" target="_blank" rel="noopener">openai.com/chatgpt/education/</a></li>
+        <li>Anthropic. (2026, April 16). <em>Introducing Claude Opus 4.7</em>. <a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank" rel="noopener">anthropic.com/news/claude-opus-4-7</a></li>
+        <li>Anthropic. (2025, April 2). <em>Introducing Claude for Education</em>. <a href="https://www.anthropic.com/news/introducing-claude-for-education" target="_blank" rel="noopener">anthropic.com/news/introducing-claude-for-education</a></li>
+        <li>Anthropic. (n.d.). <em>Claude for education</em>. <a href="https://claude.com/solutions/education" target="_blank" rel="noopener">claude.com/solutions/education</a></li>
+        <li>Google. (2026, February 19). <em>Gemini 3.1 Pro: A smarter model for your most complex tasks</em>. The Keyword. <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/" target="_blank" rel="noopener">blog.google/&hellip;/gemini-3-1-pro/</a></li>
+        <li>Google Workspace. (2026, April 22). <em>New Workspace Intelligence delivers unified, real-time understanding to power agentic work</em>. <a href="https://workspace.google.com/blog/product-announcements/introducing-workspace-intelligence" target="_blank" rel="noopener">workspace.google.com/&hellip;/introducing-workspace-intelligence</a></li>
+        <li>Google. (n.d.). <em>Google for Education</em>. <a href="https://edu.google.com/" target="_blank" rel="noopener">edu.google.com</a></li>
+        <li>Google. (2025). <em>Gemini for Education: How higher education is using Google AI</em>. The Keyword. <a href="https://blog.google/products-and-platforms/products/education/gemini-higher-education-benefits/" target="_blank" rel="noopener">blog.google/&hellip;/gemini-higher-education-benefits/</a></li>
+        <li>The Wharton School. (2024, May 29). <em>The Wharton School makes strategic investment in artificial intelligence research and teaching</em>. University of Pennsylvania. <a href="https://news.wharton.upenn.edu/press-releases/2024/05/the-wharton-school-makes-strategic-investment-in-artificial-intelligence-research-and-teaching/" target="_blank" rel="noopener">news.wharton.upenn.edu/&hellip;</a></li>
+        <li>University of Oxford. (2025, September 19). <em>Oxford becomes first UK university to offer ChatGPT Edu to all staff and students</em>. <a href="https://www.ox.ac.uk/news/2025-09-19-oxford-becomes-first-uk-university-offer-chatgpt-edu-all-staff-and-students" target="_blank" rel="noopener">ox.ac.uk/news/&hellip;</a></li>
+        <li>UCLA. (2024, September 20). <em>UCLA is set to introduce ChatGPT Enterprise on campus</em>. <a href="https://newsroom.ucla.edu/releases/ucla-to-introduce-chatgpt-enterprise-on-campus" target="_blank" rel="noopener">newsroom.ucla.edu/&hellip;</a></li>
+        <li>California State University. (2025, February 4). <em>CSU announces landmark initiative to become nation's first and largest AI-empowered university system</em>. <a href="https://www.calstate.edu/csu-system/news/Pages/CSU-AI-Powered-Initiative.aspx" target="_blank" rel="noopener">calstate.edu/&hellip;</a></li>
+        <li>Mardirosian, A. (2026, May 1). <em>Inside Cal State's big $17 million bet on ChatGPT for all</em>. LAist. <a href="https://laist.com/news/education/chatgpt-california-state-university-csu-ai-deal" target="_blank" rel="noopener">laist.com/news/&hellip;</a></li>
+        <li>Northeastern University. (2025, April 2). <em>Northeastern and Anthropic to lead in responsible AI innovation in higher education</em>. <a href="https://news.northeastern.edu/2025/04/02/anthropic-ai-partnership/" target="_blank" rel="noopener">news.northeastern.edu/&hellip;</a></li>
+        <li>London School of Economics. (2025, May). <em>Anthropic's Claude for Education</em>. <a href="https://info.lse.ac.uk/staff/divisions/Eden-Centre/Artificial-Intelligence-Education-and-Assessment/Anthropics-Claude-for-Education" target="_blank" rel="noopener">info.lse.ac.uk/&hellip;</a></li>
+        <li>Champlain College. (2025, March 25). <em>Champlain College collaborates with Anthropic to advance AI in higher ed</em>. <a href="https://www.champlain.edu/blog/news/champlain-collaborates-with-anthropic-ai-higher-ed/" target="_blank" rel="noopener">champlain.edu/&hellip;</a></li>
+        <li>Rice University. (2025, September 16). <em>Rice adopts Google's generative AI solution to enhance student learning and faculty support</em>. <a href="https://news.rice.edu/news/2025/rice-adopts-googles-generative-ai-solution-enhance-student-learning-and-faculty-support" target="_blank" rel="noopener">news.rice.edu/&hellip;</a></li>
+        <li>University of Houston. (2026, March 17). <em>University of Houston launches Google Gemini for Education to advance AI research and student success</em>. <a href="https://www.uh.edu/news-events/stories/2026/march/03172026-google-ai-partnership.php" target="_blank" rel="noopener">uh.edu/news-events/&hellip;</a></li>
+      </ol>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-l mono">Babson College &middot; AI Providers Brief &middot; May 2026</div>
+      <div class="footer-r mono">Internal reference. Not a recommendation.</div>
+    </footer>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

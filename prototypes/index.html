@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prototypes · Babson AI Providers brief</title>
+  <meta name="description" content="Three design directions for the Babson AI Providers brief — consulting executive brief, dashboard / data product, and magazine editorial." />
+  <style>
+    :root {
+      --green:   #006747;
+      --green-d: #00472f;
+      --ink:     #14191F;
+      --bone:    #FAF7F2;
+      --amber:   #C9A227;
+      --rule:    #E5E0D6;
+      --muted:   #5A5F66;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bone);
+    }
+    a { color: var(--green); }
+    a:hover { color: var(--green-d); }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+    .head {
+      background: var(--green);
+      color: #fff;
+      padding: 1.5rem 0 1.25rem;
+    }
+    .head h1 { color: #fff; margin: 0 0 0.4rem; font-size: 1.55rem; font-weight: 600; letter-spacing: -0.005em; }
+    .head p { color: rgba(255,255,255,0.92); max-width: 70ch; margin: 0; font-size: 0.98rem; }
+    .head .eyebrow {
+      display: inline-block;
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .head .back { color: rgba(255,255,255,0.75); font-size: 0.88rem; text-decoration: underline; }
+    .head .back:hover { color: #fff; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+    @media (min-width: 800px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 1.25rem 1.25rem 1rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 120ms ease, box-shadow 120ms ease;
+    }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .card .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .card h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: -0.005em;
+    }
+    .card .ref { font-size: 0.85rem; color: var(--muted); margin: 0 0 0.6rem; font-style: italic; }
+    .card .desc { font-size: 0.95rem; margin: 0 0 0.9rem; line-height: 1.5; }
+    .card .stack {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 0 0 0.9rem;
+      padding: 0.5rem 0.7rem;
+      background: var(--bone);
+      border-radius: 6px;
+      line-height: 1.45;
+    }
+    .card .stack strong { color: var(--ink); font-weight: 600; }
+    .card .open {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 0.9rem;
+      background: var(--green);
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      text-decoration: none;
+      transition: background 120ms ease;
+    }
+    .card .open:hover { background: var(--green-d); }
+    .card .open::after { content: "→"; }
+
+    .footnote {
+      font-size: 0.88rem;
+      color: var(--muted);
+      max-width: 70ch;
+      margin: 1.5rem 0 0;
+      line-height: 1.55;
+    }
+    .footnote a { color: var(--green); }
+
+    .preview-strip {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-top: 0.7rem;
+    }
+    .preview-strip > .swatch {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      border: 1px solid var(--rule);
+    }
+  </style>
+</head>
+<body>
+
+<header class="head">
+  <div class="wrap" style="padding-bottom: 0;">
+    <a class="back" href="../">← Back to canonical brief</a>
+    <div style="height: 0.6rem;"></div>
+    <span class="eyebrow">Prototypes</span>
+    <h1>Three design directions for the AI Providers brief.</h1>
+    <p>Same content, three visual registers. Each is a single-page demonstration of the design direction. Pick a winner; we'll build out the full four-page version in that direction.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="grid">
+
+    <article class="card">
+      <span class="tag">Direction 1</span>
+      <h2>Consulting executive brief</h2>
+      <p class="ref">McKinsey / BCG / federal-report register</p>
+      <p class="desc">Formal, structured, numbered sections (1.0 / 2.1). Executive-summary block up top. Conservative IBM Plex typography, Babson green for hierarchy, charcoal for body. 2×2 cost-vs-adoption matrix in pure CSS grid. A page that looks like a printed deliverable handed across a desk.</p>
+      <div class="stack"><strong>Stack:</strong> Vanilla HTML/CSS, IBM Plex Serif/Sans/Mono, no JS, no chart library, print-friendly.</div>
+      <div class="preview-strip">
+        <span class="swatch" style="background:#006747;"></span>
+        <span class="swatch" style="background:#2C3540;"></span>
+        <span class="swatch" style="background:#ffffff;"></span>
+      </div>
+      <a class="open" href="consulting/">Open</a>
+    </article>
+
+    <article class="card">
+      <span class="tag">Direction 2</span>
+      <h2>Dashboard / data product</h2>
+      <p class="ref">Stripe Atlas / Linear / modern internal-tool register</p>
+      <p class="desc">Information-dense, tool-feel. Sticky 240px left rail with scroll-spy nav. Five-card KPI strip with animated count-up. Per-user pricing bar chart + cumulative peer-deployment line chart. Tabbed filter on provider cards. Inter + JetBrains Mono accents on every number, date, and URL.</p>
+      <div class="stack"><strong>Stack:</strong> Vanilla HTML/CSS/JS with Chart.js 4.4 via CDN, Inter + JetBrains Mono via Google Fonts.</div>
+      <div class="preview-strip">
+        <span class="swatch" style="background:#006747;"></span>
+        <span class="swatch" style="background:#f7f7f7;"></span>
+        <span class="swatch" style="background:#1a1f25;"></span>
+      </div>
+      <a class="open" href="dashboard/">Open</a>
+    </article>
+
+    <article class="card">
+      <span class="tag">Direction 3</span>
+      <h2>Magazine editorial</h2>
+      <p class="ref">FT / The Atlantic / Stripe Press register</p>
+      <p class="desc">Long-form magazine feature. Fraunces display serif at large sizes for headings, Source Serif 4 for body. Oxblood editorial accent on ivory paper. Drop cap, four numbered sections (I–IV), pull-quotes with hairline rules, oversized inline stats ($17M as typographic art). No charts; prose-led. Ends with a § endmark.</p>
+      <div class="stack"><strong>Stack:</strong> Vanilla HTML/CSS, Fraunces + Source Serif 4 + Inter via Google Fonts, no JS, no chart library.</div>
+      <div class="preview-strip">
+        <span class="swatch" style="background:#6b2226;"></span>
+        <span class="swatch" style="background:#f5f0e6;"></span>
+        <span class="swatch" style="background:#1f1a17;"></span>
+      </div>
+      <a class="open" href="magazine/">Open</a>
+    </article>
+
+  </div>
+
+  <p class="footnote">All three prototypes use the same content and cite the same 20 verified sources. The <a href="../">canonical brief</a> at <code>/</code> remains as v11. Once a direction is chosen, the full four-page brief (Home / Value / Build / Providers) plus the consolidated PDF report can be rebuilt in that register.</p>
+</div>
+
+</body>
+</html>
