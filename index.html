@@ -5,72 +5,442 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Babson AI Briefing &middot; Walkthrough</title>
-  <meta name="description" content="A walkthrough briefing on three AI providers prepared for the President of Babson College." />
+  <meta name="description" content="A confidential briefing for the President of Babson on three AI providers." />
+  <script src="auth.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-  <script src="auth.js"></script>
-  <style>
-    html, body { margin: 0; padding: 0; background: #FAF7F2; min-height: 100vh; font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif; color: #14191F; }
-    .splash {
-      max-width: 480px; margin: 18vh auto 0; padding: 2.4rem 2rem 2rem;
-      background: #ffffff; border-radius: 8px; border-top: 4px solid #006747;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-    }
-    .splash-eyebrow {
-      display: block; font-family: 'IBM Plex Mono', monospace;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; color: rgba(20,25,31,0.55);
-      margin-bottom: 0.5rem;
-    }
-    .splash-title {
-      font-size: 1.4rem; font-weight: 700; letter-spacing: -0.012em;
-      line-height: 1.25; margin: 0 0 0.85rem;
-    }
-    .splash-body {
-      font-family: 'IBM Plex Serif', Georgia, serif;
-      font-size: 1rem; line-height: 1.55;
-      margin: 0 0 1.3rem;
-    }
-    .splash-cta {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      background: #006747; color: #fff;
-      border: 1px solid #00563C; border-radius: 4px;
-      font-weight: 700; font-size: 0.95rem;
-      text-decoration: none;
-    }
-    .splash-cta:hover { background: #00563C; }
-    .splash-alt {
-      display: block; margin-top: 1rem;
-      font-size: 0.86rem;
-      color: rgba(20,25,31,0.6); text-decoration: underline;
-      text-underline-offset: 3px;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="walkthrough.css" />
 </head>
-<body>
-  <main class="splash">
-    <span class="splash-eyebrow">Confidential briefing &middot; May 2026</span>
-    <h1 class="splash-title">Empowering Babson&rsquo;s Entrepreneurial Leaders by Providing the Best Tools</h1>
-    <p class="splash-body">Redirecting you to the walkthrough&hellip; If your browser doesn&rsquo;t move on its own, tap below.</p>
-    <a class="splash-cta" href="./learn/">Open the walkthrough &rarr;</a>
-    <a class="splash-alt" href="./brief.html">Or skip straight to the full briefing</a>
+<body class="learn">
+
+  <header class="learn-bar">
+    <button type="button" class="ls-toggle" id="ls-toggle" aria-label="Toggle contents" aria-controls="learn-sidebar"><span aria-hidden="true">&#9776;</span></button>
+    <span class="lb-mark">Babson &middot; AI briefing</span>
+    <nav class="lb-trail" id="lb-trail" aria-label="Walkthrough position">
+      <span class="trail-here" id="trail-here">Why this matters</span>
+    </nav>
+    <button type="button" class="lb-reset" id="lb-reset" title="Start the walkthrough from the beginning" aria-label="Reset">Start over</button>
+  </header>
+
+  <div class="learn-layout">
+
+  <aside class="learn-sidebar" id="learn-sidebar" aria-label="Walkthrough contents">
+    <div class="ls-head">
+      <span class="ls-title">Contents</span>
+      <span class="ls-progress" id="ls-progress">0 of 14</span>
+    </div>
+    <nav class="ls-nav">
+      <section class="ls-section">
+        <h4 class="ls-section-title">Why this matters</h4>
+        <button type="button" class="ls-item" data-go="w1"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">The shift</span></button>
+        <button type="button" class="ls-item" data-go="w2"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">The floor has moved</span></button>
+        <button type="button" class="ls-item" data-go="w3"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">Choose a path</span></button>
+      </section>
+      <section class="ls-section">
+        <h4 class="ls-section-title">Hub</h4>
+        <button type="button" class="ls-item" data-go="hub"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">Pick a path</span></button>
+      </section>
+      <section class="ls-section">
+        <h4 class="ls-section-title">The three providers</h4>
+        <button type="button" class="ls-item" data-go="a1"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">OpenAI</span></button>
+        <button type="button" class="ls-item" data-go="a2"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">Anthropic</span></button>
+        <button type="button" class="ls-item" data-go="a3"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">Google</span></button>
+        <button type="button" class="ls-item" data-go="a4"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">How they compare</span></button>
+      </section>
+      <section class="ls-section">
+        <h4 class="ls-section-title">What it costs</h4>
+        <button type="button" class="ls-item" data-go="b1"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">List pricing</span></button>
+        <button type="button" class="ls-item" data-go="b2"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">At Babson scale</span></button>
+      </section>
+      <section class="ls-section">
+        <h4 class="ls-section-title">Who&apos;s using them</h4>
+        <button type="button" class="ls-item" data-go="c1"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">Adoption timeline</span></button>
+        <button type="button" class="ls-item" data-go="c2"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">Different shapes</span></button>
+      </section>
+      <section class="ls-section">
+        <h4 class="ls-section-title">What Babson is doing</h4>
+        <button type="button" class="ls-item" data-go="d1"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">Infrastructure</span></button>
+        <button type="button" class="ls-item" data-go="d2"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">Student projects</span></button>
+      </section>
+      <section class="ls-section">
+        <h4 class="ls-section-title">Closing</h4>
+        <button type="button" class="ls-item" data-go="close"><span class="ls-mark" aria-hidden="true"></span><span class="ls-text">Where this lands</span></button>
+      </section>
+    </nav>
+  </aside>
+
+  <div class="learn-sidebar-overlay" id="learn-sidebar-overlay" aria-hidden="true"></div>
+
+  <main class="stage" id="stage">
+
+    <!-- ================================ THE WHY (3 scenes) ================================ -->
+    <section class="scene" data-scene="w1" data-kind="linear" data-path="why">
+      <div class="scene-inner">
+        <span class="scene-kicker">Why this matters &middot; 1 of 3</span>
+        <div class="scene-hero hero-pulse">
+          <div class="pulse-line"><span class="pulse-year">2022</span><span class="pulse-label">Chatbots arrived.</span></div>
+          <div class="pulse-line"><span class="pulse-year">2024</span><span class="pulse-label">Students experimenting.</span></div>
+          <div class="pulse-line current"><span class="pulse-year">2026</span><span class="pulse-label">Working tools.</span></div>
+        </div>
+        <figure class="scene-image scene-image-small">
+          <img src="images/w1-capability.jpg" alt="Three rising stepped curves in green, orange, and blue, representing OpenAI, Anthropic, and Google AI capability from 2022 through 2026" width="1400" height="933" />
+          <figcaption>What each provider can do has moved meaningfully in the last eighteen months. The lines are illustrative, not benchmarked.</figcaption>
+        </figure>
+        <h1 class="scene-headline">AI isn't what it was eighteen months ago.</h1>
+        <p class="scene-body">The AI available in 2026 does something fundamentally different from the chatbots that arrived in 2022. The current versions of ChatGPT, Claude, and Gemini can read a hundred academic papers in one pass, build a working web application from a sentence of description, and string multi-step tasks together across a student&rsquo;s email, calendar, and software without being asked twice. The technology has moved from <em>answering questions</em> to <em>completing work</em>. The institutional question is what to do about it.</p>
+        <p class="scene-tip">Anything <button type="button" class="term" data-term="how-this-walks">underlined like this</button> opens a plain-language explainer. Take them as needed; skip if you don't.</p>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="w2" data-kind="linear" data-path="why">
+      <div class="scene-inner">
+        <span class="scene-kicker">Why this matters &middot; 2 of 3</span>
+        <div class="scene-hero hero-stakes">
+          <div class="stakes-before">
+            <span class="stakes-label">2024</span>
+            <span class="stakes-line">Solo founder: idea &rarr; pitch deck &rarr; small team &rarr; first prototype, ~1 quarter</span>
+          </div>
+          <div class="stakes-after">
+            <span class="stakes-label">2026</span>
+            <span class="stakes-line">Solo founder + AI accounts: idea &rarr; working prototype &rarr; first customers, <strong>weeks, not quarters</strong></span>
+          </div>
+        </div>
+        <h1 class="scene-headline">For a school that teaches building, the floor has moved.</h1>
+        <p class="scene-body">Babson's reputation rests on producing graduates who actually start companies. Starting a company in 2026 is meaningfully different from starting one in 2024 &mdash; not because every venture is now an AI venture, but because the floor of what is possible <em>solo</em> has moved. One Babson student with three accounts can now produce in a week what used to take a small team a quarter. The institutional question is whether to put those three accounts into every student's hands &mdash; and how.</p>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="w3" data-kind="linear" data-path="why">
+      <div class="scene-inner">
+        <span class="scene-kicker">Why this matters &middot; 3 of 3</span>
+        <div class="scene-hero hero-legend">
+          <div class="legend-row"><span class="legend-glyph">&rarr;</span>Stops are arranged in short paths &mdash; pick what you want to know next.</div>
+          <div class="legend-row"><span class="legend-glyph">&middot;&middot;&middot;</span>Underlined words open plain-language definitions.</div>
+          <div class="legend-row"><span class="legend-glyph">&#8635;</span>You can return to the hub from any scene, or jump to the full briefing.</div>
+          <div class="legend-row"><span class="legend-glyph">&loz;</span>The walkthrough remembers which paths you've covered.</div>
+        </div>
+        <h1 class="scene-headline">Choose your own path.</h1>
+        <p class="scene-body">The next stop is a hub. From there, pick what you want to know first: who the three providers are and what each does best; what it costs at Babson scale; which peer institutions have already deployed which; or what Babson is already doing on the ground. Each path is two or three short scenes. You can take them in any order, in any combination, and stop whenever you're ready for the closing question.</p>
+      </div>
+    </section>
+
+    <!-- ================================ THE HUB ================================ -->
+    <section class="scene scene-hub" data-scene="hub" data-kind="hub">
+      <div class="scene-inner">
+        <span class="scene-kicker">Where do you want to go next?</span>
+        <h1 class="scene-headline scene-headline-hub">Pick a path. You'll come back here.</h1>
+
+        <div class="hub-grid">
+          <button type="button" class="hub-card" data-go="a1" data-path-id="a">
+            <span class="hub-tag">Path 1 &middot; 4 stops</span>
+            <h3>The three providers</h3>
+            <p>What each company makes, what each is best at &mdash; and how they sit next to Microsoft Copilot in capability.</p>
+            <span class="hub-check" aria-hidden="true">&check;</span>
+          </button>
+          <button type="button" class="hub-card" data-go="b1" data-path-id="b">
+            <span class="hub-tag">Path 2 &middot; 2 stops</span>
+            <h3>What it costs</h3>
+            <p>Per-user list pricing, the Babson-scale annual envelope, and the largest publicly-disclosed peer-institution deal.</p>
+            <span class="hub-check" aria-hidden="true">&check;</span>
+          </button>
+          <button type="button" class="hub-card" data-go="c1" data-path-id="c">
+            <span class="hub-tag">Path 3 &middot; 2 stops</span>
+            <h3>Who's already using them</h3>
+            <p>Wharton, Oxford, Northeastern, LSE, Rice, the CSU system &mdash; and what each peer institution chose.</p>
+            <span class="hub-check" aria-hidden="true">&check;</span>
+          </button>
+          <button type="button" class="hub-card" data-go="d1" data-path-id="d">
+            <span class="hub-tag">Path 4 &middot; 2 stops</span>
+            <h3>What Babson is doing</h3>
+            <p>The Generator, the Weissman Foundry, the AI Innovators Bootcamp &mdash; and four current student projects.</p>
+            <span class="hub-check" aria-hidden="true">&check;</span>
+          </button>
+        </div>
+
+        <div class="hub-progress" id="hub-progress" hidden>
+          <span class="hub-progress-text"></span>
+        </div>
+
+        <div class="hub-finish">
+          <a href="#close" class="hub-finish-link">Or skip ahead to the closing &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================ PATH A: PROVIDERS ================================ -->
+    <section class="scene" data-scene="a1" data-kind="path" data-path="a">
+      <div class="scene-inner">
+        <span class="scene-kicker">Providers &middot; 1 of 3</span>
+        <div class="scene-hero hero-provider">
+          <div class="provider-mark provider-openai">
+            <span class="provider-name">OpenAI</span>
+            <span class="provider-model">GPT-5.5 &middot; April 2026 <button type="button" class="cite" data-cite="1">1</button></span>
+          </div>
+        </div>
+        <h1 class="scene-headline">OpenAI is the action company.</h1>
+        <p class="scene-body">OpenAI&rsquo;s strength is <button type="button" class="term" data-term="agentic">agentic</button> work &mdash; getting the AI to <em>do</em> things, not just describe how to do them. The April 2026 launch of <button type="button" class="term" data-term="workspace-agents">Workspace Agents</button> lets students run multi-step workflows directly inside enterprise tools like Salesforce, Slack, and HubSpot. A founder can have the AI follow up on leads, post status updates to a team channel, or schedule customer interviews without writing a line of code for any of it.</p>
+        <p class="scene-body">The institutional offerings are <button type="button" class="term" data-term="chatgpt-edu">ChatGPT Edu</button> and ChatGPT Business; the underlying model family is GPT-5.5. OpenAI partners run from <strong>Wharton</strong><button type="button" class="cite" data-cite="11">11</button> (universal MBA access since 2024) through <strong>Oxford</strong><button type="button" class="cite" data-cite="12">12</button> (campus-wide ChatGPT Edu since September 2025) to the <strong>California State University system</strong><button type="button" class="cite" data-cite="14">14</button><button type="button" class="cite" data-cite="15">15</button> (the largest publicly-disclosed deal at any peer).</p>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="a2" data-kind="path" data-path="a">
+      <div class="scene-inner">
+        <span class="scene-kicker">Providers &middot; 2 of 3</span>
+        <div class="scene-hero hero-provider">
+          <div class="provider-mark provider-anthropic">
+            <span class="provider-name">Anthropic</span>
+            <span class="provider-model">Claude Opus 4.7 &middot; April 2026 <button type="button" class="cite" data-cite="4">4</button></span>
+          </div>
+        </div>
+        <h1 class="scene-headline">Anthropic is the reasoning company.</h1>
+        <p class="scene-body">Anthropic&rsquo;s Claude is widely treated as the careful, literal one &mdash; best where precision and pedagogy matter more than speed. The flagship is <strong>Claude Opus 4.7</strong>. For higher education specifically, <button type="button" class="term" data-term="claude-for-education">Claude for Education</button> ships a feature called <button type="button" class="term" data-term="learning-mode">Learning Mode</button> that guides students through reasoning steps rather than handing them the answer outright &mdash; closer to how a good faculty member teaches.</p>
+        <p class="scene-body">Anthropic's institutional partners include <strong>Northeastern</strong><button type="button" class="cite" data-cite="16">16</button> (campus-wide across 13 global campuses, April 2025), <strong>London School of Economics</strong><button type="button" class="cite" data-cite="17">17</button> (free Enterprise Claude for every LSE student and educator, May 2025), and <strong>Champlain College</strong><button type="button" class="cite" data-cite="18">18</button> (a small private peer with two years of free Claude Pro, March 2025). The Champlain deal is the closest peer-shape to a Babson deployment.</p>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="a3" data-kind="path" data-path="a">
+      <div class="scene-inner">
+        <span class="scene-kicker">Providers &middot; 3 of 3</span>
+        <div class="scene-hero hero-provider">
+          <div class="provider-mark provider-google">
+            <span class="provider-name">Google</span>
+            <span class="provider-model">Gemini 3.1 Pro &middot; Feb 2026 <button type="button" class="cite" data-cite="7">7</button></span>
+          </div>
+        </div>
+        <h1 class="scene-headline">Google is the senses company.</h1>
+        <p class="scene-body">Google&rsquo;s flagship is <strong>Gemini 3.1 Pro</strong>, currently the only major AI model that handles video alongside text, image, and audio in a single conversation &mdash; the practical meaning of <button type="button" class="term" data-term="multimodal">multimodal</button>. Pair that with a one-million-token context window and a single student can analyze hundreds of pages, a long video, and a spreadsheet at the same time.</p>
+        <p class="scene-body">Where OpenAI and Anthropic ship dedicated chat products, Google&rsquo;s institutional strategy is integration. <button type="button" class="term" data-term="workspace-intelligence">Workspace Intelligence</button> (launched April 2026) weaves Gemini directly into Gmail, Docs, Sheets, and Slides &mdash; the surface most students already use. Google&rsquo;s published higher-ed footprint reaches <strong>more than 1,000 institutions and 10 million U.S. college students</strong><button type="button" class="cite" data-cite="10">10</button>; named deployments include <strong>Rice</strong><button type="button" class="cite" data-cite="19">19</button> and the <strong>University of Houston</strong><button type="button" class="cite" data-cite="20">20</button>.</p>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="a4" data-kind="path" data-path="a" data-last>
+      <div class="scene-inner">
+        <span class="scene-kicker">Providers &middot; 4 of 4</span>
+        <figure class="scene-image scene-image-small">
+          <img src="images/a4-wrapper.jpg" alt="Stack diagram: four wrapper products (Microsoft Copilot, Perplexity, Cursor, Custom GPTs) on top, three foundation-model blocks (OpenAI, Anthropic, Google) below; dotted lines show which wrappers build on which foundations" width="1400" height="933" loading="lazy" />
+          <figcaption>Wrapper products sit on top of <button type="button" class="term" data-term="foundation-model">foundation models</button>. Microsoft Copilot runs on OpenAI&rsquo;s stack; Perplexity and Cursor route across multiple labs; Custom GPTs are an OpenAI feature.</figcaption>
+        </figure>
+        <div class="scene-hero hero-compare">
+          <div class="compare-wrap" id="capabilities-table">
+            <p class="compare-loading">Loading the comparison table&hellip;</p>
+          </div>
+          <p class="compare-note" id="capabilities-note"></p>
+        </div>
+        <h1 class="scene-headline">Where the three sit next to Microsoft Copilot.</h1>
+        <p class="scene-body">Copilot is the AI surface Babson already runs &mdash; an excellent productivity layer threaded through Microsoft 365. The table above is not a verdict on Copilot; it&apos;s a map of what the foundation-model providers offer that wrapper products like Copilot inherit from them. Each cell links to its source. Click any &ldquo;source&rdquo; link to verify the underlying fact.</p>
+        <p class="scene-body">Read the rows the way a CIO would: where Copilot has a checkmark, the capability typically comes from OpenAI or another underlying lab; where it doesn&apos;t, the gap is usually about <em>product surface</em>, not whether Microsoft could build it. Both kinds of partnership &mdash; foundation provider <em>and</em> productivity layer &mdash; are likely the right answer for an entrepreneurship campus.</p>
+      </div>
+    </section>
+
+    <!-- ================================ PATH B: COST ================================ -->
+    <section class="scene" data-scene="b1" data-kind="path" data-path="b">
+      <div class="scene-inner">
+        <span class="scene-kicker">Cost &middot; 1 of 2</span>
+        <div class="scene-hero hero-prices">
+          <table class="price-grid">
+            <thead><tr><th>Provider</th><th>List rate</th><th>&times; ~5,000 users &times; 12 months</th></tr></thead>
+            <tbody>
+              <tr><td>OpenAI &middot; ChatGPT Business <button type="button" class="cite" data-cite="3">3</button></td><td>$20 / user / month</td><td><strong>~$1.2M / year</strong></td></tr>
+              <tr><td>Google &middot; AI Pro for Education <button type="button" class="cite" data-cite="9">9</button></td><td>$15 / user / month</td><td><strong>~$0.9M / year</strong></td></tr>
+              <tr><td>Anthropic &middot; Claude for Education <button type="button" class="cite" data-cite="6">6</button></td><td>Negotiated</td><td><strong>Comparable order</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h1 class="scene-headline">List pricing, applied to Babson's scale.</h1>
+        <p class="scene-body">Per-user list pricing is now well inside what institutions spend on routine software. For Babson's roughly 5,000 active students, faculty, and staff, each provider works out to about $0.9 to $1.2 million per year at list, before education-tier or volume discounts. Education-tier discounts and volume pricing typically reduce these figures further.</p>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="b2" data-kind="path" data-path="b" data-last>
+      <div class="scene-inner">
+        <span class="scene-kicker">Cost &middot; 2 of 2</span>
+        <div class="scene-hero hero-money">
+          <div class="big-num">$0.9&ndash;1.2M</div>
+          <div class="big-cap">per provider, per year, at Babson scale</div>
+          <div class="big-anchor">&approx; one endowed faculty chair &mdash; recurring, reaching the whole campus</div>
+        </div>
+
+        <section class="cost-calc" aria-label="Cost calculator">
+          <header class="cc-head">
+            <span class="cc-eyebrow">Try the math</span>
+            <h2 class="cc-title">Annual envelope at list pricing</h2>
+          </header>
+          <div class="cc-controls">
+            <div class="cc-control cc-control-users">
+              <label class="cc-label" for="cc-users">Active campus users <output class="cc-users-out" id="cc-users-out">5,000</output></label>
+              <input type="range" id="cc-users" min="1000" max="7500" step="100" value="5000" />
+              <div class="cc-scale"><span>1,000</span><span>7,500</span></div>
+            </div>
+            <div class="cc-control">
+              <span class="cc-label">Provider scope</span>
+              <div class="cc-tiers" role="group" aria-label="Provider scope">
+                <button type="button" class="cc-tier" data-tier="1">One provider</button>
+                <button type="button" class="cc-tier active" data-tier="2">Two providers</button>
+                <button type="button" class="cc-tier" data-tier="3">All three</button>
+              </div>
+            </div>
+          </div>
+          <div class="cc-result">
+            <div class="cc-result-main">
+              <strong class="cc-result-value" id="cc-result-value">$2.1M</strong>
+              <span class="cc-result-label">per year, at list</span>
+            </div>
+            <div class="cc-result-anchors" id="cc-result-anchors"></div>
+          </div>
+          <p class="cc-note">Education-tier discounts and volume pricing typically reduce these figures by 30 to 60 percent. For reference, Cal State&rsquo;s negotiated deal worked out to roughly $1.88 per user per month &mdash; far below list. Negotiated outcomes vary by institution.</p>
+        </section>
+
+        <h1 class="scene-headline">Roughly one endowed chair, per year, per provider.</h1>
+        <p class="scene-body">The mental anchor that fits Babson's accounting is the endowed faculty chair &mdash; a familiar budget category. At the lower end of the envelope, the annual cost is comparable to a single chair's payout, but recurring and reaching the full active campus rather than one faculty line. <strong>The scale floor</strong>: California State University's deal with OpenAI was <strong>$17 million over 18 months</strong><button type="button" class="cite" data-cite="15">15</button> for more than 500,000 users<button type="button" class="cite" data-cite="14">14</button> &mdash; the largest publicly-disclosed peer-institution AI commitment. Single-school deals at Wharton, Oxford, Northeastern, and others have not been disclosed in dollars.</p>
+      </div>
+    </section>
+
+    <!-- ================================ PATH C: PEERS ================================ -->
+    <section class="scene" data-scene="c1" data-kind="path" data-path="c">
+      <div class="scene-inner">
+        <span class="scene-kicker">Peers &middot; 1 of 2</span>
+        <div class="scene-hero hero-timeline">
+          <div class="timeline-wrap" id="peers-timeline">
+            <p class="timeline-loading">Loading the timeline&hellip;</p>
+          </div>
+        </div>
+        <h1 class="scene-headline">Where each provider has landed.</h1>
+        <p class="scene-body">Each provider has built a public reference list at the top of higher education. <strong>OpenAI</strong> spans Arizona State, Wharton, UCLA, Duke, the CSU system, Oxford, and Vanderbilt. <strong>Anthropic</strong> covers Champlain, Northeastern, LSE, and Harvard&apos;s Faculty of Arts and Sciences. <strong>Google</strong> reaches Rice, the University of Houston, and a thousand more institutions covering ten million U.S. college students<button type="button" class="cite" data-cite="10">10</button>. None of these deployments is a pilot; all are committed campus-wide or system-wide arrangements. Click any dot below for the source announcement.</p>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="c2" data-kind="path" data-path="c" data-last>
+      <div class="scene-inner">
+        <span class="scene-kicker">Peers &middot; 2 of 2</span>
+        <div class="scene-hero hero-pattern">
+          <div class="pattern-line">Universal MBA seats <span class="pat-school">(Wharton)</span></div>
+          <div class="pattern-line">Single-lab campus-wide deal <span class="pat-school">(Northeastern, LSE, Champlain)</span></div>
+          <div class="pattern-line">Curriculum-funding initiative <span class="pat-school">(Stanford AIMES)</span></div>
+          <div class="pattern-line">System-wide ChatGPT Edu <span class="pat-school">(California State University)</span></div>
+          <div class="pattern-line">Campus-wide Gemini for Education <span class="pat-school">(Rice, Houston)</span></div>
+        </div>
+        <h1 class="scene-headline">Different shapes, same direction.</h1>
+        <p class="scene-body">The peer field has not converged on a single template. Different schools made different shapes: a universal MBA-license at Wharton; a single-provider campus-wide deal at Northeastern; a curriculum-funding grant program at Stanford; a system-wide deployment at CSU. The shared signal is direction, not form: each of the elite peers Babson watches picked at least one of the three providers and made an institutional commitment. <strong>Babson currently has none formally in place.</strong></p>
+      </div>
+    </section>
+
+    <!-- ================================ PATH D: BABSON ================================ -->
+    <section class="scene" data-scene="d1" data-kind="path" data-path="d">
+      <div class="scene-inner">
+        <span class="scene-kicker">Babson &middot; 1 of 2</span>
+        <div class="scene-hero hero-babson">
+          <div class="bb-tile"><span class="bb-tag">Lab</span><strong><button type="button" class="term" data-term="generator">The Generator</button></strong> <button type="button" class="cite" data-cite="26">26</button></div>
+          <div class="bb-tile"><span class="bb-tag">Space</span><strong><button type="button" class="term" data-term="weissman-foundry">Weissman Foundry</button></strong></div>
+          <div class="bb-tile"><span class="bb-tag">Program</span><strong><button type="button" class="term" data-term="ai-innovators-bootcamp">AI Innovators Bootcamp</button></strong> <button type="button" class="cite" data-cite="24">24</button></div>
+          <div class="bb-tile"><span class="bb-tag">Event</span><strong>Generator Build-a-thon</strong> <button type="button" class="cite" data-cite="23">23</button></div>
+          <div class="bb-tile"><span class="bb-tag">Partnership</span><strong>Babson &times; Microsoft SMB pilot</strong> <button type="button" class="cite" data-cite="27">27</button></div>
+        </div>
+        <h1 class="scene-headline">Babson's AI infrastructure already exists.</h1>
+        <p class="scene-body">None of this lands on empty ground. <strong>The Generator</strong>, founded by Erik Noyes (a co-author of this brief), is Babson's interdisciplinary AI lab. It runs hands-on programs through the <strong>Weissman Foundry</strong> &mdash; including the <strong>AI Innovators Bootcamp</strong> (faculty and students paired with small-business owners to build AI prototypes), the annual <strong>Generator Build-a-thon</strong> (~500 students from Boston-area universities each spring), and an ongoing collaboration with Microsoft on small-business AI agents.</p>
+        <p class="scene-body">What's missing is the upstream provider relationship. The infrastructure is here; the formal model-layer commitments are not yet.</p>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="d2" data-kind="path" data-path="d" data-last>
+      <div class="scene-inner">
+        <span class="scene-kicker">Babson &middot; 2 of 2</span>
+        <figure class="scene-image scene-image-small">
+          <img src="images/d2-students.jpg" alt="Six line-art icons in green, gold, and gray: a laptop with a chat bubble, a lightbulb, a rising line chart, a pitch-deck slide, a storefront awning, and a Venn diagram of three overlapping circles" width="1400" height="933" loading="lazy" />
+          <figcaption>Six shapes that describe most Babson founder work: a chat with an AI, a sketched idea, a working chart, a pitch slide, a storefront, and a three-circle overlap.</figcaption>
+        </figure>
+        <div class="scene-hero hero-active">
+          <div class="active-tile">
+            <span class="active-name">Crafting Tomorrow <button type="button" class="cite" data-cite="21">21</button></span>
+            <span class="active-meta">Cole Collins '26 &middot; AI Club leadership</span>
+            <span class="active-line">High-school AI literacy through entrepreneurship.</span>
+          </div>
+          <div class="active-tile">
+            <span class="active-name">ping! and brain <button type="button" class="cite" data-cite="22">22</button></span>
+            <span class="active-meta">Vaness Gardner '26 &middot; Weissman Foundry</span>
+            <span class="active-line">Generator Build-a-thon 2026 demo.</span>
+          </div>
+          <div class="active-tile">
+            <span class="active-name">GemCopy <button type="button" class="cite" data-cite="24">24</button></span>
+            <span class="active-meta">AI Innovators Bootcamp &times; Amipi INC</span>
+            <span class="active-line">AI tool turning gem certificates into product copy.</span>
+          </div>
+          <div class="active-tile">
+            <span class="active-name">Face Off <button type="button" class="cite" data-cite="25">25</button></span>
+            <span class="active-meta">Built on Base44 (AI no-code)</span>
+            <span class="active-line">Peer-to-peer social-wagering app.</span>
+          </div>
+        </div>
+        <h1 class="scene-headline">Four projects, all live, all student-built.</h1>
+        <p class="scene-body">Behind the infrastructure are real student projects already shipping with AI tools. Each project below is publicly accessible; each has a verifiable Babson connection. They are the everyday output of the lab the brief describes &mdash; and the closest evidence of what direct provider access at Babson would unlock at scale.</p>
+      </div>
+    </section>
+
+    <!-- ================================ CLOSE ================================ -->
+    <section class="scene" data-scene="close" data-kind="close">
+      <div class="scene-inner">
+        <span class="scene-kicker">Where this lands</span>
+        <div class="scene-hero hero-final">
+          <div class="final-stamp">Fall 2026</div>
+          <div class="final-list">
+            <span>Three companies.</span>
+            <span>Per-user pricing inside institutional software budgets.</span>
+            <span>Peers have already moved.</span>
+            <span>Babson programs are already building.</span>
+          </div>
+        </div>
+        <h1 class="scene-headline">The question is whether to give Babson students direct access.</h1>
+        <p class="scene-body">The full briefing addresses the procurement detail, including how this complements the Microsoft Copilot work Babson already runs. The walkthrough ends here; the briefing picks up where you choose. Either way, the decision belongs to fall 2026.</p>
+        <div class="final-actions">
+          <a class="final-cta" href="brief.html">Read the full briefing &rarr;</a>
+          <a class="final-cta secondary" href="babson-ai-providers.pdf" download>Download the PDF</a>
+        </div>
+      </div>
+    </section>
+
   </main>
-  <script>
-    // Only redirect once unlocked, so the gate isn't navigated away from.
-    (function () {
-      function tick() {
-        try {
-          if (localStorage.getItem('babson-ai-brief-unlocked') === 'yes') {
-            window.location.replace('./learn/');
-            return;
-          }
-        } catch (e) {}
-        setTimeout(tick, 400);
-      }
-      setTimeout(tick, 200);
-    })();
-  </script>
+
+  </div><!-- /.learn-layout -->
+
+  <footer class="learn-nav" id="learn-nav">
+    <button type="button" class="nav-arrow" id="nav-prev" aria-label="Previous">
+      <span class="nav-arrow-glyph">&larr;</span><span class="nav-arrow-label">Back</span>
+    </button>
+    <button type="button" class="nav-arrow" id="nav-hub" aria-label="Back to hub">
+      <span class="nav-arrow-glyph">&#8635;</span><span class="nav-arrow-label">Hub</span>
+    </button>
+    <button type="button" class="nav-arrow primary" id="nav-next" aria-label="Next">
+      <span class="nav-arrow-label">Next</span><span class="nav-arrow-glyph">&rarr;</span>
+    </button>
+  </footer>
+
+  <!-- ============================ TERM DEFINITION MODAL ============================ -->
+  <dialog id="term-dialog" class="term-dialog" aria-labelledby="term-title">
+    <article class="term-content">
+      <header class="term-header">
+        <span class="term-eyebrow">Definition</span>
+        <button type="button" class="term-close-x" id="term-close-x" aria-label="Close">&times;</button>
+      </header>
+      <h3 class="term-title" id="term-title"></h3>
+      <div class="term-body" id="term-body"></div>
+    </article>
+  </dialog>
+
+  <!-- ============================ CITATION POPOVER MODAL ============================ -->
+  <dialog id="cite-dialog" class="term-dialog cite-dialog" aria-labelledby="cite-title">
+    <article class="term-content">
+      <header class="term-header">
+        <span class="term-eyebrow">Source</span>
+        <button type="button" class="term-close-x" id="cite-close-x" aria-label="Close">&times;</button>
+      </header>
+      <h3 class="term-title cite-title" id="cite-title"></h3>
+      <div class="cite-meta" id="cite-meta"></div>
+      <blockquote class="cite-quote" id="cite-quote" hidden></blockquote>
+      <p class="cite-link"><a id="cite-link" href="#" target="_blank" rel="noopener">Read the source &rarr;</a></p>
+    </article>
+  </dialog>
+
+  <script src="walkthrough.js"></script>
 </body>
 </html>

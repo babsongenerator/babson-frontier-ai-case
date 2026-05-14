@@ -47,6 +47,14 @@ body.learn {
   white-space: nowrap;
 }
 .lb-back:hover { color: var(--babson-green-dark); }
+.lb-mark {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--babson-green-dark);
+  white-space: nowrap;
+}
 .lb-trail {
   flex: 1;
   text-align: center;
