@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Appendix · Babson AI Providers Brief</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+
+  <div class="topbar">
+    <a class="backlink" href="../">&larr; Back to the brief</a>
+    <span class="topbar-meta">Appendix · Briefing Memorandum</span>
+  </div>
+
+  <main class="page">
+
+    <!-- ============================ MASTHEAD ============================ -->
+    <header class="masthead">
+      <div class="masthead-rule"></div>
+      <div class="masthead-inner">
+        <div class="masthead-left">
+          <div class="eyebrow">Office of the President &middot; Briefing Memorandum &middot; Appendix A</div>
+          <h1>The fine print &mdash; pricing detail, glossary, and a note on Microsoft Copilot.</h1>
+          <p class="subtitle">Supporting material for the primary brief. Includes per-user pricing math at institutional scale, the structure of California State University's $17M OpenAI deal, a glossary of provider-specific terms, and a discreet note on Microsoft Copilot's relationship to the three providers.</p>
+        </div>
+        <div class="masthead-right">
+          <table class="masthead-meta">
+            <tr><th>Companion to</th><td><a href="../">The Three Leading AI Providers in Higher Education</a></td></tr>
+            <tr><th>Subject</th><td>Pricing detail; Copilot positioning; glossary</td></tr>
+            <tr><th>Classification</th><td>Internal / Donor-shareable</td></tr>
+            <tr><th>Date</th><td>May 2026</td></tr>
+            <tr><th>Pages</th><td>Appendix A (single page)</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="masthead-rule"></div>
+    </header>
+
+    <!-- ============================ EXECUTIVE NOTE ============================ -->
+    <section class="executive-summary" aria-labelledby="exec-summary">
+      <div class="es-header">
+        <span class="es-tag">Note</span>
+      </div>
+      <p class="es-list" style="list-style:none; padding-left:0;">This appendix exists for readers who want the underlying detail behind the primary brief &mdash; the specific per-user rates, the structure of the largest disclosed peer deal, the terminology, and an explicit discussion of where Microsoft Copilot fits relative to OpenAI, Anthropic, and Google. The primary brief stands on its own; this is the layer beneath it.</p>
+    </section>
+
+    <!-- ============================ A.1 COPILOT ============================ -->
+    <section class="section" id="sec-1">
+      <header class="section-head">
+        <span class="section-num">A.1</span>
+        <h2>On Microsoft Copilot</h2>
+      </header>
+
+      <p class="lede">Microsoft Copilot is a real and widely-deployed product, frequently the subject of conversations about institutional AI strategy. It is also <em>downstream</em> of the providers in the primary brief: Copilot is the wrapper that consumes whichever foundation model the moment requires.</p>
+
+      <h3 id="sec-1-1"><span class="section-num small">A.1.1</span> What Copilot is, in Microsoft's own words</h3>
+      <p>Microsoft's official documentation describes Copilot Chat as &ldquo;powered by the latest models,&rdquo; explicitly naming GPT-5 (and earlier GPT-4 generations) as the engines behind both the standard and priority tiers<sup class="ref"><a href="#ref-A1">A1</a></sup>. Microsoft's own anniversary blog credits OpenAI's GPT-4 Turbo and DALL-E 3 as the models powering Copilot's generation, search, and vision features<sup class="ref"><a href="#ref-A2">A2</a></sup>. Microsoft and OpenAI's published partnership terms run through 2032<sup class="ref"><a href="#ref-A3">A3</a></sup>.</p>
+      <p>In November 2025, Microsoft, NVIDIA, and Anthropic announced a complementary strategic partnership. Microsoft committed up to $5B and NVIDIA up to $10B to Anthropic; in return, Anthropic's Claude family is available on Microsoft Foundry and runs inside the Copilot product family alongside OpenAI's models<sup class="ref"><a href="#ref-A4">A4</a></sup><sup class="ref"><a href="#ref-A5">A5</a></sup>.</p>
+
+      <p style="background: #FAF7F2; border-left: 4px solid #006747; padding: 0.9rem 1.1rem; margin: 1rem 0; font-size: 0.95rem;"><strong>Implication for the primary brief.</strong> Microsoft itself routes both OpenAI and Anthropic models through Copilot. The strategic layer &mdash; the one where pricing, terms, and product direction are set &mdash; is the foundation-model layer (OpenAI, Anthropic, Google). Partnering with that layer means partnering with the providers Copilot itself depends on; the two are complementary, not competing.</p>
+
+      <h3 id="sec-1-2"><span class="section-num small">A.1.2</span> Copilot in higher education</h3>
+      <p>Microsoft does sell a higher-ed Copilot product. The canonical landing page is <a href="https://www.microsoft.com/en-us/education/products/copilot-in-education" target="_blank" rel="noopener">microsoft.com/education/products/copilot-in-education</a><sup class="ref"><a href="#ref-A6">A6</a></sup>. Copilot Chat is free under Microsoft 365 A1/A3/A5 licenses; the Microsoft 365 Copilot add-on is $18/user/month for academic customers (vs. $30 commercial).</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Institution</th><th>Deployment</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>University of South Carolina</td>
+            <td>Campus deployment of Microsoft 365 Copilot</td>
+            <td>84% of users (faculty, students, admin, IT, procurement) reported saving 1&ndash;5 hours/week<sup class="ref"><a href="#ref-A7">A7</a></sup>.</td>
+          </tr>
+          <tr>
+            <td>University of Manchester</td>
+            <td>300-user pilot across academic and back-office cohorts</td>
+            <td>Microsoft customer story emphasizing creative thinking and continuous learning use cases<sup class="ref"><a href="#ref-A8">A8</a></sup>.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>The volume of higher-ed Copilot deployments is meaningfully smaller than the foundation-provider equivalents documented in the primary brief: 1,000+ institutions on Gemini for Education<sup class="ref"><a href="#ref-10">10</a></sup>, ChatGPT Edu at the CSU system's 500K+ users<sup class="ref"><a href="#ref-14">14</a></sup>, campus-wide Anthropic deals at Northeastern (13 global campuses)<sup class="ref"><a href="#ref-16">16</a></sup>, LSE<sup class="ref"><a href="#ref-17">17</a></sup>, and Champlain<sup class="ref"><a href="#ref-18">18</a></sup>.</p>
+
+      <h3 id="sec-1-3"><span class="section-num small">A.1.3</span> Implication for institutional strategy</h3>
+      <p>Copilot's most natural role is as a Microsoft-365-integrated productivity layer for staff and faculty workflows already happening inside Outlook, Word, Excel, and Teams. The foundation-model relationships (the subject of the primary brief) operate one layer beneath: they determine what the models can do, what they cost wholesale, and what terms an institution gets on data isolation, agent permissions, classroom-appropriate behavior, and product roadmap. Most peer institutions running Copilot for staff productivity have also pursued a direct relationship with one or more foundation providers for student-facing and academic use.</p>
+    </section>
+
+    <!-- ============================ A.2 PRICING IN DETAIL ============================ -->
+    <section class="section" id="sec-2">
+      <header class="section-head">
+        <span class="section-num">A.2</span>
+        <h2>Pricing in detail</h2>
+      </header>
+
+      <h3 id="sec-2-1"><span class="section-num small">A.2.1</span> Per-user list pricing &mdash; the underlying unit</h3>
+      <table class="data-table">
+        <thead>
+          <tr><th>Provider</th><th>Plan</th><th>Per user / month</th><th>Source</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>OpenAI</td><td>ChatGPT Business (committed annual)</td><td><strong>$20.00</strong></td><td><a href="https://openai.com/business/chatgpt-pricing/">openai.com/business/chatgpt-pricing</a></td></tr>
+          <tr><td>OpenAI</td><td>ChatGPT Enterprise / Edu</td><td>Negotiated</td><td>Volume pricing for institutional deployments</td></tr>
+          <tr><td>Google</td><td>AI Pro for Education</td><td><strong>$15.00</strong></td><td><a href="https://workspaceupdates.googleblog.com/2025/09/google-ai-pro-for-education.html">via reseller channel</a></td></tr>
+          <tr><td>Google</td><td>Workspace Intelligence add-on</td><td>Bundled with Workspace plans</td><td><a href="https://workspace.google.com/blog/product-announcements/introducing-workspace-intelligence">workspace.google.com / Workspace Intelligence</a></td></tr>
+          <tr><td>Anthropic</td><td>Claude for Education</td><td>Negotiated</td><td><a href="https://claude.com/solutions/education">claude.com/solutions/education</a></td></tr>
+          <tr><td>Anthropic</td><td>Claude Enterprise</td><td>Negotiated</td><td>For non-education use cases</td></tr>
+          <tr><td>Microsoft</td><td>Microsoft 365 Copilot (academic)</td><td>$18.00 / user / month</td><td><a href="https://www.microsoft.com/en-us/education/products/copilot-in-education">Copilot in Education</a><sup class="ref"><a href="#ref-A6">A6</a></sup></td></tr>
+        </tbody>
+      </table>
+
+      <h3 id="sec-2-2"><span class="section-num small">A.2.2</span> The CSU &mdash; OpenAI deal, unpacked</h3>
+      <p>California State University's contract with OpenAI is the largest publicly-disclosed deal between a peer institution and any of the three providers<sup class="ref"><a href="#ref-15">15</a></sup>. The structure is informative:</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Phase</th><th>Users covered</th><th>Window</th><th>Cost</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Initial deployment</td><td>~40,000</td><td>January &ndash; June 2025</td><td><strong>$1.9M</strong></td></tr>
+          <tr><td>Full systemwide rollout</td><td>500,000+</td><td>July 2025 &ndash; June 2026</td><td><strong>$15M</strong></td></tr>
+          <tr><td><strong>Total</strong></td><td>&mdash;</td><td>18 months</td><td><strong>$17M</strong></td></tr>
+        </tbody>
+      </table>
+      <p>The CSU deal reflects ChatGPT Edu volume pricing at a scale roughly 100x Babson's. Per-user economics at smaller institutional scale skew toward list rather than CSU's negotiated rate. Both LAist and CalMatters reported the $17M figure on May 1, 2026<sup class="ref"><a href="#ref-15">15</a></sup>.</p>
+
+      <h3 id="sec-2-3"><span class="section-num small">A.2.3</span> Indicative Babson-scale math</h3>
+      <p>For an institution of Babson's size (roughly 5,000 active student, faculty, and staff users), list pricing implies the following annual envelopes:</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Provider</th><th>List rate &times; 5,000 users &times; 12 months</th><th>List annual</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>OpenAI (ChatGPT Business)</td><td>$20 &times; 5,000 &times; 12</td><td><strong>$1.20M</strong></td></tr>
+          <tr><td>Google (AI Pro for Education)</td><td>$15 &times; 5,000 &times; 12</td><td><strong>$0.90M</strong></td></tr>
+          <tr><td>Anthropic (Claude for Education)</td><td>Negotiated &mdash; assumed comparable</td><td>~$0.9&ndash;1.2M</td></tr>
+        </tbody>
+      </table>
+      <p>Education-tier discounts, volume pricing, and bundled enterprise agreements typically reduce these list-rate totals. A multi-provider arrangement with assignment-by-use-case (rather than universal seats with each provider) further reduces aggregate cost. The exact figures depend on procurement; the order of magnitude is firm.</p>
+
+      <h3 id="sec-2-4"><span class="section-num small">A.2.4</span> What is <em>not</em> publicly disclosed</h3>
+      <p>Several institutional deal totals have not been published:</p>
+      <ul>
+        <li><strong>Northeastern University &times; Anthropic:</strong> 13-global-campus deal; dollar amount undisclosed<sup class="ref"><a href="#ref-16">16</a></sup>.</li>
+        <li><strong>University of Oxford &times; OpenAI:</strong> five-year partnership announced September 2025; Oxford-specific dollar amount undisclosed (the broader OpenAI &ldquo;NextGenAI&rdquo; consortium totals $50M across ~15 institutions)<sup class="ref"><a href="#ref-12">12</a></sup>.</li>
+        <li><strong>Wharton &times; OpenAI:</strong> May 2024 strategic AI investment; institution-wide dollar amount undisclosed<sup class="ref"><a href="#ref-11">11</a></sup>.</li>
+        <li><strong>LSE, Champlain, Rice, Houston:</strong> contracts described publicly; dollar amounts undisclosed<sup class="ref"><a href="#ref-17">17</a></sup><sup class="ref"><a href="#ref-18">18</a></sup><sup class="ref"><a href="#ref-19">19</a></sup><sup class="ref"><a href="#ref-20">20</a></sup>.</li>
+        <li><strong>Per-school Gemini for Education deal totals:</strong> Google publishes the aggregate (1,000+ institutions, 10M+ U.S. students) but not single-school amounts<sup class="ref"><a href="#ref-10">10</a></sup>.</li>
+      </ul>
+    </section>
+
+    <!-- ============================ A.3 GLOSSARY ============================ -->
+    <section class="section" id="sec-3">
+      <header class="section-head">
+        <span class="section-num">A.3</span>
+        <h2>Glossary</h2>
+      </header>
+
+      <p class="lede">Provider-specific terms used in the primary brief, briefly defined.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Term</th><th>Provider</th><th>What it means</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GPT-5.5</td>
+            <td>OpenAI</td>
+            <td>OpenAI's current flagship model family (released April 2026)<sup class="ref"><a href="#ref-1">1</a></sup>. Successor to GPT-5 and GPT-4 generations. Underlies ChatGPT Business, ChatGPT Edu, and Microsoft Copilot.</td>
+          </tr>
+          <tr>
+            <td>Workspace Agents</td>
+            <td>OpenAI</td>
+            <td>OpenAI product launched April 2026 that runs multi-step automated workflows inside enterprise tools (Salesforce, Slack, HubSpot, etc.)<sup class="ref"><a href="#ref-2">2</a></sup>. The agent layer sitting on top of GPT-5.5.</td>
+          </tr>
+          <tr>
+            <td>Operator</td>
+            <td>OpenAI</td>
+            <td>Underlying browser-automation engine inside Workspace Agents. Navigates web pages, fills forms, completes purchases, and similar.</td>
+          </tr>
+          <tr>
+            <td>Claude Opus 4.7</td>
+            <td>Anthropic</td>
+            <td>Anthropic's flagship reasoning model (released April 2026)<sup class="ref"><a href="#ref-4">4</a></sup>. Designed for high-stakes reasoning with careful, literal adherence to instructions. The model behind Claude Enterprise and Claude for Education's Architect tier.</td>
+          </tr>
+          <tr>
+            <td>Learning Mode</td>
+            <td>Anthropic</td>
+            <td>Pedagogically-designed mode in Claude for Education<sup class="ref"><a href="#ref-5">5</a></sup>. Instead of returning direct answers, it guides students through reasoning steps &mdash; closer to how faculty teach than to how chatbots typically respond.</td>
+          </tr>
+          <tr>
+            <td>Gemini 3.1 Pro</td>
+            <td>Google</td>
+            <td>Google's current flagship model<sup class="ref"><a href="#ref-7">7</a></sup>. Native multimodal handling of text, image, audio, and video in a single pass. 1-million-token context window.</td>
+          </tr>
+          <tr>
+            <td>Workspace Intelligence</td>
+            <td>Google</td>
+            <td>Google product launched April 2026 that weaves Gemini directly into the Google Workspace suite for agentic work<sup class="ref"><a href="#ref-8">8</a></sup>. The Google equivalent of OpenAI's Workspace Agents.</td>
+          </tr>
+          <tr>
+            <td>1M-token context</td>
+            <td>Google &amp; Anthropic</td>
+            <td>A model's &ldquo;context window&rdquo; is the maximum amount of text it can read at one time. 1-million-token capacity (Opus 4.7 and Gemini 3.1 Pro) is roughly 750,000 words &mdash; enough to ingest a hundred academic papers or a textbook in a single pass.</td>
+          </tr>
+          <tr>
+            <td>ChatGPT Edu</td>
+            <td>OpenAI</td>
+            <td>Education-specific version of ChatGPT Enterprise<sup class="ref"><a href="#ref-3">3</a></sup>. Includes SSO, data-isolation guarantees (no training on customer prompts), and institutional admin controls.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ============================ REFERENCES ============================ -->
+    <section class="section references" id="sec-refs">
+      <header class="section-head">
+        <span class="section-num">&sect;</span>
+        <h2>References</h2>
+      </header>
+      <p class="ref-note">References A1&ndash;A8 are appendix-specific. References 1&ndash;20 are inherited from the <a href="../#sec-refs">primary brief</a> and cited inline here without repeating the entries; for full bibliography see the primary brief.</p>
+      <ol class="references-list">
+        <li id="ref-A1">Microsoft. (2026, February 4). <em>Overview of Microsoft 365 Copilot Chat</em>. Microsoft Learn. <a href="https://learn.microsoft.com/en-us/copilot/overview">https://learn.microsoft.com/en-us/copilot/overview</a></li>
+        <li id="ref-A2">Mehdi, Y. (2023, December 5). <em>Celebrating the first year of Copilot with significant new innovations</em>. The Official Microsoft Blog. <a href="https://blogs.microsoft.com/blog/2023/12/05/celebrating-the-first-year-of-copilot-with-significant-new-innovations/">https://blogs.microsoft.com/blog/2023/12/05/celebrating-the-first-year-of-copilot-with-significant-new-innovations/</a></li>
+        <li id="ref-A3">OpenAI. (n.d.). <em>The next chapter of the Microsoft&ndash;OpenAI partnership</em>. <a href="https://openai.com/index/next-chapter-of-microsoft-openai-partnership/">https://openai.com/index/next-chapter-of-microsoft-openai-partnership/</a></li>
+        <li id="ref-A4">Microsoft. (2025, November 18). <em>Microsoft, NVIDIA and Anthropic announce strategic partnerships</em>. The Official Microsoft Blog. <a href="https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/">https://blogs.microsoft.com/blog/2025/11/18/microsoft-nvidia-and-anthropic-announce-strategic-partnerships/</a></li>
+        <li id="ref-A5">Anthropic. (2025, November 18). <em>Microsoft, NVIDIA and Anthropic announce strategic partnerships</em>. <a href="https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships">https://www.anthropic.com/news/microsoft-nvidia-anthropic-announce-strategic-partnerships</a></li>
+        <li id="ref-A6">Microsoft. (n.d.). <em>Learn about Copilot in Education</em>. Microsoft Education. <a href="https://www.microsoft.com/en-us/education/products/copilot-in-education">https://www.microsoft.com/en-us/education/products/copilot-in-education</a></li>
+        <li id="ref-A7">Microsoft. (n.d.). <em>University of South Carolina pioneers AI innovation with Microsoft 365 Copilot</em> [Customer story]. <a href="https://www.microsoft.com/en/customers/story/25399-university-of-south-carolina-microsoft-365-copilot">https://www.microsoft.com/en/customers/story/25399-university-of-south-carolina-microsoft-365-copilot</a></li>
+        <li id="ref-A8">Microsoft. (n.d.). <em>University of Manchester drives value from Microsoft 365 Copilot</em> [Customer story]. <a href="https://www.microsoft.com/en/customers/story/19241-university-of-manchester-microsoft-copilot">https://www.microsoft.com/en/customers/story/19241-university-of-manchester-microsoft-copilot</a></li>
+      </ol>
+    </section>
+
+    <!-- ============================ COLOPHON ============================ -->
+    <footer class="colophon">
+      <div class="colophon-rule"></div>
+      <div class="colophon-inner">
+        <span>Babson College &middot; Office of the President</span>
+        <span>Briefing Memorandum, Appendix A &middot; May 2026</span>
+        <span><a href="../">&larr; Return to primary brief</a></span>
+      </div>
+    </footer>
+
+  </main>
+
+</body>
+</html>
