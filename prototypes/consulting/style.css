@@ -176,6 +176,72 @@ sup.ref a:hover { text-decoration: underline; }
 .masthead-rule + .masthead-inner + .masthead-rule { display: none; }
 .masthead .masthead-rule:last-child { display: none; }
 
+/* ------------------------------- authors' note ----------------------------- */
+
+.authors-note {
+  margin: 2rem 0 0;
+  padding: 1.5rem 2rem 1.5rem;
+  background: #ffffff;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.an-header { margin-bottom: 0.85rem; }
+
+.an-tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--babson-green-dark);
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.authors-note p {
+  margin: 0 0 0.85rem;
+  max-width: 70ch;
+}
+.authors-note p:last-of-type { margin-bottom: 1.1rem; }
+
+.authors-note em {
+  font-style: italic;
+  color: var(--babson-green-dark);
+}
+
+.authors-note a {
+  color: var(--babson-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.an-signoff {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 2rem;
+  padding-top: 0.85rem;
+  border-top: 1px dotted var(--rule);
+  margin-top: 0.5rem;
+}
+
+.an-signoff-name {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--ink);
+  letter-spacing: 0.005em;
+}
+.an-signoff-name::before {
+  content: "—\00a0";
+  font-style: normal;
+  color: var(--muted);
+}
+
 /* --------------------------- executive summary ---------------------------- */
 
 .executive-summary {
