@@ -40,23 +40,19 @@
       <div class="masthead-rule"></div>
     </header>
 
-    <!-- ============================ AUTHORS' NOTE ============================ -->
-    <section class="authors-note" aria-labelledby="authors-note-heading">
-      <div class="an-header">
-        <span class="an-tag">From the authors</span>
-      </div>
-      <p>Steve &mdash; thank you for the time this morning. The conversation prompted us to put together this short reference brief on the state of institutional AI in higher education: the three companies (OpenAI, Anthropic, Google) whose products are now the operating environment for our peers' students.</p>
-
-      <p>A note on the brief itself. This site was <em>vibe-coded</em> &mdash; built through iterative natural-language conversation with Anthropic's Claude rather than written by hand in code. The underlying research drew on Google Gemini's Deep Research. In other words, <strong>two of the three providers we describe were the tools used to produce the description.</strong> We chose this format over a printed memo because the medium is part of the message: a Babson faculty member with no engineering background can now produce something like this in an afternoon. That is what these tools have made possible.</p>
-
-      <p>The site is the long version; the accompanying <a href="babson-ai-providers.pdf" download>PDF</a> is the printed summary. We look forward to continuing the conversation.</p>
-
-      <div class="an-signoff">
-        <span class="an-signoff-name">Erik Noyes</span>
-        <span class="an-signoff-name">Kristi Gridharry</span>
-        <span class="an-signoff-name">Jonathan Sims</span>
-      </div>
-    </section>
+    <!-- ============================ SECTION NAV ============================ -->
+    <nav class="section-nav" aria-label="Brief sections">
+      <ol class="section-nav-inner">
+        <li><a href="#sec-1" data-section="sec-1"><span class="sn-num">1</span> Landscape</a></li>
+        <li><a href="#sec-2" data-section="sec-2"><span class="sn-num">2</span> Cost</a></li>
+        <li><a href="#sec-3" data-section="sec-3"><span class="sn-num">3</span> Peers</a></li>
+        <li><a href="#sec-4" data-section="sec-4"><span class="sn-num">4</span> Babson</a></li>
+        <li><a href="#sec-5" data-section="sec-5"><span class="sn-num">5</span> Observations</a></li>
+        <li><a href="details/" class="sn-appendix">Appendix A &rarr;</a></li>
+        <li><a href="#sec-refs" data-section="sec-refs">References</a></li>
+      </ol>
+      <button class="section-nav-reopen" id="reopen-hello" aria-label="Re-open the authors' note">From the authors</button>
+    </nav>
 
     <!-- ============================ EXECUTIVE SUMMARY ============================ -->
     <section class="executive-summary" aria-labelledby="exec-summary">
@@ -396,6 +392,90 @@
     </footer>
 
   </main>
+
+  <!-- ============================ HELLO MODAL ============================ -->
+  <dialog id="hello-dialog" class="hello-dialog" aria-labelledby="hello-title">
+    <article class="hello-content">
+      <div class="hello-header">
+        <span class="hello-tag" id="hello-title">A note from the authors</span>
+        <button type="button" class="hello-close-x" id="hello-close-x" aria-label="Close">&times;</button>
+      </div>
+
+      <p>Steve &mdash; thank you for the time this morning. The conversation prompted us to put together this short reference brief on the state of institutional AI in higher education: the three companies (OpenAI, Anthropic, Google) whose products are now the operating environment for our peers' students.</p>
+
+      <p>A note on the brief itself. This site was <em>vibe-coded</em> &mdash; built through iterative natural-language conversation with Anthropic's Claude rather than written by hand in code. The underlying research drew on Google Gemini's Deep Research. In other words, <strong>two of the three providers we describe were the tools used to produce the description.</strong> We chose this format over a printed memo because the medium is part of the message: a Babson faculty member with no engineering background can now produce something like this in an afternoon. That is what these tools have made possible.</p>
+
+      <p>The site is the long version; the accompanying <a href="babson-ai-providers.pdf" download>PDF</a> is the printed summary. We look forward to continuing the conversation.</p>
+
+      <div class="hello-signoff">
+        <span class="hello-signoff-name">Erik Noyes</span>
+        <span class="hello-signoff-name">Kristi Gridharry</span>
+        <span class="hello-signoff-name">Jonathan Sims</span>
+      </div>
+
+      <div class="hello-actions">
+        <button type="button" class="hello-cta" id="hello-open" autofocus>Open the briefing &rarr;</button>
+      </div>
+    </article>
+  </dialog>
+
+  <!-- ============================ INTERACTION ============================ -->
+  <script>
+    (function () {
+      var d = document.getElementById('hello-dialog');
+      var btnOpen = document.getElementById('hello-open');
+      var btnX = document.getElementById('hello-close-x');
+      var btnReopen = document.getElementById('reopen-hello');
+
+      function showHello() {
+        if (typeof d.showModal === 'function') {
+          d.showModal();
+        } else {
+          d.setAttribute('open', '');
+        }
+        // Lock background scroll while modal is open
+        document.documentElement.classList.add('modal-open');
+      }
+      function hideHello() {
+        if (typeof d.close === 'function') d.close();
+        else d.removeAttribute('open');
+        document.documentElement.classList.remove('modal-open');
+      }
+
+      // Show on initial load
+      window.addEventListener('DOMContentLoaded', showHello);
+
+      btnOpen && btnOpen.addEventListener('click', hideHello);
+      btnX && btnX.addEventListener('click', hideHello);
+      btnReopen && btnReopen.addEventListener('click', showHello);
+      // Click the dialog backdrop to dismiss
+      d.addEventListener('click', function (e) {
+        if (e.target === d) hideHello();
+      });
+      // Sync class on ESC-driven close
+      d.addEventListener('close', function () {
+        document.documentElement.classList.remove('modal-open');
+      });
+
+      // Scroll-spy: highlight the current section in the section-nav
+      var navLinks = document.querySelectorAll('.section-nav-inner a[data-section]');
+      var idToLink = {};
+      navLinks.forEach(function (a) { idToLink[a.getAttribute('data-section')] = a; });
+      var sections = document.querySelectorAll('section.section[id]');
+      function onScroll() {
+        var topThreshold = window.innerHeight * 0.25;
+        var current = null;
+        sections.forEach(function (s) {
+          var r = s.getBoundingClientRect();
+          if (r.top <= topThreshold) current = s.id;
+        });
+        navLinks.forEach(function (a) { a.classList.remove('active'); });
+        if (current && idToLink[current]) idToLink[current].classList.add('active');
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('DOMContentLoaded', onScroll);
+    })();
+  </script>
 
 </body>
 </html>

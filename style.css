@@ -233,13 +233,13 @@ sup.ref a:hover { text-decoration: underline; }
   font-family: var(--serif);
   font-size: 0.95rem;
   font-style: italic;
-  color: var(--ink);
+  color: var(--text);
   letter-spacing: 0.005em;
 }
 .an-signoff-name::before {
   content: "—\00a0";
   font-style: normal;
-  color: var(--muted);
+  color: var(--text-muted);
 }
 
 /* --------------------------- executive summary ---------------------------- */
@@ -780,11 +780,243 @@ sup.ref a:hover { text-decoration: underline; }
   .topbar-meta { display: none; }
 }
 
+/* ------------------------------ hello modal -------------------------------- */
+/* Modal overlay shown on page load with the authors' note + CTA. */
+
+html.modal-open { overflow: hidden; }
+
+.hello-dialog {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: 720px;
+  width: calc(100% - 2rem);
+  margin: auto;
+  box-shadow: none;
+  color: var(--text);
+}
+.hello-dialog::backdrop {
+  background: rgba(20, 25, 31, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.hello-content {
+  background: #ffffff;
+  border-top: 4px solid var(--babson-green);
+  border-radius: 6px;
+  padding: 1.4rem 1.75rem 1.5rem;
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 4px 14px rgba(0, 0, 0, 0.1);
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+.hello-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.6rem;
+}
+.hello-tag {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--babson-green-dark);
+}
+.hello-close-x {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.25rem;
+}
+.hello-close-x:hover { color: var(--text); }
+.hello-content p {
+  margin: 0 0 0.85rem;
+  max-width: 65ch;
+}
+.hello-content em {
+  font-style: italic;
+  color: var(--babson-green-dark);
+}
+.hello-content a {
+  color: var(--babson-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.hello-signoff {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.5rem;
+  padding: 0.7rem 0 0;
+  border-top: 1px dotted var(--rule);
+  margin: 0.6rem 0 1.1rem;
+}
+.hello-signoff-name {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text);
+}
+.hello-signoff-name::before {
+  content: "—\00a0";
+  font-style: normal;
+  color: var(--text-muted);
+}
+.hello-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--rule);
+}
+.hello-cta {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.65rem 1.1rem;
+  background: var(--babson-green);
+  color: #ffffff;
+  border: 1px solid var(--babson-green-dark);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 120ms ease, transform 120ms ease;
+}
+.hello-cta:hover {
+  background: var(--babson-green-dark);
+  transform: translateY(-1px);
+}
+.hello-cta:focus-visible {
+  outline: 2px solid var(--babson-green-dark);
+  outline-offset: 2px;
+}
+@media (max-width: 640px) {
+  .hello-content { padding: 1.1rem 1.2rem 1.2rem; }
+  .hello-actions { justify-content: stretch; }
+  .hello-cta { width: 100%; text-align: center; }
+}
+
+/* ------------------------- sticky section nav ----------------------------- */
+/* Sits below the masthead; sticks to the top of the viewport on scroll. */
+
+.section-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: saturate(140%) blur(8px);
+  -webkit-backdrop-filter: saturate(140%) blur(8px);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  margin: 1.5rem 0 1.25rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.section-nav-inner {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 0.15rem;
+  align-items: stretch;
+  flex: 1;
+  min-width: 0;
+}
+.section-nav-inner li {
+  display: inline-flex;
+}
+.section-nav-inner a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.55rem 0.7rem;
+  border-bottom: 2px solid transparent;
+  transition: border-color 120ms ease, color 120ms ease;
+}
+.section-nav-inner a:hover {
+  color: var(--babson-green-dark);
+  border-bottom-color: rgba(0, 103, 71, 0.35);
+}
+.section-nav-inner a.active {
+  color: var(--babson-green-dark);
+  border-bottom-color: var(--babson-green);
+}
+.section-nav-inner a.sn-appendix {
+  color: var(--babson-green-dark);
+}
+.section-nav-inner .sn-num {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.section-nav-inner a.active .sn-num,
+.section-nav-inner a:hover .sn-num {
+  color: var(--babson-green-dark);
+}
+
+.section-nav-reopen {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-left: 1px solid var(--rule);
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  align-self: stretch;
+  transition: color 120ms ease, background 120ms ease;
+}
+.section-nav-reopen:hover {
+  color: var(--babson-green-dark);
+  background: rgba(0, 103, 71, 0.04);
+}
+
+@media (max-width: 720px) {
+  .section-nav-inner {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .section-nav-inner a {
+    padding: 0.5rem 0.55rem;
+    font-size: 0.78rem;
+    white-space: nowrap;
+  }
+  .section-nav-reopen { display: none; }
+}
+
+/* Anchor jumps should land below the sticky nav. */
+section.section { scroll-margin-top: 4rem; }
+
 /* --------------------------------- print ---------------------------------- */
 
 @media print {
   body { font-size: 10pt; }
-  .topbar { display: none; }
+  .topbar,
+  .hello-dialog,
+  .section-nav { display: none !important; }
   .page { padding: 0.5in; max-width: none; }
   .section { break-inside: avoid-page; }
   .observations li,
