@@ -1,0 +1,448 @@
+/* ==========================================================================
+   Snapshot — 3-page short version of the AI brief.
+   Inherits palette, typography tokens, and dialog chrome from /style.css.
+   This file adds the snapshot-specific layout.
+   ========================================================================== */
+
+body.snapshot {
+  background: var(--bg-soft);
+  font-family: var(--serif);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.snap-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: saturate(140%) blur(8px);
+  -webkit-backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--rule-faint);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 1.2rem;
+}
+.snap-mark {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--babson-green-dark);
+  text-decoration: none;
+}
+.snap-mark span {
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-left: 0.4rem;
+}
+.snap-nav {
+  display: flex;
+  gap: 0.15rem;
+  align-items: center;
+}
+.snap-tab {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  transition: background 120ms ease, color 120ms ease;
+  white-space: nowrap;
+}
+.snap-tab:hover { background: rgba(0, 103, 71, 0.06); color: var(--babson-green-dark); }
+.snap-tab.current {
+  background: var(--babson-green);
+  color: #ffffff;
+}
+.snap-tab .tab-num {
+  font-weight: 700;
+  margin-right: 0.3rem;
+  opacity: 0.7;
+}
+.snap-tab.current .tab-num { opacity: 0.9; }
+
+.snap-stage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 2.4rem 1.25rem 5rem;
+}
+.snap-page {
+  width: 100%;
+  max-width: 720px;
+}
+.snap-kicker {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--babson-green-dark);
+  margin-bottom: 1rem;
+}
+.snap-page h1 {
+  font-family: var(--sans);
+  font-size: clamp(1.65rem, 3.6vw, 2.4rem);
+  line-height: 1.18;
+  letter-spacing: -0.014em;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 1.7rem;
+  max-width: 32ch;
+}
+.snap-page h2 {
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: var(--babson-green-dark);
+  margin: 2rem 0 0.85rem;
+}
+.snap-page p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin: 0 0 1.15rem;
+  color: var(--text);
+}
+.snap-page p strong { color: var(--babson-green-dark); font-weight: 600; }
+.snap-page p em { font-style: italic; color: var(--babson-green-dark); }
+
+/* "Three companies" callout — used on page 1 */
+.snap-three {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
+  margin: 0.4rem 0 1.6rem;
+}
+.snap-three-row {
+  background: #ffffff;
+  border: 1px solid var(--rule-soft);
+  border-left: 4px solid var(--babson-green);
+  border-radius: 0 5px 5px 0;
+  padding: 0.75rem 1rem;
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  align-items: baseline;
+  gap: 0.8rem;
+}
+.snap-three-row.r-openai    { border-left-color: #10a37f; }
+.snap-three-row.r-anthropic { border-left-color: #c96100; }
+.snap-three-row.r-google    { border-left-color: #1a73e8; }
+.snap-three-name {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+.snap-three-row.r-openai .snap-three-name    { color: #0a8665; }
+.snap-three-row.r-anthropic .snap-three-name { color: #b35800; }
+.snap-three-row.r-google .snap-three-name    { color: #1660cf; }
+.snap-three-tag {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+/* Price table — used on page 2 */
+.snap-prices {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  background: #ffffff;
+  border: 1px solid var(--rule-soft);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 0.4rem 0 1.6rem;
+}
+.snap-prices thead th {
+  background: rgba(0, 103, 71, 0.06);
+  color: var(--babson-green-dark);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.6rem 0.85rem;
+  text-align: left;
+  border-bottom: 1px solid var(--rule-faint);
+}
+.snap-prices tbody td {
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid var(--rule-faint);
+  color: var(--text);
+}
+.snap-prices tbody tr:last-child td { border-bottom: none; }
+.snap-prices tbody td strong { color: var(--babson-green-dark); font-weight: 700; }
+
+/* Big number anchor */
+.snap-anchor {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 1.1rem 1.3rem 1.2rem;
+  background: #ffffff;
+  border: 1px solid var(--rule-soft);
+  border-top: 4px solid var(--babson-green);
+  border-radius: 0 0 6px 6px;
+  margin: 1.6rem 0;
+  flex-wrap: wrap;
+}
+.snap-anchor-num {
+  font-family: var(--sans);
+  font-size: clamp(2rem, 4.4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.022em;
+  color: var(--babson-green-dark);
+  line-height: 1;
+}
+.snap-anchor-cap {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.98rem;
+  color: var(--text);
+  line-height: 1.45;
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Copilot note callout */
+.snap-callout {
+  background: rgba(0, 103, 71, 0.04);
+  border-left: 3px solid var(--babson-green);
+  border-radius: 0 4px 4px 0;
+  padding: 0.75rem 1rem;
+  margin: 1.4rem 0;
+}
+.snap-callout-eyebrow {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--babson-green-dark);
+  margin-bottom: 0.35rem;
+}
+.snap-callout p {
+  margin: 0;
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+/* Timeline mount + caption */
+.snap-timeline-wrap {
+  background: #ffffff;
+  border: 1px solid var(--rule-soft);
+  border-radius: 6px;
+  padding: 0.7rem 0.6rem 0.5rem;
+  margin: 0.6rem 0 1.6rem;
+}
+.snap-timeline-cap {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  margin: -0.5rem 0 1.4rem;
+}
+
+/* Bottom page-nav */
+.snap-page-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--rule-faint);
+}
+.snap-page-nav .nav-link {
+  font-family: var(--sans);
+  font-size: 0.93rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text);
+  padding: 0.55rem 1rem;
+  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid var(--rule-soft);
+  transition: border-color 120ms ease, background 120ms ease, color 120ms ease;
+}
+.snap-page-nav .nav-link:hover {
+  border-color: var(--babson-green);
+  color: var(--babson-green-dark);
+}
+.snap-page-nav .nav-link.primary {
+  background: var(--babson-green);
+  color: #ffffff;
+  border-color: var(--babson-green-dark);
+}
+.snap-page-nav .nav-link.primary:hover {
+  background: var(--babson-green-dark);
+  color: #ffffff;
+}
+.snap-page-nav .nav-spacer { flex: 1; text-align: center; font-family: var(--mono); font-size: 0.78rem; color: var(--text-muted); letter-spacing: 0.04em; }
+
+/* Footer */
+.snap-foot {
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  padding: 1.5rem 1rem 1.8rem;
+  letter-spacing: 0.04em;
+}
+.snap-foot a {
+  color: var(--babson-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+
+/* Timeline (reused styling from /walkthrough.css conceptually, scoped here) */
+.snap-timeline-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.snap-timeline-svg .lane-label {
+  font-family: var(--mono);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  text-anchor: end; dominant-baseline: middle;
+}
+.snap-timeline-svg .tick-label {
+  font-family: var(--mono);
+  font-size: 10.5px; fill: var(--text-muted);
+  text-anchor: middle;
+}
+.snap-timeline-svg .dot-label {
+  font-family: var(--sans);
+  font-size: 11px; font-weight: 600;
+  fill: var(--text); text-anchor: middle;
+  pointer-events: none;
+}
+.snap-timeline-svg .peer-dot { cursor: pointer; }
+.snap-timeline-svg .peer-dot:hover circle { r: 8; }
+.snap-timeline-list {
+  display: none;
+  list-style: none; margin: 0; padding: 0;
+  font-family: var(--sans); font-size: 0.85rem;
+}
+.snap-timeline-list li {
+  display: grid;
+  grid-template-columns: 5.2rem 5rem 1fr;
+  gap: 0.4rem;
+  padding: 0.5rem 0.4rem;
+  border-bottom: 1px solid var(--rule-faint);
+  align-items: baseline;
+}
+.snap-timeline-list li:last-child { border-bottom: none; }
+.snap-timeline-list .tll-date {
+  font-family: var(--mono); font-size: 0.72rem;
+  color: var(--text-muted); letter-spacing: 0.04em;
+}
+.snap-timeline-list .tll-prov {
+  font-family: var(--mono); font-size: 0.72rem;
+  font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.snap-timeline-list .tll-school {
+  font-weight: 600; color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--rule-soft);
+}
+.snap-timeline-list .tll-school:hover { color: var(--babson-green-dark); border-color: var(--babson-green); }
+.snap-timeline-list .tll-deal {
+  grid-column: 3;
+  font-family: var(--serif); font-style: italic;
+  font-size: 0.78rem; color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .snap-timeline-svg { display: none; }
+  .snap-timeline-list { display: block; }
+  .snap-timeline-list li { grid-template-columns: 5rem 1fr; }
+  .snap-timeline-list .tll-deal,
+  .snap-timeline-list .tll-prov { grid-column: 2; }
+}
+
+@media (max-width: 540px) {
+  .snap-bar { padding: 0.5rem 0.85rem; flex-wrap: wrap; }
+  .snap-mark span { display: none; }
+  .snap-tab { padding: 0.35rem 0.55rem; font-size: 0.68rem; }
+  .snap-page-nav { flex-wrap: wrap; gap: 0.6rem; }
+  .snap-page-nav .nav-spacer { flex: 0 0 100%; order: 3; }
+}
+
+/* Inline citation chips — match /walkthrough.css styling so visual is consistent */
+button.cite {
+  display: inline-block;
+  min-width: 1.4em;
+  padding: 0.05em 0.42em;
+  margin: 0 0.08em 0 0.3em;
+  background: rgba(0, 103, 71, 0.09);
+  color: var(--babson-green-dark);
+  border: 1px solid rgba(0, 103, 71, 0.22);
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 0.6em;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  vertical-align: super;
+  text-align: center;
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+button.cite + button.cite { margin-left: 0.08em; }
+button.cite:hover {
+  background: var(--babson-green);
+  color: #ffffff;
+  border-color: var(--babson-green);
+}
+button.cite:focus-visible {
+  outline: 2px solid var(--babson-green-dark);
+  outline-offset: 2px;
+}
+
+/* Cite-modal extra layout (inherits .term-dialog from /style.css) */
+.cite-dialog .cite-meta {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  margin: -0.4rem 0 0.7rem;
+}
+.cite-dialog .cite-title {
+  font-style: italic;
+  font-weight: 500;
+}
+.cite-dialog .cite-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.98rem;
+  line-height: 1.55;
+  color: var(--text);
+  border-left: 3px solid var(--babson-green);
+  padding: 0.5rem 0.85rem;
+  margin: 0.4rem 0 1rem;
+  background: rgba(0, 103, 71, 0.04);
+  border-radius: 0 4px 4px 0;
+}
+.cite-dialog .cite-link a {
+  color: var(--babson-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: 600;
+}

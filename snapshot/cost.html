@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Babson AI Snapshot &middot; What it costs</title>
+  <meta name="description" content="What partnering with the three frontier AI providers costs at Babson scale." />
+  <script src="../auth.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="snapshot.css" />
+</head>
+<body class="snapshot">
+
+  <header class="snap-bar">
+    <a class="snap-mark" href="./">Babson &middot; AI snapshot <span>&middot; May 2026</span></a>
+    <nav class="snap-nav" aria-label="Snapshot pages">
+      <a class="snap-tab" href="./"><span class="tab-num">1</span>Why now</a>
+      <a class="snap-tab current" href="cost.html" aria-current="page"><span class="tab-num">2</span>What it costs</a>
+      <a class="snap-tab" href="peers.html"><span class="tab-num">3</span>Who&apos;s moved</a>
+    </nav>
+  </header>
+
+  <main class="snap-stage">
+    <article class="snap-page">
+      <span class="snap-kicker">2 of 3 &middot; The cost</span>
+      <h1>About one endowed chair&apos;s annual payout. Per provider.</h1>
+
+      <p>Per-user list pricing has fallen well inside what institutions spend on routine software. For Babson&rsquo;s roughly 5,000 active students, faculty, and staff, each provider works out to about $0.9 to $1.2 million per year at list, before education-tier or volume discounts.</p>
+
+      <table class="snap-prices">
+        <thead>
+          <tr><th>Provider</th><th>List rate</th><th>&times; 5,000 users &times; 12 months</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>OpenAI &middot; ChatGPT Business <button type="button" class="cite" data-cite="3">3</button></td><td>$20 / user / month</td><td><strong>~$1.2M / year</strong></td></tr>
+          <tr><td>Google &middot; AI Pro for Education <button type="button" class="cite" data-cite="9">9</button></td><td>$15 / user / month</td><td><strong>~$0.9M / year</strong></td></tr>
+          <tr><td>Anthropic &middot; <button type="button" class="term" data-term="claude-for-education">Claude for Education</button> <button type="button" class="cite" data-cite="6">6</button></td><td>Negotiated</td><td><strong>Comparable order</strong></td></tr>
+        </tbody>
+      </table>
+
+      <div class="snap-anchor">
+        <div class="snap-anchor-num">$0.9&ndash;1.2M</div>
+        <div class="snap-anchor-cap">per provider, per year, at Babson scale &mdash; comparable to one endowed faculty chair&rsquo;s annual payout, but recurring and reaching the whole active campus rather than one faculty line.</div>
+      </div>
+
+      <h2>The scale floor</h2>
+      <p>California State University&rsquo;s deal with OpenAI was <strong>$17 million over 18 months</strong><button type="button" class="cite" data-cite="15">15</button> for more than 500,000 users<button type="button" class="cite" data-cite="14">14</button> &mdash; the largest publicly-disclosed peer-institution AI commitment to date. Single-school deals at Wharton, Oxford, Northeastern, and others have not been disclosed in dollars. Education-tier discounts and volume pricing typically reduce list figures by 30 to 60 percent.</p>
+
+      <div class="snap-callout">
+        <span class="snap-callout-eyebrow">On Microsoft Copilot</span>
+        <p>Microsoft Copilot, which most institutions already run as part of Microsoft 365, is excellent productivity software. It is primarily built on OpenAI&rsquo;s foundation models. Partnering at the foundation-model layer with the three providers is <em>complementary</em> to a Copilot deployment, not a replacement &mdash; it puts the underlying model capabilities, education-specific features, and developer access into students&rsquo; hands directly.</p>
+      </div>
+
+      <nav class="snap-page-nav" aria-label="Pagination">
+        <a class="nav-link" href="./">&larr; Why now</a>
+        <span class="nav-spacer">2 of 3</span>
+        <a class="nav-link primary" href="peers.html">Who&apos;s moved &rarr;</a>
+      </nav>
+    </article>
+  </main>
+
+  <footer class="snap-foot">
+    Confidential briefing &middot; Erik Noyes &middot; Kristi Girdarry &middot; Jonathan Sims &middot;
+    <a href="../brief.html">Read the full briefing</a>
+  </footer>
+
+  <dialog id="term-dialog" class="term-dialog" aria-labelledby="term-title">
+    <article class="term-content">
+      <header class="term-header">
+        <span class="term-eyebrow">Definition</span>
+        <button type="button" class="term-close-x" id="term-close-x" aria-label="Close">&times;</button>
+      </header>
+      <h3 class="term-title" id="term-title"></h3>
+      <div class="term-body" id="term-body"></div>
+    </article>
+  </dialog>
+
+  <dialog id="cite-dialog" class="term-dialog cite-dialog" aria-labelledby="cite-title">
+    <article class="term-content">
+      <header class="term-header">
+        <span class="term-eyebrow">Source</span>
+        <button type="button" class="term-close-x" id="cite-close-x" aria-label="Close">&times;</button>
+      </header>
+      <h3 class="term-title cite-title" id="cite-title"></h3>
+      <div class="cite-meta" id="cite-meta"></div>
+      <blockquote class="cite-quote" id="cite-quote" hidden></blockquote>
+      <p class="cite-link"><a id="cite-link" href="#" target="_blank" rel="noopener">Read the source &rarr;</a></p>
+    </article>
+  </dialog>
+
+  <script src="snapshot.js"></script>
+</body>
+</html>
