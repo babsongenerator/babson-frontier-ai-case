@@ -51,7 +51,10 @@
         <li><a href="details/" class="sn-appendix">Appendix A &rarr;</a></li>
         <li><a href="#sec-refs" data-section="sec-refs">References</a></li>
       </ol>
-      <button class="section-nav-reopen" id="reopen-hello" aria-label="Re-open the authors' note">From the authors</button>
+      <div class="section-nav-actions">
+        <button class="section-nav-reopen" id="reopen-hello" aria-label="Re-open the authors' note">From the authors</button>
+        <button class="section-nav-display" id="open-display" aria-label="Display settings"><span class="aa-icon">Aa</span></button>
+      </div>
     </nav>
 
     <!-- ============================ EXECUTIVE SUMMARY ============================ -->
@@ -60,10 +63,10 @@
         <span class="es-tag">Executive Summary</span>
       </div>
       <ol class="es-list">
-        <li><strong>Institutional cost lands in the low millions per year.</strong> California State University committed <strong>$17M over 18 months</strong> to OpenAI for 500,000+ users<sup class="ref"><a href="#ref-15">15</a></sup>; list per-user pricing is $15&ndash;20 per month. For Babson-scale (~5,000 active users), each provider works out to roughly $0.9&ndash;1.2M per year at list, before education-tier or volume discounts.</li>
+        <li><strong>Wharton, Oxford, Northeastern, and Rice have already moved.</strong> Each runs an institution-grade deployment of one of the three providers. CSU's $17M over 18 months for 500,000+ users<sup class="ref"><a href="#ref-15">15</a></sup> shows what scale looks like at the floor.</li>
+        <li><strong>The annual envelope is comparable to a single endowed faculty chair&mdash;recurring.</strong> List per-user pricing is $15&ndash;20 per month<sup class="ref"><a href="#ref-2">2</a></sup>; for Babson-scale (~5,000 active users), each provider works out to roughly $0.9&ndash;1.2M per year before education-tier or volume discounts.</li>
         <li><strong>Three companies lead AI in 2026:</strong> OpenAI, Anthropic, and Google. Each ships an institution-grade education product with SSO, data-isolation, and direct sales/procurement channels.</li>
-        <li><strong>More than 1,000 peer higher-education institutions</strong> have already deployed at least one of the three.<sup class="ref"><a href="#ref-10">10</a></sup></li>
-        <li><strong>Microsoft Copilot operates one layer above</strong> &mdash; built on OpenAI's GPT models and increasingly Anthropic's Claude (see <a href="details/">appendix</a>).</li>
+        <li><strong>Microsoft Copilot complements rather than replaces this layer.</strong> Copilot is the institutional Microsoft 365 surface where staff already work; the three providers discussed here are the upstream model substrates students reach when their projects outgrow that surface (see <a href="details/">appendix</a>).</li>
       </ol>
     </section>
 
@@ -203,6 +206,7 @@
       <div class="callout">
         <div class="callout-tag">Babson-scale estimate</div>
         <p>At a population of approximately <strong>5,000 active users</strong>, list pricing yields a working envelope of <strong>$0.9M&ndash;$1.2M per year</strong> per provider, <em>before</em> education-tier or volume discounts. Peer-institution deals consistently land below list.</p>
+        <p style="margin: 0.6rem 0 0; font-style: italic;">At the lower end, the annual envelope is roughly comparable to a single endowed-chair payout &mdash; recurring rather than one-time, and reaching the full active campus rather than one faculty line.</p>
       </div>
     </section>
 
@@ -284,29 +288,49 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr class="example-row">
             <td><strong>Crafting Tomorrow</strong></td>
             <td>Co-founded by Cole Collins (Babson undergrad; Outreach &amp; Events Leader, Babson AI Club)<sup class="ref"><a href="#ref-21">21</a></sup></td>
             <td>A student-founded initiative teaching high-school students AI literacy through project-based entrepreneurship.</td>
-            <td><a href="https://www.crafting-tomorrow.org/" target="_blank" rel="noopener">crafting-tomorrow.org</a></td>
+            <td>
+              <div class="example-actions">
+                <a href="https://www.crafting-tomorrow.org/" target="_blank" rel="noopener">crafting-tomorrow.org</a>
+                <button type="button" class="example-detail-btn" data-target="ex-crafting">Details</button>
+              </div>
+            </td>
           </tr>
-          <tr>
-            <td><strong>ping! and brain</strong> (Build-a-thon demo)</td>
+          <tr class="example-row">
+            <td><strong>ping! and brain</strong></td>
             <td>Vaness Reece Gardner '26, inaugural AI Specialist at the Weissman Foundry<sup class="ref"><a href="#ref-22">22</a></sup>; Generator Build-a-thon 2026, theme "AI x Body &amp; Mind."<sup class="ref"><a href="#ref-23">23</a></sup></td>
             <td>Student-built demo from Babson's April 2026 Build-a-thon. The buildathon's sponsor stack included OpenAI, Anthropic, Cursor, Lovable, ElevenLabs, and others.</td>
-            <td><a href="https://youtu.be/twRzdwVQ2eM" target="_blank" rel="noopener">YouTube</a></td>
+            <td>
+              <div class="example-actions">
+                <a href="https://youtu.be/twRzdwVQ2eM" target="_blank" rel="noopener">YouTube</a>
+                <button type="button" class="example-detail-btn" data-target="ex-ping">Details</button>
+              </div>
+            </td>
           </tr>
-          <tr>
-            <td><strong>GemCopy</strong> (AI Innovators demo)</td>
+          <tr class="example-row">
+            <td><strong>GemCopy</strong></td>
             <td>Output of Babson's <a href="https://www.babson.edu/thegenerator/community/ai-innovators-bootcamp/" target="_blank" rel="noopener">AI Innovators Bootcamp</a><sup class="ref"><a href="#ref-24">24</a></sup> &mdash; a Generator program pairing Babson faculty and students with small-business owners to build AI prototypes.</td>
             <td>An AI tool that turns GIA / HRD / AGS gemological certificates into SEO-optimized product descriptions for the diamond company Amipi INC.</td>
-            <td><a href="https://aiinnovatorsprojectvideodemo.vercel.app/" target="_blank" rel="noopener">demo</a></td>
+            <td>
+              <div class="example-actions">
+                <a href="https://aiinnovatorsprojectvideodemo.vercel.app/" target="_blank" rel="noopener">demo</a>
+                <button type="button" class="example-detail-btn" data-target="ex-gemcopy">Details</button>
+              </div>
+            </td>
           </tr>
-          <tr>
+          <tr class="example-row">
             <td><strong>Face Off</strong></td>
             <td>Built on Base44, an AI no-code app-builder platform Babson students use through Generator programs.<sup class="ref"><a href="#ref-25">25</a></sup></td>
             <td>A peer-to-peer social-wagering app for tracking rivalries and head-to-head challenges &mdash; built end-to-end by describing it in natural language to Base44, no traditional coding.</td>
-            <td><a href="https://face-off-now.base44.app/" target="_blank" rel="noopener">Face Off</a></td>
+            <td>
+              <div class="example-actions">
+                <a href="https://face-off-now.base44.app/" target="_blank" rel="noopener">Face Off</a>
+                <button type="button" class="example-detail-btn" data-target="ex-faceoff">Details</button>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -401,7 +425,7 @@
         <button type="button" class="hello-close-x" id="hello-close-x" aria-label="Close">&times;</button>
       </div>
 
-      <p>Steve &mdash; thank you for the time yesterday morning. The conversation prompted us to put together this short reference brief on the state of institutional AI in higher education: the three companies (OpenAI, Anthropic, Google) whose products are now the operating environment for our peers' students.</p>
+      <p>Steve &mdash; thank you for the time yesterday morning. The conversation prompted us to put together this short reference brief on the state of institutional AI in higher education: the three companies (OpenAI, Anthropic, Google) whose products are now the operating environment for our peers' students. We offer it in the spirit of <em>entrepreneurial leadership</em> &mdash; translating a fast-moving technology question into a tractable decision that fits ELevates' technology-entrepreneurship pillar.</p>
 
       <p>A note on the brief itself. This site was <em>vibe-coded</em> &mdash; built through iterative natural-language conversation with Anthropic's Claude rather than written by hand in code. The underlying research drew on Google Gemini's Deep Research. In other words, <strong>two of the three providers we describe were the tools used to produce the description.</strong> We chose this format over a printed memo because the medium is part of the message: a Babson faculty member with no engineering background can now produce something like this in an afternoon. That is what these tools have made possible.</p>
 
@@ -415,6 +439,121 @@
 
       <div class="hello-actions">
         <button type="button" class="hello-cta" id="hello-open" autofocus>Open the briefing &rarr;</button>
+      </div>
+    </article>
+  </dialog>
+
+  <!-- ============================ DISPLAY SETTINGS MODAL ============================ -->
+  <dialog id="display-dialog" class="display-dialog" aria-labelledby="display-title">
+    <article class="display-content">
+      <div class="display-header">
+        <span class="display-tag" id="display-title">Display settings</span>
+        <button type="button" class="display-close-x" id="display-close-x" aria-label="Close">&times;</button>
+      </div>
+      <p>Pick a comfortable reading size. Your choice is remembered on this device.</p>
+      <div class="fs-options" role="radiogroup" aria-label="Font size">
+        <button type="button" class="fs-option" data-fs="comfortable" role="radio" aria-checked="false">
+          <span class="fs-glyph s">Aa</span>
+          <span class="fs-label">Comfortable</span>
+        </button>
+        <button type="button" class="fs-option" data-fs="large" role="radio" aria-checked="false">
+          <span class="fs-glyph m">Aa</span>
+          <span class="fs-label">Larger</span>
+        </button>
+        <button type="button" class="fs-option" data-fs="largest" role="radio" aria-checked="false">
+          <span class="fs-glyph l">Aa</span>
+          <span class="fs-label">Largest</span>
+        </button>
+      </div>
+      <p class="display-hint">If the brief still feels small or large, your browser zoom (&#x2318;+ / &#x2318;&minus;) layers on top.</p>
+    </article>
+  </dialog>
+
+  <!-- ============================ BABSON EXAMPLE DETAIL MODALS ============================ -->
+  <dialog id="ex-crafting" class="example-dialog">
+    <article class="example-content">
+      <header class="example-header">
+        <div>
+          <span class="example-eyebrow">Babson example &middot; 4.1</span>
+          <h3 class="example-title">Crafting Tomorrow</h3>
+        </div>
+        <button type="button" class="example-close-x" data-close aria-label="Close">&times;</button>
+      </header>
+      <p>A student-founded initiative teaching high-school students AI literacy through project-based entrepreneurship. The site is the student-facing surface for a curriculum that introduces frontier-AI tools as part of how high schoolers think about building things.</p>
+      <dl>
+        <dt>Co-founder</dt><dd>Cole Collins (Babson undergrad, Finance &amp; Tech Entrepreneurship; Outreach &amp; Events Leader, Babson AI Club)</dd>
+        <dt>Format</dt><dd>Student-founded nonprofit / venture &mdash; not a class project</dd>
+        <dt>AI tools taught</dt><dd>Frontier AI broadly; the curriculum is provider-agnostic and teaches students to use whichever provider fits the task</dd>
+        <dt>Source</dt><dd>Babson AI Club leadership listing + LinkedIn (Cole Collins)</dd>
+      </dl>
+      <div class="example-actions-row">
+        <a class="example-cta" href="https://www.crafting-tomorrow.org/" target="_blank" rel="noopener">Visit project &rarr;</a>
+      </div>
+    </article>
+  </dialog>
+
+  <dialog id="ex-ping" class="example-dialog">
+    <article class="example-content">
+      <header class="example-header">
+        <div>
+          <span class="example-eyebrow">Babson example &middot; 4.1</span>
+          <h3 class="example-title">ping! and brain</h3>
+        </div>
+        <button type="button" class="example-close-x" data-close aria-label="Close">&times;</button>
+      </header>
+      <p>A Babson student team's demo from the Generator Build-a-thon 2026 (theme: <em>AI x Body &amp; Mind</em>). The video walks through the team's working prototype.</p>
+      <dl>
+        <dt>Student lead</dt><dd>Vaness Reece Gardner '26, inaugural AI Specialist at the Weissman Foundry</dd>
+        <dt>Event</dt><dd>Babson Generator Build-a-thon 2026 &mdash; April 11, 2026; ~500 students from Boston-area universities</dd>
+        <dt>Sponsor tool stack</dt><dd>OpenAI, Anthropic, Cursor, Lovable, ElevenLabs, Tripo AI, GitHub Education, HubSpot</dd>
+        <dt>Source</dt><dd>Babson Thought &amp; Action profile of Vaness Gardner; babsonbuildathon.com</dd>
+      </dl>
+      <div class="example-actions-row">
+        <a class="example-cta" href="https://youtu.be/twRzdwVQ2eM" target="_blank" rel="noopener">Watch demo &rarr;</a>
+      </div>
+    </article>
+  </dialog>
+
+  <dialog id="ex-gemcopy" class="example-dialog">
+    <article class="example-content">
+      <header class="example-header">
+        <div>
+          <span class="example-eyebrow">Babson example &middot; 4.1</span>
+          <h3 class="example-title">GemCopy</h3>
+        </div>
+        <button type="button" class="example-close-x" data-close aria-label="Close">&times;</button>
+      </header>
+      <p>An AI tool that converts gemological certificates (GIA / HRD / AGS) into SEO-optimized product descriptions for the diamond company Amipi INC. Produced through Babson's AI Innovators Bootcamp &mdash; a Generator program that pairs Babson faculty and students with small-business owners to build working AI prototypes.</p>
+      <dl>
+        <dt>Format</dt><dd>AI Innovators Bootcamp project (Babson Generator program)</dd>
+        <dt>SMB partner</dt><dd>Amipi INC, a 30-year family-owned diamond company based in New York</dd>
+        <dt>Deployment</dt><dd>Live demo hosted on Vercel</dd>
+        <dt>Source</dt><dd>The Generator AI Innovators Bootcamp public listing</dd>
+      </dl>
+      <div class="example-actions-row">
+        <a class="example-cta" href="https://aiinnovatorsprojectvideodemo.vercel.app/" target="_blank" rel="noopener">Open demo &rarr;</a>
+      </div>
+    </article>
+  </dialog>
+
+  <dialog id="ex-faceoff" class="example-dialog">
+    <article class="example-content">
+      <header class="example-header">
+        <div>
+          <span class="example-eyebrow">Babson example &middot; 4.1</span>
+          <h3 class="example-title">Face Off</h3>
+        </div>
+        <button type="button" class="example-close-x" data-close aria-label="Close">&times;</button>
+      </header>
+      <p>A peer-to-peer social-wagering app for tracking rivalries and head-to-head challenges. Built end-to-end by describing the app in natural language to Base44 &mdash; no traditional coding. The platform itself is the AI builder.</p>
+      <dl>
+        <dt>Build platform</dt><dd>Base44 (Wix-owned), an AI no-code app builder with a published higher-education partnerships program</dd>
+        <dt>Format</dt><dd>Student-built app; produced through Generator-aligned programs</dd>
+        <dt>Notable</dt><dd>App explicitly does not hold user funds &mdash; the wagering layer is peer-to-peer reputation, not money</dd>
+        <dt>Source</dt><dd>Base44 higher-ed partnerships page</dd>
+      </dl>
+      <div class="example-actions-row">
+        <a class="example-cta" href="https://face-off-now.base44.app/" target="_blank" rel="noopener">Open app &rarr;</a>
       </div>
     </article>
   </dialog>
@@ -474,6 +613,84 @@
       }
       window.addEventListener('scroll', onScroll, { passive: true });
       window.addEventListener('DOMContentLoaded', onScroll);
+
+      // ----- Display settings modal (font scaler) -----
+      var displayDialog = document.getElementById('display-dialog');
+      var openDisplay = document.getElementById('open-display');
+      var closeDisplayX = document.getElementById('display-close-x');
+      var fsOptions = document.querySelectorAll('.fs-option');
+      var FS_KEY = 'babson-ai-font-scale';
+      var FS_CLASSES = { comfortable: 'font-comfortable', large: 'font-large', largest: 'font-largest' };
+
+      function applyFontScale(scale) {
+        var html = document.documentElement;
+        Object.keys(FS_CLASSES).forEach(function (k) { html.classList.remove(FS_CLASSES[k]); });
+        if (FS_CLASSES[scale]) html.classList.add(FS_CLASSES[scale]);
+        fsOptions.forEach(function (o) {
+          var active = o.getAttribute('data-fs') === scale;
+          o.classList.toggle('active', active);
+          o.setAttribute('aria-checked', active ? 'true' : 'false');
+        });
+        try { localStorage.setItem(FS_KEY, scale); } catch (e) {}
+      }
+      // Restore saved choice on load
+      var savedScale = 'comfortable';
+      try { savedScale = localStorage.getItem(FS_KEY) || 'comfortable'; } catch (e) {}
+      applyFontScale(savedScale);
+
+      fsOptions.forEach(function (o) {
+        o.addEventListener('click', function () { applyFontScale(o.getAttribute('data-fs')); });
+      });
+
+      function showDisplay() {
+        if (typeof displayDialog.showModal === 'function') displayDialog.showModal();
+        else displayDialog.setAttribute('open', '');
+        document.documentElement.classList.add('modal-open');
+      }
+      function hideDisplay() {
+        if (typeof displayDialog.close === 'function') displayDialog.close();
+        else displayDialog.removeAttribute('open');
+        document.documentElement.classList.remove('modal-open');
+      }
+      openDisplay && openDisplay.addEventListener('click', showDisplay);
+      closeDisplayX && closeDisplayX.addEventListener('click', hideDisplay);
+      displayDialog && displayDialog.addEventListener('click', function (e) {
+        if (e.target === displayDialog) hideDisplay();
+      });
+      displayDialog && displayDialog.addEventListener('close', function () {
+        document.documentElement.classList.remove('modal-open');
+      });
+
+      // ----- Per-example detail modals -----
+      var detailBtns = document.querySelectorAll('.example-detail-btn[data-target]');
+      detailBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var target = document.getElementById(btn.getAttribute('data-target'));
+          if (!target) return;
+          if (typeof target.showModal === 'function') target.showModal();
+          else target.setAttribute('open', '');
+          document.documentElement.classList.add('modal-open');
+        });
+      });
+      document.querySelectorAll('.example-dialog').forEach(function (dlg) {
+        dlg.querySelectorAll('[data-close]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            if (typeof dlg.close === 'function') dlg.close();
+            else dlg.removeAttribute('open');
+            document.documentElement.classList.remove('modal-open');
+          });
+        });
+        dlg.addEventListener('click', function (e) {
+          if (e.target === dlg) {
+            if (typeof dlg.close === 'function') dlg.close();
+            else dlg.removeAttribute('open');
+            document.documentElement.classList.remove('modal-open');
+          }
+        });
+        dlg.addEventListener('close', function () {
+          document.documentElement.classList.remove('modal-open');
+        });
+      });
     })();
   </script>
 

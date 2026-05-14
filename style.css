@@ -27,13 +27,22 @@
 
 * { box-sizing: border-box; }
 
+/* Reader-controlled font scale. Default bumped from 16px → 17.5px for older eyes.
+   The "scale" classes are toggled by JS on <html> from the display-settings modal,
+   stored in localStorage so the reader's preference persists. */
+html {
+  font-size: 17.5px;
+}
+html.font-large    { font-size: 19.5px; }
+html.font-largest  { font-size: 22px; }
+html.font-comfortable { font-size: 17.5px; }
+
 html, body {
   margin: 0;
   padding: 0;
   background: var(--bg);
   color: var(--text);
   font-family: var(--serif);
-  font-size: 16px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -972,7 +981,13 @@ html.modal-open { overflow: hidden; }
   color: var(--babson-green-dark);
 }
 
-.section-nav-reopen {
+.section-nav-actions {
+  display: flex;
+  align-items: stretch;
+  border-left: 1px solid var(--rule);
+}
+.section-nav-reopen,
+.section-nav-display {
   font-family: var(--sans);
   font-size: 0.72rem;
   font-weight: 600;
@@ -981,16 +996,29 @@ html.modal-open { overflow: hidden; }
   color: var(--text-muted);
   background: transparent;
   border: none;
-  border-left: 1px solid var(--rule);
   padding: 0.55rem 0.85rem;
   cursor: pointer;
   white-space: nowrap;
   align-self: stretch;
   transition: color 120ms ease, background 120ms ease;
 }
-.section-nav-reopen:hover {
+.section-nav-display {
+  padding: 0.55rem 0.7rem;
+  border-left: 1px solid var(--rule);
+}
+.section-nav-reopen:hover,
+.section-nav-display:hover {
   color: var(--babson-green-dark);
   background: rgba(0, 103, 71, 0.04);
+}
+.section-nav-display .aa-icon {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  text-transform: none;
+  font-weight: 500;
+  vertical-align: -1px;
 }
 
 @media (max-width: 720px) {
@@ -1010,12 +1038,261 @@ html.modal-open { overflow: hidden; }
 /* Anchor jumps should land below the sticky nav. */
 section.section { scroll-margin-top: 4rem; }
 
+/* ----------------------- display-settings modal --------------------------- */
+/* Small accessibility modal — font-size picker, persisted via localStorage. */
+
+.display-dialog {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: 460px;
+  width: calc(100% - 2rem);
+  margin: auto;
+  box-shadow: none;
+  color: var(--text);
+}
+.display-dialog::backdrop {
+  background: rgba(20, 25, 31, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.display-content {
+  background: #ffffff;
+  border-top: 4px solid var(--babson-green);
+  border-radius: 6px;
+  padding: 1.2rem 1.5rem 1.3rem;
+  font-family: var(--serif);
+  font-size: 1rem;
+  line-height: 1.55;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+.display-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.55rem;
+}
+.display-tag {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--babson-green-dark);
+}
+.display-close-x {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.2rem;
+}
+.display-close-x:hover { color: var(--text); }
+.display-content p {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+.fs-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.55rem;
+  margin: 0.8rem 0 1rem;
+}
+.fs-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+  padding: 0.8rem 0.6rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--rule-soft);
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-weight: 500;
+  color: var(--text);
+  transition: background 100ms ease, border-color 100ms ease;
+}
+.fs-option:hover {
+  background: rgba(0, 103, 71, 0.04);
+  border-color: var(--babson-green);
+}
+.fs-option.active {
+  background: rgba(0, 103, 71, 0.08);
+  border-color: var(--babson-green);
+  color: var(--babson-green-dark);
+}
+.fs-option .fs-glyph {
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--babson-green-dark);
+}
+.fs-option .fs-glyph.s { font-size: 0.9rem; }
+.fs-option .fs-glyph.m { font-size: 1.1rem; }
+.fs-option .fs-glyph.l { font-size: 1.35rem; }
+.fs-option .fs-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.display-content .display-hint {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ------------------------- example-detail modals -------------------------- */
+/* Each Babson example in §4 has a "Details" button that opens its modal. */
+
+.example-row td .example-actions {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-start;
+}
+.example-row td .example-detail-btn {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--rule-soft);
+  border-radius: 3px;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+.example-row td .example-detail-btn:hover {
+  color: var(--babson-green-dark);
+  border-color: var(--babson-green);
+  background: rgba(0, 103, 71, 0.04);
+}
+
+.example-dialog {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: 620px;
+  width: calc(100% - 2rem);
+  margin: auto;
+  box-shadow: none;
+  color: var(--text);
+}
+.example-dialog::backdrop {
+  background: rgba(20, 25, 31, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.example-content {
+  background: #ffffff;
+  border-top: 4px solid var(--babson-green);
+  border-radius: 6px;
+  padding: 1.2rem 1.5rem 1.3rem;
+  font-family: var(--serif);
+  font-size: 0.97rem;
+  line-height: 1.55;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 4px 14px rgba(0, 0, 0, 0.1);
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+.example-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rule);
+  gap: 0.5rem;
+}
+.example-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--babson-green-dark);
+  display: block;
+  margin-bottom: 0.2rem;
+}
+.example-title {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--text);
+}
+.example-close-x {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.2rem;
+  flex: 0 0 auto;
+}
+.example-close-x:hover { color: var(--text); }
+.example-content dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+  margin: 0.4rem 0 1rem;
+}
+.example-content dt {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding-top: 0.18rem;
+}
+.example-content dd {
+  margin: 0;
+  font-size: 0.94rem;
+  color: var(--text);
+}
+.example-actions-row {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--rule);
+}
+.example-cta {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.5rem 0.9rem;
+  background: var(--babson-green);
+  color: #ffffff;
+  border: 1px solid var(--babson-green-dark);
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 120ms ease;
+}
+.example-cta:hover { background: var(--babson-green-dark); }
+
 /* --------------------------------- print ---------------------------------- */
 
 @media print {
   body { font-size: 10pt; }
   .topbar,
   .hello-dialog,
+  .display-dialog,
+  .example-dialog,
+  .example-detail-btn,
   .section-nav { display: none !important; }
   .page { padding: 0.5in; max-width: none; }
   .section { break-inside: avoid-page; }
