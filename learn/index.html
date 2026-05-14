@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Walk through the AI moment · Babson</title>
-  <meta name="description" content="An eight-scene guided walkthrough of the three AI providers, the institutional moment, and Babson's place in it." />
+  <meta name="description" content="A guided walkthrough of the brief: why this matters, what each provider does, what it costs, who is using them, and what Babson is doing. Choose your own path." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -15,146 +15,284 @@
 
   <header class="learn-bar">
     <a class="lb-back" href="../">&larr; Open the full briefing</a>
-    <div class="lb-progress" role="tablist" aria-label="Walkthrough progress">
-      <button type="button" class="lb-dot" data-go="1" aria-label="Go to scene 1: The premise"></button>
-      <button type="button" class="lb-dot" data-go="2" aria-label="Go to scene 2: The layers"></button>
-      <button type="button" class="lb-dot" data-go="3" aria-label="Go to scene 3: Each provider's edge"></button>
-      <button type="button" class="lb-dot" data-go="4" aria-label="Go to scene 4: A Thursday afternoon"></button>
-      <button type="button" class="lb-dot" data-go="5" aria-label="Go to scene 5: Peers have moved"></button>
-      <button type="button" class="lb-dot" data-go="6" aria-label="Go to scene 6: The math"></button>
-      <button type="button" class="lb-dot" data-go="7" aria-label="Go to scene 7: Babson's head start"></button>
-      <button type="button" class="lb-dot" data-go="8" aria-label="Go to scene 8: The question"></button>
-    </div>
-    <span class="lb-counter" id="lb-counter">Scene 1 of 8</span>
+    <nav class="lb-trail" id="lb-trail" aria-label="Walkthrough position">
+      <span class="trail-here" id="trail-here">Why this matters</span>
+    </nav>
+    <button type="button" class="lb-reset" id="lb-reset" title="Start the walkthrough from the beginning" aria-label="Reset">Start over</button>
   </header>
 
   <main class="stage" id="stage">
 
-    <!-- ================================ SCENE 1 ================================ -->
-    <section class="scene" data-scene="1" id="scene-1">
+    <!-- ================================ THE WHY (3 scenes) ================================ -->
+    <section class="scene" data-scene="w1" data-kind="linear" data-path="why">
       <div class="scene-inner">
-        <span class="scene-kicker">Scene 1 &middot; The premise</span>
-        <div class="scene-hero hero-logos">
-          <span class="logo-chip openai">OpenAI</span>
-          <span class="logo-chip anthropic">Anthropic</span>
-          <span class="logo-chip google">Google</span>
+        <span class="scene-kicker">Why this matters &middot; 1 of 3</span>
+        <div class="scene-hero hero-pulse">
+          <div class="pulse-line"><span class="pulse-year">2022</span><span class="pulse-label">Chatbots arrived.</span></div>
+          <div class="pulse-line"><span class="pulse-year">2024</span><span class="pulse-label">Student demos.</span></div>
+          <div class="pulse-line current"><span class="pulse-year">2026</span><span class="pulse-label">Working tools.</span></div>
         </div>
-        <h1 class="scene-headline">Three companies make the AI students use.</h1>
-        <p class="scene-body">In 2026, three companies sit at the front of the artificial-intelligence market: <strong>OpenAI</strong> (which makes ChatGPT), <strong>Anthropic</strong> (which makes Claude), and <strong>Google</strong> (which makes Gemini). Their products are now the working tools of students at peer institutions. The next seven short scenes walk through what each does, who's using them, what they cost, and what Babson is already doing.</p>
-        <p class="scene-tip">Anything <button type="button" class="term" data-term="how-this-walks">underlined like this</button> opens a plain-language explainer when you tap it. Use them as needed; skip if you don't.</p>
+        <h1 class="scene-headline">AI isn't what it was eighteen months ago.</h1>
+        <p class="scene-body">The AI available in 2026 does something fundamentally different from the chatbots that arrived in 2022. The current versions of ChatGPT, Claude, and Gemini can read a hundred academic papers in one pass; build a working web application from a sentence of description; and complete <button type="button" class="term" data-term="agentic">multi-step tasks</button> across a student's email, calendar, and software without being asked twice. The technology crossed a threshold. The institutional question is what to do about it.</p>
+        <p class="scene-tip">Anything <button type="button" class="term" data-term="how-this-walks">underlined like this</button> opens a plain-language explainer. Take them as needed; skip if you don't.</p>
       </div>
     </section>
 
-    <!-- ================================ SCENE 2 ================================ -->
-    <section class="scene" data-scene="2" id="scene-2">
+    <section class="scene" data-scene="w2" data-kind="linear" data-path="why">
       <div class="scene-inner">
-        <span class="scene-kicker">Scene 2 &middot; The layers</span>
-        <div class="scene-hero hero-stack">
-          <div class="stack-tier tier-surface">Surface &mdash; what staff and students click on<br><small>ChatGPT &middot; Claude &middot; Gemini &middot; Microsoft Copilot</small></div>
-          <div class="stack-tier tier-model">Foundation model &mdash; the underlying AI<br><small>GPT-5.5 &middot; Claude Opus 4.7 &middot; Gemini 3.1 Pro</small></div>
-          <div class="stack-tier tier-provider">Provider &mdash; the company training the model<br><small>OpenAI &middot; Anthropic &middot; Google</small></div>
+        <span class="scene-kicker">Why this matters &middot; 2 of 3</span>
+        <div class="scene-hero hero-stakes">
+          <div class="stakes-before">
+            <span class="stakes-label">2024</span>
+            <span class="stakes-line">Solo founder: idea &rarr; pitch deck &rarr; small team &rarr; first prototype, ~1 quarter</span>
+          </div>
+          <div class="stakes-after">
+            <span class="stakes-label">2026</span>
+            <span class="stakes-line">Solo founder + 3 AI accounts: idea &rarr; working prototype &rarr; first 12 customers, <strong>~1 week</strong></span>
+          </div>
         </div>
-        <h1 class="scene-headline">Model. Product. Surface.</h1>
-        <p class="scene-body">When people say "AI," they usually mean one of two things. A <button type="button" class="term" data-term="foundation-model">foundation model</button> is the underlying AI itself &mdash; what each of the three companies trains. A <strong>product</strong> is what you actually click on. <strong>Microsoft Copilot</strong> is a product that uses several foundation models underneath. Knowing the layers matters because the strategic relationships are at the model layer; the surfaces above shift constantly.</p>
+        <h1 class="scene-headline">For a school that teaches building, the floor has moved.</h1>
+        <p class="scene-body">Babson's reputation rests on producing graduates who actually start companies. Starting a company in 2026 is meaningfully different from starting one in 2024 &mdash; not because every venture is now an AI venture, but because the floor of what is possible <em>solo</em> has moved. One Babson student with three accounts can now produce in a week what used to take a small team a quarter. The institutional question is whether to put those three accounts into every student's hands &mdash; and how.</p>
       </div>
     </section>
 
-    <!-- ================================ SCENE 3 ================================ -->
-    <section class="scene" data-scene="3" id="scene-3">
+    <section class="scene" data-scene="w3" data-kind="linear" data-path="why">
       <div class="scene-inner">
-        <span class="scene-kicker">Scene 3 &middot; Each provider's edge</span>
-        <div class="scene-hero hero-three">
-          <div class="three-card">
-            <span class="three-tag">OpenAI</span>
-            <h3>Action</h3>
-            <p>Strongest at <button type="button" class="term" data-term="agentic">agentic</button> tasks. Runs multi-step workflows.</p>
-          </div>
-          <div class="three-card">
-            <span class="three-tag">Anthropic</span>
-            <h3>Reasoning</h3>
-            <p>Careful and literal. <button type="button" class="term" data-term="learning-mode">Learning Mode</button> guides student thinking.</p>
-          </div>
-          <div class="three-card">
-            <span class="three-tag">Google</span>
-            <h3>Senses</h3>
-            <p><button type="button" class="term" data-term="multimodal">Multimodal</button>. Sees video, hears audio, reads text in one pass.</p>
-          </div>
+        <span class="scene-kicker">Why this matters &middot; 3 of 3</span>
+        <div class="scene-hero hero-legend">
+          <div class="legend-row"><span class="legend-glyph">&rarr;</span>Stops are arranged in short paths &mdash; pick what you want to know next.</div>
+          <div class="legend-row"><span class="legend-glyph">&middot;&middot;&middot;</span>Underlined words open plain-language definitions.</div>
+          <div class="legend-row"><span class="legend-glyph">&#8635;</span>You can return to the hub from any scene, or jump to the full briefing.</div>
+          <div class="legend-row"><span class="legend-glyph">&loz;</span>The walkthrough remembers which paths you've covered.</div>
         </div>
-        <h1 class="scene-headline">Three companies, three distinct strengths.</h1>
-        <p class="scene-body">Each provider's foundation model is built around a different center of gravity. <strong>OpenAI</strong> is best when a student needs the AI to <em>do</em> something &mdash; click buttons, fill forms, run sequences. <strong>Anthropic</strong> is best when getting it right matters more than getting it fast &mdash; reasoning, careful writing, classroom dialogue. <strong>Google</strong> is best when the work spans formats: a video, a chart, a recording, all together.</p>
+        <h1 class="scene-headline">Choose your own path.</h1>
+        <p class="scene-body">The next stop is a hub. From there, pick what you want to know first: who the three providers are and what each does best; what it costs at Babson scale; which peer institutions have already deployed which; or what Babson is already doing on the ground. Each path is two or three short scenes. You can take them in any order, in any combination, and stop whenever you're ready for the closing question.</p>
       </div>
     </section>
 
-    <!-- ================================ SCENE 4 ================================ -->
-    <section class="scene" data-scene="4" id="scene-4">
+    <!-- ================================ THE HUB ================================ -->
+    <section class="scene scene-hub" data-scene="hub" data-kind="hub">
       <div class="scene-inner">
-        <span class="scene-kicker">Scene 4 &middot; A Thursday afternoon</span>
-        <div class="scene-hero hero-quote">
-          <p class="hero-quote-mark">&ldquo;</p>
-          <p class="hero-quote-body">By Thursday afternoon, she'd used Claude to draft a literature review on her market, GPT-5.5 to email twelve potential customers without copy-pasting, and Gemini to pull insights from a ninety-minute interview video.</p>
-          <p class="hero-quote-attr">&mdash; A composite of a Babson sophomore's week</p>
+        <span class="scene-kicker">Where do you want to go next?</span>
+        <h1 class="scene-headline scene-headline-hub">Pick a path. You'll come back here.</h1>
+
+        <div class="hub-grid">
+          <button type="button" class="hub-card" data-go="a1" data-path-id="a">
+            <span class="hub-tag">Path 1 &middot; 3 stops</span>
+            <h3>The three providers</h3>
+            <p>What each company makes, what each is best at. OpenAI, Anthropic, Google &mdash; their flagship models and signature products.</p>
+            <span class="hub-check" aria-hidden="true">&check;</span>
+          </button>
+          <button type="button" class="hub-card" data-go="b1" data-path-id="b">
+            <span class="hub-tag">Path 2 &middot; 2 stops</span>
+            <h3>What it costs</h3>
+            <p>Per-user list pricing, the Babson-scale annual envelope, and the largest publicly-disclosed peer-institution deal.</p>
+            <span class="hub-check" aria-hidden="true">&check;</span>
+          </button>
+          <button type="button" class="hub-card" data-go="c1" data-path-id="c">
+            <span class="hub-tag">Path 3 &middot; 2 stops</span>
+            <h3>Who's already using them</h3>
+            <p>Wharton, Oxford, Northeastern, LSE, Rice, the CSU system &mdash; and what each peer institution chose.</p>
+            <span class="hub-check" aria-hidden="true">&check;</span>
+          </button>
+          <button type="button" class="hub-card" data-go="d1" data-path-id="d">
+            <span class="hub-tag">Path 4 &middot; 2 stops</span>
+            <h3>What Babson is doing</h3>
+            <p>The Generator, the Weissman Foundry, the AI Innovators Bootcamp &mdash; and four current student projects.</p>
+            <span class="hub-check" aria-hidden="true">&check;</span>
+          </button>
         </div>
-        <h1 class="scene-headline">What one student can do with all three.</h1>
-        <p class="scene-body">The most useful way to picture this is at the level of a single student running a venture. Each of the three providers handles a different kind of work in her week: research, outreach, and analysis. <strong>None of them substitutes for her judgment.</strong> All of them compress the labor between an idea and a first version. What used to take a four-person team now takes one motivated undergrad and three accounts.</p>
+
+        <div class="hub-progress" id="hub-progress" hidden>
+          <span class="hub-progress-text"></span>
+        </div>
+
+        <div class="hub-finish">
+          <a href="#close" class="hub-finish-link">Or skip ahead to the closing &rarr;</a>
+        </div>
       </div>
     </section>
 
-    <!-- ================================ SCENE 5 ================================ -->
-    <section class="scene" data-scene="5" id="scene-5">
+    <!-- ================================ PATH A: PROVIDERS ================================ -->
+    <section class="scene" data-scene="a1" data-kind="path" data-path="a">
       <div class="scene-inner">
-        <span class="scene-kicker">Scene 5 &middot; Peers have moved</span>
-        <div class="scene-hero hero-peers">
-          <div class="peer-col">
-            <span class="peer-provider">OpenAI</span>
-            <ul><li>Wharton</li><li>Oxford</li><li>UCLA</li><li>CSU system</li></ul>
-          </div>
-          <div class="peer-col">
-            <span class="peer-provider">Anthropic</span>
-            <ul><li>Northeastern</li><li>LSE</li><li>Champlain</li></ul>
-          </div>
-          <div class="peer-col">
-            <span class="peer-provider">Google</span>
-            <ul><li>Rice</li><li>Houston</li><li>1,000+ others</li></ul>
+        <span class="scene-kicker">Providers &middot; 1 of 3</span>
+        <div class="scene-hero hero-provider">
+          <div class="provider-mark provider-openai">
+            <span class="provider-name">OpenAI</span>
+            <span class="provider-model">GPT-5.5 &middot; April 2026</span>
           </div>
         </div>
-        <h1 class="scene-headline">Where each provider has landed.</h1>
-        <p class="scene-body">This is not theoretical. <strong>Wharton</strong> put ChatGPT in every MBA student's hands in 2024. <strong>Oxford</strong> opened campus-wide access in September 2025. <strong>Northeastern</strong> signed campus-wide with Anthropic across thirteen global campuses. <strong>Rice</strong> deployed Gemini institution-wide. The pattern across the field: each elite peer picked at least one of the three. Babson currently has none.</p>
+        <h1 class="scene-headline">OpenAI is the action company.</h1>
+        <p class="scene-body">OpenAI's strength is <button type="button" class="term" data-term="agentic">agentic</button> work &mdash; getting the AI to <em>do</em> things, not just describe how to do them. The April 2026 launch of <button type="button" class="term" data-term="workspace-agents">Workspace Agents</button> lets students run multi-step workflows directly inside enterprise tools like Salesforce, Slack, and HubSpot. A founder can have the AI follow up on leads, post status updates to a team channel, or schedule customer interviews without writing a line of code for any of it.</p>
+        <p class="scene-body">The institutional offerings are <button type="button" class="term" data-term="chatgpt-edu">ChatGPT Edu</button> and ChatGPT Business; the underlying model family is GPT-5.5. OpenAI partners run from <strong>Wharton</strong> (universal MBA access since 2024) through <strong>Oxford</strong> (campus-wide ChatGPT Edu since September 2025) to the <strong>California State University system</strong> (the largest publicly-disclosed deal at any peer).</p>
       </div>
     </section>
 
-    <!-- ================================ SCENE 6 ================================ -->
-    <section class="scene" data-scene="6" id="scene-6">
+    <section class="scene" data-scene="a2" data-kind="path" data-path="a">
       <div class="scene-inner">
-        <span class="scene-kicker">Scene 6 &middot; The math</span>
+        <span class="scene-kicker">Providers &middot; 2 of 3</span>
+        <div class="scene-hero hero-provider">
+          <div class="provider-mark provider-anthropic">
+            <span class="provider-name">Anthropic</span>
+            <span class="provider-model">Claude Opus 4.7 &middot; April 2026</span>
+          </div>
+        </div>
+        <h1 class="scene-headline">Anthropic is the reasoning company.</h1>
+        <p class="scene-body">Anthropic's Claude is widely treated as the careful, literal one &mdash; best where precision and pedagogy matter more than speed. The flagship is <strong>Claude Opus 4.7</strong>. For higher education specifically, <button type="button" class="term" data-term="claude-for-education">Claude for Education</button> ships a feature called <button type="button" class="term" data-term="learning-mode">Learning Mode</button> that guides students through reasoning steps rather than handing them the answer outright &mdash; closer to how a good faculty member teaches.</p>
+        <p class="scene-body">Anthropic's institutional partners include <strong>Northeastern</strong> (campus-wide across 13 global campuses, April 2025), <strong>London School of Economics</strong> (free Enterprise Claude for every LSE student and educator, May 2025), and <strong>Champlain College</strong> (a small private peer with two years of free Claude Pro, March 2025). The Champlain deal is the closest peer-shape to a Babson deployment.</p>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="a3" data-kind="path" data-path="a" data-last>
+      <div class="scene-inner">
+        <span class="scene-kicker">Providers &middot; 3 of 3</span>
+        <div class="scene-hero hero-provider">
+          <div class="provider-mark provider-google">
+            <span class="provider-name">Google</span>
+            <span class="provider-model">Gemini 3.1 Pro &middot; Feb 2026</span>
+          </div>
+        </div>
+        <h1 class="scene-headline">Google is the senses company.</h1>
+        <p class="scene-body">Google's flagship is <strong>Gemini 3.1 Pro</strong>, currently the only major AI model that handles video alongside text, image, and audio in a single conversation &mdash; the practical meaning of <button type="button" class="term" data-term="multimodal">multimodal</button>. Pair that with a one-million-token context window and a single student can analyze hundreds of pages, a long video, and a spreadsheet at the same time.</p>
+        <p class="scene-body">Where OpenAI and Anthropic ship dedicated chat products, Google's institutional strategy is integration. <button type="button" class="term" data-term="workspace-intelligence">Workspace Intelligence</button> (launched April 2026) weaves Gemini directly into Gmail, Docs, Sheets, and Slides &mdash; the surface most students already use. Google's published higher-ed footprint reaches <strong>more than 1,000 institutions and 10 million U.S. college students</strong>; named deployments include Rice and the University of Houston.</p>
+      </div>
+    </section>
+
+    <!-- ================================ PATH B: COST ================================ -->
+    <section class="scene" data-scene="b1" data-kind="path" data-path="b">
+      <div class="scene-inner">
+        <span class="scene-kicker">Cost &middot; 1 of 2</span>
+        <div class="scene-hero hero-prices">
+          <table class="price-grid">
+            <thead><tr><th>Provider</th><th>List rate</th><th>&times; ~5,000 users &times; 12 months</th></tr></thead>
+            <tbody>
+              <tr><td>OpenAI &middot; ChatGPT Business</td><td>$20 / user / month</td><td><strong>~$1.2M / year</strong></td></tr>
+              <tr><td>Google &middot; AI Pro for Education</td><td>$15 / user / month</td><td><strong>~$0.9M / year</strong></td></tr>
+              <tr><td>Anthropic &middot; Claude for Education</td><td>Negotiated</td><td><strong>Comparable order</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <h1 class="scene-headline">List pricing, applied to Babson's scale.</h1>
+        <p class="scene-body">Per-user list pricing is now well inside what institutions spend on routine software. For Babson's roughly 5,000 active students, faculty, and staff, each provider works out to about $0.9 to $1.2 million per year at list, before education-tier or volume discounts. Education-tier discounts and volume pricing typically reduce these figures further.</p>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="b2" data-kind="path" data-path="b" data-last>
+      <div class="scene-inner">
+        <span class="scene-kicker">Cost &middot; 2 of 2</span>
         <div class="scene-hero hero-money">
           <div class="big-num">$0.9&ndash;1.2M</div>
           <div class="big-cap">per provider, per year, at Babson scale</div>
-          <div class="big-anchor">&approx; one endowed faculty chair &mdash; recurring</div>
+          <div class="big-anchor">&approx; one endowed faculty chair &mdash; recurring, reaching the whole campus</div>
         </div>
         <h1 class="scene-headline">Roughly one endowed chair, per year, per provider.</h1>
-        <p class="scene-body">For an institution Babson's size &mdash; roughly 5,000 active users &mdash; each of the three providers works out to about $0.9&ndash;$1.2 million per year at list pricing. That's the same order of magnitude as a single endowed faculty chair, recurring rather than one-time, and reaching every active member of campus rather than one faculty line. <strong>The scale floor</strong>: California State University's deal with OpenAI was $17 million over 18 months for 500,000+ users.</p>
+        <p class="scene-body">The mental anchor that fits Babson's accounting is the endowed faculty chair &mdash; a familiar budget category. At the lower end of the envelope, the annual cost is comparable to a single chair's payout, but recurring and reaching the full active campus rather than one faculty line. <strong>The scale floor</strong>: California State University's deal with OpenAI was <strong>$17 million over 18 months</strong> for more than 500,000 users &mdash; the largest publicly-disclosed peer-institution AI commitment. Single-school deals at Wharton, Oxford, Northeastern, and others have not been disclosed in dollars.</p>
       </div>
     </section>
 
-    <!-- ================================ SCENE 7 ================================ -->
-    <section class="scene" data-scene="7" id="scene-7">
+    <!-- ================================ PATH C: PEERS ================================ -->
+    <section class="scene" data-scene="c1" data-kind="path" data-path="c">
       <div class="scene-inner">
-        <span class="scene-kicker">Scene 7 &middot; Babson's head start</span>
+        <span class="scene-kicker">Peers &middot; 1 of 2</span>
+        <div class="scene-hero hero-peers">
+          <div class="peer-col">
+            <span class="peer-provider">OpenAI</span>
+            <ul>
+              <li>Wharton &mdash; universal MBA, 2024</li>
+              <li>Oxford &mdash; campus-wide, Sept 2025</li>
+              <li>UCLA &mdash; first CA, Sept 2024</li>
+              <li>CSU system &mdash; 460K+ students, $17M</li>
+            </ul>
+          </div>
+          <div class="peer-col">
+            <span class="peer-provider">Anthropic</span>
+            <ul>
+              <li>Northeastern &mdash; 13 campuses, Apr 2025</li>
+              <li>LSE &mdash; campus-wide, May 2025</li>
+              <li>Champlain &mdash; small private, 2-yr free</li>
+            </ul>
+          </div>
+          <div class="peer-col">
+            <span class="peer-provider">Google</span>
+            <ul>
+              <li>Rice &mdash; campus-wide, Sept 2025</li>
+              <li>U. of Houston &mdash; systemwide, Mar 2026</li>
+              <li>1,000+ U.S. institutions &middot; 10M+ students</li>
+            </ul>
+          </div>
+        </div>
+        <h1 class="scene-headline">Where each provider has landed.</h1>
+        <p class="scene-body">Each provider has built a public reference list at the top of higher education. <strong>OpenAI</strong> at Wharton, Oxford, UCLA, and the CSU system. <strong>Anthropic</strong> at Northeastern, LSE, and Champlain (the closest small-private peer to Babson). <strong>Google</strong> at Rice, Houston, and a thousand other institutions reaching ten million U.S. college students. None of these deployments is a pilot; all are committed campus-wide or system-wide arrangements.</p>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="c2" data-kind="path" data-path="c" data-last>
+      <div class="scene-inner">
+        <span class="scene-kicker">Peers &middot; 2 of 2</span>
+        <div class="scene-hero hero-pattern">
+          <div class="pattern-line">Universal MBA seats <span class="pat-school">(Wharton)</span></div>
+          <div class="pattern-line">Single-lab campus-wide deal <span class="pat-school">(Northeastern, LSE, Champlain)</span></div>
+          <div class="pattern-line">Curriculum-funding initiative <span class="pat-school">(Stanford AIMES)</span></div>
+          <div class="pattern-line">System-wide ChatGPT Edu <span class="pat-school">(California State University)</span></div>
+          <div class="pattern-line">Campus-wide Gemini for Education <span class="pat-school">(Rice, Houston)</span></div>
+        </div>
+        <h1 class="scene-headline">Different shapes, same direction.</h1>
+        <p class="scene-body">The peer field has not converged on a single template. Different schools made different shapes: a universal MBA-license at Wharton; a single-provider campus-wide deal at Northeastern; a curriculum-funding grant program at Stanford; a system-wide deployment at CSU. The shared signal is direction, not form: each of the elite peers Babson watches picked at least one of the three providers and made an institutional commitment. <strong>Babson currently has none formally in place.</strong></p>
+      </div>
+    </section>
+
+    <!-- ================================ PATH D: BABSON ================================ -->
+    <section class="scene" data-scene="d1" data-kind="path" data-path="d">
+      <div class="scene-inner">
+        <span class="scene-kicker">Babson &middot; 1 of 2</span>
         <div class="scene-hero hero-babson">
           <div class="bb-tile"><span class="bb-tag">Lab</span><strong><button type="button" class="term" data-term="generator">The Generator</button></strong></div>
           <div class="bb-tile"><span class="bb-tag">Space</span><strong><button type="button" class="term" data-term="weissman-foundry">Weissman Foundry</button></strong></div>
           <div class="bb-tile"><span class="bb-tag">Program</span><strong><button type="button" class="term" data-term="ai-innovators-bootcamp">AI Innovators Bootcamp</button></strong></div>
           <div class="bb-tile"><span class="bb-tag">Event</span><strong>Generator Build-a-thon</strong></div>
+          <div class="bb-tile"><span class="bb-tag">Partnership</span><strong>Babson &times; Microsoft SMB pilot</strong></div>
         </div>
-        <h1 class="scene-headline">Babson is already building.</h1>
-        <p class="scene-body">None of this lands on empty ground. <strong>The Generator</strong>, Babson's interdisciplinary AI lab, already runs the <strong>AI Innovators Bootcamp</strong>, the annual <strong>Build-a-thon</strong> (~500 students from Boston-area universities), and a Microsoft-sponsored small-business AI-agent pilot. Student work like Crafting Tomorrow, ping! and brain, GemCopy, and Face Off is described in the full briefing. The infrastructure exists. What's missing is the upstream provider relationship.</p>
+        <h1 class="scene-headline">Babson's AI infrastructure already exists.</h1>
+        <p class="scene-body">None of this lands on empty ground. <strong>The Generator</strong>, founded by Erik Noyes (a co-author of this brief), is Babson's interdisciplinary AI lab. It runs hands-on programs through the <strong>Weissman Foundry</strong> &mdash; including the <strong>AI Innovators Bootcamp</strong> (faculty and students paired with small-business owners to build AI prototypes), the annual <strong>Generator Build-a-thon</strong> (~500 students from Boston-area universities each spring), and an ongoing collaboration with Microsoft on small-business AI agents.</p>
+        <p class="scene-body">What's missing is the upstream provider relationship. The infrastructure is here; the formal model-layer commitments are not yet.</p>
       </div>
     </section>
 
-    <!-- ================================ SCENE 8 ================================ -->
-    <section class="scene" data-scene="8" id="scene-8">
+    <section class="scene" data-scene="d2" data-kind="path" data-path="d" data-last>
       <div class="scene-inner">
-        <span class="scene-kicker">Scene 8 &middot; The question</span>
+        <span class="scene-kicker">Babson &middot; 2 of 2</span>
+        <div class="scene-hero hero-active">
+          <div class="active-tile">
+            <span class="active-name">Crafting Tomorrow</span>
+            <span class="active-meta">Cole Collins '26 &middot; AI Club leadership</span>
+            <span class="active-line">High-school AI literacy through entrepreneurship.</span>
+          </div>
+          <div class="active-tile">
+            <span class="active-name">ping! and brain</span>
+            <span class="active-meta">Vaness Gardner '26 &middot; Weissman Foundry</span>
+            <span class="active-line">Generator Build-a-thon 2026 demo.</span>
+          </div>
+          <div class="active-tile">
+            <span class="active-name">GemCopy</span>
+            <span class="active-meta">AI Innovators Bootcamp &times; Amipi INC</span>
+            <span class="active-line">AI tool turning gem certificates into product copy.</span>
+          </div>
+          <div class="active-tile">
+            <span class="active-name">Face Off</span>
+            <span class="active-meta">Built on Base44 (AI no-code)</span>
+            <span class="active-line">Peer-to-peer social-wagering app.</span>
+          </div>
+        </div>
+        <h1 class="scene-headline">Four projects, all live, all student-built.</h1>
+        <p class="scene-body">Behind the infrastructure are real student projects already shipping with AI tools. Each project below is publicly accessible; each has a verifiable Babson connection. They are the everyday output of the lab the brief describes &mdash; and the closest evidence of what direct provider access at Babson would unlock at scale.</p>
+      </div>
+    </section>
+
+    <!-- ================================ CLOSE ================================ -->
+    <section class="scene" data-scene="close" data-kind="close">
+      <div class="scene-inner">
+        <span class="scene-kicker">Where this lands</span>
         <div class="scene-hero hero-final">
           <div class="final-stamp">Fall 2026</div>
           <div class="final-list">
@@ -176,10 +314,13 @@
   </main>
 
   <footer class="learn-nav" id="learn-nav">
-    <button type="button" class="nav-arrow" id="nav-prev" aria-label="Previous scene" disabled>
+    <button type="button" class="nav-arrow" id="nav-prev" aria-label="Previous">
       <span class="nav-arrow-glyph">&larr;</span><span class="nav-arrow-label">Back</span>
     </button>
-    <button type="button" class="nav-arrow primary" id="nav-next" aria-label="Next scene">
+    <button type="button" class="nav-arrow" id="nav-hub" aria-label="Back to hub">
+      <span class="nav-arrow-glyph">&#8635;</span><span class="nav-arrow-label">Hub</span>
+    </button>
+    <button type="button" class="nav-arrow primary" id="nav-next" aria-label="Next">
       <span class="nav-arrow-label">Next</span><span class="nav-arrow-glyph">&rarr;</span>
     </button>
   </footer>
