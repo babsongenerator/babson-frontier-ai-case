@@ -904,6 +904,19 @@ html.modal-open { overflow: hidden; }
   background: var(--babson-green-dark);
   transform: translateY(-1px);
 }
+.hello-cta-secondary {
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  color: var(--babson-green-dark);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  margin-right: auto;
+  transition: color 120ms ease;
+}
+.hello-cta-secondary:hover {
+  color: var(--babson-green);
+}
 .hello-cta:focus-visible {
   outline: 2px solid var(--babson-green-dark);
   outline-offset: 2px;
@@ -1005,6 +1018,29 @@ html.modal-open { overflow: hidden; }
 .section-nav-display {
   padding: 0.55rem 0.7rem;
   border-left: 1px solid var(--rule);
+}
+.section-nav-learn {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--babson-green-dark);
+  background: rgba(0, 103, 71, 0.05);
+  text-decoration: none;
+  padding: 0.55rem 0.85rem;
+  align-self: stretch;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  transition: background 120ms ease;
+}
+.section-nav-learn:hover {
+  background: rgba(0, 103, 71, 0.12);
+  color: var(--babson-green-dark);
+}
+@media (max-width: 720px) {
+  .section-nav-learn { display: none; }
 }
 .section-nav-reopen:hover,
 .section-nav-display:hover {

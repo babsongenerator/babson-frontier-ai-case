@@ -1,0 +1,513 @@
+/* ==========================================================================
+   Walkthrough — paced explainer (8 scenes)
+   Sits alongside the consulting brief; reuses ../style.css typography &
+   color, but overrides layout for one-scene-at-a-time presentation.
+   ========================================================================== */
+
+body.learn {
+  background: var(--bg-soft);
+  font-family: var(--serif);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Inherit reader-controlled font scale from <html> (set by main brief) */
+}
+
+/* -------------------------------- top bar -------------------------------- */
+
+.learn-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: saturate(140%) blur(8px);
+  -webkit-backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--rule-faint);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.55rem 1rem;
+}
+.lb-back {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  text-decoration: none;
+  white-space: nowrap;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.lb-back:hover { color: var(--babson-green-dark); }
+.lb-progress {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: 1;
+  justify-content: center;
+  max-width: 480px;
+  margin: 0 auto;
+}
+.lb-dot {
+  background: var(--rule-faint);
+  border: none;
+  width: 22px;
+  height: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+  transition: background 160ms ease, transform 160ms ease;
+}
+.lb-dot:hover { background: var(--rule-soft); }
+.lb-dot.active {
+  background: var(--babson-green);
+  transform: scaleX(1.4);
+  transform-origin: left center;
+}
+.lb-dot.visited { background: var(--babson-green-dark); opacity: 0.55; }
+.lb-counter {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .lb-progress { max-width: none; margin: 0; gap: 0.3rem; }
+  .lb-dot { width: 16px; }
+  .lb-counter { display: none; }
+}
+
+/* --------------------------------- stage --------------------------------- */
+
+.stage {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  position: relative;
+  padding: 2rem 1.25rem 6rem;
+}
+
+.scene {
+  display: none;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  align-items: center;
+  animation: scene-in 380ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+.scene.active { display: flex; }
+
+@keyframes scene-in {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.scene-inner {
+  width: 100%;
+}
+
+.scene-kicker {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--babson-green-dark);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.scene-hero {
+  margin: 0 0 2rem;
+}
+
+.scene-headline {
+  font-family: var(--sans);
+  font-size: clamp(1.6rem, 3.4vw, 2.45rem);
+  line-height: 1.18;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  margin: 0 0 1.1rem;
+  color: var(--text);
+  max-width: 28ch;
+}
+
+.scene-body {
+  font-family: var(--serif);
+  font-size: 1.08rem;
+  line-height: 1.62;
+  color: var(--text);
+  max-width: 65ch;
+  margin: 0 0 1.2rem;
+}
+.scene-body strong { color: var(--babson-green-dark); font-weight: 600; }
+.scene-body em { font-style: italic; color: var(--babson-green-dark); }
+
+.scene-tip {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: rgba(0, 103, 71, 0.04);
+  border-left: 3px solid var(--babson-green);
+  padding: 0.55rem 0.85rem;
+  border-radius: 0 4px 4px 0;
+  max-width: 60ch;
+  margin: 0;
+}
+
+/* ------------------------------- hero variants --------------------------- */
+
+/* Scene 1 — three provider chips */
+.hero-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+.logo-chip {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(1.2rem, 2.4vw, 1.65rem);
+  letter-spacing: -0.005em;
+  padding: 0.55rem 1.1rem;
+  background: #ffffff;
+  border-radius: 999px;
+  border: 1px solid var(--rule-soft);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.logo-chip.openai    { color: #10a37f; border-color: #10a37f; }
+.logo-chip.anthropic { color: #c96100; border-color: #c96100; }
+.logo-chip.google    { color: #1a73e8; border-color: #1a73e8; }
+
+/* Scene 2 — three-tier layer stack */
+.hero-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 560px;
+}
+.stack-tier {
+  padding: 0.85rem 1.1rem;
+  border-radius: 5px;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  background: #ffffff;
+  border: 1px solid var(--rule-soft);
+}
+.stack-tier small {
+  display: block;
+  margin-top: 0.25rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0;
+}
+.stack-tier.tier-surface  { border-left: 4px solid var(--text-muted); }
+.stack-tier.tier-model    { border-left: 4px solid var(--babson-green); margin-left: 1.5rem; }
+.stack-tier.tier-provider { border-left: 4px solid var(--babson-green-dark); margin-left: 3rem; background: rgba(0, 103, 71, 0.04); }
+
+/* Scene 3 — three strength cards */
+.hero-three {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.85rem;
+}
+.three-card {
+  padding: 1rem 1.1rem 1.1rem;
+  background: #ffffff;
+  border: 1px solid var(--rule-soft);
+  border-radius: 6px;
+  border-top: 4px solid var(--babson-green);
+}
+.three-card .three-tag {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+.three-card h3 {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+  color: var(--babson-green-dark);
+}
+.three-card p {
+  margin: 0;
+  font-size: 0.92rem;
+  font-family: var(--serif);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Scene 4 — vignette quote */
+.hero-quote {
+  background: #ffffff;
+  border-left: 4px solid var(--babson-green);
+  padding: 1.2rem 1.5rem 1.3rem;
+  border-radius: 0 6px 6px 0;
+  max-width: 620px;
+  position: relative;
+}
+.hero-quote-mark {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 3rem;
+  line-height: 0.5;
+  color: var(--babson-green);
+  margin: 0.2rem 0 0;
+}
+.hero-quote-body {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.18rem;
+  line-height: 1.55;
+  color: var(--text);
+  margin: 0.3rem 0 0.7rem;
+}
+.hero-quote-attr {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Scene 5 — three peer columns */
+.hero-peers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.85rem;
+}
+.peer-col {
+  background: #ffffff;
+  border: 1px solid var(--rule-soft);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+}
+.peer-col .peer-provider {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--babson-green-dark);
+  font-weight: 600;
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.45rem;
+  border-bottom: 1px solid var(--rule-faint);
+}
+.peer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.peer-col li {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text);
+  padding: 0.18rem 0;
+}
+
+/* Scene 6 — big-number cost anchor */
+.hero-money {
+  background: #ffffff;
+  border-top: 4px solid var(--babson-green);
+  border-radius: 6px;
+  padding: 1.2rem 1.5rem 1.3rem;
+  display: inline-block;
+}
+.big-num {
+  font-family: var(--sans);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--babson-green-dark);
+  line-height: 1;
+}
+.big-cap {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0.4rem 0 0.6rem;
+}
+.big-anchor {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text);
+  border-top: 1px solid var(--rule-faint);
+  padding-top: 0.55rem;
+}
+
+/* Scene 7 — Babson tiles */
+.hero-babson {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+.bb-tile {
+  background: #ffffff;
+  border: 1px solid var(--rule-soft);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+}
+.bb-tile .bb-tag {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+.bb-tile strong {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--babson-green-dark);
+}
+
+/* Scene 8 — final stamp + list */
+.hero-final {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.final-stamp {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--sans);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+  color: #ffffff;
+  background: var(--babson-green);
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+}
+.final-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-family: var(--sans);
+  font-size: 1rem;
+  color: var(--text);
+}
+.final-list span {
+  padding-left: 1.1rem;
+  position: relative;
+}
+.final-list span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 0.6rem;
+  height: 1px;
+  background: var(--babson-green);
+}
+.final-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.7rem;
+}
+.final-cta {
+  font-family: var(--sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.6rem 1.1rem;
+  background: var(--babson-green);
+  color: #ffffff;
+  border: 1px solid var(--babson-green-dark);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background 120ms ease;
+}
+.final-cta:hover { background: var(--babson-green-dark); }
+.final-cta.secondary {
+  background: transparent;
+  color: var(--babson-green-dark);
+  border-color: var(--babson-green-dark);
+}
+.final-cta.secondary:hover { background: rgba(0, 103, 71, 0.06); }
+
+/* ------------------------------- nav arrows ------------------------------ */
+
+.learn-nav {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: saturate(140%) blur(8px);
+  -webkit-backdrop-filter: saturate(140%) blur(8px);
+  border: 1px solid var(--rule-soft);
+  border-radius: 999px;
+  padding: 0.3rem;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+}
+.nav-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: transparent;
+  border: none;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.005em;
+  color: var(--text);
+  cursor: pointer;
+  transition: background 120ms ease, color 120ms ease, opacity 120ms ease;
+}
+.nav-arrow:hover { background: rgba(0, 103, 71, 0.08); color: var(--babson-green-dark); }
+.nav-arrow.primary {
+  background: var(--babson-green);
+  color: #ffffff;
+}
+.nav-arrow.primary:hover { background: var(--babson-green-dark); color: #ffffff; }
+.nav-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.nav-arrow-glyph {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+/* When on final scene, hide next button */
+.scene-final-active .nav-arrow.primary { display: none; }
+
+@media (max-width: 480px) {
+  .nav-arrow { padding: 0.5rem 0.85rem; font-size: 0.82rem; }
+  .nav-arrow-label { display: none; }
+  .stack-tier.tier-model { margin-left: 0.75rem; }
+  .stack-tier.tier-provider { margin-left: 1.5rem; }
+}
+
+/* --------------------------------- print --------------------------------- */
+
+@media print {
+  .learn-bar, .learn-nav, .term-dialog { display: none !important; }
+  .scene { display: block !important; page-break-after: always; }
+  .scene-hero, .scene-body { break-inside: avoid; }
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Walk through the AI moment · Babson</title>
+  <meta name="description" content="An eight-scene guided walkthrough of the three AI providers, the institutional moment, and Babson's place in it." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="learn">
+
+  <header class="learn-bar">
+    <a class="lb-back" href="../">&larr; Open the full briefing</a>
+    <div class="lb-progress" role="tablist" aria-label="Walkthrough progress">
+      <button type="button" class="lb-dot" data-go="1" aria-label="Go to scene 1: The premise"></button>
+      <button type="button" class="lb-dot" data-go="2" aria-label="Go to scene 2: The layers"></button>
+      <button type="button" class="lb-dot" data-go="3" aria-label="Go to scene 3: Each provider's edge"></button>
+      <button type="button" class="lb-dot" data-go="4" aria-label="Go to scene 4: A Thursday afternoon"></button>
+      <button type="button" class="lb-dot" data-go="5" aria-label="Go to scene 5: Peers have moved"></button>
+      <button type="button" class="lb-dot" data-go="6" aria-label="Go to scene 6: The math"></button>
+      <button type="button" class="lb-dot" data-go="7" aria-label="Go to scene 7: Babson's head start"></button>
+      <button type="button" class="lb-dot" data-go="8" aria-label="Go to scene 8: The question"></button>
+    </div>
+    <span class="lb-counter" id="lb-counter">Scene 1 of 8</span>
+  </header>
+
+  <main class="stage" id="stage">
+
+    <!-- ================================ SCENE 1 ================================ -->
+    <section class="scene" data-scene="1" id="scene-1">
+      <div class="scene-inner">
+        <span class="scene-kicker">Scene 1 &middot; The premise</span>
+        <div class="scene-hero hero-logos">
+          <span class="logo-chip openai">OpenAI</span>
+          <span class="logo-chip anthropic">Anthropic</span>
+          <span class="logo-chip google">Google</span>
+        </div>
+        <h1 class="scene-headline">Three companies make the AI students use.</h1>
+        <p class="scene-body">In 2026, three companies sit at the front of the artificial-intelligence market: <strong>OpenAI</strong> (which makes ChatGPT), <strong>Anthropic</strong> (which makes Claude), and <strong>Google</strong> (which makes Gemini). Their products are now the working tools of students at peer institutions. The next seven short scenes walk through what each does, who's using them, what they cost, and what Babson is already doing.</p>
+        <p class="scene-tip">Anything <button type="button" class="term" data-term="how-this-walks">underlined like this</button> opens a plain-language explainer when you tap it. Use them as needed; skip if you don't.</p>
+      </div>
+    </section>
+
+    <!-- ================================ SCENE 2 ================================ -->
+    <section class="scene" data-scene="2" id="scene-2">
+      <div class="scene-inner">
+        <span class="scene-kicker">Scene 2 &middot; The layers</span>
+        <div class="scene-hero hero-stack">
+          <div class="stack-tier tier-surface">Surface &mdash; what staff and students click on<br><small>ChatGPT &middot; Claude &middot; Gemini &middot; Microsoft Copilot</small></div>
+          <div class="stack-tier tier-model">Foundation model &mdash; the underlying AI<br><small>GPT-5.5 &middot; Claude Opus 4.7 &middot; Gemini 3.1 Pro</small></div>
+          <div class="stack-tier tier-provider">Provider &mdash; the company training the model<br><small>OpenAI &middot; Anthropic &middot; Google</small></div>
+        </div>
+        <h1 class="scene-headline">Model. Product. Surface.</h1>
+        <p class="scene-body">When people say "AI," they usually mean one of two things. A <button type="button" class="term" data-term="foundation-model">foundation model</button> is the underlying AI itself &mdash; what each of the three companies trains. A <strong>product</strong> is what you actually click on. <strong>Microsoft Copilot</strong> is a product that uses several foundation models underneath. Knowing the layers matters because the strategic relationships are at the model layer; the surfaces above shift constantly.</p>
+      </div>
+    </section>
+
+    <!-- ================================ SCENE 3 ================================ -->
+    <section class="scene" data-scene="3" id="scene-3">
+      <div class="scene-inner">
+        <span class="scene-kicker">Scene 3 &middot; Each provider's edge</span>
+        <div class="scene-hero hero-three">
+          <div class="three-card">
+            <span class="three-tag">OpenAI</span>
+            <h3>Action</h3>
+            <p>Strongest at <button type="button" class="term" data-term="agentic">agentic</button> tasks. Runs multi-step workflows.</p>
+          </div>
+          <div class="three-card">
+            <span class="three-tag">Anthropic</span>
+            <h3>Reasoning</h3>
+            <p>Careful and literal. <button type="button" class="term" data-term="learning-mode">Learning Mode</button> guides student thinking.</p>
+          </div>
+          <div class="three-card">
+            <span class="three-tag">Google</span>
+            <h3>Senses</h3>
+            <p><button type="button" class="term" data-term="multimodal">Multimodal</button>. Sees video, hears audio, reads text in one pass.</p>
+          </div>
+        </div>
+        <h1 class="scene-headline">Three companies, three distinct strengths.</h1>
+        <p class="scene-body">Each provider's foundation model is built around a different center of gravity. <strong>OpenAI</strong> is best when a student needs the AI to <em>do</em> something &mdash; click buttons, fill forms, run sequences. <strong>Anthropic</strong> is best when getting it right matters more than getting it fast &mdash; reasoning, careful writing, classroom dialogue. <strong>Google</strong> is best when the work spans formats: a video, a chart, a recording, all together.</p>
+      </div>
+    </section>
+
+    <!-- ================================ SCENE 4 ================================ -->
+    <section class="scene" data-scene="4" id="scene-4">
+      <div class="scene-inner">
+        <span class="scene-kicker">Scene 4 &middot; A Thursday afternoon</span>
+        <div class="scene-hero hero-quote">
+          <p class="hero-quote-mark">&ldquo;</p>
+          <p class="hero-quote-body">By Thursday afternoon, she'd used Claude to draft a literature review on her market, GPT-5.5 to email twelve potential customers without copy-pasting, and Gemini to pull insights from a ninety-minute interview video.</p>
+          <p class="hero-quote-attr">&mdash; A composite of a Babson sophomore's week</p>
+        </div>
+        <h1 class="scene-headline">What one student can do with all three.</h1>
+        <p class="scene-body">The most useful way to picture this is at the level of a single student running a venture. Each of the three providers handles a different kind of work in her week: research, outreach, and analysis. <strong>None of them substitutes for her judgment.</strong> All of them compress the labor between an idea and a first version. What used to take a four-person team now takes one motivated undergrad and three accounts.</p>
+      </div>
+    </section>
+
+    <!-- ================================ SCENE 5 ================================ -->
+    <section class="scene" data-scene="5" id="scene-5">
+      <div class="scene-inner">
+        <span class="scene-kicker">Scene 5 &middot; Peers have moved</span>
+        <div class="scene-hero hero-peers">
+          <div class="peer-col">
+            <span class="peer-provider">OpenAI</span>
+            <ul><li>Wharton</li><li>Oxford</li><li>UCLA</li><li>CSU system</li></ul>
+          </div>
+          <div class="peer-col">
+            <span class="peer-provider">Anthropic</span>
+            <ul><li>Northeastern</li><li>LSE</li><li>Champlain</li></ul>
+          </div>
+          <div class="peer-col">
+            <span class="peer-provider">Google</span>
+            <ul><li>Rice</li><li>Houston</li><li>1,000+ others</li></ul>
+          </div>
+        </div>
+        <h1 class="scene-headline">Where each provider has landed.</h1>
+        <p class="scene-body">This is not theoretical. <strong>Wharton</strong> put ChatGPT in every MBA student's hands in 2024. <strong>Oxford</strong> opened campus-wide access in September 2025. <strong>Northeastern</strong> signed campus-wide with Anthropic across thirteen global campuses. <strong>Rice</strong> deployed Gemini institution-wide. The pattern across the field: each elite peer picked at least one of the three. Babson currently has none.</p>
+      </div>
+    </section>
+
+    <!-- ================================ SCENE 6 ================================ -->
+    <section class="scene" data-scene="6" id="scene-6">
+      <div class="scene-inner">
+        <span class="scene-kicker">Scene 6 &middot; The math</span>
+        <div class="scene-hero hero-money">
+          <div class="big-num">$0.9&ndash;1.2M</div>
+          <div class="big-cap">per provider, per year, at Babson scale</div>
+          <div class="big-anchor">&approx; one endowed faculty chair &mdash; recurring</div>
+        </div>
+        <h1 class="scene-headline">Roughly one endowed chair, per year, per provider.</h1>
+        <p class="scene-body">For an institution Babson's size &mdash; roughly 5,000 active users &mdash; each of the three providers works out to about $0.9&ndash;$1.2 million per year at list pricing. That's the same order of magnitude as a single endowed faculty chair, recurring rather than one-time, and reaching every active member of campus rather than one faculty line. <strong>The scale floor</strong>: California State University's deal with OpenAI was $17 million over 18 months for 500,000+ users.</p>
+      </div>
+    </section>
+
+    <!-- ================================ SCENE 7 ================================ -->
+    <section class="scene" data-scene="7" id="scene-7">
+      <div class="scene-inner">
+        <span class="scene-kicker">Scene 7 &middot; Babson's head start</span>
+        <div class="scene-hero hero-babson">
+          <div class="bb-tile"><span class="bb-tag">Lab</span><strong><button type="button" class="term" data-term="generator">The Generator</button></strong></div>
+          <div class="bb-tile"><span class="bb-tag">Space</span><strong><button type="button" class="term" data-term="weissman-foundry">Weissman Foundry</button></strong></div>
+          <div class="bb-tile"><span class="bb-tag">Program</span><strong><button type="button" class="term" data-term="ai-innovators-bootcamp">AI Innovators Bootcamp</button></strong></div>
+          <div class="bb-tile"><span class="bb-tag">Event</span><strong>Generator Build-a-thon</strong></div>
+        </div>
+        <h1 class="scene-headline">Babson is already building.</h1>
+        <p class="scene-body">None of this lands on empty ground. <strong>The Generator</strong>, Babson's interdisciplinary AI lab, already runs the <strong>AI Innovators Bootcamp</strong>, the annual <strong>Build-a-thon</strong> (~500 students from Boston-area universities), and a Microsoft-sponsored small-business AI-agent pilot. Student work like Crafting Tomorrow, ping! and brain, GemCopy, and Face Off is described in the full briefing. The infrastructure exists. What's missing is the upstream provider relationship.</p>
+      </div>
+    </section>
+
+    <!-- ================================ SCENE 8 ================================ -->
+    <section class="scene" data-scene="8" id="scene-8">
+      <div class="scene-inner">
+        <span class="scene-kicker">Scene 8 &middot; The question</span>
+        <div class="scene-hero hero-final">
+          <div class="final-stamp">Fall 2026</div>
+          <div class="final-list">
+            <span>Three companies.</span>
+            <span>Per-user pricing inside institutional software budgets.</span>
+            <span>Peers have already moved.</span>
+            <span>Babson programs are already building.</span>
+          </div>
+        </div>
+        <h1 class="scene-headline">The question is whether to give Babson students direct access.</h1>
+        <p class="scene-body">The full briefing addresses the procurement detail, including how this complements the Microsoft Copilot work Babson already runs. The walkthrough ends here; the briefing picks up where you choose. Either way, the decision belongs to fall 2026.</p>
+        <div class="final-actions">
+          <a class="final-cta" href="../">Open the full briefing &rarr;</a>
+          <a class="final-cta secondary" href="../babson-ai-providers.pdf" download>Download the PDF</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="learn-nav" id="learn-nav">
+    <button type="button" class="nav-arrow" id="nav-prev" aria-label="Previous scene" disabled>
+      <span class="nav-arrow-glyph">&larr;</span><span class="nav-arrow-label">Back</span>
+    </button>
+    <button type="button" class="nav-arrow primary" id="nav-next" aria-label="Next scene">
+      <span class="nav-arrow-label">Next</span><span class="nav-arrow-glyph">&rarr;</span>
+    </button>
+  </footer>
+
+  <!-- ============================ TERM DEFINITION MODAL ============================ -->
+  <dialog id="term-dialog" class="term-dialog" aria-labelledby="term-title">
+    <article class="term-content">
+      <header class="term-header">
+        <span class="term-eyebrow">Definition</span>
+        <button type="button" class="term-close-x" id="term-close-x" aria-label="Close">&times;</button>
+      </header>
+      <h3 class="term-title" id="term-title"></h3>
+      <div class="term-body" id="term-body"></div>
+    </article>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
