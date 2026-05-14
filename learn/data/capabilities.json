@@ -1,0 +1,270 @@
+{
+  "rows": [
+    {
+      "id": "foundation-model",
+      "topline": true,
+      "label": "Builds its own foundation model",
+      "cells": {
+        "openai": {
+          "value": "✓",
+          "detail": "GPT family (GPT-4o, GPT-5, GPT-5.5) trained in-house.",
+          "refUrl": "https://openai.com/gpt-5/"
+        },
+        "anthropic": {
+          "value": "✓",
+          "detail": "Claude family (Opus, Sonnet, Haiku) trained in-house.",
+          "refUrl": "https://www.anthropic.com/claude/opus"
+        },
+        "google": {
+          "value": "✓",
+          "detail": "Gemini family (2.5 Pro, 3 Pro, Flash) trained by Google DeepMind.",
+          "refUrl": "https://blog.google/technology/google-deepmind/gemini-model-thinking-updates-march-2025/"
+        },
+        "copilot": {
+          "value": "Partial",
+          "detail": "Microsoft 365 Copilot primarily runs on OpenAI's GPT models. Microsoft has begun shipping in-house MAI models (MAI-1-Preview, MAI-Voice-1) for select Copilot surfaces starting in 2025.",
+          "refUrl": "https://microsoft.ai/news/two-new-in-house-models/"
+        }
+      }
+    },
+    {
+      "id": "reasoning-mode",
+      "topline": true,
+      "label": "Dedicated reasoning / \"thinking\" mode",
+      "cells": {
+        "openai": {
+          "value": "✓",
+          "detail": "o-series reasoning models (o1, o3, o4-mini) plus thinking modes in GPT-5 family.",
+          "refUrl": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+        },
+        "anthropic": {
+          "value": "✓",
+          "detail": "Extended / adaptive thinking on Claude Opus 4.x and Sonnet 4.x with low/medium/high/max effort levels.",
+          "refUrl": "https://platform.claude.com/docs/en/build-with-claude/extended-thinking"
+        },
+        "google": {
+          "value": "✓",
+          "detail": "Gemini 2.5 Deep Think (GA August 2025) explores multiple reasoning paths in parallel.",
+          "refUrl": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/google-gemini-updates-io-2025/"
+        },
+        "copilot": {
+          "value": "✓ (via OpenAI)",
+          "detail": "Copilot's \"Think Deeper\" feature uses OpenAI's o1 reasoning model directly. Microsoft's own MAI-series models have not yet announced an equivalent reasoning mode.",
+          "refUrl": "https://www.neowin.net/news/microsoft-copilots-think-deeper-feature-uses-openais-o1-model-to-solve-complex-problems/"
+        }
+      }
+    },
+    {
+      "id": "multimodal-video",
+      "topline": true,
+      "label": "Multimodal: image + video understanding",
+      "cells": {
+        "openai": {
+          "value": "Image ✓ / Video partial",
+          "detail": "GPT-4o/5 handle image input natively; Sora 2 generates video but native video understanding in the chat product is more limited than Gemini's.",
+          "refUrl": "https://openai.com/gpt-5/"
+        },
+        "anthropic": {
+          "value": "Image only",
+          "detail": "Claude has strong image/document vision but no native video understanding or generation as of 2026.",
+          "refUrl": "https://www.anthropic.com/claude/opus"
+        },
+        "google": {
+          "value": "✓ (native)",
+          "detail": "Gemini 2.5/3 Pro processes audio + video frames natively, including direct YouTube URL ingestion up to ~1 hour. Veo 3.1 for generation.",
+          "refUrl": "https://developers.googleblog.com/en/gemini-2-5-video-understanding/"
+        },
+        "copilot": {
+          "value": "Image ✓ / Video limited",
+          "detail": "Inherits GPT-4o image understanding through OpenAI. Native video understanding is not a primary Copilot surface.",
+          "refUrl": "https://en.wikipedia.org/wiki/Microsoft_Copilot"
+        }
+      }
+    },
+    {
+      "id": "context-window",
+      "label": "Maximum context window",
+      "cells": {
+        "openai": {
+          "value": "400K–1M tokens",
+          "detail": "GPT-5 base 400K; GPT-5.4 and GPT-5.5 expose ~1M-token context via API.",
+          "refUrl": "https://developers.openai.com/api/docs/models/gpt-5.5"
+        },
+        "anthropic": {
+          "value": "200K (1M beta)",
+          "detail": "Standard 200K across Claude 4.x; Sonnet 4 / 4.6 offers a 1M-token public beta on the Anthropic API.",
+          "refUrl": "https://platform.claude.com/docs/en/build-with-claude/context-windows"
+        },
+        "google": {
+          "value": "1M (2M on 1.5 Pro)",
+          "detail": "Gemini 2.5 Pro ships at 1M tokens; legacy Gemini 1.5 Pro supports up to 2M tokens.",
+          "refUrl": "https://ai.google.dev/gemini-api/docs/long-context"
+        },
+        "copilot": {
+          "value": "~128K",
+          "detail": "M365 Copilot is powered primarily by GPT-4o, with a 128K input / 16K output context window. Microsoft Graph retrieval extends what Copilot can reference in practice by injecting relevant snippets at query time.",
+          "refUrl": "https://www.datastudios.org/post/microsoft-copilot-context-window-token-limits-memory-policy-and-2025-rules"
+        }
+      }
+    },
+    {
+      "id": "open-api",
+      "label": "Open API for student / developer builds",
+      "cells": {
+        "openai": {
+          "value": "✓",
+          "detail": "OpenAI Platform API with public pricing for all model families.",
+          "refUrl": "https://openai.com/api/pricing/"
+        },
+        "anthropic": {
+          "value": "✓",
+          "detail": "Anthropic API with public pricing across Haiku, Sonnet, Opus.",
+          "refUrl": "https://platform.claude.com/docs/en/about-claude/pricing"
+        },
+        "google": {
+          "value": "✓",
+          "detail": "Gemini Developer API via AI Studio plus Vertex AI for enterprise.",
+          "refUrl": "https://ai.google.dev/gemini-api/docs/pricing"
+        },
+        "copilot": {
+          "value": "Indirect",
+          "detail": "No direct \"Copilot model\" API. Developers extend Copilot via Microsoft Graph connectors and Copilot Studio, or call the underlying OpenAI models through Azure OpenAI Service.",
+          "refUrl": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/"
+        }
+      }
+    },
+    {
+      "id": "custom-build-platform",
+      "topline": true,
+      "label": "Custom-build platform for end users",
+      "cells": {
+        "openai": {
+          "value": "✓",
+          "detail": "Custom GPTs and the GPT Store let any ChatGPT user build and share assistants.",
+          "refUrl": "https://openai.com/index/introducing-chatgpt-edu/"
+        },
+        "anthropic": {
+          "value": "✓",
+          "detail": "Projects in Claude.ai bundle files, system prompts, and shared context per workspace.",
+          "refUrl": "https://www.anthropic.com/news/introducing-claude-for-education"
+        },
+        "google": {
+          "value": "✓",
+          "detail": "Gems in Gemini let users create custom personas / role-prompts within the consumer product.",
+          "refUrl": "https://blog.google/outreach-initiatives/education/gemini-higher-education-benefits"
+        },
+        "copilot": {
+          "value": "✓",
+          "detail": "Copilot Studio is a low-code platform for building custom agents with 1,400+ connectors and MCP support.",
+          "refUrl": "https://www.microsoft.com/en-us/microsoft-365-copilot/microsoft-copilot-studio"
+        }
+      }
+    },
+    {
+      "id": "education-tier",
+      "topline": true,
+      "label": "Dedicated education tier",
+      "cells": {
+        "openai": {
+          "value": "✓",
+          "detail": "ChatGPT Edu launched May 2024 as an enterprise-grade higher-ed SKU.",
+          "refUrl": "https://openai.com/index/introducing-chatgpt-edu/"
+        },
+        "anthropic": {
+          "value": "✓",
+          "detail": "Claude for Education launched April 2025 with campus-wide licensing and a Learning mode for students.",
+          "refUrl": "https://www.anthropic.com/news/introducing-claude-for-education"
+        },
+        "google": {
+          "value": "✓",
+          "detail": "Gemini for Education with FERPA-compliant access for faculty, staff, and students.",
+          "refUrl": "https://blog.google/outreach-initiatives/education/gemini-higher-education-benefits"
+        },
+        "copilot": {
+          "value": "✓",
+          "detail": "M365 Copilot Chat free for A1/A3/A5 license holders; paid M365 Copilot for Education at $18/user/month from December 2025 (vs. $30 enterprise).",
+          "refUrl": "https://www.microsoft.com/en-us/education/blog/2025/05/empowering-teen-students-to-achieve-more-with-copilot-chat-and-microsoft-365-copilot/"
+        }
+      }
+    },
+    {
+      "id": "education-partnerships",
+      "label": "Published higher-ed partnerships (notable R1s / large systems)",
+      "cells": {
+        "openai": {
+          "value": "Many",
+          "detail": "Cal State system (23 campuses, ~500K students), Arizona State, Oxford, UT Austin, Columbia, Wharton, UCLA, and others.",
+          "refUrl": "https://openai.com/index/openai-and-the-csu-system/"
+        },
+        "anthropic": {
+          "value": "Several",
+          "detail": "Northeastern University, London School of Economics, Champlain College named at launch; Internet2 + Instructure (Canvas) partnerships.",
+          "refUrl": "https://www.anthropic.com/news/introducing-claude-for-education"
+        },
+        "google": {
+          "value": "Several",
+          "detail": "Rice University and University of Houston named for campus-wide Gemini for Education deployments.",
+          "refUrl": "https://news.rice.edu/news/2025/rice-adopts-googles-generative-ai-solution-enhance-student-learning-and-faculty-support"
+        },
+        "copilot": {
+          "value": "Many (via M365)",
+          "detail": "Auburn University, Florida State University, and others publicly cited. Most higher-ed adoption rides on existing Microsoft 365 licensing rather than standalone Copilot deals.",
+          "refUrl": "https://www.microsoft.com/en-us/industry/microsoft-in-business/era-of-ai/2025/04/03/transforming-education-with-ai-insights-from-florida-state-university/"
+        }
+      }
+    },
+    {
+      "id": "pricing-trajectory",
+      "label": "Price trajectory at constant quality (2023–2026)",
+      "cells": {
+        "openai": {
+          "value": "Sharply down",
+          "detail": "GPT-3.5 Turbo halved in 2023; GPT-4o ~50% cheaper than GPT-4 Turbo; GPT-4o-mini and GPT-5-nano roughly 10–100x cheaper than GPT-4 launch pricing for comparable quality tiers.",
+          "refUrl": "https://openai.com/api/pricing/"
+        },
+        "anthropic": {
+          "value": "Down",
+          "detail": "Opus 4.6/4.7 priced at $5/$25 per 1M tokens — 3x cheaper than Opus 4 / 4.1 at $15/$75, with capability gains. Sonnet held at $3/$15 across four generations.",
+          "refUrl": "https://platform.claude.com/docs/en/about-claude/pricing"
+        },
+        "google": {
+          "value": "Sharply down",
+          "detail": "Gemini 1.5 Flash cut 71–78% in August 2024; Gemini 1.5 Pro cut 52–64% in October 2024. Flash-Lite now $0.075/1M input.",
+          "refUrl": "https://developers.googleblog.com/gemini-15-flash-updates-google-ai-studio-gemini-api/"
+        },
+        "copilot": {
+          "value": "Held + new Edu tier",
+          "detail": "M365 Copilot Enterprise has held at $30/user/month since its 2023 launch. A new Education SKU at $18/user/month was introduced December 2025. Per-seat pricing has moved less than the underlying foundation-model price declines.",
+          "refUrl": "https://www.microsoft.com/en-us/microsoft-365-copilot/pricing/enterprise"
+        }
+      }
+    },
+    {
+      "id": "open-weights",
+      "label": "Open-weights model release",
+      "cells": {
+        "openai": {
+          "value": "✓",
+          "detail": "gpt-oss-120b and gpt-oss-20b released August 2025 under Apache 2.0 — OpenAI's first open-weight models since GPT-2.",
+          "refUrl": "https://openai.com/index/introducing-gpt-oss/"
+        },
+        "anthropic": {
+          "value": "—",
+          "detail": "Anthropic has not released open-weight models as of 2026.",
+          "refUrl": "https://www.anthropic.com/claude/opus"
+        },
+        "google": {
+          "value": "✓",
+          "detail": "Gemma family of open-weight models, available on Hugging Face and via the Gemini API ecosystem.",
+          "refUrl": "https://developers.googleblog.com/en/new-features-for-the-gemini-api-and-google-ai-studio/"
+        },
+        "copilot": {
+          "value": "✓ (Microsoft)",
+          "detail": "Microsoft's Phi family (Phi-4, Phi-4-reasoning, Phi-4-mini-reasoning) are open-weight small language models. Not branded as Copilot, but produced by the same parent company.",
+          "refUrl": "https://azure.microsoft.com/en-us/products/phi"
+        }
+      }
+    }
+  ],
+  "note": "Microsoft Copilot is excellent productivity software with deep enterprise integration. Its primary commercial product runs on OpenAI's foundation models — the same provider in column one — with Microsoft's in-house MAI models beginning to appear on select Copilot surfaces in 2025–2026. Where Copilot has a checkmark, the underlying capability is most often inherited from OpenAI (reasoning, image understanding, custom GPTs-equivalent) rather than developed by Microsoft. Where it does not, the capability either is not yet exposed through Copilot's product surface, or is delivered with a lag relative to the foundation provider."
+}

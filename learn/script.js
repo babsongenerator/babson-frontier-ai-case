@@ -22,9 +22,10 @@
     'w2':    { kind: 'linear', next: 'w3',  prev: 'w1',  trail: 'Why this matters &middot; 2 of 3' },
     'w3':    { kind: 'linear', next: 'hub', prev: 'w2',  trail: 'Why this matters &middot; 3 of 3' },
     'hub':   { kind: 'hub',                              trail: 'Hub &middot; choose a path' },
-    'a1':    { kind: 'path', path: 'a', next: 'a2',   prev: 'hub', trail: 'Providers &middot; 1 of 3' },
-    'a2':    { kind: 'path', path: 'a', next: 'a3',   prev: 'a1',  trail: 'Providers &middot; 2 of 3' },
-    'a3':    { kind: 'path', path: 'a', next: 'hub',  prev: 'a2',  isLast: true, trail: 'Providers &middot; 3 of 3' },
+    'a1':    { kind: 'path', path: 'a', next: 'a2',   prev: 'hub', trail: 'Providers &middot; 1 of 4' },
+    'a2':    { kind: 'path', path: 'a', next: 'a3',   prev: 'a1',  trail: 'Providers &middot; 2 of 4' },
+    'a3':    { kind: 'path', path: 'a', next: 'a4',   prev: 'a2',  trail: 'Providers &middot; 3 of 4' },
+    'a4':    { kind: 'path', path: 'a', next: 'hub',  prev: 'a3',  isLast: true, trail: 'Providers &middot; 4 of 4' },
     'b1':    { kind: 'path', path: 'b', next: 'b2',   prev: 'hub', trail: 'Cost &middot; 1 of 2' },
     'b2':    { kind: 'path', path: 'b', next: 'hub',  prev: 'b1',  isLast: true, trail: 'Cost &middot; 2 of 2' },
     'c1':    { kind: 'path', path: 'c', next: 'c2',   prev: 'hub', trail: 'Peers &middot; 1 of 2' },
@@ -36,6 +37,7 @@
 
   var ALL_PATHS = ['a', 'b', 'c', 'd'];
   var VISITED_KEY = 'babson-ai-paths-visited';
+  var SCENES_VISITED_KEY = 'babson-ai-scenes-visited';
 
   // ---------- DOM refs ----------
   var sceneEls = Array.prototype.slice.call(document.querySelectorAll('.scene[data-scene]'));
@@ -66,6 +68,40 @@
   }
   function resetVisited() {
     try { localStorage.removeItem(VISITED_KEY); } catch (e) {}
+  }
+  function getScenesVisited() {
+    try { return JSON.parse(localStorage.getItem(SCENES_VISITED_KEY) || '[]'); }
+    catch (e) { return []; }
+  }
+  function setScenesVisited(arr) {
+    try { localStorage.setItem(SCENES_VISITED_KEY, JSON.stringify(arr)); } catch (e) {}
+  }
+  function markSceneVisited(id) {
+    var v = getScenesVisited();
+    if (v.indexOf(id) === -1) {
+      v.push(id);
+      setScenesVisited(v);
+    }
+  }
+  function resetScenesVisited() {
+    try { localStorage.removeItem(SCENES_VISITED_KEY); } catch (e) {}
+  }
+  function renderSidebar(currentId) {
+    var visited = getScenesVisited();
+    var items = document.querySelectorAll('.ls-item[data-go]');
+    Array.prototype.forEach.call(items, function (item) {
+      var id = item.getAttribute('data-go');
+      var isV = visited.indexOf(id) !== -1;
+      var isC = id === currentId;
+      item.classList.toggle('visited', isV);
+      item.classList.toggle('current', isC);
+    });
+    // Counter is path-based, not scene-based — feels less daunting than "X of 14"
+    var pathsVisited = getVisited().length;
+    var progressEl = document.getElementById('ls-progress');
+    if (progressEl) {
+      progressEl.textContent = pathsVisited + ' of ' + ALL_PATHS.length + ' paths';
+    }
   }
   function renderVisited() {
     var v = getVisited();
@@ -107,13 +143,16 @@
       }
     });
 
+    // Mark every visited scene; this drives the sidebar checkmarks
+    markSceneVisited(id);
     // Mark path visited when we land on its last scene
     if (entry.isLast && entry.path) {
       markPathVisited(entry.path);
     }
 
-    // Refresh hub state every time (we may have just marked a path visited)
+    // Refresh hub state and sidebar every time
     renderVisited();
+    renderSidebar(id);
 
     // Update body class so CSS can style hub-mode / close-mode differently
     document.body.classList.toggle('on-hub', id === 'hub');
@@ -176,9 +215,40 @@
   });
 
   btnReset.addEventListener('click', function () {
-    if (confirm('Start the walkthrough over? Your visited paths will be cleared.')) {
+    if (confirm('Start the walkthrough over? Your visited scenes will be cleared.')) {
       resetVisited();
+      resetScenesVisited();
       showScene('w1');
+    }
+  });
+
+  // Sidebar item clicks
+  Array.prototype.forEach.call(document.querySelectorAll('.ls-item[data-go]'), function (item) {
+    item.addEventListener('click', function () {
+      var id = item.getAttribute('data-go');
+      if (SCENES[id]) showScene(id);
+      if (window.matchMedia && window.matchMedia('(max-width: 900px)').matches) {
+        document.body.classList.remove('sidebar-open');
+      }
+    });
+  });
+
+  // Sidebar toggle (mobile)
+  var lsToggle = document.getElementById('ls-toggle');
+  if (lsToggle) {
+    lsToggle.addEventListener('click', function () {
+      document.body.classList.toggle('sidebar-open');
+    });
+  }
+  var lsOverlay = document.getElementById('learn-sidebar-overlay');
+  if (lsOverlay) {
+    lsOverlay.addEventListener('click', function () {
+      document.body.classList.remove('sidebar-open');
+    });
+  }
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.body.classList.contains('sidebar-open')) {
+      document.body.classList.remove('sidebar-open');
     }
   });
 
@@ -292,4 +362,333 @@
   termDialog && termDialog.addEventListener('click', function (e) {
     if (e.target === termDialog) hideTerm();
   });
+
+  // ---------- citation popover (refs.json) ----------
+  var REFS = null;
+  fetch('data/refs.json')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) { if (d && d.refs) REFS = d.refs; })
+    .catch(function () { /* offline / file:// — fail quietly */ });
+
+  var citeDialog  = document.getElementById('cite-dialog');
+  var citeTitleEl = document.getElementById('cite-title');
+  var citeMetaEl  = document.getElementById('cite-meta');
+  var citeQuoteEl = document.getElementById('cite-quote');
+  var citeLinkEl  = document.getElementById('cite-link');
+  var citeCloseX  = document.getElementById('cite-close-x');
+
+  function formatRefDate(iso) {
+    if (!iso) return '';
+    var parts = iso.split('-');
+    if (parts.length < 2) return parts[0] || '';
+    var months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    var m = parseInt(parts[1], 10) - 1;
+    var y = parts[0];
+    return (months[m] || '') + ' ' + y;
+  }
+
+  function showCite(n) {
+    if (!citeDialog) return;
+    if (!REFS) {
+      // refs.json hasn't loaded — degrade to ref number only
+      citeTitleEl.textContent = 'Source ' + n;
+      citeMetaEl.textContent = 'Reference data still loading. Try again in a moment, or see the main brief.';
+      citeQuoteEl.hidden = true;
+      citeLinkEl.setAttribute('href', '../#ref-' + n);
+      citeLinkEl.textContent = 'Open in the full brief →';
+    } else {
+      var ref = REFS[String(n)];
+      if (!ref) return;
+      citeTitleEl.textContent = ref.title || ('Reference ' + n);
+      var meta = ref.source || '';
+      var dateLabel = formatRefDate(ref.date);
+      if (dateLabel) meta += '  ·  ' + dateLabel;
+      meta += '  ·  Reference ' + n;
+      citeMetaEl.textContent = meta;
+      if (ref.quote) {
+        citeQuoteEl.textContent = ref.quote;
+        citeQuoteEl.hidden = false;
+      } else {
+        citeQuoteEl.hidden = true;
+      }
+      citeLinkEl.setAttribute('href', ref.url || '#');
+      citeLinkEl.textContent = 'Read the source →';
+    }
+    if (typeof citeDialog.showModal === 'function') citeDialog.showModal();
+    else citeDialog.setAttribute('open', '');
+  }
+
+  function hideCite() {
+    if (!citeDialog) return;
+    if (typeof citeDialog.close === 'function') citeDialog.close();
+    else citeDialog.removeAttribute('open');
+  }
+
+  // Event delegation so dynamically-added cite buttons (a4, e1) work too
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest) return;
+    var btn = e.target.closest('button.cite[data-cite]');
+    if (btn) {
+      e.preventDefault();
+      e.stopPropagation();
+      showCite(btn.getAttribute('data-cite'));
+    }
+  });
+  citeCloseX && citeCloseX.addEventListener('click', hideCite);
+  citeDialog && citeDialog.addEventListener('click', function (e) {
+    if (e.target === citeDialog) hideCite();
+  });
+
+  // ---------- capability table (a4) ----------
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c];
+    });
+  }
+
+  function renderCapabilities() {
+    var mount  = document.getElementById('capabilities-table');
+    var noteEl = document.getElementById('capabilities-note');
+    if (!mount) return;
+    fetch('data/capabilities.json')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data || !Array.isArray(data.rows)) {
+          mount.innerHTML = '<p class="compare-loading">Comparison data could not load. See the full briefing for the underlying details.</p>';
+          return;
+        }
+        var providers = [
+          { key: 'openai',    label: 'OpenAI',            cls: 'col-openai'    },
+          { key: 'anthropic', label: 'Anthropic',         cls: 'col-anthropic' },
+          { key: 'google',    label: 'Google',            cls: 'col-google'    },
+          { key: 'copilot',   label: 'Microsoft Copilot', cls: 'col-copilot'   }
+        ];
+        // Order rows: topline (the 5 most-decision-relevant) first, then detail rows hidden by default
+        var topline = data.rows.filter(function (r) { return r.topline; });
+        var detail  = data.rows.filter(function (r) { return !r.topline; });
+        var ordered = topline.concat(detail);
+        var out = '<table class="capability-table"><thead><tr><th class="cap-row-label"><span class="cap-corner">Capability</span></th>';
+        providers.forEach(function (p) {
+          out += '<th class="' + p.cls + '">' + p.label + '</th>';
+        });
+        out += '</tr></thead><tbody>';
+        ordered.forEach(function (row) {
+          var rowCls = row.topline ? 'row-topline' : 'row-detail';
+          out += '<tr class="' + rowCls + '"><th class="cap-row-label">' + escapeHtml(row.label) + '</th>';
+          providers.forEach(function (p) {
+            var cell = row.cells && row.cells[p.key];
+            if (!cell) { out += '<td class="' + p.cls + '"></td>'; return; }
+            out += '<td class="' + p.cls + '">';
+            out +=   '<span class="cap-value">' + escapeHtml(cell.value || '') + '</span>';
+            if (cell.detail) out += '<span class="cap-detail">' + escapeHtml(cell.detail) + '</span>';
+            if (cell.refUrl) out += '<a class="cap-source" href="' + cell.refUrl + '" target="_blank" rel="noopener">source &rarr;</a>';
+            out += '</td>';
+          });
+          out += '</tr>';
+        });
+        out += '</tbody></table>';
+        // Toggle for detail rows
+        var detailCount = detail.length;
+        var toggle = '<button type="button" class="cap-toggle" id="cap-toggle" aria-expanded="false">Show all ' + ordered.length + ' rows <span class="cap-toggle-detail">(' + detailCount + ' more: context window, open API, partnerships, pricing, open weights)</span></button>';
+        mount.innerHTML = out + toggle;
+        if (data.note && noteEl) noteEl.textContent = data.note;
+        var capToggle = document.getElementById('cap-toggle');
+        var compareWrap = mount.closest('.hero-compare');
+        if (capToggle && compareWrap) {
+          capToggle.addEventListener('click', function () {
+            var expanded = compareWrap.classList.toggle('expanded');
+            capToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            if (expanded) {
+              capToggle.innerHTML = 'Show topline only <span class="cap-toggle-detail">(' + topline.length + ' core capabilities)</span>';
+            } else {
+              capToggle.innerHTML = 'Show all ' + ordered.length + ' rows <span class="cap-toggle-detail">(' + detailCount + ' more: context window, open API, partnerships, pricing, open weights)</span>';
+            }
+          });
+        }
+      })
+      .catch(function () {
+        mount.innerHTML = '<p class="compare-loading">Comparison data could not load. See the full briefing for the underlying details.</p>';
+      });
+  }
+  renderCapabilities();
+
+  // ---------- cost calculator (b2) ----------
+  // Tier blended monthly rate per user (USD) based on b1 list prices:
+  //   1 provider ≈ avg($15, $18, $20)  ≈ $17.67
+  //   2 providers ≈ pair average        ≈ $35.33
+  //   3 providers ≈ all three           ≈ $53.00
+  var CC_RATES = { '1': 17.67, '2': 35.33, '3': 53.00 };
+
+  function formatMoney(amount) {
+    if (amount >= 1e6) return '$' + (amount / 1e6).toFixed(2).replace(/\.?0+$/, '') + 'M';
+    if (amount >= 1e3) return '$' + Math.round(amount / 1e3) + 'K';
+    return '$' + Math.round(amount);
+  }
+  function formatInt(n) { return n.toLocaleString('en-US'); }
+
+  function recalcCost() {
+    var slider   = document.getElementById('cc-users');
+    var usersOut = document.getElementById('cc-users-out');
+    var valOut   = document.getElementById('cc-result-value');
+    var anchorsEl = document.getElementById('cc-result-anchors');
+    if (!slider || !valOut) return;
+    var users = parseInt(slider.value, 10) || 0;
+    var activeBtn = document.querySelector('.cc-tier.active');
+    var tier = activeBtn ? activeBtn.getAttribute('data-tier') : '2';
+    var rate = CC_RATES[tier] || CC_RATES['2'];
+    var annual = users * rate * 12;
+    usersOut.textContent = formatInt(users);
+    valOut.textContent = formatMoney(annual);
+    if (anchorsEl) {
+      var perUserPerMonth = rate.toFixed(2);
+      var anchorTxt = '';
+      anchorTxt += '<span class="anchor-line">&approx; ' + formatInt(users) + ' users &times; $' + perUserPerMonth + '/user/month &times; 12.</span>';
+      if (annual < 1.4e6) {
+        anchorTxt += '<span class="anchor-line">About one endowed faculty chair&rsquo;s annual payout.</span>';
+      } else if (annual < 2.4e6) {
+        anchorTxt += '<span class="anchor-line">About two endowed chairs&rsquo; annual payout.</span>';
+      } else {
+        anchorTxt += '<span class="anchor-line">About three to four endowed chairs&rsquo; annual payout.</span>';
+      }
+      anchorsEl.innerHTML = anchorTxt;
+    }
+  }
+
+  var ccSlider = document.getElementById('cc-users');
+  if (ccSlider) {
+    ccSlider.addEventListener('input', recalcCost);
+    Array.prototype.forEach.call(document.querySelectorAll('.cc-tier'), function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.cc-tier').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        recalcCost();
+      });
+    });
+    recalcCost();
+  }
+
+  // ---------- peer-adoption timeline (c1) ----------
+  function renderPeersTimeline() {
+    var mount = document.getElementById('peers-timeline');
+    if (!mount) return;
+    fetch('data/peers.json')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data || !Array.isArray(data.peers)) {
+          mount.innerHTML = '<p class="timeline-loading">Timeline data could not load. See the full briefing.</p>';
+          return;
+        }
+        var peers = data.peers.slice().sort(function (a, b) { return a.date < b.date ? -1 : 1; });
+
+        // Time range — pad a half-month either side of the data.
+        var minD = new Date(peers[0].date);
+        var maxD = new Date(peers[peers.length - 1].date);
+        var startDate = new Date(minD.getFullYear(), minD.getMonth() - 1, 1);
+        var endDate   = new Date(maxD.getFullYear(), maxD.getMonth() + 2, 1);
+        var totalMs = endDate - startDate;
+
+        var W = 880, H = 320;
+        var padL = 100, padR = 30, padT = 28, padB = 56;
+        var chartW = W - padL - padR;
+        var laneH = (H - padT - padB) / 3;
+
+        var providers = {
+          'OpenAI':    { color: '#10a37f', lane: 0 },
+          'Anthropic': { color: '#c96100', lane: 1 },
+          'Google':    { color: '#1a73e8', lane: 2 }
+        };
+        function xFor(dateStr) {
+          var d = new Date(dateStr);
+          return padL + ((d - startDate) / totalMs) * chartW;
+        }
+        function yFor(provider) {
+          var info = providers[provider] || providers.OpenAI;
+          return padT + (info.lane + 0.5) * laneH;
+        }
+
+        var svg = '<svg class="timeline-svg" viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Peer institution AI adoption timeline">';
+
+        // Lane lines + labels
+        Object.keys(providers).forEach(function (p) {
+          var info = providers[p];
+          var y = padT + (info.lane + 0.5) * laneH;
+          svg += '<line x1="' + padL + '" x2="' + (padL + chartW) + '" y1="' + y + '" y2="' + y + '" stroke="' + info.color + '" stroke-opacity="0.2" stroke-width="1.5"/>';
+          svg += '<text class="lane-label" x="' + (padL - 14) + '" y="' + y + '" fill="' + info.color + '">' + p + '</text>';
+        });
+
+        // X-axis ticks at each January and end
+        var ticks = [];
+        var y = startDate.getFullYear();
+        while (y <= endDate.getFullYear()) {
+          ticks.push(new Date(y, 0, 1));
+          if (y < endDate.getFullYear()) ticks.push(new Date(y, 6, 1));
+          y++;
+        }
+        ticks.forEach(function (t) {
+          if (t < startDate || t > endDate) return;
+          var x = padL + ((t - startDate) / totalMs) * chartW;
+          var label = t.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+          svg += '<line x1="' + x + '" x2="' + x + '" y1="' + padT + '" y2="' + (H - padB + 4) + '" stroke="#dcdcdc" stroke-dasharray="2,4"/>';
+          svg += '<text class="tick-label" x="' + x + '" y="' + (H - padB + 20) + '">' + label + '</text>';
+        });
+
+        // Compute label offset per dot — alternate above/below + small jitter
+        // so close neighbors don't overlap.
+        var occupied = {}; // x-bucket → side
+        function chooseDy(x, provider) {
+          var bucket = Math.round(x / 30);
+          // Same provider lane crowding only matters within ±1 bucket
+          var lastSide = occupied[provider + ':' + bucket];
+          if (lastSide === undefined) lastSide = occupied[provider + ':' + (bucket - 1)];
+          var side = (lastSide === 'down') ? 'up' : 'down';
+          occupied[provider + ':' + bucket] = side;
+          return side === 'down' ? 22 : -12;
+        }
+
+        peers.forEach(function (peer) {
+          var x = xFor(peer.date);
+          var yp = yFor(peer.provider);
+          var color = (providers[peer.provider] || providers.OpenAI).color;
+          var dy = chooseDy(x, peer.provider);
+          var safe = peer.school.replace(/"/g, '&quot;');
+          var deal = (peer.dealType || '').replace(/"/g, '&quot;');
+          svg += '<g class="peer-dot" data-url="' + peer.url + '" tabindex="0">';
+          svg += '<circle cx="' + x + '" cy="' + yp + '" r="6" fill="' + color + '" stroke="#ffffff" stroke-width="2"/>';
+          svg += '<text class="dot-label" x="' + x + '" y="' + (yp + dy) + '">' + peer.shortName + '</text>';
+          svg += '<title>' + safe + ' — ' + deal + ' (' + peer.date + ')</title>';
+          svg += '</g>';
+        });
+        svg += '</svg>';
+
+        // Stacked list — visible on mobile via CSS
+        var list = '<ul class="timeline-list">';
+        peers.forEach(function (peer) {
+          var color = (providers[peer.provider] || providers.OpenAI).color;
+          list += '<li class="timeline-list-item">';
+          list += '<span class="tll-date">' + peer.date.slice(0, 7) + '</span>';
+          list += '<span class="tll-provider" style="color:' + color + '">' + peer.provider + '</span>';
+          list += '<a class="tll-school" href="' + peer.url + '" target="_blank" rel="noopener">' + peer.school + '</a>';
+          list += '<span class="tll-deal">' + (peer.dealType || '') + '</span>';
+          list += '</li>';
+        });
+        list += '</ul>';
+
+        mount.innerHTML = svg + list;
+        // Click + keyboard handlers for SVG dots
+        Array.prototype.forEach.call(mount.querySelectorAll('.peer-dot'), function (g) {
+          var open = function () {
+            var url = g.getAttribute('data-url');
+            if (url) window.open(url, '_blank', 'noopener');
+          };
+          g.addEventListener('click', open);
+          g.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
+          });
+        });
+      })
+      .catch(function () {
+        mount.innerHTML = '<p class="timeline-loading">Timeline data could not load. See the full briefing.</p>';
+      });
+  }
+  renderPeersTimeline();
 })();

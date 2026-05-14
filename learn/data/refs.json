@@ -1,0 +1,216 @@
+{
+  "refs": {
+    "1": {
+      "n": 1,
+      "source": "OpenAI",
+      "title": "Introducing GPT-5.5",
+      "date": "2026-04-23",
+      "url": "https://openai.com/index/introducing-gpt-5-5/",
+      "quote": "GPT-5.5 is OpenAI's smartest and most intuitive model yet, designed to understand what you're trying to do faster and carry more of the work itself."
+    },
+    "2": {
+      "n": 2,
+      "source": "OpenAI",
+      "title": "Introducing Workspace Agents in ChatGPT",
+      "date": "2026-04-22",
+      "url": "https://openai.com/index/introducing-workspace-agents-in-chatgpt/",
+      "quote": "Workspace agents are shared, cloud-based AI agents that handle complex, long-running workflows across your organization and keep running even after you close your laptop."
+    },
+    "3": {
+      "n": 3,
+      "source": "OpenAI",
+      "title": "ChatGPT for education",
+      "date": null,
+      "url": "https://openai.com/chatgpt/education/"
+    },
+    "4": {
+      "n": 4,
+      "source": "Anthropic",
+      "title": "Introducing Claude Opus 4.7",
+      "date": "2026-04-16",
+      "url": "https://www.anthropic.com/news/claude-opus-4-7",
+      "quote": "Claude Opus 4.7 is a notable improvement on Opus 4.6 in advanced software engineering, with particular gains on the most difficult tasks."
+    },
+    "5": {
+      "n": 5,
+      "source": "Anthropic",
+      "title": "Introducing Claude for Education",
+      "date": "2025-04-02",
+      "url": "https://www.anthropic.com/news/introducing-claude-for-education",
+      "quote": "A specialized version of Claude tailored for higher education institutions."
+    },
+    "6": {
+      "n": 6,
+      "source": "Anthropic",
+      "title": "Claude for education",
+      "date": null,
+      "url": "https://claude.com/solutions/education",
+      "quote": "Claude helps universities maintain academic integrity while incorporating AI tools in education."
+    },
+    "7": {
+      "n": 7,
+      "source": "Google",
+      "title": "Gemini 3.1 Pro: A smarter model for your most complex tasks",
+      "date": "2026-02-19",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
+      "quote": "Gemini 3.1 Pro is designed for tasks where a simple answer isn't enough."
+    },
+    "8": {
+      "n": 8,
+      "source": "Google Workspace",
+      "title": "New Workspace Intelligence delivers unified, real-time understanding to power agentic work",
+      "date": "2026-04-22",
+      "url": "https://workspace.google.com/blog/product-announcements/introducing-workspace-intelligence",
+      "quote": "Workspace Intelligence delivers unified, real-time understanding to power agentic work."
+    },
+    "9": {
+      "n": 9,
+      "source": "Google",
+      "title": "Google for Education",
+      "date": null,
+      "url": "https://edu.google.com/",
+      "quote": "We provide teachers with helpful, research-backed tools to create meaningful learning experiences, driven by human connection."
+    },
+    "10": {
+      "n": 10,
+      "source": "Google",
+      "title": "Gemini for Education: How higher education is using Google AI",
+      "date": "2025-01-01",
+      "url": "https://blog.google/products-and-platforms/products/education/gemini-higher-education-benefits/",
+      "quote": "More than 1000 higher education institutions are using Gemini for Education, reaching over 10 million college students across the United States."
+    },
+    "11": {
+      "n": 11,
+      "source": "The Wharton School",
+      "title": "The Wharton School makes strategic investment in artificial intelligence research and teaching",
+      "date": "2024-05-29",
+      "url": "https://news.wharton.upenn.edu/press-releases/2024/05/the-wharton-school-makes-strategic-investment-in-artificial-intelligence-research-and-teaching/",
+      "quote": "The Wharton School announced a major investment to drastically scale its research and teaching capabilities in artificial intelligence and data science."
+    },
+    "12": {
+      "n": 12,
+      "source": "University of Oxford",
+      "title": "Oxford becomes first UK university to offer ChatGPT Edu to all staff and students",
+      "date": "2025-09-19",
+      "url": "https://www.ox.ac.uk/news/2025-09-19-oxford-becomes-first-uk-university-offer-chatgpt-edu-all-staff-and-students",
+      "quote": "Oxford has become the first university in the UK to provide free ChatGPT Edu access to all staff and students, starting the 2025-26 academic year."
+    },
+    "13": {
+      "n": 13,
+      "source": "UCLA",
+      "title": "UCLA is set to introduce ChatGPT Enterprise on campus",
+      "date": "2024-09-20",
+      "url": "https://newsroom.ucla.edu/releases/ucla-to-introduce-chatgpt-enterprise-on-campus",
+      "quote": "UCLA is the first university in California to incorporate OpenAI's ChatGPT Enterprise into its operations."
+    },
+    "14": {
+      "n": 14,
+      "source": "California State University",
+      "title": "CSU announces landmark initiative to become nation's first and largest AI-empowered university system",
+      "date": "2025-02-04",
+      "url": "https://www.calstate.edu/csu-system/news/Pages/CSU-AI-Powered-Initiative.aspx"
+    },
+    "15": {
+      "n": 15,
+      "source": "LAist (Mardirosian, A.)",
+      "title": "Inside Cal State's big $17 million bet on ChatGPT for all",
+      "date": "2026-05-01",
+      "url": "https://laist.com/news/education/chatgpt-california-state-university-csu-ai-deal",
+      "quote": "California State University will make OpenAI's ChatGPT available to nearly half a million students and faculty across its 23 campuses for $17 million."
+    },
+    "16": {
+      "n": 16,
+      "source": "Northeastern University",
+      "title": "Northeastern and Anthropic to lead in responsible AI innovation in higher education",
+      "date": "2025-04-02",
+      "url": "https://news.northeastern.edu/2025/04/02/anthropic-ai-partnership/",
+      "quote": "The partnership will help transform teaching, research and business operations across Northeastern's global enterprise."
+    },
+    "17": {
+      "n": 17,
+      "source": "London School of Economics",
+      "title": "Anthropic's Claude for Education",
+      "date": "2025-05-01",
+      "url": "https://info.lse.ac.uk/staff/divisions/Eden-Centre/Artificial-Intelligence-Education-and-Assessment/Anthropics-Claude-for-Education",
+      "quote": "Claude for Education is now accessible for LSE educators, free of charge."
+    },
+    "18": {
+      "n": 18,
+      "source": "Champlain College",
+      "title": "Champlain College collaborates with Anthropic to advance AI in higher ed",
+      "date": "2025-03-25",
+      "url": "https://www.champlain.edu/blog/news/champlain-collaborates-with-anthropic-ai-higher-ed/",
+      "quote": "Champlain College and Anthropic announced a strategic collaboration to leverage Claude to advance AI in higher education and workforce development."
+    },
+    "19": {
+      "n": 19,
+      "source": "Rice University",
+      "title": "Rice adopts Google's generative AI solution to enhance student learning and faculty support",
+      "date": "2025-09-16",
+      "url": "https://news.rice.edu/news/2025/rice-adopts-googles-generative-ai-solution-enhance-student-learning-and-faculty-support",
+      "quote": "Rice University has partnered with Google for Education to adopt Gemini for Education to provide students, faculty and staff with powerful, responsible AI tools."
+    },
+    "20": {
+      "n": 20,
+      "source": "University of Houston",
+      "title": "University of Houston launches Google Gemini for Education to advance AI research and student success",
+      "date": "2026-03-17",
+      "url": "https://www.uh.edu/news-events/stories/2026/march/03172026-google-ai-partnership.php",
+      "quote": "The University of Houston has partnered with Google to provide Gemini for Education and NotebookLM to all students, faculty and staff."
+    },
+    "21": {
+      "n": 21,
+      "source": "Crafting Tomorrow",
+      "title": "AI education for high school students",
+      "date": null,
+      "url": "https://www.crafting-tomorrow.org/",
+      "quote": "Crafting Tomorrow provides AI education designed for high school students."
+    },
+    "22": {
+      "n": 22,
+      "source": "Babson College",
+      "title": "How Babson students use AI",
+      "date": null,
+      "url": "https://entrepreneurship.babson.edu/babson-students-ai/",
+      "quote": "Students have moved far beyond using AI as a simple shortcut to finish homework."
+    },
+    "23": {
+      "n": 23,
+      "source": "Generator Build-a-thon 2026",
+      "title": "AI x Body & Mind",
+      "date": "2026-01-01",
+      "url": "https://babsonbuildathon.com/",
+      "quote": "The Generator Build-a-thon is Babson College's flagship hackathon — a 12-hour sprint where 500 students from across Boston-area universities build AI-powered solutions."
+    },
+    "24": {
+      "n": 24,
+      "source": "The Generator at Babson College",
+      "title": "AI Innovators Bootcamp",
+      "date": null,
+      "url": "https://www.babson.edu/thegenerator/community/ai-innovators-bootcamp/"
+    },
+    "25": {
+      "n": 25,
+      "source": "Base44",
+      "title": "Base44 for higher education",
+      "date": null,
+      "url": "https://base44.com/highered",
+      "quote": "Help the next generation create and innovate by joining our global network of university partners."
+    },
+    "26": {
+      "n": 26,
+      "source": "The Generator at Babson College",
+      "title": "The Generator",
+      "date": null,
+      "url": "https://www.babson.edu/thegenerator/"
+    },
+    "27": {
+      "n": 27,
+      "source": "Babson College",
+      "title": "Babson and Microsoft team up to help small businesses with AI",
+      "date": null,
+      "url": "https://entrepreneurship.babson.edu/babson-and-microsoft/",
+      "quote": "About 30 Babson students who are part of The Generator, the College's interdisciplinary AI lab, met up at the Microsoft Garage in Cambridge, Massachusetts."
+    }
+  }
+}
