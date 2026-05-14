@@ -1080,29 +1080,28 @@ section.section { scroll-margin-top: 4rem; }
 
 button.term {
   display: inline;
-  background: transparent;
+  background-color: rgba(255, 215, 60, 0.5);
   border: none;
-  padding: 0;
-  margin: 0;
+  padding: 0.04em 0.2em;
+  margin: 0 0.04em;
   font: inherit;
   color: inherit;
-  cursor: help;
+  cursor: pointer;
   text-align: inherit;
-  text-decoration: underline dotted;
-  text-decoration-color: rgba(0, 103, 71, 0.5);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-  transition: text-decoration-color 120ms ease, color 120ms ease;
+  text-decoration: none;
+  border-radius: 1px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: background-color 120ms ease, color 120ms ease;
 }
-button.term:hover,
-button.term:focus-visible {
-  color: var(--babson-green-dark);
-  text-decoration-color: var(--babson-green);
-  outline: none;
+button.term:hover {
+  background-color: rgba(255, 200, 30, 0.75);
+  color: #14191F;
 }
 button.term:focus-visible {
-  background: rgba(0, 103, 71, 0.06);
-  border-radius: 2px;
+  outline: 2px solid var(--babson-green-dark);
+  outline-offset: 1px;
+  background-color: rgba(255, 200, 30, 0.75);
 }
 
 /* The shared term-definition dialog (one element, populated on click) */
