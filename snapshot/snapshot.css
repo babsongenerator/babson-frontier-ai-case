@@ -303,12 +303,23 @@ body.snapshot {
   padding: 1.5rem 1rem 1.8rem;
   letter-spacing: 0.04em;
 }
-.snap-foot a {
+.snap-foot a,
+.snap-foot-link {
   color: var(--babson-green-dark);
   text-decoration: underline;
   text-underline-offset: 3px;
   font-weight: 600;
 }
+.snap-foot-link {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  padding: 0;
+  cursor: pointer;
+}
+.snap-foot-link:hover { color: var(--babson-green); }
 
 /* Timeline (reused styling from /walkthrough.css conceptually, scoped here) */
 .snap-timeline-svg {

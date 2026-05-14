@@ -242,4 +242,41 @@
       });
   }
   renderTimeline();
+
+  // ---------- hello-dialog (letter to Steve, auto-opens on first visit) ----------
+  var HELLO_KEY = 'babson-snapshot-hello-seen';
+  var helloDialog  = document.getElementById('hello-dialog');
+  var helloCloseX  = document.getElementById('hello-close-x');
+  var helloOpenBtn = document.getElementById('hello-open');
+  var helloReopen  = document.getElementById('reopen-hello');
+
+  function showHello() {
+    if (!helloDialog) return;
+    if (typeof helloDialog.showModal === 'function') helloDialog.showModal();
+    else helloDialog.setAttribute('open', '');
+  }
+  function hideHello() {
+    if (!helloDialog) return;
+    try { localStorage.setItem(HELLO_KEY, 'yes'); } catch (e) {}
+    if (typeof helloDialog.close === 'function') helloDialog.close();
+    else helloDialog.removeAttribute('open');
+  }
+  if (helloDialog) {
+    helloCloseX && helloCloseX.addEventListener('click', hideHello);
+    helloOpenBtn && helloOpenBtn.addEventListener('click', hideHello);
+    helloDialog.addEventListener('click', function (e) {
+      if (e.target === helloDialog) hideHello();
+    });
+    helloReopen && helloReopen.addEventListener('click', function (e) {
+      e.preventDefault();
+      showHello();
+    });
+    // Auto-open on first visit, on every snapshot page
+    var hasSeen = false;
+    try { hasSeen = localStorage.getItem(HELLO_KEY) === 'yes'; } catch (e) {}
+    if (!hasSeen) {
+      // Defer slightly so the gate (if firing) closes first
+      setTimeout(showHello, 200);
+    }
+  }
 })();
