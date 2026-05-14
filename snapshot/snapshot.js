@@ -55,8 +55,10 @@
     if (!def || !termDialog) return;
     termTitleEl.textContent = def.title;
     termBodyEl.innerHTML = def.body;
-    if (typeof termDialog.showModal === 'function') termDialog.showModal();
-    else termDialog.setAttribute('open', '');
+    try {
+      if (typeof termDialog.showModal === 'function') termDialog.showModal();
+      else termDialog.setAttribute('open', '');
+    } catch (e) { /* dialog already open, or display:none — silently no-op */ }
   }
   function hideTerm() {
     if (!termDialog) return;
@@ -123,8 +125,10 @@
       citeLinkEl.setAttribute('href', ref.url || '#');
       citeLinkEl.textContent = 'Read the source →';
     }
-    if (typeof citeDialog.showModal === 'function') citeDialog.showModal();
-    else citeDialog.setAttribute('open', '');
+    try {
+      if (typeof citeDialog.showModal === 'function') citeDialog.showModal();
+      else citeDialog.setAttribute('open', '');
+    } catch (e) { /* already open — ignore */ }
   }
   function hideCite() {
     if (!citeDialog) return;
@@ -208,7 +212,8 @@
           var dy = chooseDy(x, peer.provider);
           var safe = (peer.school || '').replace(/"/g, '&quot;');
           var deal = (peer.dealType || '').replace(/"/g, '&quot;');
-          svg += '<g class="peer-dot" data-url="' + peer.url + '" tabindex="0">';
+          var safeUrl = (peer.url || '').replace(/"/g, '&quot;');
+          svg += '<g class="peer-dot" data-url="' + safeUrl + '" tabindex="0">';
           svg += '<circle cx="' + x + '" cy="' + yp + '" r="6" fill="' + color + '" stroke="#ffffff" stroke-width="2"/>';
           svg += '<text class="dot-label" x="' + x + '" y="' + (yp + dy) + '">' + (peer.shortName || '') + '</text>';
           svg += '<title>' + safe + ' — ' + deal + ' (' + peer.date + ')</title>';
@@ -252,8 +257,11 @@
 
   function showHello() {
     if (!helloDialog) return;
-    if (typeof helloDialog.showModal === 'function') helloDialog.showModal();
-    else helloDialog.setAttribute('open', '');
+    if (helloDialog.open) return;
+    try {
+      if (typeof helloDialog.showModal === 'function') helloDialog.showModal();
+      else helloDialog.setAttribute('open', '');
+    } catch (e) { /* dialog blocked (e.g. display:none from gate); the polling retry will catch it */ }
   }
   function hideHello() {
     if (!helloDialog) return;
@@ -269,14 +277,24 @@
     });
     helloReopen && helloReopen.addEventListener('click', function (e) {
       e.preventDefault();
-      showHello();
+      if (!helloDialog.open) showHello();
     });
-    // Auto-open on first visit, on every snapshot page
+    // Auto-open on first visit, on every snapshot page — but only once the
+    // confidentiality gate has fully dismissed. While the gate is active,
+    // auth.js applies `body > *:not(.gate-overlay) { display: none !important; }`
+    // to every body child including this <dialog>, which makes showModal() throw
+    // an InvalidStateError. Poll until the gate-style is gone, then open.
     var hasSeen = false;
     try { hasSeen = localStorage.getItem(HELLO_KEY) === 'yes'; } catch (e) {}
     if (!hasSeen) {
-      // Defer slightly so the gate (if firing) closes first
-      setTimeout(showHello, 200);
+      var tryShowHello = function () {
+        if (document.getElementById('gate-style') || document.getElementById('gate-overlay')) {
+          setTimeout(tryShowHello, 250);
+          return;
+        }
+        showHello();
+      };
+      setTimeout(tryShowHello, 200);
     }
   }
 })();

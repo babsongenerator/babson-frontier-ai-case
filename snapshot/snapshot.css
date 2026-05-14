@@ -321,6 +321,17 @@ body.snapshot {
 }
 .snap-foot-link:hover { color: var(--babson-green); }
 
+/* Non-interactive yellow-highlight demo inside the hello-dialog letter. Visual
+   match to the live .term button, but it doesn't open a modal (nested-dialog
+   stacking was unreliable across browsers). */
+.hello-highlight-demo {
+  display: inline-block;
+  background-color: rgba(255, 215, 60, 0.5);
+  padding: 0.04em 0.2em;
+  border-radius: 1px;
+  color: inherit;
+}
+
 /* Timeline (reused styling from /walkthrough.css conceptually, scoped here) */
 .snap-timeline-svg {
   display: block;

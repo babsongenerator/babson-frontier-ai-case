@@ -98,7 +98,7 @@
     '}',
     '.gate-form input {',
     '  padding: 0.62rem 0.8rem;',
-    '  font-family: inherit; font-size: 0.95rem;',
+    '  font-family: inherit; font-size: 16px;',
     '  border: 1px solid #E0DDD8; border-radius: 4px;',
     '  background: #FAF7F2; color: #14191F;',
     '}',

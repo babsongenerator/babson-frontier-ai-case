@@ -341,10 +341,13 @@
   function showTerm(key) {
     var def = TERM_DEFS[key];
     if (!def || !termDialog) return;
+    if (termDialog.open) return;
     termTitleEl.textContent = def.title;
     termBodyEl.innerHTML = def.body;
-    if (typeof termDialog.showModal === 'function') termDialog.showModal();
-    else termDialog.setAttribute('open', '');
+    try {
+      if (typeof termDialog.showModal === 'function') termDialog.showModal();
+      else termDialog.setAttribute('open', '');
+    } catch (e) { /* dialog blocked (e.g. display:none from a parent rule) — no-op */ }
   }
   function hideTerm() {
     if (!termDialog) return;
@@ -417,6 +420,13 @@
     if (typeof citeDialog.showModal === 'function') citeDialog.showModal();
     else citeDialog.setAttribute('open', '');
   }
+  // Wrap with try/catch — defensive, see snapshot.js for the original race fix.
+  var _origShowCite = showCite;
+  showCite = function (n) {
+    if (citeDialog && citeDialog.open) return;
+    try { _origShowCite(n); }
+    catch (e) { /* dialog blocked — no-op */ }
+  };
 
   function hideCite() {
     if (!citeDialog) return;
@@ -652,7 +662,8 @@
           var dy = chooseDy(x, peer.provider);
           var safe = peer.school.replace(/"/g, '&quot;');
           var deal = (peer.dealType || '').replace(/"/g, '&quot;');
-          svg += '<g class="peer-dot" data-url="' + peer.url + '" tabindex="0">';
+          var safeUrl = (peer.url || '').replace(/"/g, '&quot;');
+          svg += '<g class="peer-dot" data-url="' + safeUrl + '" tabindex="0">';
           svg += '<circle cx="' + x + '" cy="' + yp + '" r="6" fill="' + color + '" stroke="#ffffff" stroke-width="2"/>';
           svg += '<text class="dot-label" x="' + x + '" y="' + (yp + dy) + '">' + peer.shortName + '</text>';
           svg += '<title>' + safe + ' — ' + deal + ' (' + peer.date + ')</title>';
