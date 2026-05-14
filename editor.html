@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Editor · Babson AI brief</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green: #006747;
+      --green-dark: #00563C;
+      --amber: #C9A227;
+      --amber-dark: #A8841E;
+      --bg: #FAF7F2;
+      --text: #14191F;
+      --text-muted: #4A4F55;
+      --rule: #E0DDD8;
+      --rule-faint: #EEEAE4;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'IBM Plex Sans', -apple-system, system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      min-height: 100vh;
+      padding-bottom: 5rem;
+    }
+
+    /* --- top bar --- */
+    .topbar {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: saturate(140%) blur(8px);
+      -webkit-backdrop-filter: saturate(140%) blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.65rem 1.25rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem;
+    }
+    .topbar h1 {
+      font-size: 0.95rem; font-weight: 700; letter-spacing: -0.005em;
+      margin: 0; color: var(--green-dark);
+    }
+    .topbar h1 span {
+      font-weight: 500; color: var(--text-muted); margin-left: 0.4rem;
+    }
+    .topbar .links {
+      display: flex; gap: 1rem; align-items: center;
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem;
+    }
+    .topbar a {
+      color: var(--text-muted); text-decoration: none;
+      letter-spacing: 0.02em;
+    }
+    .topbar a:hover { color: var(--green-dark); }
+
+    /* --- layout --- */
+    main {
+      max-width: 880px; margin: 0 auto; padding: 1.6rem 1.25rem 3rem;
+    }
+    .intro {
+      background: #fff; border: 1px solid var(--rule);
+      border-radius: 6px; padding: 1rem 1.2rem; margin-bottom: 1.4rem;
+      font-family: 'IBM Plex Serif', Georgia, serif;
+      line-height: 1.6;
+    }
+    .intro h2 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--green-dark); margin: 0 0 0.4rem;
+    }
+    .intro p { margin: 0 0 0.5rem; font-size: 0.93rem; }
+    .intro p:last-child { margin-bottom: 0; }
+    .intro code {
+      background: rgba(0,103,71,0.08);
+      padding: 0.05em 0.3em; border-radius: 2px;
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.85em;
+    }
+
+    .section {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-top: 4px solid var(--green);
+      border-radius: 6px;
+      padding: 1.1rem 1.25rem 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .section h2 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 1.05rem; font-weight: 700;
+      margin: 0 0 0.85rem;
+      color: var(--text);
+    }
+    .section h2 small {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem; font-weight: 500;
+      color: var(--text-muted);
+      margin-left: 0.6rem; letter-spacing: 0.04em;
+    }
+
+    .block {
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--rule-faint);
+    }
+    .block:last-child { border-bottom: none; }
+    .block-label {
+      display: flex; justify-content: space-between; align-items: baseline;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
+      text-transform: uppercase; color: var(--text-muted);
+      margin-bottom: 0.35rem;
+    }
+    .block-key { color: var(--green-dark); }
+    .block-tag { color: var(--text-muted); font-weight: 500; }
+    .block textarea {
+      width: 100%; resize: vertical;
+      padding: 0.7rem 0.85rem;
+      font-family: 'IBM Plex Serif', Georgia, serif;
+      font-size: 0.98rem; line-height: 1.55; color: var(--text);
+      border: 1px solid var(--rule); border-radius: 4px;
+      background: #FDFCFA;
+      box-sizing: border-box;
+    }
+    .block textarea:focus {
+      outline: 2px solid var(--green);
+      outline-offset: -1px;
+      background: #fff;
+    }
+    .block textarea.heading {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+    .block textarea.dirty {
+      background: #FFFCEB;
+    }
+
+    /* --- sticky footer actions --- */
+    .actions {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: saturate(140%) blur(8px);
+      -webkit-backdrop-filter: saturate(140%) blur(8px);
+      border-top: 1px solid var(--rule);
+      padding: 0.75rem 1.25rem;
+      display: flex; gap: 0.6rem; align-items: center;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.04);
+      z-index: 20;
+    }
+    .actions .spacer { flex: 1; }
+    .actions button {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.92rem; font-weight: 700;
+      padding: 0.55rem 1.15rem;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 120ms ease, transform 80ms ease;
+    }
+    .actions button:active { transform: translateY(1px); }
+    .actions button:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-save {
+      background: #fff; color: var(--amber-dark);
+      border-color: var(--amber);
+    }
+    .btn-save:hover:not(:disabled) {
+      background: #FFF9E6; color: var(--amber-dark);
+    }
+    .btn-publish {
+      background: var(--green); color: #fff;
+      border-color: var(--green-dark);
+    }
+    .btn-publish:hover:not(:disabled) {
+      background: var(--green-dark);
+    }
+    .btn-reload {
+      background: transparent; color: var(--text-muted);
+      border-color: var(--rule);
+    }
+    .btn-reload:hover { color: var(--text); border-color: var(--text-muted); }
+    .status {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem; color: var(--text-muted);
+      letter-spacing: 0.02em;
+      min-height: 1.2em;
+    }
+    .status.ok { color: var(--green-dark); }
+    .status.err { color: #B5471D; }
+    .status.dirty { color: var(--amber-dark); }
+
+    .empty {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.85rem; color: var(--text-muted);
+      text-align: center; padding: 2rem 1rem;
+    }
+
+    @media (max-width: 540px) {
+      main { padding: 1rem 0.75rem 3rem; }
+      .section { padding: 0.9rem 0.95rem 0.3rem; }
+      .actions { flex-wrap: wrap; }
+      .actions .spacer { flex: 0 0 100%; order: -1; min-height: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <h1>Editor <span>· Babson AI brief</span></h1>
+  <div class="links">
+    <a href="/" target="_blank">Open live site ↗</a>
+  </div>
+</header>
+
+<main>
+  <div class="intro">
+    <h2>How this works</h2>
+    <p>Each textarea below is one editable block on the live site. Headings show as bold; body paragraphs show in serif. Edit freely.</p>
+    <p>Anything wrapped in <code>&lt;angle brackets&gt;</code> is wiring — popovers, citations, italics. Leave those alone. The text around them is yours to change.</p>
+    <p><b>Save</b> (yellow) writes your changes to the local HTML files only. <b>Publish</b> (green) writes + commits + pushes to GitHub, which rebuilds the live site in about a minute.</p>
+  </div>
+  <div id="form">
+    <p class="empty">Loading editable content…</p>
+  </div>
+</main>
+
+<footer class="actions">
+  <button class="btn-reload" id="btn-reload" title="Discard changes and reload from disk">Reload from disk</button>
+  <div class="spacer"></div>
+  <span class="status" id="status">Ready.</span>
+  <button class="btn-save" id="btn-save">Save (local only)</button>
+  <button class="btn-publish" id="btn-publish">Publish to live site →</button>
+</footer>
+
+<script>
+const FILE_LABELS = {
+  'index.html': 'Letter (home page)',
+  'why.html':   'Page 1 · Why now',
+  'cost.html':  'Page 2 · What it costs',
+  'peers.html': 'Page 3 · Who’s already moved',
+};
+const FILE_ORDER = ['index.html', 'why.html', 'cost.html', 'peers.html'];
+
+let content = {};        // current state from server
+let initial = {};        // baseline for dirty detection
+let editing = false;
+
+function setStatus(text, cls = '') {
+  const el = document.getElementById('status');
+  el.textContent = text;
+  el.className = 'status' + (cls ? ' ' + cls : '');
+}
+
+function isDirty() {
+  return Object.entries(content).some(
+    ([k, v]) => (initial[k] && initial[k].html) !== v.html
+  );
+}
+
+function refreshDirty() {
+  // Mark dirty textareas
+  document.querySelectorAll('textarea[data-key]').forEach(ta => {
+    const key = ta.dataset.key;
+    const original = initial[key]?.html ?? '';
+    ta.classList.toggle('dirty', ta.value !== original);
+  });
+  if (isDirty()) setStatus('Unsaved changes.', 'dirty');
+  else setStatus('No changes.');
+}
+
+async function loadContent() {
+  setStatus('Loading…');
+  try {
+    const res = await fetch('/api/content', { cache: 'no-store' });
+    const data = await res.json();
+    if (!data.ok) throw new Error('load failed');
+    content = data.content;
+    initial = JSON.parse(JSON.stringify(content));
+    renderForm();
+    setStatus(`Loaded ${Object.keys(content).length} editable block(s).`);
+  } catch (e) {
+    setStatus('Load failed: ' + e.message, 'err');
+  }
+}
+
+function renderForm() {
+  const form = document.getElementById('form');
+  form.innerHTML = '';
+
+  const byFile = {};
+  for (const [key, info] of Object.entries(content)) {
+    (byFile[info.file] ||= []).push({ key, ...info });
+  }
+
+  for (const file of FILE_ORDER) {
+    const blocks = byFile[file];
+    if (!blocks?.length) continue;
+    const section = document.createElement('section');
+    section.className = 'section';
+    const h2 = document.createElement('h2');
+    h2.innerHTML = `${FILE_LABELS[file] || file} <small>${file}</small>`;
+    section.appendChild(h2);
+
+    for (const block of blocks) {
+      const wrap = document.createElement('div');
+      wrap.className = 'block';
+
+      const label = document.createElement('div');
+      label.className = 'block-label';
+      const keySpan = document.createElement('span');
+      keySpan.className = 'block-key';
+      keySpan.textContent = block.key;
+      const tagSpan = document.createElement('span');
+      tagSpan.className = 'block-tag';
+      tagSpan.textContent = '<' + block.tag + '>';
+      label.appendChild(keySpan);
+      label.appendChild(tagSpan);
+
+      const ta = document.createElement('textarea');
+      ta.dataset.key = block.key;
+      ta.value = block.html;
+      const lineCount = Math.max(2, Math.ceil(block.html.length / 100) + 1);
+      ta.rows = Math.min(8, lineCount);
+      if (block.tag === 'h1' || block.tag === 'h2') ta.classList.add('heading');
+      ta.addEventListener('input', () => {
+        content[block.key].html = ta.value;
+        refreshDirty();
+      });
+      ta.addEventListener('focus', () => { editing = true; });
+      ta.addEventListener('blur', () => { editing = false; });
+
+      wrap.appendChild(label);
+      wrap.appendChild(ta);
+      section.appendChild(wrap);
+    }
+    form.appendChild(section);
+  }
+}
+
+function gatherUpdates() {
+  const updates = {};
+  for (const [key, info] of Object.entries(content)) {
+    updates[key] = info.html;
+  }
+  return updates;
+}
+
+async function save() {
+  setStatus('Saving…');
+  try {
+    const res = await fetch('/api/save', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ updates: gatherUpdates() }),
+    });
+    const data = await res.json();
+    if (data.ok) {
+      initial = JSON.parse(JSON.stringify(content));
+      refreshDirty();
+      setStatus(data.message || 'Saved.', 'ok');
+    } else {
+      setStatus('Save failed: ' + (data.error || 'unknown'), 'err');
+    }
+  } catch (e) {
+    setStatus('Save failed: ' + e.message, 'err');
+  }
+}
+
+async function publish() {
+  if (!confirm('Publish edits to the live site?\n\nThis will save the local files, commit them, and push to GitHub. The live site will rebuild in 30–60 seconds.')) {
+    return;
+  }
+  setStatus('Publishing…');
+  document.getElementById('btn-publish').disabled = true;
+  try {
+    const res = await fetch('/api/publish', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ updates: gatherUpdates() }),
+    });
+    const data = await res.json();
+    if (data.ok) {
+      initial = JSON.parse(JSON.stringify(content));
+      refreshDirty();
+      setStatus(data.message || 'Published.', 'ok');
+    } else {
+      setStatus('Publish failed: ' + (data.message || 'unknown'), 'err');
+    }
+  } catch (e) {
+    setStatus('Publish failed: ' + e.message, 'err');
+  } finally {
+    document.getElementById('btn-publish').disabled = false;
+  }
+}
+
+async function reload() {
+  if (isDirty() && !confirm('Discard your unsaved changes and reload from disk?')) return;
+  await loadContent();
+}
+
+document.getElementById('btn-save').addEventListener('click', save);
+document.getElementById('btn-publish').addEventListener('click', publish);
+document.getElementById('btn-reload').addEventListener('click', reload);
+window.addEventListener('beforeunload', e => {
+  if (isDirty()) e.returnValue = '';
+});
+window.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 's' && !editing) {
+    e.preventDefault();
+    save();
+  }
+});
+
+loadContent();
+</script>
+</body>
+</html>
