@@ -1038,6 +1038,109 @@ html.modal-open { overflow: hidden; }
 /* Anchor jumps should land below the sticky nav. */
 section.section { scroll-margin-top: 4rem; }
 
+/* ------------------------- inline term definitions ------------------------ */
+/* Underlined inline words throughout the brief that open a small modal with a
+   plain-language definition. Pattern: <button class="term" data-term="...">. */
+
+button.term {
+  display: inline;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: help;
+  text-align: inherit;
+  text-decoration: underline dotted;
+  text-decoration-color: rgba(0, 103, 71, 0.5);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 120ms ease, color 120ms ease;
+}
+button.term:hover,
+button.term:focus-visible {
+  color: var(--babson-green-dark);
+  text-decoration-color: var(--babson-green);
+  outline: none;
+}
+button.term:focus-visible {
+  background: rgba(0, 103, 71, 0.06);
+  border-radius: 2px;
+}
+
+/* The shared term-definition dialog (one element, populated on click) */
+.term-dialog {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: 520px;
+  width: calc(100% - 2rem);
+  margin: auto;
+  box-shadow: none;
+  color: var(--text);
+}
+.term-dialog::backdrop {
+  background: rgba(20, 25, 31, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.term-content {
+  background: #ffffff;
+  border-top: 4px solid var(--babson-green);
+  border-radius: 6px;
+  padding: 1.1rem 1.4rem 1.2rem;
+  font-family: var(--serif);
+  font-size: 0.98rem;
+  line-height: 1.55;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 4px 14px rgba(0, 0, 0, 0.1);
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+}
+.term-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--rule);
+  gap: 0.5rem;
+}
+.term-eyebrow {
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--babson-green-dark);
+}
+.term-close-x {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.2rem;
+}
+.term-close-x:hover { color: var(--text); }
+.term-title {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 0.4rem;
+  color: var(--text);
+}
+.term-body p {
+  margin: 0 0 0.6rem;
+  font-size: 0.94rem;
+}
+.term-body p:last-child { margin-bottom: 0; }
+.term-body em {
+  font-style: italic;
+  color: var(--babson-green-dark);
+}
+
 /* ----------------------- display-settings modal --------------------------- */
 /* Small accessibility modal — font-size picker, persisted via localStorage. */
 
@@ -1292,8 +1395,11 @@ section.section { scroll-margin-top: 4rem; }
   .hello-dialog,
   .display-dialog,
   .example-dialog,
+  .term-dialog,
   .example-detail-btn,
   .section-nav { display: none !important; }
+  /* Drop the dotted underline on terms in print — they're not clickable on paper */
+  button.term { text-decoration: none; color: inherit; cursor: default; }
   .page { padding: 0.5in; max-width: none; }
   .section { break-inside: avoid-page; }
   .observations li,
