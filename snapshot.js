@@ -79,7 +79,7 @@
 
   // ---------- citation modal (loads ../data/refs.json once) ----------
   var REFS = null;
-  fetch('../data/refs.json')
+  fetch('data/refs.json')
     .then(function (r) { return r.ok ? r.json() : null; })
     .then(function (d) { if (d && d.refs) REFS = d.refs; })
     .catch(function () {});
@@ -153,7 +153,7 @@
   function renderTimeline() {
     var mount = document.getElementById('snap-timeline');
     if (!mount) return;
-    fetch('../data/peers.json')
+    fetch('data/peers.json')
       .then(function (r) { return r.ok ? r.json() : null; })
       .then(function (data) {
         if (!data || !Array.isArray(data.peers)) return;
@@ -247,54 +247,4 @@
       });
   }
   renderTimeline();
-
-  // ---------- hello-dialog (letter to Steve, auto-opens on first visit) ----------
-  var HELLO_KEY = 'babson-snapshot-hello-seen';
-  var helloDialog  = document.getElementById('hello-dialog');
-  var helloCloseX  = document.getElementById('hello-close-x');
-  var helloOpenBtn = document.getElementById('hello-open');
-  var helloReopen  = document.getElementById('reopen-hello');
-
-  function showHello() {
-    if (!helloDialog) return;
-    if (helloDialog.open) return;
-    try {
-      if (typeof helloDialog.showModal === 'function') helloDialog.showModal();
-      else helloDialog.setAttribute('open', '');
-    } catch (e) { /* dialog blocked (e.g. display:none from gate); the polling retry will catch it */ }
-  }
-  function hideHello() {
-    if (!helloDialog) return;
-    try { localStorage.setItem(HELLO_KEY, 'yes'); } catch (e) {}
-    if (typeof helloDialog.close === 'function') helloDialog.close();
-    else helloDialog.removeAttribute('open');
-  }
-  if (helloDialog) {
-    helloCloseX && helloCloseX.addEventListener('click', hideHello);
-    helloOpenBtn && helloOpenBtn.addEventListener('click', hideHello);
-    helloDialog.addEventListener('click', function (e) {
-      if (e.target === helloDialog) hideHello();
-    });
-    helloReopen && helloReopen.addEventListener('click', function (e) {
-      e.preventDefault();
-      if (!helloDialog.open) showHello();
-    });
-    // Auto-open on first visit, on every snapshot page — but only once the
-    // confidentiality gate has fully dismissed. While the gate is active,
-    // auth.js applies `body > *:not(.gate-overlay) { display: none !important; }`
-    // to every body child including this <dialog>, which makes showModal() throw
-    // an InvalidStateError. Poll until the gate-style is gone, then open.
-    var hasSeen = false;
-    try { hasSeen = localStorage.getItem(HELLO_KEY) === 'yes'; } catch (e) {}
-    if (!hasSeen) {
-      var tryShowHello = function () {
-        if (document.getElementById('gate-style') || document.getElementById('gate-overlay')) {
-          setTimeout(tryShowHello, 250);
-          return;
-        }
-        showHello();
-      };
-      setTimeout(tryShowHello, 200);
-    }
-  }
 })();
