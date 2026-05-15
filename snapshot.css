@@ -576,25 +576,38 @@ body.snapshot {
   font-family: var(--serif);
   font-size: 0.95rem;
   line-height: 1.5;
-  margin: 0;
+  margin: 0.4rem 0 0;
   color: var(--text);
 }
-.snap-stat-bars {
+
+/* Stacked stat rows — each percentage + label paired with its own bar */
+.snap-stat-line {
+  margin: 0.6rem 0;
+}
+.snap-stat-line-head {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin: 0.4rem 0 0.85rem;
+  align-items: baseline;
+  gap: 0.55rem;
+  margin-bottom: 0.35rem;
 }
 .snap-stat-bar {
-  height: 7px;
-  border-radius: 4px;
+  height: 9px;
+  border-radius: 5px;
   background: var(--babson-green-dark);
-  min-width: 6px;
+  min-width: 8px;
   transition: width 220ms ease;
 }
-.snap-stat-bar-alt {
+.snap-stat-line-alt .snap-stat-pct {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.snap-stat-line-alt .snap-stat-label {
+  color: var(--text-muted);
+}
+.snap-stat-line-alt .snap-stat-bar {
   background: var(--text-muted);
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
 @media (max-width: 640px) {
