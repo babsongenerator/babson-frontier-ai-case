@@ -97,6 +97,10 @@
     'microsoft-365-copilot': {
       title: 'Microsoft 365 with Microsoft Copilot',
       body: '<p>Microsoft&rsquo;s productivity suite (Word, Excel, PowerPoint, Outlook, Teams) with the Microsoft Copilot AI assistant integrated across all apps. Built on OpenAI&rsquo;s models under the hood. Babson&rsquo;s current productivity baseline.</p>'
+    },
+    'copilot-feature-lag': {
+      title: 'Months later',
+      body: '<p>New ChatGPT features &mdash; image generation, advanced voice mode, Canvas, agents, GPT-5.5 capabilities &mdash; typically appear in OpenAI&rsquo;s own ChatGPT first, then reach Microsoft Copilot months later.</p><p>Computerworld&rsquo;s analysis (July 2025): &ldquo;new ChatGPT features are often added to Copilot months later.&rdquo;</p><p><a href="https://www.computerworld.com/article/4025988/why-microsoft-copilot-is-losing-so-badly-to-chatgpt.html" target="_blank" rel="noopener">Read the Computerworld analysis &rarr;</a></p>'
     }
   };
 
