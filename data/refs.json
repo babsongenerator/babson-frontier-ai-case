@@ -283,6 +283,14 @@
       "date": "2026-04-11",
       "url": "https://www.thecrimson.com/article/2026/4/11/hbs-ai-integration/",
       "quote": "HBS MBA students have access to ChatGPT, Harvard AI Sandbox, Claude, Claude Code, Lovable, Julius AI, Manus, and Gamma. HBS provided all MBA students with access to the latest version of ChatGPT starting fall 2023."
+    },
+    "37": {
+      "n": 37,
+      "source": "Harvard Gazette",
+      "title": "Harvard designs AI sandbox that enables exploration, interaction without compromising security",
+      "date": "2023-09-26",
+      "url": "https://news.harvard.edu/gazette/story/newsplus/harvard-designs-ai-sandbox-that-enables-exploration-interaction-without-compromising-security/",
+      "quote": "A single interface enabling users to easily switch between four LLMs: Azure OpenAI GPT-3.5 and GPT-4, Anthropic Claude 2, and Google PaLM 2 Bison."
     }
   }
 }
