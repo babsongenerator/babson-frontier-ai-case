@@ -111,6 +111,16 @@
       "refN": 12
     },
     {
+      "school": "Tuck School of Business, Dartmouth (Anthropic via Dartmouth)",
+      "shortName": "Tuck",
+      "provider": "Anthropic",
+      "date": "2026-01-01",
+      "dealType": "Anthropic access via Dartmouth campus license",
+      "studentsServed": 600,
+      "url": "https://tuck.dartmouth.edu/news/articles/ai-at-dartmouth-tuck-how-the-school-is-preparing-leaders-for-the-age-of-artificial-intelligence",
+      "refN": 34
+    },
+    {
       "school": "Vanderbilt University",
       "shortName": "Vanderbilt",
       "provider": "OpenAI",

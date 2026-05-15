@@ -242,7 +242,7 @@
       "title": "Harvard FAS will transition from ChatGPT Edu to Anthropic's Claude",
       "date": "2026-04-28",
       "url": "https://www.thecrimson.com/article/2026/4/28/fas-anthropic-claude/",
-      "quote": "Harvard's Faculty of Arts and Sciences will transition from ChatGPT Edu to Anthropic's Claude beginning in the fall, with access granted on a course-by-course basis."
+      "quote": "Harvard's Faculty of Arts and Sciences will transition from ChatGPT Edu to Anthropic's Claude, with access granted on a course-by-course basis."
     },
     "32": {
       "n": 32,
@@ -291,6 +291,14 @@
       "date": "2023-09-26",
       "url": "https://news.harvard.edu/gazette/story/newsplus/harvard-designs-ai-sandbox-that-enables-exploration-interaction-without-compromising-security/",
       "quote": "A single interface enabling users to easily switch between four LLMs: Azure OpenAI GPT-3.5 and GPT-4, Anthropic Claude 2, and Google PaLM 2 Bison."
+    },
+    "38": {
+      "n": 38,
+      "source": "UC Davis IET News",
+      "title": "New ChatGPT Edu agreement offers expanded features, lower cost, new terms",
+      "date": null,
+      "url": "https://iet.ucdavis.edu/technews/new-chatgpt-edu-agreement-offers-expanded-features-lower-cost-new-terms",
+      "quote": "UC Davis's ChatGPT Edu agreement was publicly disclosed at roughly $144 per user per year — approximately 40 percent below retail pricing for ChatGPT Plus."
     }
   }
 }
