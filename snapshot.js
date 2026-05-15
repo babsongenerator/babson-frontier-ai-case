@@ -28,7 +28,7 @@
     },
     'workspace-agents': {
       title: 'Workspace Agents',
-      body: '<p>OpenAI&rsquo;s product that runs multi-step workflows inside enterprise tools &mdash; Salesforce, Slack, HubSpot, and similar. Launched April 2026 alongside GPT-5.5.</p>'
+      body: '<p>OpenAI&rsquo;s product that runs multi-step workflows inside enterprise tools &mdash; email, calendar, CRM, team chat, and similar. Launched April 2026 alongside GPT-5.5.</p>'
     },
     'learning-mode': {
       title: 'Learning Mode',

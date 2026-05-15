@@ -24,7 +24,7 @@ We look forward to continuing the conversation.
 
 With thanks,
 
-Erik Noyes · Kristi Girdarry · Jonathan Sims
+Erik Noyes · Kristi Girdharry · Jonathan Sims
 
 ---
 

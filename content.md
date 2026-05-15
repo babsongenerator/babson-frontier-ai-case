@@ -38,7 +38,7 @@ This file is the editable copy across the site. Make line-item changes here; the
 **Body — paragraph 4:**
 > We look forward to continuing the conversation.
 
-**Signoff:** `Erik Noyes · Kristi Girdarry · Jonathan Sims`
+**Signoff:** `Erik Noyes · Kristi Girdharry · Jonathan Sims`
 
 **Password label:** `Password to continue`
 **Submit button:** `Continue →`
@@ -385,7 +385,7 @@ The 3-page lite version for a different audience. Same gate, same term/cite popo
 
 **Top-bar wordmark:** `Babson · AI snapshot · May 2026`
 **Tab labels:** `1 Why now` / `2 What it costs` / `3 Who's moved`
-**Footer line:** `Confidential briefing · Erik Noyes · Kristi Girdarry · Jonathan Sims · From the authors · Read the full briefing` *(on page 3, last link is `Walk through it scene by scene`)*
+**Footer line:** `Confidential briefing · Erik Noyes · Kristi Girdharry · Jonathan Sims · From the authors · Read the full briefing` *(on page 3, last link is `Walk through it scene by scene`)*
 
 ---
 
@@ -407,7 +407,7 @@ The 3-page lite version for a different audience. Same gate, same term/cite popo
 **Body — paragraph 4:**
 > This site was *vibe-coded* with Anthropic's Claude on top of Google Gemini's Deep Research — two of the three providers we describe.
 
-**Signoff:** `Erik Noyes · Kristi Girdarry · Jonathan Sims`
+**Signoff:** `Erik Noyes · Kristi Girdharry · Jonathan Sims`
 
 **Dismiss button:** `Read the snapshot →`
 
@@ -552,7 +552,7 @@ The long-form memo. Ancillary to the walkthrough; reachable from the close scene
 **Paragraph 4:**
 > The site is the long version; the accompanying PDF is the printed summary. We look forward to continuing the conversation.
 
-**Signoff:** `Erik Noyes · Kristi Girdarry · Jonathan Sims`
+**Signoff:** `Erik Noyes · Kristi Girdharry · Jonathan Sims`
 
 **Secondary action:** `Or walk through it scene by scene`
 **Primary action:** `Open the briefing →`

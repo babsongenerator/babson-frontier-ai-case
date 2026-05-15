@@ -19,7 +19,7 @@ We look forward to continuing the conversation.
 
 With thanks,
 
-Jonathan Sims, Kristi Girdarry, and Erik Noyes, on behalf of [The Generator](https://www.babson.edu/thegenerator/) team
+Jonathan Sims, Kristi Girdharry, and Erik Noyes, on behalf of [The Generator](https://www.babson.edu/thegenerator/) team
 
 \---
 
