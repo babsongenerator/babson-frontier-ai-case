@@ -198,6 +198,16 @@ body.snapshot {
   border-left: 2px solid var(--rule-soft);
 }
 
+/* Closing note paragraph (e.g., IT estimate caveat on Cost page) */
+.snap-it-note {
+  margin-top: 1.6rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule-soft);
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
 /* Italic aside paragraph (e.g., Copilot framing on Why page) */
 .snap-aside {
   font-family: var(--serif);
