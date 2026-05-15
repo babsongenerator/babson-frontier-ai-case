@@ -208,6 +208,54 @@ body.snapshot {
   color: var(--text);
 }
 
+/* Provider logos (inline SVG; brand-color via .snap-logo-<provider>) */
+.snap-logo {
+  display: inline-block;
+  width: 1.05em;
+  height: 1.05em;
+  vertical-align: -0.18em;
+  margin-right: 0.45em;
+  flex-shrink: 0;
+}
+.snap-logo-openai    { color: #10a37f; }
+.snap-logo-anthropic { color: #c96100; }
+.snap-logo-google    { color: #1a73e8; }
+
+/* Pull-quote treatment (one key line per page) */
+.pull-quote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.4rem;
+  line-height: 1.4;
+  color: var(--babson-green-dark);
+  margin: 1.4rem 0 1.6rem;
+  padding: 0.35rem 0 0.35rem 1.2rem;
+  border-left: 4px solid var(--babson-green);
+}
+
+/* Provider color coding on the cost-page recommendation list */
+.snap-page ol.snap-rec-list li:nth-child(1) {
+  border-left-color: #1a73e8;
+}
+.snap-page ol.snap-rec-list li:nth-child(1)::before {
+  color: #1a73e8;
+  background: rgba(26, 115, 232, 0.12);
+}
+.snap-page ol.snap-rec-list li:nth-child(2) {
+  border-left-color: #c96100;
+}
+.snap-page ol.snap-rec-list li:nth-child(2)::before {
+  color: #c96100;
+  background: rgba(201, 97, 0, 0.12);
+}
+.snap-page ol.snap-rec-list li:nth-child(3) {
+  border-left-color: #10a37f;
+}
+.snap-page ol.snap-rec-list li:nth-child(3)::before {
+  color: #10a37f;
+  background: rgba(16, 163, 127, 0.12);
+}
+
 /* Provider-coverage columns (e.g., business-school peers on Benchmarking page) */
 .snap-provider-cols {
   display: grid;
@@ -422,6 +470,8 @@ body.snapshot {
 }
 .snap-stat-num-alt .snap-stat-pct {
   color: var(--text-muted);
+  font-size: 1.7rem;
+  font-weight: 600;
 }
 .snap-stat-label {
   font-family: var(--sans);
