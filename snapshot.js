@@ -256,14 +256,19 @@
           svg += '<line x1="' + x + '" x2="' + x + '" y1="' + padT + '" y2="' + (H - padB + 4) + '" stroke="#dcdcdc" stroke-dasharray="2,4"/>';
           svg += '<text class="tick-label" x="' + x + '" y="' + (H - padB + 20) + '">' + label + '</text>';
         });
-        var occupied = {};
+        var lastPlacements = { OpenAI: [], Anthropic: [], Google: [] };
+        var TIERS = [26, -20, 46, -40]; // down1, up1, down2, up2
         function chooseDy(x, provider) {
-          var b = Math.round(x / 50);
-          var last = occupied[provider + ':' + b];
-          if (last === undefined) last = occupied[provider + ':' + (b - 1)];
-          var side = (last === 'down') ? 'up' : 'down';
-          occupied[provider + ':' + b] = side;
-          return side === 'down' ? 28 : -20;
+          if (!lastPlacements[provider]) lastPlacements[provider] = [];
+          var nearby = lastPlacements[provider].filter(function (p) { return Math.abs(p.x - x) < 90; });
+          var used = {};
+          nearby.forEach(function (p) { used[p.dy] = true; });
+          var chosen = TIERS[0];
+          for (var i = 0; i < TIERS.length; i++) {
+            if (!used[TIERS[i]]) { chosen = TIERS[i]; break; }
+          }
+          lastPlacements[provider].push({ x: x, dy: chosen });
+          return chosen;
         }
         peers.forEach(function (peer) {
           var x = xFor(peer.date);
