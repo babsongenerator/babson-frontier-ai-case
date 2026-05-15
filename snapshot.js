@@ -41,6 +41,62 @@
     'vibe-coded': {
       title: 'Vibe-coded',
       body: '<p>Built through natural-language conversation with an AI (Anthropic&rsquo;s Claude, in this case), rather than written by hand in code. The author describes what they want; the AI writes the implementation.</p><p>A faculty member with no engineering background can produce a working interactive site in an afternoon. That is part of what these tools have made possible.</p>'
+    },
+    'gpt-5-5': {
+      title: 'GPT-5.5',
+      body: '<p>OpenAI&rsquo;s flagship AI model &mdash; the version of ChatGPT available to paying users since April 2026.</p><p><a href="https://openai.com/index/introducing-gpt-5-5/" target="_blank" rel="noopener">OpenAI&rsquo;s launch announcement &rarr;</a></p>'
+    },
+    'claude-opus-4-7': {
+      title: 'Claude Opus 4.7',
+      body: '<p>Anthropic&rsquo;s flagship AI model &mdash; the top tier of Claude, released April 2026, with notable improvements in software engineering and a 1M-token context window.</p><p><a href="https://www.anthropic.com/news/claude-opus-4-7" target="_blank" rel="noopener">Anthropic&rsquo;s launch announcement &rarr;</a></p>'
+    },
+    'gemini-3-1-pro': {
+      title: 'Gemini 3.1 Pro',
+      body: '<p>Google&rsquo;s flagship AI model &mdash; released February 2026 &mdash; designed for complex tasks with native multimodal handling of text, images, audio, and video.</p><p><a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/" target="_blank" rel="noopener">Google&rsquo;s launch announcement &rarr;</a></p>'
+    },
+    'tokens-context-window': {
+      title: 'Tokens & context window',
+      body: '<p>A <em>token</em> is roughly three-quarters of a word (&ldquo;Babson&rdquo; is one token; &ldquo;entrepreneurship&rdquo; is three).</p><p>The <em>context window</em> is how many tokens the model can consider at once. A 1M-token window holds roughly 750,000 words &mdash; large enough to read an entire textbook (or a quarter&rsquo;s worth of case studies) in one pass.</p>'
+    },
+    'harvard-ai-sandbox': {
+      title: 'Harvard AI Sandbox',
+      body: '<p>An institutional platform Harvard built to give students and faculty a single interface for accessing multiple frontier AI models (GPT, Claude, Gemini) without exposing sensitive data to the providers.</p><p><a href="https://news.harvard.edu/gazette/story/newsplus/harvard-designs-ai-sandbox-that-enables-exploration-interaction-without-compromising-security/" target="_blank" rel="noopener">Harvard Gazette description &rarr;</a></p>'
+    },
+    'notebooklm': {
+      title: 'NotebookLM',
+      body: '<p>Google&rsquo;s AI-powered research notebook. Students load documents, papers, and notes, then ask grounded questions that draw only from the loaded material &mdash; useful for research, literature reviews, and case prep.</p><p><a href="https://notebooklm.google.com/" target="_blank" rel="noopener">notebooklm.google.com &rarr;</a></p>'
+    },
+    'google-classroom': {
+      title: 'Google Classroom',
+      body: '<p>Google&rsquo;s learning-management system (LMS). Lets faculty post assignments, collect submissions, and grade work. Often paired with Google Workspace.</p>'
+    },
+    'deep-research': {
+      title: 'Deep Research',
+      body: '<p>A mode inside Gemini (and a similar feature in ChatGPT) that runs many web searches over an extended period, synthesizes the results, and produces a long-form report with citations. Useful for literature reviews and market research.</p>'
+    },
+    'gemini-for-education': {
+      title: 'Gemini for Education',
+      body: '<p>Google&rsquo;s education-tier product. Includes Gemini access for students, faculty, and staff with FERPA-compliant data protection, single sign-on with institutional accounts, and admin controls.</p>'
+    },
+    'gemini-ai-pro': {
+      title: 'Gemini AI Pro',
+      body: '<p>Google&rsquo;s individual paid subscription tier for Gemini (~$20/month). Currently free for verified college students through June 2026.</p>'
+    },
+    'claude-enterprise': {
+      title: 'Claude Enterprise',
+      body: '<p>Anthropic&rsquo;s business tier &mdash; the version of Claude with admin controls, single sign-on, expanded context windows, and data-isolation guarantees (no training on customer prompts). What institutions purchase.</p>'
+    },
+    'chatgpt-team': {
+      title: 'ChatGPT Team',
+      body: '<p>OpenAI&rsquo;s small-business tier &mdash; ChatGPT for groups, with admin controls, single sign-on, and data-isolation guarantees. The middle tier between Plus (individual) and Enterprise/Edu (institutional).</p>'
+    },
+    'esa': {
+      title: 'Enterprise Service Agreement (ESA)',
+      body: '<p>A negotiated contract between an institution and a software or AI provider. Typically includes volume-based pricing, FERPA-compliant data protection for education, single sign-on with institutional accounts, and dedicated support.</p>'
+    },
+    'microsoft-365-copilot': {
+      title: 'Microsoft 365 with Microsoft Copilot',
+      body: '<p>Microsoft&rsquo;s productivity suite (Word, Excel, PowerPoint, Outlook, Teams) with the Microsoft Copilot AI assistant integrated across all apps. Built on OpenAI&rsquo;s models under the hood. Babson&rsquo;s current productivity baseline.</p>'
     }
   };
 
