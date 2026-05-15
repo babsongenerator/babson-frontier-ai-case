@@ -74,5 +74,31 @@
     Confidential briefing &middot; May 2026 &middot;
     <a href="sources.html">Sources</a>
   </footer>
+
+  <dialog id="term-dialog" class="term-dialog" aria-labelledby="term-title">
+    <article class="term-content">
+      <header class="term-header">
+        <span class="term-eyebrow">Definition</span>
+        <button type="button" class="term-close-x" id="term-close-x" aria-label="Close">&times;</button>
+      </header>
+      <h3 class="term-title" id="term-title"></h3>
+      <div class="term-body" id="term-body"></div>
+    </article>
+  </dialog>
+
+  <dialog id="cite-dialog" class="term-dialog cite-dialog" aria-labelledby="cite-title">
+    <article class="term-content">
+      <header class="term-header">
+        <span class="term-eyebrow">Source</span>
+        <button type="button" class="term-close-x" id="cite-close-x" aria-label="Close">&times;</button>
+      </header>
+      <h3 class="term-title cite-title" id="cite-title"></h3>
+      <div class="cite-meta" id="cite-meta"></div>
+      <blockquote class="cite-quote" id="cite-quote" hidden></blockquote>
+      <p class="cite-link"><a id="cite-link" href="#" target="_blank" rel="noopener">Read the source &rarr;</a></p>
+    </article>
+  </dialog>
+
+  <script src="snapshot.js"></script>
 </body>
 </html>
