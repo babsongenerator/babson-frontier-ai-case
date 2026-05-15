@@ -159,7 +159,7 @@ body.snapshot {
   width: 100%;
   border-collapse: collapse;
   font-family: var(--sans);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   background: #ffffff;
   border: 1px solid var(--rule-soft);
   border-radius: 6px;
@@ -170,18 +170,19 @@ body.snapshot {
   background: rgba(0, 103, 71, 0.06);
   color: var(--babson-green-dark);
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   font-weight: 700;
-  padding: 0.6rem 0.85rem;
+  padding: 0.7rem 0.95rem;
   text-align: left;
   border-bottom: 1px solid var(--rule-faint);
 }
 .snap-prices tbody td {
-  padding: 0.7rem 0.85rem;
+  padding: 0.85rem 0.95rem;
   border-bottom: 1px solid var(--rule-faint);
   color: var(--text);
+  line-height: 1.5;
 }
 .snap-prices tbody tr:last-child td { border-bottom: none; }
 .snap-prices tbody td strong { color: var(--babson-green-dark); font-weight: 700; }
@@ -362,25 +363,25 @@ body.snapshot {
 }
 .snap-provider-h {
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-muted);
   font-weight: 600;
-  margin: 0 0 0.55rem;
-  padding-bottom: 0.55rem;
+  margin: 0 0 0.6rem;
+  padding-bottom: 0.6rem;
   border-bottom: 2px solid var(--rule-soft);
 }
 .snap-provider-h small {
   display: block;
   font-family: var(--serif);
-  font-size: 0.88rem;
+  font-size: 1rem;
   font-weight: 500;
   text-transform: none;
   letter-spacing: 0;
   font-style: italic;
   color: var(--text);
-  margin-top: 0.18rem;
+  margin-top: 0.2rem;
 }
 .snap-provider-list {
   list-style: none;
@@ -389,11 +390,12 @@ body.snapshot {
 }
 .snap-provider-list li {
   font-family: var(--sans);
-  font-size: 0.92rem;
+  font-size: 1.04rem;
   font-weight: 500;
   color: var(--text);
-  padding: 0.42rem 0;
+  padding: 0.52rem 0;
   border-bottom: 1px solid var(--rule-faint);
+  line-height: 1.45;
 }
 .snap-provider-list li:last-child {
   border-bottom: none;

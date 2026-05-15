@@ -8,7 +8,7 @@
   var TERM_DEFS = {
     'frontier-model': {
       title: 'Frontier model',
-      body: '<p>The leading AI models in the world.</p><p><a href="https://en.wikipedia.org/wiki/Foundation_model#Frontier_models" target="_blank" rel="noopener">Read more on Wikipedia &rarr;</a></p>'
+      body: '<p>The leading AI models in the world.</p><p><a href="https://www.nvidia.com/en-us/glossary/frontier-models/" target="_blank" rel="noopener">Read more (NVIDIA glossary) &rarr;</a></p>'
     },
     'yellow-highlight': {
       title: 'Yellow highlight',
@@ -213,7 +213,7 @@
           var safe = (peer.school || '').replace(/"/g, '&quot;');
           var deal = (peer.dealType || '').replace(/"/g, '&quot;');
           var safeUrl = (peer.url || '').replace(/"/g, '&quot;');
-          svg += '<g class="peer-dot" data-url="' + safeUrl + '" tabindex="0">';
+          svg += '<g class="peer-dot" data-cite="' + (peer.refN || '') + '" data-url="' + safeUrl + '" tabindex="0">';
           svg += '<circle cx="' + x + '" cy="' + yp + '" r="6" fill="' + color + '" stroke="#ffffff" stroke-width="2"/>';
           svg += '<text class="dot-label" x="' + x + '" y="' + (yp + dy) + '">' + (peer.shortName || '') + '</text>';
           svg += '<title>' + safe + ' — ' + deal + ' (' + peer.date + ')</title>';
@@ -236,8 +236,13 @@
         mount.innerHTML = svg + list;
         Array.prototype.forEach.call(mount.querySelectorAll('.peer-dot'), function (g) {
           var open = function () {
-            var url = g.getAttribute('data-url');
-            if (url) window.open(url, '_blank', 'noopener');
+            var n = g.getAttribute('data-cite');
+            if (n) {
+              showCite(parseInt(n, 10));
+            } else {
+              var url = g.getAttribute('data-url');
+              if (url) window.open(url, '_blank', 'noopener');
+            }
           };
           g.addEventListener('click', open);
           g.addEventListener('keydown', function (e) {
