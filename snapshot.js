@@ -163,8 +163,8 @@
         var startDate = new Date(minD.getFullYear(), minD.getMonth() - 1, 1);
         var endDate   = new Date(maxD.getFullYear(), maxD.getMonth() + 2, 1);
         var totalMs = endDate - startDate;
-        var W = 860, H = 320;
-        var padL = 100, padR = 30, padT = 28, padB = 56;
+        var W = 860, H = 390;
+        var padL = 100, padR = 30, padT = 36, padB = 72;
         var chartW = W - padL - padR;
         var laneH = (H - padT - padB) / 3;
         var providers = {
@@ -198,12 +198,12 @@
         });
         var occupied = {};
         function chooseDy(x, provider) {
-          var b = Math.round(x / 30);
+          var b = Math.round(x / 50);
           var last = occupied[provider + ':' + b];
           if (last === undefined) last = occupied[provider + ':' + (b - 1)];
           var side = (last === 'down') ? 'up' : 'down';
           occupied[provider + ':' + b] = side;
-          return side === 'down' ? 22 : -12;
+          return side === 'down' ? 28 : -20;
         }
         peers.forEach(function (peer) {
           var x = xFor(peer.date);
@@ -214,7 +214,7 @@
           var deal = (peer.dealType || '').replace(/"/g, '&quot;');
           var safeUrl = (peer.url || '').replace(/"/g, '&quot;');
           svg += '<g class="peer-dot" data-cite="' + (peer.refN || '') + '" data-url="' + safeUrl + '" tabindex="0">';
-          svg += '<circle cx="' + x + '" cy="' + yp + '" r="6" fill="' + color + '" stroke="#ffffff" stroke-width="2"/>';
+          svg += '<circle cx="' + x + '" cy="' + yp + '" r="7.5" fill="' + color + '" stroke="#ffffff" stroke-width="2"/>';
           svg += '<text class="dot-label" x="' + x + '" y="' + (yp + dy) + '">' + (peer.shortName || '') + '</text>';
           svg += '<title>' + safe + ' — ' + deal + ' (' + peer.date + ')</title>';
           svg += '</g>';
