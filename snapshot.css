@@ -198,6 +198,23 @@ body.snapshot {
   border-left: 2px solid var(--rule-soft);
 }
 
+/* Call-to-action block (e.g., closing CTA on Cost page) */
+.snap-action-block {
+  margin: 1.6rem 0 0.6rem;
+  padding: 1.15rem 1.35rem;
+  background: rgba(0, 103, 71, 0.06);
+  border-left: 4px solid var(--babson-green);
+  border-radius: 0 6px 6px 0;
+  font-family: var(--serif);
+  font-size: 1.04rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+.snap-action-block strong {
+  color: var(--babson-green-dark);
+  font-weight: 700;
+}
+
 /* Closing note paragraph (e.g., IT estimate caveat on Cost page) */
 .snap-it-note {
   margin-top: 1.6rem;

@@ -10,6 +10,14 @@
       title: 'Foundation model',
       body: '<p>The base AI model trained by a company like OpenAI, Anthropic, or Google &mdash; what GPT, Claude, and Gemini are. Foundation models are very expensive to train but relatively inexpensive to use once trained.</p><p>Products like Microsoft Copilot, Cursor, and Perplexity are built <em>on top of</em> these foundation models.</p>'
     },
+    'frontier-model': {
+      title: 'Frontier model',
+      body: '<p>The cutting-edge AI models built by OpenAI, Anthropic, and Google &mdash; GPT, Claude, and Gemini. Frontier models are very expensive to train but relatively inexpensive to use once trained.</p><p>Products like Microsoft Copilot, Cursor, and Perplexity are built <em>on top of</em> these frontier models. Being on the frontier matters &mdash; the gap between frontier and fast-follower models is widening, not narrowing.</p>'
+    },
+    'yellow-highlight': {
+      title: 'Yellow highlight',
+      body: '<p>Click any text in yellow highlight to read a definition.</p>'
+    },
     'agentic': {
       title: 'Agentic',
       body: '<p>AI that takes a sequence of actions on its own &mdash; clicking, typing, filling out forms, completing multi-step tasks &mdash; rather than just answering a single question.</p><p>Think of it as a digital assistant that <em>does</em> the work rather than <em>describes</em> how to do it.</p>'
