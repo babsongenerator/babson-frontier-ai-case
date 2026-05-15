@@ -284,6 +284,17 @@ body.snapshot {
 .snap-logo-anthropic { color: #c96100; }
 .snap-logo-google    { color: #1a73e8; }
 
+/* Deck — subtitle paragraph below H1 */
+.snap-deck {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: var(--babson-green-dark);
+  margin: -0.6rem 0 1.5rem;
+  letter-spacing: -0.005em;
+}
+
 /* Pull-quote treatment (one key line per page) */
 .pull-quote {
   font-family: var(--serif);
