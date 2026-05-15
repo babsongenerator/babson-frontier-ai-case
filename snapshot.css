@@ -488,7 +488,7 @@ body.snapshot {
   gap: 0.55rem;
 }
 .letter-toc li { margin: 0; padding: 0; }
-.letter-toc a {
+.letter-toc > li > div {
   display: grid;
   grid-template-columns: 2.2rem 1fr;
   grid-template-rows: auto auto;
@@ -498,14 +498,7 @@ body.snapshot {
   border: 1px solid var(--rule-soft);
   border-left: 4px solid var(--babson-green);
   border-radius: 0 5px 5px 0;
-  text-decoration: none;
   color: inherit;
-  transition: border-color 120ms ease, transform 120ms ease, box-shadow 120ms ease;
-}
-.letter-toc a:hover {
-  border-color: var(--babson-green-dark);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
 }
 .letter-toc-num {
   grid-row: 1 / 3;
@@ -575,7 +568,7 @@ body.snapshot {
 @media (max-width: 540px) {
   .letter-page .snap-stage { padding-top: 1.8rem; }
   .letter-greeting { font-size: 1.55rem; }
-  .letter-toc a { padding: 0.75rem 0.95rem; grid-template-columns: 1.9rem 1fr; }
+  .letter-toc > li > div { padding: 0.75rem 0.95rem; grid-template-columns: 1.9rem 1fr; }
 }
 
 /* Timeline (reused styling from /walkthrough.css conceptually, scoped here) */
