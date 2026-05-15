@@ -7,7 +7,8 @@
       "date": "2024-01-18",
       "dealType": "ChatGPT Enterprise (first university partnership)",
       "studentsServed": 145000,
-      "url": "https://news.asu.edu/20240118-arizona-state-university-collaboration-openai-charts-future-ai-higher-education"
+      "url": "https://news.asu.edu/20240118-arizona-state-university-collaboration-openai-charts-future-ai-higher-education",
+      "refN": 28
     },
     {
       "school": "The Wharton School, University of Pennsylvania",
@@ -76,7 +77,8 @@
       "date": "2025-05-28",
       "dealType": "ChatGPT-4o pilot + DukeGPT platform",
       "studentsServed": 17000,
-      "url": "https://today.duke.edu/2025/05/duke-expands-suite-secure-duke-managed-ai-services-openai"
+      "url": "https://today.duke.edu/2025/05/duke-expands-suite-secure-duke-managed-ai-services-openai",
+      "refN": 29
     },
     {
       "school": "Rice University",
@@ -105,7 +107,8 @@
       "date": "2026-01-12",
       "dealType": "ChatGPT Edu + Google AI (multi-tool strategy)",
       "studentsServed": 13800,
-      "url": "https://news.vanderbilt.edu/2026/01/12/vanderbilt-expands-multi-tool-ai-strategy-with-chatgpt-edu-amplify-2-0-and-more/"
+      "url": "https://news.vanderbilt.edu/2026/01/12/vanderbilt-expands-multi-tool-ai-strategy-with-chatgpt-edu-amplify-2-0-and-more/",
+      "refN": 30
     },
     {
       "school": "University of Houston",
@@ -124,7 +127,8 @@
       "date": "2026-04-27",
       "dealType": "Claude Code adoption; ChatGPT Edu phased out; Gemini retained",
       "studentsServed": 14000,
-      "url": "https://www.thecrimson.com/article/2026/4/28/fas-anthropic-claude/"
+      "url": "https://www.thecrimson.com/article/2026/4/28/fas-anthropic-claude/",
+      "refN": 31
     }
   ]
 }

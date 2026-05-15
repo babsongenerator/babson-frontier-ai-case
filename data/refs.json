@@ -211,6 +211,38 @@
       "date": null,
       "url": "https://entrepreneurship.babson.edu/babson-and-microsoft/",
       "quote": "About 30 Babson students who are part of The Generator, the College's interdisciplinary AI lab, met up at the Microsoft Garage in Cambridge, Massachusetts."
+    },
+    "28": {
+      "n": 28,
+      "source": "Arizona State University",
+      "title": "Arizona State University collaboration with OpenAI charts the future of AI in higher education",
+      "date": "2024-01-18",
+      "url": "https://news.asu.edu/20240118-arizona-state-university-collaboration-openai-charts-future-ai-higher-education",
+      "quote": "Arizona State University announced an exclusive collaboration with OpenAI, becoming the first higher education institution to leverage ChatGPT Enterprise to enhance student success, forge new avenues for innovative research and streamline organizational processes."
+    },
+    "29": {
+      "n": 29,
+      "source": "Duke University",
+      "title": "Duke expands suite of secure, Duke-managed AI services with OpenAI",
+      "date": "2025-05-28",
+      "url": "https://today.duke.edu/2025/05/duke-expands-suite-secure-duke-managed-ai-services-openai",
+      "quote": "Duke is among the first universities to expand AI access to the entire campus community through ChatGPT and the DukeGPT platform."
+    },
+    "30": {
+      "n": 30,
+      "source": "Vanderbilt University",
+      "title": "Vanderbilt expands multi-tool AI strategy with ChatGPT Edu, Amplify 2.0 and more",
+      "date": "2026-01-12",
+      "url": "https://news.vanderbilt.edu/2026/01/12/vanderbilt-expands-multi-tool-ai-strategy-with-chatgpt-edu-amplify-2-0-and-more/",
+      "quote": "Vanderbilt is expanding its multi-tool AI strategy, providing all students, faculty and staff with access to ChatGPT Edu alongside the university's homegrown Amplify platform."
+    },
+    "31": {
+      "n": 31,
+      "source": "The Harvard Crimson",
+      "title": "Harvard FAS will transition from ChatGPT Edu to Anthropic's Claude",
+      "date": "2026-04-28",
+      "url": "https://www.thecrimson.com/article/2026/4/28/fas-anthropic-claude/",
+      "quote": "Harvard's Faculty of Arts and Sciences will transition from ChatGPT Edu to Anthropic's Claude beginning in the fall, with access granted on a course-by-course basis."
     }
   }
 }

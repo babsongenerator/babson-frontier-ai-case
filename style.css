@@ -1078,7 +1078,8 @@ section.section { scroll-margin-top: 4rem; }
 /* Underlined inline words throughout the brief that open a small modal with a
    plain-language definition. Pattern: <button class="term" data-term="...">. */
 
-button.term {
+button.term,
+a.term {
   display: inline;
   background-color: rgba(255, 215, 60, 0.5);
   border: none;
@@ -1094,11 +1095,13 @@ button.term {
   -webkit-box-decoration-break: clone;
   transition: background-color 120ms ease, color 120ms ease;
 }
-button.term:hover {
+button.term:hover,
+a.term:hover {
   background-color: rgba(255, 200, 30, 0.75);
   color: #14191F;
 }
-button.term:focus-visible {
+button.term:focus-visible,
+a.term:focus-visible {
   outline: 2px solid var(--babson-green-dark);
   outline-offset: 1px;
   background-color: rgba(255, 200, 30, 0.75);
