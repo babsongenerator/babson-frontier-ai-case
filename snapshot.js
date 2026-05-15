@@ -10,9 +10,9 @@
       title: 'Frontier model',
       body: '<p>The leading AI models in the world.</p><p><a href="https://www.nvidia.com/en-us/glossary/frontier-models/" target="_blank" rel="noopener">Read more (NVIDIA glossary) &rarr;</a></p>'
     },
-    'yellow-highlight': {
-      title: 'Yellow highlight',
-      body: '<p>Click any text in yellow highlight to read a definition.</p>'
+    'green-highlight': {
+      title: 'Green highlight',
+      body: '<p>Click any text in green highlight to read a definition.</p>'
     },
     'agentic': {
       title: 'Agentic',
