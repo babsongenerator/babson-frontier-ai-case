@@ -6,13 +6,9 @@
 (function () {
   // ---------- term definitions (plain-language explainers) ----------
   var TERM_DEFS = {
-    'foundation-model': {
-      title: 'Foundation model',
-      body: '<p>The base AI model trained by a company like OpenAI, Anthropic, or Google &mdash; what GPT, Claude, and Gemini are. Foundation models are very expensive to train but relatively inexpensive to use once trained.</p><p>Products like Microsoft Copilot, Cursor, and Perplexity are built <em>on top of</em> these foundation models.</p>'
-    },
     'frontier-model': {
       title: 'Frontier model',
-      body: '<p>The cutting-edge AI models built by OpenAI, Anthropic, and Google &mdash; GPT, Claude, and Gemini. Frontier models are very expensive to train but relatively inexpensive to use once trained.</p><p>Products like Microsoft Copilot, Cursor, and Perplexity are built <em>on top of</em> these frontier models. Being on the frontier matters &mdash; the gap between frontier and fast-follower models is widening, not narrowing.</p>'
+      body: '<p>The leading AI models in the world.</p><p><a href="https://en.wikipedia.org/wiki/Foundation_model#Frontier_models" target="_blank" rel="noopener">Read more on Wikipedia &rarr;</a></p>'
     },
     'yellow-highlight': {
       title: 'Yellow highlight',
