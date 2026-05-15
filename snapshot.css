@@ -208,6 +208,69 @@ body.snapshot {
   color: var(--text);
 }
 
+/* Stat-card pair (e.g., student/employee adoption on Why page) */
+.snap-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+  margin: 1.4rem 0 0.4rem;
+}
+.snap-stat {
+  background: #ffffff;
+  border: 1px solid var(--rule-soft);
+  border-left: 4px solid var(--babson-green);
+  border-radius: 0 5px 5px 0;
+  padding: 0.95rem 1.05rem 1.05rem;
+}
+.snap-stat-eyebrow {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.snap-stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+  margin: 0.65rem 0 0.9rem;
+}
+.snap-stat-num {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.snap-stat-pct {
+  font-family: var(--sans);
+  font-size: 2.15rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--babson-green-dark);
+  letter-spacing: -0.02em;
+}
+.snap-stat-num-alt .snap-stat-pct {
+  color: var(--text-muted);
+}
+.snap-stat-label {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+.snap-stat-caption {
+  font-family: var(--serif);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .snap-stats { grid-template-columns: 1fr; }
+  .snap-stat-pct { font-size: 1.85rem; }
+}
+
 /* Italic aside paragraph (e.g., Copilot framing on Why page) */
 .snap-aside {
   font-family: var(--serif);
