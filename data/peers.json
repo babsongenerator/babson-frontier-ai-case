@@ -31,6 +31,16 @@
       "refN": 13
     },
     {
+      "school": "Tuck School of Business, Dartmouth",
+      "shortName": "Tuck",
+      "provider": "OpenAI",
+      "date": "2024-09-01",
+      "dealType": "ChatGPT Edu — first business school agreement (date estimated; precise rollout date not publicly disclosed)",
+      "studentsServed": 600,
+      "url": "https://tuck.dartmouth.edu/news/articles/ai-at-dartmouth-tuck-how-the-school-is-preparing-leaders-for-the-age-of-artificial-intelligence",
+      "refN": 34
+    },
+    {
       "school": "California State University System",
       "shortName": "CSU",
       "provider": "OpenAI",
@@ -129,6 +139,16 @@
       "studentsServed": 14000,
       "url": "https://www.thecrimson.com/article/2026/4/28/fas-anthropic-claude/",
       "refN": 31
+    },
+    {
+      "school": "Columbia University (including Columbia Business School)",
+      "shortName": "Columbia",
+      "provider": "Anthropic",
+      "date": "2026-05-05",
+      "dealType": "Claude for Education campus-wide (CUIT enterprise license); ChatGPT pilot also available",
+      "studentsServed": 36000,
+      "url": "https://bwog.com/2026/05/columbias-ai-integration-is-happening-in-the-dark/",
+      "refN": 35
     }
   ]
 }
