@@ -208,6 +208,108 @@ body.snapshot {
   color: var(--text);
 }
 
+/* Comparison table (e.g., business-school peers on Benchmarking page) */
+.snap-compare-wrap {
+  overflow-x: auto;
+  margin: 1rem 0 0.9rem;
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+}
+.snap-compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+}
+.snap-compare thead th {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 600;
+  vertical-align: bottom;
+  text-align: center;
+  padding: 0.7rem 0.65rem 0.65rem;
+  background: rgba(0, 103, 71, 0.03);
+  border-bottom: 2px solid var(--rule-soft);
+}
+.snap-compare thead th:first-child {
+  text-align: left;
+}
+.snap-compare thead th small {
+  display: block;
+  font-family: var(--serif);
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  font-style: italic;
+  color: var(--text);
+  margin-top: 0.18rem;
+}
+.snap-compare tbody th {
+  text-align: left;
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--text);
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--rule-faint);
+  white-space: nowrap;
+}
+.snap-compare tbody th small {
+  font-weight: 400;
+  color: var(--text-muted);
+  font-size: 0.85em;
+  font-style: italic;
+}
+.snap-compare tbody td {
+  text-align: center;
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--rule-faint);
+  color: var(--babson-green-dark);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.snap-compare tbody tr:last-child th,
+.snap-compare tbody tr:last-child td {
+  border-bottom: none;
+}
+.snap-compare tbody .row-babson {
+  background: rgba(0, 103, 71, 0.07);
+}
+.snap-compare tbody .row-babson th,
+.snap-compare tbody .row-babson td {
+  border-bottom: 2px solid var(--babson-green);
+}
+.snap-table-cap {
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 0 0 1.4rem;
+}
+
+@media (max-width: 640px) {
+  .snap-compare {
+    font-size: 0.82rem;
+  }
+  .snap-compare tbody th {
+    white-space: normal;
+  }
+  .snap-compare tbody td {
+    font-size: 0.95rem;
+  }
+  .snap-compare thead th {
+    font-size: 0.65rem;
+    padding: 0.55rem 0.4rem;
+  }
+  .snap-compare thead th small {
+    font-size: 0.72rem;
+  }
+}
+
 /* Stat-card pair (e.g., student/employee adoption on Why page) */
 .snap-stats {
   display: grid;
